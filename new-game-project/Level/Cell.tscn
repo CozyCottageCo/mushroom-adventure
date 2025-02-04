@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7wbgkc2x1eki"]
+
+[ext_resource type="Script" path="res://Code/Cell.cs" id="1_l5nwv"]
+[ext_resource type="Texture2D" uid="uid://c4180qs8kmj01" path="res://Art/Grid.png" id="1_lyom4"]
+
+[node name="Sprite2D" type="Sprite2D"]
+modulate = Color(1, 1, 0, 0.47451)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_lyom4")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+region_filter_clip_enabled = true
+script = ExtResource("1_l5nwv")
