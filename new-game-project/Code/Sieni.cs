@@ -13,7 +13,7 @@ public partial class Sieni : Sprite2D
 
 			private List<Vector2> path = new List<Vector2>(); // alustetaan reittikordinaatti-lista
 			private int currentTargetIndex = 0; // alustetaan tänhetkinen kohdekordinaatti-indeksi
-			private bool isMoving = false; // alustetaan ettei liikuta
+			public bool isMoving = false; // alustetaan ettei liikuta
 	public override void _Ready()
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
