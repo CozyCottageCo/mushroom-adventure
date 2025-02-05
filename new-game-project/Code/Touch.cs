@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using SieniPeli;
 using System.Collections.Generic;
 
 namespace SieniPeli
@@ -9,6 +10,9 @@ namespace SieniPeli
         private Line2D _line; // alustettu 2d -viiva
         private TileMapLayer _tileMapLayer; // alustettu tilemaplayer
         private bool _drawing = false; // alustettu piirto true/false
+
+        [Export] private string _cellScenePath = "res://Level/Cell.tscn";
+        private Sieni _sieni;
 
         // Tilien / gridin koko
         private int tileWidth = 24;
@@ -43,7 +47,16 @@ namespace SieniPeli
             {
                 GD.Print("TileMapLayer 'browntiles' successfully found.");
             }
-        }
+
+            PackedScene sieniScene = ResourceLoader.Load<PackedScene>("res://Level/Sieni.tscn"); // sieni scenen path
+            _sieni = (Sieni)sieniScene.Instantiate(); // Instantiate the Sieni scene
+
+
+            AddChild(_sieni); // Add Sieni to the scene tree dynamically
+
+            GD.Print("Sieni node successfully instantiated and added to scene.");
+    }
+
 
         public override void _Input(InputEvent @event) // kosketusmetodi
         {
@@ -74,6 +87,12 @@ namespace SieniPeli
                         {
                             GD.Print($"Tile: ({tile.X}, {tile.Y})");
                         }
+
+                    if (_sieni != null) {
+                        _sieni.Move(tilesUsed.ToArray()); // kutsutaan sienen liikutusmetodi (lista arrayksi jne)
+                    } else {
+                        GD.PrintErr("Sieni not found :(");
+                    }
                 }
             }
             else if (@event is InputEventScreenDrag drag && _drawing) // mut onki jatkuvaa piirtoo

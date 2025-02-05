@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dubf6ilea57vj"]
+[gd_scene load_steps=3 format=3 uid="uid://dubf6ilea57vj"]
 
 [ext_resource type="Texture2D" uid="uid://k7jh01tpc82i" path="res://Art/siens.png" id="1_dao5g"]
+[ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
 
 [node name="Sieni" type="Sprite2D"]
+position = Vector2(4, 4)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("1_dao5g")
+centered = false
+offset = Vector2(240, 180)
+region_enabled = true
+region_rect = Rect2(312, 432, 360, 504)
+script = ExtResource("2_s2h7s")
+_speed = 50.0
