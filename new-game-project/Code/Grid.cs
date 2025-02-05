@@ -14,6 +14,8 @@ namespace SieniPeli
 		private Vector2 _cameraposition = new Vector2(0, 0); // kameranoden positio
 		private Vector2 _offset = new Vector2(4, 4); //marginaali
 
+		public Vector2 Offset => _offset;
+
 		public int Width => _width; // basically shortened version of  { get { return width } }
 		public int Height => _height; // nää on ne julkiset propertyt
 
