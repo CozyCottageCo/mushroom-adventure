@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dubf6ilea57vj"]
+
+[ext_resource type="Texture2D" uid="uid://k7jh01tpc82i" path="res://Art/siens.png" id="1_dao5g"]
+
+[node name="Sieni" type="Sprite2D"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_dao5g")

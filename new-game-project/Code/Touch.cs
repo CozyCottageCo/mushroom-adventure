@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 namespace SieniPeli
 {
@@ -17,6 +18,9 @@ namespace SieniPeli
         private int screenWidth = 320;
         private int screenHeight = 180;
         private int margin = 4;
+
+        private List<Vector2I> tilesUsed = new List<Vector2I>();
+        private Vector2I lastTile = new Vector2I(-1, -1);
 
         public override void _Ready()
         {
@@ -47,6 +51,7 @@ namespace SieniPeli
             {
                 if (touch.Pressed) // kun kosketaan:
                 {
+                    tilesUsed.Clear();
                     // viivan piirto alkaa, piirtäminen true
                     _line.Points = new Vector2[0];
                     _drawing = true;
@@ -63,6 +68,12 @@ namespace SieniPeli
 
                     // Debug touch release
                     GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
+
+                     GD.Print("Tiles reached during the touch:");
+                        foreach (var tile in tilesUsed)
+                        {
+                            GD.Print($"Tile: ({tile.X}, {tile.Y})");
+                        }
                 }
             }
             else if (@event is InputEventScreenDrag drag && _drawing) // mut onki jatkuvaa piirtoo
@@ -94,15 +105,25 @@ namespace SieniPeli
 
             GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})"); //debug koordinaatit / tiilet
 
-            // Debug tiilil
-            Vector2I mapCoords = new Vector2I(tileX, tileY);
-            var tileCell = _tileMapLayer.GetCellSourceId(mapCoords);
-            GD.Print($"Tile at ({tileX}, {tileY}) is {(tileCell == -1 ? "empty" : "occupied")}.");
+            if (lastTile.X != tileX || lastTile.Y != tileY) {
+                Vector2I mapCoords = new Vector2I(tileX, tileY);
 
-            // Poistaa tiilen koordinaateissa muuttamalla id = -1 (eli deleted tjsp)
-            _tileMapLayer.SetCell(mapCoords, -1);
+                var tileCell = _tileMapLayer.GetCellSourceId(mapCoords);
+                    GD.Print($"Tile at ({tileX}, {tileY}) is {(tileCell == -1 ? "empty" : "occupied")}.");
 
-            GD.Print($"Removed tile at ({tileX}, {tileY})"); // debug
+                    // If the tile is not already empty (id = -1), remove it
+                    if (tileCell != -1)
+                    {
+                        _tileMapLayer.SetCell(mapCoords, -1);  // Remove the tile
+                        GD.Print($"Removed tile at ({tileX}, {tileY})");
+                    }
+
+                    // Add the new tile to the reachedTiles list
+                    tilesUsed.Add(mapCoords);
+
+                    // Update the last erased tile to the current one
+                    lastTile = new Vector2I(tileX, tileY);
+            }
         }
 
         // Called every frame. 'delta' is the elapsed time since the previous frame.
