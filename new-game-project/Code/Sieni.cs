@@ -7,13 +7,16 @@ public partial class Sieni : Sprite2D
 {
 
 	[Export] private string _gridScenePath = "res://Level/Grid.tscn";
-	[Export] private float _speed = 100f; // speed setting in editor (does nothing now rly)
+
+
 			private Vector2 _direction = Vector2.Zero; // movement initialized at zero (no movement)
 			private Grid grid; //initialize grid
 
 			private List<Vector2> path = new List<Vector2>(); // alustetaan reittikordinaatti-lista
 			private int currentTargetIndex = 0; // alustetaan tänhetkinen kohdekordinaatti-indeksi
 			public bool isMoving = false; // alustetaan ettei liikuta
+
+			private float _currentSpeed = 50f; // alustettu defaultnopeus
 	public override void _Ready()
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
@@ -31,7 +34,7 @@ public partial class Sieni : Sprite2D
 		// kohdekoordinaatti = reittiarrayn tänhetkinen indeksi koordinaatti
 		Vector2 targetPosition = path[currentTargetIndex];
 		Vector2 direction = (targetPosition - GlobalPosition).Normalized(); // suunta näiden erotus
-		float distance = _speed * (float)delta; // kuinka pal liikutaan (freimiä sekunnissa x framet tjsp)
+		float distance = _currentSpeed * (float)delta; // kuinka pal liikutaan (freimiä sekunnissa x framet tjsp)
 
 		GlobalPosition += direction * distance; // positio liikkuu suunnan x etäisyyden
 
@@ -62,5 +65,10 @@ public partial class Sieni : Sprite2D
 
 	public void RotateHead(int times){
 		RotationDegrees = 90 * times; //rotate head 90 degrees times direction specific int. (-1 left, 1 right, 2 down, 0 up)
+	}
+
+	public void controlSpeed (float speed) { // metodi jolle laitetaan kosketuksesta nopeus jotta hallitaan sitä täällä
+		_currentSpeed = speed;
+    GD.Print($"controlSpeed(): Speed set to {_currentSpeed}");
 	}
 }

@@ -12,4 +12,3 @@ offset = Vector2(240, 180)
 region_enabled = true
 region_rect = Rect2(312, 432, 360, 504)
 script = ExtResource("2_s2h7s")
-_speed = 50.0

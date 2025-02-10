@@ -29,7 +29,6 @@ namespace SieniPeli
         private Button _redoButton;
         private bool _buttonsVisible = false;
 
-
         public override void _Ready()
         {
             _line = new Line2D
@@ -75,64 +74,79 @@ namespace SieniPeli
 
         public override void _Input(InputEvent @event)
         {
-
-          if (_sieni.isMoving){ // jos sieni liikkuu, ei voi piirrellä tmtn
-            return;
-          }
-
-            if (_buttonsVisible) { // erillinen inputtsekkaus kun nappeja ruudulla (muuten koskee läpi karttaan ja kusee)
-                if (@event is InputEventScreenTouch touchButton && touchButton.Pressed) { //touchbutton vaa uus nimitys kosketuseventil, muute erroria
-                    if(_goButton.GetRect().HasPoint(touchButton.Position) || _redoButton.GetRect().HasPoint(touchButton.Position)){
-                        return;
-                    }
-                } // tl;dr jos kosketus napin kohalla nappi näkyvillä, ohitetaan kokonaan kartan koskettelu / piirtely
-            return;
-            }
-
-            if (@event is InputEventScreenTouch touch)
-            {
-                if (touch.Pressed)
+         if (_buttonsVisible) // ei sallita mitään muuta ku napit ku ne o näkyvis
                 {
-                    tilesUsed.Clear(); // Reset tiles used
-                    savedPath.Clear(); // reset saved path
-                    savedPath.AddRange(tilesUsed);
-
-                    _line.Points = new Vector2[0]; // Clear the line
-                    _drawing = true;
-
-                    GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
-                    UpdateTileAtPosition(touch.Position);
-                }
-                else if (!touch.Pressed && _drawing)
-                {
-                    _drawing = false;
-
-                    GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
-
-                    _goButton.Visible = true;
-                    _redoButton.Visible = true;
-                    _buttonsVisible = true; // napit näkyvii ku piirros valmis
-
-                    GD.Print("Tiles reached during the touch:");
-                    foreach (var tile in tilesUsed)
+                    if (@event is InputEventScreenTouch touchButton && touchButton.Pressed)
                     {
-                        GD.Print($"Tile: ({tile.X}, {tile.Y})");
+                        if (_goButton.GetRect().HasPoint(touchButton.Position) || _redoButton.GetRect().HasPoint(touchButton.Position))
+                        {
+                            return; // ^ nappien koskeminen ok, minkään muun ei
+                        }
                     }
-
+                    return;
                 }
-            }
-            else if (@event is InputEventScreenDrag drag && _drawing)
-            {
-                _line.AddPoint(drag.Position);
-                GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
-                UpdateTileAtPosition(drag.Position);
-            }
-        }
+                // Jos napit ei näkyvil, edetään..
+                // pausetus koskemalla näyttöön
+                if (@event is InputEventScreenTouch screenTouch)
+                {
+                    if (screenTouch.IsPressed()) // kun kosketaan...
+                    {
+                        if (_sieni.isMoving) // jos sallittu kosketus & sieni on liikkeessä
+                        {
+                            _sieni.controlSpeed(0); // Speed nollaan
+                        }
+                    }
+                    else // jos ei koske / vapauttaa
+                    {
+                        if (_sieni.isMoving) // ja sieni on liikkeessä
+                        {
+                            _sieni.controlSpeed(50); // Lets mennään lehmät
+                        }
+                    }
+                }
 
+                // jos sieni ei liikkeessä (eikä ne napit ruudul), saa piirtää
+                if (@event is InputEventScreenTouch touch && !_sieni.isMoving)
+                {
+                    if (touch.Pressed)
+                    {
+                        tilesUsed.Clear(); // tyhjennetää käytetyt koordinaatit jne
+                        savedPath.Clear();
+                        savedPath.AddRange(tilesUsed);
+
+                        _line.Points = new Vector2[0]; // tyhjennetää viiva
+                        _drawing = true; // piirto päälle
+
+                        GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
+                        UpdateTileAtPosition(touch.Position); // kursorin highlight metodikutsu
+                    }
+                    else if (!touch.Pressed && _drawing) // jos kosketus irtoo kesken piirtämisen
+                    {
+                        _drawing = false; // piirto loppu
+
+                        GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
+
+                        _goButton.Visible = true; // napit näkyviin
+                        _redoButton.Visible = true;
+                        _buttonsVisible = true; // Napit näkyvil true = piirto estetty
+
+                        GD.Print("Tiles reached during the touch:");
+                        foreach (var tile in tilesUsed)
+                        {
+                            GD.Print($"Tile: ({tile.X}, {tile.Y})"); // debuggia jne
+                        }
+                    }
+                }
+                else if (@event is InputEventScreenDrag drag && _drawing) // ja itse piirto
+                {
+                    _line.AddPoint(drag.Position);
+                    GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
+                    UpdateTileAtPosition(drag.Position);
+                }
+                    }
 
         private void OnGoButtonPressed() { // kun go nappia painettu, liikutaan
             GD.Print("Go chosen! Sieni is moving...");
-
             _sieni?.Move(tilesUsed.ToArray()); // reitti parametrina sienen liikutuksel (en ees tie mitä toi ? tekee)
             _goButton.Visible = false;
             _redoButton.Visible = false; // ja napit taas pois
@@ -182,6 +196,12 @@ namespace SieniPeli
         }
 
         // Empty Process method, not needed in this context
-        public override void _Process(double delta) { }
+        public override void _Process(double delta) {
+
+        }
+
+
     }
 }
+
+
