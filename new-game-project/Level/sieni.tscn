@@ -4,10 +4,8 @@
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
 
 [node name="Sieni" type="Sprite2D"]
-position = Vector2(4, 4)
-scale = Vector2(0.03, 0.03)
+scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_dao5g")
-centered = false
 offset = Vector2(240, 180)
 region_enabled = true
 region_rect = Rect2(312, 432, 360, 504)

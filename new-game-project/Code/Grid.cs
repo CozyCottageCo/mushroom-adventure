@@ -8,11 +8,11 @@ namespace SieniPeli
 	public partial class Grid : Node2D
 	{
 		[Export] private string _cellScenePath = "res://Level/Cell.tscn";
-		[Export] private int _width = 0; // laitetaa 24x24 editoris
+		[Export] private int _width = 0; // laitetaa 32x32 editoris
 		[Export] private int _height = 0;
 
 		private Vector2 _cameraposition = new Vector2(0, 0); // kameranoden positio
-		private Vector2 _offset = new Vector2(4, 4); //marginaali
+		private Vector2 _offset = new Vector2(0, 0); //marginaali
 
 		public Vector2 Offset => _offset;
 

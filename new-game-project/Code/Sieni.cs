@@ -21,7 +21,7 @@ public partial class Sieni : Sprite2D
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 		grid = (Grid)gridScene.Instantiate(); // load&instantiate grid, place snake
-		GlobalPosition = new Vector2(4,4); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
+		GlobalPosition = new Vector2(0,0); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,7 +56,7 @@ public partial class Sieni : Sprite2D
 
 		path.Clear(); // tyhjentää reitin
 		foreach (var coord in inputPath) // lisää jokaisen annetun reittiarrayn reittikoordinaatin uuteen reittiin
-			path.Add(new Vector2(coord.X * 24, coord.Y * 24));
+			path.Add(new Vector2(coord.X * 32, coord.Y * 32));
 
 		currentTargetIndex = 0; // nollaa kohdekoordinaatti-indeksin että alotetaan alusta
 		isMoving = true; // lähtee liikkuu

@@ -15,11 +15,11 @@ namespace SieniPeli
         private Sieni _sieni;
 
         // Grid and screen settings
-        private int tileWidth = 24;
-        private int tileHeight = 24;
-        private int screenWidth = 320;
-        private int screenHeight = 180;
-        private int margin = 4;
+        private int tileWidth = 32;
+        private int tileHeight = 32;
+        private int screenWidth = 640;
+        private int screenHeight = 480;
+        private int margin;
 
         private List<Vector2I> tilesUsed = new List<Vector2I>();
         private List<Vector2I> savedPath = new List<Vector2I>();
@@ -100,7 +100,7 @@ namespace SieniPeli
                     {
                         if (_sieni.isMoving) // ja sieni on liikkeessä
                         {
-                            _sieni.controlSpeed(50); // Lets mennään lehmät
+                            _sieni.controlSpeed(75); // Lets mennään lehmät
                         }
                     }
                 }
