@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dubf6ilea57vj"]
 
-[ext_resource type="Texture2D" uid="uid://k7jh01tpc82i" path="res://Art/siens.png" id="1_dao5g"]
+[ext_resource type="Texture2D" uid="uid://bfx4jqgdob5k" path="res://Art/taplajahti_player.png" id="1_4bb3b"]
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
 
 [node name="Sieni" type="Sprite2D"]
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("1_dao5g")
-offset = Vector2(240, 180)
+texture = ExtResource("1_4bb3b")
+offset = Vector2(15, 0)
 region_enabled = true
-region_rect = Rect2(312, 432, 360, 504)
+region_rect = Rect2(0, 0, 40, 46)
 script = ExtResource("2_s2h7s")

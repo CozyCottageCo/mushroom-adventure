@@ -18,7 +18,7 @@ namespace SieniPeli
         private int tileWidth = 32;
         private int tileHeight = 32;
         private int screenWidth = 640;
-        private int screenHeight = 480;
+        private int screenHeight = 360;
         private int margin;
 
         private List<Vector2I> tilesUsed = new List<Vector2I>();
@@ -57,7 +57,7 @@ namespace SieniPeli
 
             highLightRect = new ColorRect
             {
-                Color = new Color(1f, 1f, 0f, 0.2f), // Yellow transparent
+                Color = new Color(1f, 1f, 0f, 0.4f), // Yellow transparent
                 Size = new Vector2(tileWidth, tileHeight),
                 Visible = false
             };
