@@ -110,6 +110,22 @@ namespace SieniPeli
                 {
                     if (touch.Pressed)
                     {
+                        Vector2I sieniTile = new Vector2I ( // Muuttaa sienen koordinaatit tile koordinaateiksi
+                            (int)(_sieni.GlobalPosition.X / tileWidth),
+                            (int)(_sieni.GlobalPosition.Y / tileHeight)
+                        );
+
+                        Vector2I touchTile = new Vector2I( // Muuttaa piirretyn viivan tile koordinaateiksi
+                            (int)(touch.Position.X / tileWidth),
+                            (int)(touch.Position.Y / tileHeight)
+                        );
+
+                        if (sieniTile != touchTile) // Ingoorataan piirretty viiva jos se ei ala sienen koordinaateista
+                        {
+                            GD.Print("Invalid start position! You must start drawing from Sieni's position.");
+                            return;
+                        }
+
                         tilesUsed.Clear(); // tyhjennetää käytetyt koordinaatit jne
                         savedPath.Clear();
                         savedPath.AddRange(tilesUsed);
