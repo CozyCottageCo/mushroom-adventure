@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bnmbecaetq1y6"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 245.0
+offset_top = 165.0
+offset_right = 348.0
+offset_bottom = 188.0
+text = "tää on level 2"

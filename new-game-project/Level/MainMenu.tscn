@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7pm6u4s7krgv"]
+
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="1_f5mu4"]
+[ext_resource type="Script" path="res://Code/MainMenuController.cs" id="1_h2r1c"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_kokoelmaButton", "_asetuksetButton", "_poistuButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2r1c")
+_pelaaButton = NodePath("Background/VBoxContainer/Pelaa")
+_kokoelmaButton = NodePath("Background/VBoxContainer/Kokoelma")
+_asetuksetButton = NodePath("Background/VBoxContainer/Asetukset")
+_poistuButton = NodePath("Background/VBoxContainer/Poistu")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_f5mu4")
+theme_override_font_sizes/font_size = 80
+text = "Sienipeli"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = -60.0
+offset_right = -160.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pelaa" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f5mu4")
+theme_override_font_sizes/font_size = 30
+text = "Pelaa"
+
+[node name="Kokoelma" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f5mu4")
+theme_override_font_sizes/font_size = 30
+text = "Kokoelma"
+
+[node name="Asetukset" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f5mu4")
+theme_override_font_sizes/font_size = 30
+text = "Asetukset"
+
+[node name="Poistu" type="Button" parent="Background/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_f5mu4")
+theme_override_font_sizes/font_size = 30
+text = "Poistu"

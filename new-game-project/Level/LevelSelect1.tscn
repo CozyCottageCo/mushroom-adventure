@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmd433gja3ef2"]
+
+[ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_2dnda"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_x877a"]
+[ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="3_8yss8"]
+[ext_resource type="Texture2D" uid="uid://dctb68l0dd65" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png" id="4_ohrdw"]
+[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="5_54qxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13q10"]
+atlas = ExtResource("3_8yss8")
+region = Rect2(24, 30, 42, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxr3q"]
+atlas = ExtResource("4_ohrdw")
+region = Rect2(160, 32, 32, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l227"]
+atlas = ExtResource("5_54qxi")
+region = Rect2(64, 64, 64, 64)
+
+[node name="LevelSelect1" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_mainMenuButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2dnda")
+_taso1Button = NodePath("Background/Taso1")
+_taso2Button = NodePath("Background/Taso2")
+_taso3Button = NodePath("Background/Taso3")
+_taso4Button = NodePath("Background/Taso4")
+"_eteenpäinButton" = NodePath("Background/Eteenpäin")
+_mainMenuButton = NodePath("Background/MainMenu")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_x877a")
+theme_override_font_sizes/font_size = 80
+text = "Valitse taso (1)"
+horizontal_alignment = 1
+
+[node name="Taso1" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 78.0
+offset_top = 147.0
+offset_right = 120.0
+offset_bottom = 198.0
+texture_normal = SubResource("AtlasTexture_13q10")
+
+[node name="Taso2" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 178.0
+offset_top = 203.0
+offset_right = 220.0
+offset_bottom = 254.0
+texture_normal = SubResource("AtlasTexture_13q10")
+
+[node name="Taso3" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 318.0
+offset_top = 146.0
+offset_right = 360.0
+offset_bottom = 197.0
+texture_normal = SubResource("AtlasTexture_13q10")
+
+[node name="Taso4" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 459.0
+offset_top = 210.0
+offset_right = 501.0
+offset_bottom = 261.0
+texture_normal = SubResource("AtlasTexture_13q10")
+
+[node name="Eteenpäin" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 599.0
+offset_top = 139.0
+offset_right = 636.0
+offset_bottom = 235.0
+texture_normal = SubResource("AtlasTexture_vxr3q")
+
+[node name="MainMenu" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 65.0
+offset_bottom = 70.0
+texture_normal = SubResource("AtlasTexture_6l227")
