@@ -27,8 +27,11 @@ namespace SieniPeli
         private ColorRect highLightRect;
         private Button _goButton;
         private Button _redoButton;
-        private bool _buttonsVisible = false;
 
+        private TextureButton _menuButton;
+
+        private PanelContainer _menuPanel = null;
+        private bool _buttonsVisible = false;
         public override void _Ready()
         {
             _line = new Line2D
@@ -49,6 +52,15 @@ namespace SieniPeli
                 GD.Print("TileMapLayer 'Map' successfully found.");
             }
 
+            _menuPanel = GetNode<PanelContainer>("PauseMenuPanel");
+             if (_menuPanel != null)
+            {
+                _menuPanel.Visible = false; // Start as hidden
+                GD.Print("Menu found"); //debug
+            } else {
+                GD.Print("Menu not found");
+            }
+
             PackedScene sieniScene = ResourceLoader.Load<PackedScene>("res://Level/Sieni.tscn");
             _sieni = (Sieni)sieniScene.Instantiate();
             AddChild(_sieni);
@@ -65,12 +77,18 @@ namespace SieniPeli
 
             _goButton = GetNode<Button>("/root/Node2D/Go"); // go ja redo buttonit käyttöön
             _redoButton = GetNode<Button>("/root/Node2D/Redo");
+            _menuButton = GetNode<TextureButton>("/root/Node2D/Menu");
+
             _goButton.Visible = false;
             _redoButton.Visible = false; // aluksi piiloon
 
             _goButton.Connect("pressed", new Callable(this, nameof(OnGoButtonPressed))); // funktio (painettu) ja metodikutsu mitä si tapahtuu
             _redoButton.Connect("pressed", new Callable(this, nameof(OnRedoButtonPressed)));
-        }
+            _menuButton.Connect("pressed", new Callable(this, nameof(OnMenuButtonPressed)));
+
+
+
+         }
 
         public override void _Input(InputEvent @event)
         {
@@ -211,7 +229,18 @@ namespace SieniPeli
             }
         }
 
-        // Empty Process method, not needed in this context
+        public void OnMenuButtonPressed() {
+        if (_menuPanel != null)
+            {
+                _menuPanel.Visible = !_menuPanel.Visible;
+                if(_menuPanel.Visible == true) {
+                    _buttonsVisible = true;
+                } else if(_menuPanel.Visible == false) {
+                    _buttonsVisible = false;
+                }
+    }
+        }
+ // Empty Process method, not needed in this context
         public override void _Process(double delta) {
 
         }

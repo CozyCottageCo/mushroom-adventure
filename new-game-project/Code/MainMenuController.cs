@@ -7,6 +7,7 @@ public partial class MainMenuController : Control
 [Export] private Button _kokoelmaButton = null;
 [Export] private Button _asetuksetButton = null;
 
+
 [Export]private Button _poistuButton = null;
 
 private SceneTree _mainMenuSceneTree = null;
