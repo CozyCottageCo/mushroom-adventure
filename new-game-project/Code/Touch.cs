@@ -30,7 +30,7 @@ namespace SieniPeli
 
         private TextureButton _menuButton;
 
-        private PanelContainer _menuPanel = null;
+        private PanelContainer _menuPanel = null; // alustettu menupaneeli
         private bool _buttonsVisible = false;
         public override void _Ready()
         {
@@ -52,10 +52,10 @@ namespace SieniPeli
                 GD.Print("TileMapLayer 'Map' successfully found.");
             }
 
-            _menuPanel = GetNode<PanelContainer>("PauseMenuPanel");
+            _menuPanel = GetNode<PanelContainer>("PauseMenuPanel"); // haetaa menupaneeli
              if (_menuPanel != null)
             {
-                _menuPanel.Visible = false; // Start as hidden
+                _menuPanel.Visible = false; // piilos eka
                 GD.Print("Menu found"); //debug
             } else {
                 GD.Print("Menu not found");
@@ -229,12 +229,12 @@ namespace SieniPeli
             }
         }
 
-        public void OnMenuButtonPressed() {
+        public void OnMenuButtonPressed() { // menunappia painettaes paneeli näkyvii
         if (_menuPanel != null)
             {
                 _menuPanel.Visible = !_menuPanel.Visible;
                 if(_menuPanel.Visible == true) {
-                    _buttonsVisible = true;
+                    _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
                     _buttonsVisible = false;
                 }

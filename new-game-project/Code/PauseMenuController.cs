@@ -8,7 +8,7 @@ public partial class PauseMenuController : Control
 
 private SceneTree _mainMenuSceneTree = null;
 
-private Touch _touch = null;
+private Touch _touch = null; // tää on vaa touch.cs alustus
 public override void _Ready() {
 {
 	base._Ready();
@@ -19,11 +19,12 @@ public override void _Ready() {
 	_touch = GetNode<Touch>("/root/Node2D");
 	_palaaTasoValikkoonButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTasoValikkoonPressed)));
 	_jatkaButton.Connect(Button.SignalName.Pressed, new Callable(_touch, nameof(Touch.OnMenuButtonPressed)));
+	// suoraan touch.cs lainattu metodi mikä vaa flippas sen paneelin näkyvyyden
 
 }
 }
 
-    private void OnTasoValikkoonPressed() {
+    private void OnTasoValikkoonPressed() { // menuun paluu
             string mainMenuPath = "res://Level/MainMenu.tscn";
             _mainMenuSceneTree.ChangeSceneToFile(mainMenuPath);
     }
