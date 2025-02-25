@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmd433gja3ef2"]
+[gd_scene load_steps=10 format=3 uid="uid://dmd433gja3ef2"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_2dnda"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_x877a"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="3_8yss8"]
 [ext_resource type="Texture2D" uid="uid://dctb68l0dd65" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png" id="4_ohrdw"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="5_54qxi"]
+[ext_resource type="Texture2D" uid="uid://yx2c7y5y7y0x" path="res://Art/Spritet/Käyttöliittymä/Levelselection/placeholderbg.jpg" id="6_vcw5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13q10"]
 atlas = ExtResource("3_8yss8")
@@ -38,6 +39,12 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 416.0
+texture = ExtResource("6_vcw5y")
+
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
 anchors_preset = 10
@@ -47,6 +54,9 @@ offset_top = 1.0
 offset_right = 30.0
 offset_bottom = 99.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.87451, 0, 1)
+theme_override_colors/font_outline_color = Color(3.91062e-07, 0.243288, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("2_x877a")
 theme_override_font_sizes/font_size = 80
 text = "Valitse taso (1)"

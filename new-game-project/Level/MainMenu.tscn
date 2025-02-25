@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7pm6u4s7krgv"]
+[gd_scene load_steps=12 format=3 uid="uid://c7pm6u4s7krgv"]
 
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="1_f5mu4"]
 [ext_resource type="Script" path="res://Code/MainMenuController.cs" id="1_h2r1c"]
+[ext_resource type="Texture2D" uid="uid://x0dp70yeui0m" path="res://Art/Spritet/Käyttöliittymä/MainMenu/placeholderbg.jpg" id="2_a5vim"]
+[ext_resource type="Texture2D" uid="uid://d2thi3au6os51" path="res://Art/Spritet/Käyttöliittymä/MainMenu/Mainmenu-slab.png" id="3_akugd"]
+[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="4_rmxie"]
+[ext_resource type="Texture2D" uid="uid://l6kyl53j24qj" path="res://Art/Spritet/Käyttöliittymä/MainMenu/cozycottage.logo.png" id="6_pb6bi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rut6p"]
+atlas = ExtResource("3_akugd")
+region = Rect2(121, 279, 248, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we5fl"]
+atlas = ExtResource("3_akugd")
+region = Rect2(121, 278, 247, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2dbk"]
+atlas = ExtResource("3_akugd")
+region = Rect2(119, 280, 252, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsrl6"]
+atlas = ExtResource("3_akugd")
+region = Rect2(120, 279, 249, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmvec"]
+atlas = ExtResource("4_rmxie")
+region = Rect2(128, 0, 64, 64)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_kokoelmaButton", "_asetuksetButton", "_poistuButton")]
 layout_mode = 3
@@ -21,16 +45,35 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_a5vim")
+
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.964706, 0.27451, 1)
+theme_override_colors/font_outline_color = Color(0.037337, 0.1596, 0.0357021, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 80
 text = "Sienipeli"
 horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 282.0
+offset_right = 81.0
+offset_bottom = 344.0
+texture = ExtResource("6_pb6bi")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 layout_mode = 1
@@ -50,21 +93,41 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
 text = "Pelaa"
+icon = SubResource("AtlasTexture_rut6p")
+flat = true
+icon_alignment = 1
 
 [node name="Kokoelma" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
 text = "Kokoelma"
+icon = SubResource("AtlasTexture_we5fl")
+flat = true
+icon_alignment = 1
 
 [node name="Asetukset" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
 text = "Asetukset"
+icon = SubResource("AtlasTexture_y2dbk")
+flat = true
+icon_alignment = 1
 
 [node name="Poistu" type="Button" parent="Background/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
 text = "Poistu"
+icon = SubResource("AtlasTexture_hsrl6")
+flat = true
+icon_alignment = 1
+
+[node name="Käytettävyys" type="TextureButton" parent="Background"]
+layout_mode = 0
+offset_left = 562.0
+offset_top = 286.0
+offset_right = 626.0
+offset_bottom = 350.0
+texture_normal = SubResource("AtlasTexture_pmvec")
