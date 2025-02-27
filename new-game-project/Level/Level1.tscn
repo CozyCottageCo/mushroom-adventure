@@ -494,6 +494,7 @@ texture = SubResource("AtlasTexture_eknhn")
 expand_mode = 4
 
 [node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 

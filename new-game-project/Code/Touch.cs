@@ -236,14 +236,14 @@ namespace SieniPeli
             Vector2I mapCoords = new Vector2I(tileX, tileY);
             if (!tilesUsed.Contains(mapCoords))
             {
-                tilesUsed.Add(mapCoords); // vaan uudet koordinaatit tallentuu (24 jaolliset aina ku int?)
+                tilesUsed.Add(mapCoords); // vaan uudet koordinaatit tallentuu (32 jaolliset aina ku int?)
             }
         }
 
         public void OnMenuButtonPressed() { // menunappia painettaes paneeli näkyvii
         if (_menuPanel != null)
             {
-                _menuPanel.Visible = !_menuPanel.Visible;
+                _menuPanel.Visible = !_menuPanel.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_menuPanel.Visible == true) {
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
@@ -253,10 +253,10 @@ namespace SieniPeli
         }
 
         public async void Kolari() {
-            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
         if (_kolariScreen != null)
             {
-                _kolariScreen.Visible = !_kolariScreen.Visible;
+                _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_kolariScreen.Visible == true) {
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                     GetTree().Paused = true; // pausettaa pelin myös
@@ -269,7 +269,7 @@ namespace SieniPeli
         public void Voitto() { // voittopaneeli näkyville, piirto jne pois
             if (_voittoScreen != null)
             {
-                _voittoScreen.Visible = !_voittoScreen.Visible;
+                _voittoScreen.Visible = !_voittoScreen.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_voittoScreen.Visible == true) {
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_voittoScreen.Visible == false) {

@@ -2,6 +2,7 @@ using Godot;
 using SieniPeli;
 using System;
 using System.Collections.Generic;
+using System.Security;
 
 public partial class Sieni : Sprite2D
 {
@@ -18,13 +19,14 @@ public partial class Sieni : Sprite2D
 
 			private float _currentSpeed = 50f; // alustettu defaultnopeus
 
-
+			private AnimationPlayer _animationPlayer;
+			private Vector2 _lastDirection = Vector2.Zero;
 		public override void _Ready()
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 		grid = (Grid)gridScene.Instantiate(); // load&instantiate grid, place snake
 		GlobalPosition = new Vector2(0,0); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
-
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); // alustetaa animationplayer
 
 
 		GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered; // tää monitoroi millon kollisio tapahtuu
@@ -43,6 +45,7 @@ public partial class Sieni : Sprite2D
 		float distance = _currentSpeed * (float)delta; // kuinka pal liikutaan (freimiä sekunnissa x framet tjsp)
 
 		GlobalPosition += direction * distance; // positio liikkuu suunnan x etäisyyden
+		RunAnimation(direction); // ajetaan liikkues animaatioo
 
 		if (GlobalPosition.DistanceTo(targetPosition) < distance) { // jos tarpeeks lähel kohdetta, asetetaan et ollaan perillä (ettei junnaa)
 			GlobalPosition = targetPosition;
@@ -80,7 +83,7 @@ public partial class Sieni : Sprite2D
 
 
 
-	private void OnBodyEntered(Node body) // träkkää collisioneita
+	private void OnBodyEntered(Node body) // träkkää collisioneita (täplä träkkää itse)
 {
     GD.Print($"current body: {body.Name}");
 
@@ -107,6 +110,34 @@ public partial class Sieni : Sprite2D
     }
 }
 
+
+private void RunAnimation(Vector2 direction) { // animaatiokoodi
+    if (_currentSpeed == 0) { // jos nopeus = 0 eli ollaan paikallaan, odotellaan suojatiellä tjsp
+        switch ((_lastDirection.X, _lastDirection.Y)) {
+            case (0, 1):
+                _animationPlayer.Play("idledown"); // jokaseen oma idle"animaatio" per suunta
+                break;
+            case (0, -1):
+                _animationPlayer.Play("idleup");
+                break;
+            default:
+                _animationPlayer.Play("idledown"); // Default idle ales
+                break;
+        }
+        return;
+    }
+
+    _lastDirection = direction; // täsä kohtaa (viimesen liikkeen jälkee niiq) asetetaan viimenen suunta idlelle
+
+    switch ((direction.X, direction.Y)) { // suoraan direction-vectorista otetaa vaa suunta, ja sen mukanen animaatio tulille
+        case (0, 1):
+            _animationPlayer.Play("walk");
+            break;
+        case (0, -1):
+            _animationPlayer.Play("walkup");
+            break;
+    }
+}
 }
 
 

@@ -1,16 +1,109 @@
-[gd_scene load_steps=4 format=3 uid="uid://dubf6ilea57vj"]
+[gd_scene load_steps=11 format=3 uid="uid://dubf6ilea57vj"]
 
-[ext_resource type="Texture2D" uid="uid://bfx4jqgdob5k" path="res://Art/taplajahti_player.png" id="1_4bb3b"]
+[ext_resource type="Texture2D" uid="uid://dibw5mec3qd0s" path="res://Art/Spritet/Pelaaja/taplajahti_player.front.png" id="1_xyf37"]
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
+[ext_resource type="Script" path="res://Code/Animation.cs" id="3_flfxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh5ix"]
 size = Vector2(10, 11)
 
+[sub_resource type="Animation" id="Animation_qcls7"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qywt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5eq3q"]
+resource_name = "walkup"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_lchpc"]
+resource_name = "idledown"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lc4or"]
+resource_name = "idleup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m18pg"]
+_data = {
+"RESET": SubResource("Animation_qywt1"),
+"idledown": SubResource("Animation_lchpc"),
+"idleup": SubResource("Animation_lc4or"),
+"walk": SubResource("Animation_qcls7"),
+"walkup": SubResource("Animation_5eq3q")
+}
+
 [node name="Sieni" type="Sprite2D"]
-texture = ExtResource("1_4bb3b")
+texture = ExtResource("1_xyf37")
 offset = Vector2(15, 0)
+hframes = 2
+vframes = 3
 region_enabled = true
-region_rect = Rect2(0, 0, 40, 46)
+region_rect = Rect2(0, 0, 79, 138)
 script = ExtResource("2_s2h7s")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -48,3 +141,9 @@ offset_right = 55.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 10
 text = "OK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m18pg")
+}
+script = ExtResource("3_flfxf")

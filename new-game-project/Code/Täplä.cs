@@ -26,6 +26,7 @@ private Touch _touch = null;
         {
             GD.Print("Täplä löydetty!");
 			_touch.Voitto(); // voittometodi kutsu
+			GetTree().Paused = true;
 
 }
 	}
