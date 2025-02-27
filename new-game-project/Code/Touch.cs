@@ -28,9 +28,13 @@ namespace SieniPeli
         private Button _goButton;
         private Button _redoButton;
 
+
         private TextureButton _menuButton;
 
         private PanelContainer _menuPanel = null; // alustettu menupaneeli
+        public PanelContainer _kolariScreen = null;
+
+        public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
         public override void _Ready()
         {
@@ -41,16 +45,6 @@ namespace SieniPeli
             };
             AddChild(_line);
 
-            // Get tilemap layer
-            _tileMapLayer = GetNode<TileMapLayer>("Map");
-            if (_tileMapLayer == null)
-            {
-                GD.PrintErr("Error: TileMapLayer 'Map' not found!");
-            }
-            else
-            {
-                GD.Print("TileMapLayer 'Map' successfully found.");
-            }
 
             _menuPanel = GetNode<PanelContainer>("PauseMenuPanel"); // haetaa menupaneeli
              if (_menuPanel != null)
@@ -61,6 +55,23 @@ namespace SieniPeli
                 GD.Print("Menu not found");
             }
 
+            _kolariScreen = GetNode<PanelContainer>("KolariScreen"); // haetaa kolariscreeni
+             if (_kolariScreen != null)
+            {
+                _kolariScreen.Visible = false; // piilos eka
+                GD.Print("KolariScreen found"); //debug
+            } else {
+                GD.Print("KolariScreen not found");
+            }
+
+             _voittoScreen = GetNode<PanelContainer>("VoittoScreen"); // haetaa kolariscreeni
+             if (_voittoScreen != null)
+            {
+                _voittoScreen.Visible = false; // piilos eka
+                GD.Print("VoittoScreen found"); //debug
+            } else {
+                GD.Print("VoittoScreen not found");
+            }
             PackedScene sieniScene = ResourceLoader.Load<PackedScene>("res://Level/Sieni.tscn");
             _sieni = (Sieni)sieniScene.Instantiate();
             AddChild(_sieni);
@@ -240,6 +251,33 @@ namespace SieniPeli
                 }
     }
         }
+
+        public async void Kolari() {
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout");
+        if (_kolariScreen != null)
+            {
+                _kolariScreen.Visible = !_kolariScreen.Visible;
+                if(_kolariScreen.Visible == true) {
+                    _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                    GetTree().Paused = true; // pausettaa pelin myös
+                } else if(_kolariScreen.Visible == false) {
+                    _buttonsVisible = false;
+                }
+        }
+        }
+
+        public void Voitto() { // voittopaneeli näkyville, piirto jne pois
+            if (_voittoScreen != null)
+            {
+                _voittoScreen.Visible = !_voittoScreen.Visible;
+                if(_voittoScreen.Visible == true) {
+                    _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                } else if(_voittoScreen.Visible == false) {
+                    _buttonsVisible = false;
+                }
+        }
+        }
+
  // Empty Process method, not needed in this context
         public override void _Process(double delta) {
 

@@ -17,11 +17,17 @@ public partial class Sieni : Sprite2D
 			public bool isMoving = false; // alustetaan ettei liikuta
 
 			private float _currentSpeed = 50f; // alustettu defaultnopeus
-	public override void _Ready()
+
+
+		public override void _Ready()
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 		grid = (Grid)gridScene.Instantiate(); // load&instantiate grid, place snake
 		GlobalPosition = new Vector2(0,0); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
+
+
+
+		GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered; // tää monitoroi millon kollisio tapahtuu
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,4 +77,36 @@ public partial class Sieni : Sprite2D
 		_currentSpeed = speed;
     GD.Print($"controlSpeed(): Speed set to {_currentSpeed}");
 	}
+
+
+
+	private void OnBodyEntered(Node body) // träkkää collisioneita
+{
+    GD.Print($"current body: {body.Name}");
+
+    if (body is TileMapLayer tileMapLayer) // jos kollisio tapahtuu tilemaplayerin kanssa..
+    {
+        GD.Print($"Current tilemaplayer: {tileMapLayer.Name}"); // mikä sellanen
+
+        if (tileMapLayer.Name == "Suojatie") // jos suojatie, sillä selvä
+        {
+            GD.Print("Pelaaja suojatiellä");
+            return;  // tän pitäs lopettaa tsekkaus mut jos oli päällekkäin otti silti sen tien sieltä alta.
+        }
+
+        if (tileMapLayer.Name == "Tie") // tän pitäs tsekkaa vaan jos suojatie ei blokannu tätä, mut tapahtu silti
+        {
+            GD.Print("Kolariiii!");
+            Touch touch = GetNode<Touch>("/root/Node2D"); // öäh main nodesta taas otetaan ratkasu
+            touch.Kolari();  // kolarikutsu
+        }
+        else
+        {
+            GD.Print("Mis vitus me ollaan"); // out of bounds
+        }
+    }
 }
+
+}
+
+
