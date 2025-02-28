@@ -113,13 +113,21 @@ public partial class Sieni : Sprite2D
 
 private void RunAnimation(Vector2 direction) { // animaatiokoodi
     if (_currentSpeed == 0) { // jos nopeus = 0 eli ollaan paikallaan, odotellaan suojatiellä tjsp
-        switch ((_lastDirection.X, _lastDirection.Y)) {
+        switch ((_lastDirection.X, _lastDirection.Y)) { // huom viimesen liikkeen suunta
             case (0, 1):
                 _animationPlayer.Play("idledown"); // jokaseen oma idle"animaatio" per suunta
                 break;
             case (0, -1):
                 _animationPlayer.Play("idleup");
                 break;
+
+			case (-1, 0):
+				_animationPlayer.Play("idleleft");
+				break;
+
+			case (1, 0):
+				_animationPlayer.Play("idleright");
+				break;
             default:
                 _animationPlayer.Play("idledown"); // Default idle ales
                 break;
@@ -136,6 +144,12 @@ private void RunAnimation(Vector2 direction) { // animaatiokoodi
         case (0, -1):
             _animationPlayer.Play("walkup");
             break;
+		case (-1, 0):
+			_animationPlayer.Play("walkleft");
+			break;
+		case (1, 0):
+			_animationPlayer.Play("walkright");
+			break;
     }
 }
 }

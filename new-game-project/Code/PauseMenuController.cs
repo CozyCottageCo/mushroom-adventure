@@ -43,6 +43,7 @@ public override void _Ready() {
 	}
 
 	private void PeliLäpiPressed() {
+		GetTree().Paused = false;
 		string levelSelectionPath = "res://Level/LevelSelect1.tscn"; // elegantimpi ratkasu vois olla ku suora reitti
 		_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);
 	}

@@ -1,28 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dubf6ilea57vj"]
+[gd_scene load_steps=14 format=3 uid="uid://dubf6ilea57vj"]
 
-[ext_resource type="Texture2D" uid="uid://dibw5mec3qd0s" path="res://Art/Spritet/Pelaaja/taplajahti_player.front.png" id="1_xyf37"]
+[ext_resource type="Texture2D" uid="uid://bdh6rgpjs24p1" path="res://Art/Spritet/Pelaaja/taplajahti_player_sheet.png" id="1_ohc12"]
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
-[ext_resource type="Script" path="res://Code/Animation.cs" id="3_flfxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh5ix"]
 size = Vector2(10, 11)
-
-[sub_resource type="Animation" id="Animation_qcls7"]
-resource_name = "walk"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [3, 1]
-}
 
 [sub_resource type="Animation" id="Animation_qywt1"]
 length = 0.001
@@ -37,23 +19,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_5eq3q"]
-resource_name = "walkup"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_lchpc"]
@@ -85,6 +50,107 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_qcls7"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 1]
+}
+
+[sub_resource type="Animation" id="Animation_5eq3q"]
+resource_name = "walkup"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_4drjm"]
+resource_name = "walkleft"
+length = 0.5
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 7, 9]
+}
+
+[sub_resource type="Animation" id="Animation_k5at5"]
+resource_name = "walkright"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_o6tev"]
+resource_name = "idleleft"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_uvu1d"]
+resource_name = "idleright"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [2]
 }
 
@@ -92,18 +158,22 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_qywt1"),
 "idledown": SubResource("Animation_lchpc"),
+"idleleft": SubResource("Animation_o6tev"),
+"idleright": SubResource("Animation_uvu1d"),
 "idleup": SubResource("Animation_lc4or"),
 "walk": SubResource("Animation_qcls7"),
+"walkleft": SubResource("Animation_4drjm"),
+"walkright": SubResource("Animation_k5at5"),
 "walkup": SubResource("Animation_5eq3q")
 }
 
 [node name="Sieni" type="Sprite2D"]
-texture = ExtResource("1_xyf37")
+texture = ExtResource("1_ohc12")
 offset = Vector2(15, 0)
-hframes = 2
+hframes = 5
 vframes = 3
 region_enabled = true
-region_rect = Rect2(0, 0, 79, 138)
+region_rect = Rect2(0, 0, 201, 138)
 script = ExtResource("2_s2h7s")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -146,4 +216,3 @@ text = "OK"
 libraries = {
 "": SubResource("AnimationLibrary_m18pg")
 }
-script = ExtResource("3_flfxf")
