@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bokoo2hu1yj3a"
+path="res://.godot/imported/foot 2.ogg-6f3f5734756d63222a8a79fa8ee6ad63.oggvorbisstr"
+
+[deps]
+
+source_file="res://Art/Sound/foot 2.ogg"
+dest_files=["res://.godot/imported/foot 2.ogg-6f3f5734756d63222a8a79fa8ee6ad63.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
