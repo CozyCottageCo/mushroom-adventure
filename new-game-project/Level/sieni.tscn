@@ -338,5 +338,4 @@ script = ExtResource("4_s1f0l")
 stream = ExtResource("5_xmdx1")
 volume_db = 5.403
 autoplay = true
-stream_paused = true
 script = ExtResource("4_s1f0l")

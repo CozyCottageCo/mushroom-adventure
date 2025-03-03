@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class FootstepPlayer : AudioStreamPlayer2D
+public partial class FootStepPlayer : AudioStreamPlayer2D
 {
     public void PlaySound()
     {

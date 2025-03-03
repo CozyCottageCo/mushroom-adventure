@@ -25,7 +25,7 @@ public partial class Sieni : Sprite2D
 	{
 		PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 		grid = (Grid)gridScene.Instantiate(); // load&instantiate grid, place snake
-		GlobalPosition = new Vector2(0,0); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
+		GlobalPosition = new Vector2(128,64); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); // alustetaa animationplayer
 
 
