@@ -329,7 +329,7 @@ text = "Sienipelii wooooo"
 label_settings = SubResource("LabelSettings_wxdfd")
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(479, 77)
 texture = ExtResource("8_57iox")
 flip_h = true

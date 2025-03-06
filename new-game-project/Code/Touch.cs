@@ -14,6 +14,9 @@ namespace SieniPeli
 
         private Sieni _sieni;
 
+        private Sprite2D _täplä;
+        private Vector2I _täpläTile;
+
         // Grid and screen settings
         private int tileWidth = 32;
         private int tileHeight = 32;
@@ -23,6 +26,7 @@ namespace SieniPeli
 
         private List<Vector2I> tilesUsed = new List<Vector2I>();
         private List<Vector2I> savedPath = new List<Vector2I>();
+        private Vector2I lastMapCoord = new Vector2I(-1, -1); // alustettu null vector viimeselle positiolle
 
         private ColorRect highLightRect;
         private Button _goButton;
@@ -77,6 +81,9 @@ namespace SieniPeli
             AddChild(_sieni);
 
             GD.Print("Sieni node successfully instantiated and added to scene.");
+
+            _täplä = GetNode<Sprite2D>("Täplä");
+            _täpläTile = new Vector2I((int)(_täplä.GlobalPosition.X / tileWidth), (int)(_täplä.GlobalPosition.Y / tileHeight));
 
             highLightRect = new ColorRect
             {
@@ -162,7 +169,7 @@ namespace SieniPeli
                         _line.Points = new Vector2[0]; // tyhjennetää viiva
                         _drawing = true; // piirto päälle
 
-                        GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
+                        //GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
                         UpdateTileAtPosition(touch.Position); // kursorin highlight metodikutsu
                     }
                     else if (!touch.Pressed && _drawing) // jos kosketus irtoo kesken piirtämisen
@@ -170,6 +177,14 @@ namespace SieniPeli
                         _drawing = false; // piirto loppu
 
                         GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
+
+                        Vector2I lastTile = tilesUsed[tilesUsed.Count -1]; // katotaa mihi jäi viiva
+                        if (lastTile != _täpläTile) { // jos viivan loppu != täplän positio
+                            GD.Print("Line must end at täplä!"); // ei kelpaa
+                            tilesUsed.Clear(); //uusiks reset käytetyt tiilet
+                            _line.Points = new Vector2[0]; // uusiks reset viiva
+                            return;
+                        }
 
                         _goButton.Visible = true; // napit näkyviin
                         _redoButton.Visible = true;
@@ -185,7 +200,7 @@ namespace SieniPeli
                 else if (@event is InputEventScreenDrag drag && _drawing) // ja itse piirto
                 {
                     _line.AddPoint(drag.Position);
-                    GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
+                   // GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
                     UpdateTileAtPosition(drag.Position);
                 }
                     }
@@ -213,8 +228,8 @@ namespace SieniPeli
         private void UpdateTileAtPosition(Vector2 position) // träkkää piirtämisen tiilet ja highlightaa niitä
         {
             // Adjust position based on margin and check bounds
-            Vector2 adjustedPosition = position - new Vector2(margin, margin); // -4px marginaalit et nurkka on 0,0 eikä 4,4 jne
-            if (adjustedPosition.X < 0 || adjustedPosition.Y < 0 || adjustedPosition.X >= screenWidth - 2 * margin || adjustedPosition.Y >= screenHeight - 2 * margin)
+            Vector2 adjustedPosition = position;
+            if (adjustedPosition.X < 0 || adjustedPosition.Y < 0 || adjustedPosition.X >= screenWidth || adjustedPosition.Y >= screenHeight )
             {
                 GD.Print($"Adjusted position {adjustedPosition} is out of bounds, skipping.");
                 return; //ei kyl skippaa mitää atm :D
@@ -224,7 +239,42 @@ namespace SieniPeli
             int tileX = (int)(adjustedPosition.X / tileWidth);
             int tileY = (int)(adjustedPosition.Y / tileHeight);
 
-            GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})");
+
+            if (tilesUsed.Count > 0)
+                 {
+                    Vector2I lastTile = tilesUsed[tilesUsed.Count - 1]; // träkätää viimestä tiiliä
+
+                    // tarkistetaan onko diagonaali liikkuminen (molemmat X&Y nousee eikä vaan toinen)
+                    if (Math.Abs(lastTile.X - tileX) > 0 && Math.Abs(lastTile.Y - tileY) > 0)
+                    {
+                        GD.Print("Diagonal movement detected, adding ghost tile.");
+
+                        // Alustetaan haamutiili
+                        Vector2I ghostTile;
+
+                        // Katotaan onko järkevämpää mennä sivusuunnassa vai pystysuunnassa
+                        if (Math.Abs(lastTile.X - tileX) > Math.Abs(lastTile.Y - tileY)) // jos vaakasuunta vahvempi
+                        {
+                            ghostTile = new Vector2I(lastTile.X, tileY); // liikutaan vaakasuunnassa eka
+                        }
+                        else
+                        {
+                            ghostTile = new Vector2I(tileX, lastTile.Y); // muuten pystysuunnassa
+                        }
+
+                        // ja siis lisätää vaan sillon haamutiili jos se ei oo viimisin (eli duplikaatti maholline, mut ei jää junnaa)
+                        if (!ghostTile.Equals(lastTile))
+                        {
+                            tilesUsed.Add(ghostTile); // lisätää välitiili
+                            GD.Print($"Added ghost tile: {ghostTile}");
+                        }
+                    }
+                }
+
+
+            // lisätää se actual tiili
+            Vector2I mapCoords = new Vector2I(tileX, tileY);
+          //  GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})");
 
             // Update the highlight
             highLightRect.Position = new Vector2(
@@ -232,11 +282,13 @@ namespace SieniPeli
                 tileY * tileHeight + (tileHeight - highLightRect.Size.Y) / 2 + margin);
             highLightRect.Visible = true; // highlight-neliö seuraa kursorii
 
-            // Add the tile to the list if it's not already present
-            Vector2I mapCoords = new Vector2I(tileX, tileY);
-            if (!tilesUsed.Contains(mapCoords))
+            // Add tile to the list IF it is not the last used tile (to allow for duplicate coordinates, e.g retracing steps)
+
+            if (!mapCoords.Equals(lastMapCoord))
             {
                 tilesUsed.Add(mapCoords); // vaan uudet koordinaatit tallentuu (32 jaolliset aina ku int?)
+                lastMapCoord = mapCoords;
+                GD.Print(mapCoords);
             }
         }
 

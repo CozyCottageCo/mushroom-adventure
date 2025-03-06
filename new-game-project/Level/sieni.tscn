@@ -38,7 +38,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_lchpc"]
 resource_name = "idledown"
-length = 0.2
+length = 2.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,10 +47,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.233333, 0.466667, 0.733333, 0.966667, 1.43333, 1.73333, 2, 2.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [19, 13, 14, 15, 16, 17, 18, 13, 12]
 }
 
 [sub_resource type="Animation" id="Animation_o6tev"]
@@ -282,9 +283,9 @@ _data = {
 texture = ExtResource("1_ohc12")
 offset = Vector2(15, 0)
 hframes = 5
-vframes = 3
+vframes = 4
 region_enabled = true
-region_rect = Rect2(0, 0, 201, 138)
+region_rect = Rect2(0, 0, 200, 184)
 script = ExtResource("2_s2h7s")
 
 [node name="Area2D" type="Area2D" parent="."]
