@@ -22,7 +22,6 @@ namespace SieniPeli
         private int tileHeight = 32;
         private int screenWidth = 640;
         private int screenHeight = 360;
-        private int margin;
 
         private List<Vector2I> tilesUsed = new List<Vector2I>();
         private List<Vector2I> savedPath = new List<Vector2I>();
@@ -82,7 +81,7 @@ namespace SieniPeli
 
             GD.Print("Sieni node successfully instantiated and added to scene.");
 
-            _täplä = GetNode<Sprite2D>("Täplä");
+            _täplä = GetNode<Sprite2D>("Täplä"); // haetaa täplä ja sen positio
             _täpläTile = new Vector2I((int)(_täplä.GlobalPosition.X / tileWidth), (int)(_täplä.GlobalPosition.Y / tileHeight));
 
             highLightRect = new ColorRect
@@ -227,7 +226,7 @@ namespace SieniPeli
         // Method to handle both tile tracking and highlighting
         private void UpdateTileAtPosition(Vector2 position) // träkkää piirtämisen tiilet ja highlightaa niitä
         {
-            // Adjust position based on margin and check bounds
+            // Adjust position based on margin (deleted) and check bounds
             Vector2 adjustedPosition = position;
             if (adjustedPosition.X < 0 || adjustedPosition.Y < 0 || adjustedPosition.X >= screenWidth || adjustedPosition.Y >= screenHeight )
             {
@@ -244,7 +243,7 @@ namespace SieniPeli
                  {
                     Vector2I lastTile = tilesUsed[tilesUsed.Count - 1]; // träkätää viimestä tiiliä
 
-                    // tarkistetaan onko diagonaali liikkuminen (molemmat X&Y nousee eikä vaan toinen)
+                    // tarkistetaan onko diagonaali liikkuminen (molemmat X&Y nousee eikä vaan toinen (1,1))
                     if (Math.Abs(lastTile.X - tileX) > 0 && Math.Abs(lastTile.Y - tileY) > 0)
                     {
                         GD.Print("Diagonal movement detected, adding ghost tile.");
@@ -253,9 +252,9 @@ namespace SieniPeli
                         Vector2I ghostTile;
 
                         // Katotaan onko järkevämpää mennä sivusuunnassa vai pystysuunnassa
-                        if (Math.Abs(lastTile.X - tileX) > Math.Abs(lastTile.Y - tileY)) // jos vaakasuunta vahvempi
+                        if (Math.Abs(lastTile.X - tileX) > Math.Abs(lastTile.Y - tileY)) // jos vaakasuunta vahvempi (1,1 -> 3,2: X kasvaa 2, Y vaan 1, X voittaa)
                         {
-                            ghostTile = new Vector2I(lastTile.X, tileY); // liikutaan vaakasuunnassa eka
+                            ghostTile = new Vector2I(lastTile.X, tileY); // liikutaan vaakasuunnassa
                         }
                         else
                         {
@@ -272,14 +271,15 @@ namespace SieniPeli
                 }
 
 
-            // lisätää se actual tiili
+            // lisätää tiili normaalisti / perään jos oli diagonal ja haamutiili eka
+
             Vector2I mapCoords = new Vector2I(tileX, tileY);
-          //  GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})");
+          //  GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})"); debugviesti
 
             // Update the highlight
             highLightRect.Position = new Vector2(
-                tileX * tileWidth + (tileWidth - highLightRect.Size.X) / 2 + margin,
-                tileY * tileHeight + (tileHeight - highLightRect.Size.Y) / 2 + margin);
+                tileX * tileWidth + (tileWidth - highLightRect.Size.X) / 2 ,
+                tileY * tileHeight + (tileHeight - highLightRect.Size.Y) / 2);
             highLightRect.Visible = true; // highlight-neliö seuraa kursorii
 
             // Add tile to the list IF it is not the last used tile (to allow for duplicate coordinates, e.g retracing steps)
