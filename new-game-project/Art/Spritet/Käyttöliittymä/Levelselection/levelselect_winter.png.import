@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dtdvoj4o5gfc6"
-=======
-uid="uid://c8fch07xpjdvg"
->>>>>>> 845bfca7954939987c237c30a8cd3c9d34d804df
-path="res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"
+uid="uid://gno5ss2k5pot"
+path="res://.godot/imported/levelselect_winter.png-41bac6478395334961e3c5b0efbfc0d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ympäristö/taplajahti_talvi.png"
-dest_files=["res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"]
+source_file="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_winter.png"
+dest_files=["res://.godot/imported/levelselect_winter.png-41bac6478395334961e3c5b0efbfc0d4.ctex"]
 
 [params]
 

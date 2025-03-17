@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dtdvoj4o5gfc6"
-=======
-uid="uid://c8fch07xpjdvg"
->>>>>>> 845bfca7954939987c237c30a8cd3c9d34d804df
-path="res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"
+uid="uid://bmkgg8rdqgrqm"
+path="res://.godot/imported/tileset_muurahainen pysty 30x59, sivu 31x59.png-2d7dd70a766805b0942f5f621ace5529.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ympäristö/taplajahti_talvi.png"
-dest_files=["res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"]
+source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/tileset_muurahainen pysty 30x59, sivu 31x59.png"
+dest_files=["res://.godot/imported/tileset_muurahainen pysty 30x59, sivu 31x59.png-2d7dd70a766805b0942f5f621ace5529.ctex"]
 
 [params]
 

@@ -74,26 +74,26 @@ texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso3" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 370.0
-offset_top = 226.0
-offset_right = 1011.0
-offset_bottom = 709.0
+offset_left = 369.0
+offset_top = 224.0
+offset_right = 1010.0
+offset_bottom = 707.0
 texture_normal = ExtResource("5_duiop")
 
 [node name="Taso1" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 88.0
-offset_top = 224.0
-offset_right = 728.0
-offset_bottom = 704.0
+offset_left = 87.0
+offset_top = 221.0
+offset_right = 727.0
+offset_bottom = 701.0
 texture_normal = ExtResource("3_8yss8")
 
 [node name="Taso4" type="TextureButton" parent="Background"]
 layout_mode = 2
 offset_left = 480.0
-offset_top = 36.0
+offset_top = 30.0
 offset_right = 1120.0
-offset_bottom = 516.0
+offset_bottom = 510.0
 texture_normal = ExtResource("5_duiop")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]

@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dtdvoj4o5gfc6"
-=======
-uid="uid://c8fch07xpjdvg"
->>>>>>> 845bfca7954939987c237c30a8cd3c9d34d804df
-path="res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"
+uid="uid://c70tcm4jtpd8q"
+path="res://.godot/imported/Spritet.png-a063c11ec6912f0a32dbd1a4a683fbc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ympäristö/taplajahti_talvi.png"
-dest_files=["res://.godot/imported/taplajahti_talvi.png-d14eb6bee348a62507771894d19dc2ce.ctex"]
+source_file="res://Art/Spritet/Ympäristö/Spritet.png"
+dest_files=["res://.godot/imported/Spritet.png-a063c11ec6912f0a32dbd1a4a683fbc6.ctex"]
 
 [params]
 

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://moj8oxfsle16"
+=======
+uid="uid://n4k73yj70x6m"
+>>>>>>> 845bfca7954939987c237c30a8cd3c9d34d804df
 path="res://.godot/imported/taplajahti_syksy.png-be36a404644f62789ff9e420e8ce8130.ctex"
 metadata={
 "vram_texture": false
