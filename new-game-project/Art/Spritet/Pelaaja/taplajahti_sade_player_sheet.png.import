@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1yecff0860qx"
-path="res://.godot/imported/taplajahti_syksy.png-be36a404644f62789ff9e420e8ce8130.ctex"
+uid="uid://vai0im1gh2ph"
+path="res://.godot/imported/taplajahti_sade_player_sheet.png-edce7f504695e10df888fc6c702fc9a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ympäristö/taplajahti_syksy.png"
-dest_files=["res://.godot/imported/taplajahti_syksy.png-be36a404644f62789ff9e420e8ce8130.ctex"]
+source_file="res://Art/Spritet/Pelaaja/taplajahti_sade_player_sheet.png"
+dest_files=["res://.godot/imported/taplajahti_sade_player_sheet.png-edce7f504695e10df888fc6c702fc9a8.ctex"]
 
 [params]
 

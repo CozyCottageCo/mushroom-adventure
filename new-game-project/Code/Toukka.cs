@@ -14,9 +14,19 @@ public partial class Toukka : Sprite2D
     [Export] float normalSpeed = 100f;
 
     private float slowSpeed = 50f;
+    private float slowdownDuration = 1.0f;
+    private float slowdownTimer = 0f;
+    private float speedupTimer = 0f;
+
+    private float speedupDuration = 1.0f;
     private float stopSpeed = 0f;
     private bool isSlowingDown = false;
-	[Export] float stopDistance = 40f;
+    private bool isSpeedingUp = false;
+	[Export] float stopDistance = 150;
+
+    private float stopDelay =1.5f;
+    private float stopDelayTimer = 0f;
+    private bool isStopped = false;
     private const float TurnChanceRight = 0.4f; // 40% chance to turn right
     private const float TurnChanceLeft = 0.2f; // 20% chance to turn left
 
@@ -95,6 +105,9 @@ public partial class Toukka : Sprite2D
 
         GetNode<Area2D>("DetectionArea2D").BodyEntered += OnDetectionAreaEntered;
         GetNode<Area2D>("DetectionArea2D").BodyExited += OnDetectionAreaExited;
+        GetNode<Area2D>("DetectionArea2D").AreaEntered += OnDetectionAreaEntered;
+        GetNode<Area2D>("DetectionArea2D").AreaExited += OnDetectionAreaExited;
+
     }
 		}
 
@@ -118,24 +131,51 @@ public partial class Toukka : Sprite2D
 
         public override void _Process(double delta)
     {
+        StopToukka();
+        if (isStopped && stopDelayTimer > 0)
+        {
+        stopDelayTimer -= (float)delta;
+        if (stopDelayTimer <= 0 && !atCrossWalk)
+        {
+            SpeedUp(); // Resume movement after delay
+        }
+        return; // Prevent further movement calculations while waiting
+        }
+            if (isSlowingDown && slowdownTimer > 0)
+                {
+                    slowdownTimer -= (float)delta;
+                    _speed = Mathf.Lerp(normalSpeed, slowSpeed, (slowdownDuration - slowdownTimer) / slowdownDuration);
+                   // GD.Print($"Slowing down: Speed = {_speed}");
+                }
+                else if (isSlowingDown)
+                {
+                    _speed = slowSpeed;
+                }
 
-            StopToukka();
-				// Move the car
-				currentPosition += currentDirection * _speed * (float)delta;
+            if (isSpeedingUp && speedupTimer > 0)
+            {
+                speedupTimer -= (float)delta;
+                _speed = Mathf.Lerp(slowSpeed, normalSpeed, (speedupDuration - speedupTimer) / speedupDuration);
+            }
+            else if (isSpeedingUp)
+            {
+                _speed = normalSpeed;
+                isSpeedingUp = false;
+            }
 
-				// Update the car's position
-				Position = currentPosition;
+            // Move the Toukka
+            currentPosition += currentDirection * _speed * (float)delta;
+            Position = currentPosition;
 
-				if (Position.X < -50 || Position.X > 690 || Position.Y < -50 || Position.Y > 410) {
+            if (Position.X < -50 || Position.X > 690 || Position.Y < -50 || Position.Y > 410) {
 					ResetPosition();
 				}
+    }
 
-
-	}
 
 
 	private void ResetPosition() {
-		GD.Print("Car is out of bounds, resetting position...");
+		//GD.Print("Car is out of bounds, resetting position...");
         currentPosition = initialPosition; // Reset to the initial position
         Position = initialPosition;
         currentDirection = Directions[(int)StartDirection];
@@ -144,12 +184,12 @@ public partial class Toukka : Sprite2D
 	}
     private void OnIntersectionEntered(Area2D area)
     {
-		GD.Print($"Collision detected with: {area.Name}");
+		//GD.Print($"Collision detected with: {area.Name}");
 
 		risteysCounter++;
         if (area is Area2D intersection) // Check if it's an intersection (Area2D)
         {
-			GD.Print($"Toukka risteyksessä {intersection.Name}");
+			//GD.Print($"Toukka risteyksessä {intersection.Name}");
 
 
 			if (risteysCounter == 1) {
@@ -158,13 +198,13 @@ public partial class Toukka : Sprite2D
 				{
 					// Turn right (90 degrees clockwise)
 					TurnRight();
-					GD.Print("Turning Right at first intersection");
+					//GD.Print("Turning Right at first intersection");
 				}
 				else
 				{
 					// Continue straight (no turn)
 					ContinueStraight();
-					GD.Print("Continuing straight at first intersection");
+					//GD.Print("Continuing straight at first intersection");
 				}
         }
             else if (risteysCounter == 2)
@@ -175,65 +215,72 @@ public partial class Toukka : Sprite2D
             {
                 // Turn left (90 degrees counterclockwise)
                 TurnLeft();
-                GD.Print("Turning Left at second intersection");
+                //GD.Print("Turning Left at second intersection");
             }
             else
             {
                 // Continue straight (no turn)
                 ContinueStraight();
-                GD.Print("Continuing straight at second intersection");
+                //GD.Print("Continuing straight at second intersection");
             }
         }
 
 		isTurning = false;
-		GD.Print("Turning decision made");
+		//GD.Print("Turning decision made");
 		}
 	}
 
     private void OnDetectionAreaEntered(Node body) {
-         GD.Print($"Toukka detected: {body.Name}");
+         //GD.Print($"Toukka detected: {body.Name}");
          string areaName = body.Name.ToString();
 
         if (body is Area2D area)
         {
             if (area.GetParent() is Toukka otherToukka)
             {
-                GD.Print($"Toukka detected another Toukka: {otherToukka.Name}");
-                SlowDown();
+                //GD.Print($"Toukka detected another Toukka: {otherToukka.Name}");
+                SlowDown(otherToukka);
             }
         }
         else if (body is TileMapLayer tileMapLayer)
         {
             if (areaName.StartsWith("Suojatie"))
             {
-                GD.Print($"Toukka detected a crosswalk: {tileMapLayer.Name}");
+               // GD.Print($"Toukka detected a crosswalk: {tileMapLayer.Name}");
                 detectedCrossWalk = tileMapLayer.Name;
             }
     }
 }
-        private void SlowDown()
+        private void SlowDown(Toukka otherToukka)
         {
-            if (!isSlowingDown) {
+            float distance = Position.DistanceTo(otherToukka.Position);
+            if (distance < stopDistance) // Too close, stop immediately
+            {
+            _speed = stopSpeed;
+            isStopped = true;
+            stopDelayTimer = stopDelay;
+           // GD.Print("Toukka too close, stopping immediately!");
+            }
+            else // Not too close yet, start slowing down
+            {
+            if (!isSlowingDown)
+            {
                 isSlowingDown = true;
-                _speed = slowSpeed;
-                GD.Print("Slowing down due to other toukka");
-
-                if (currentPosition.DistanceTo(Position) < stopDistance) {
-                    _speed = stopSpeed;
-                    GD.Print("Toukka too close, stopping");
-                }
+                slowdownTimer = slowdownDuration;
+               // GD.Print("Initiating gradual slowdown...");
             }
         }
+    }
 
         private void OnDetectionAreaExited (Node body) {
-         GD.Print($"Toukka left area: {body.Name}");
+         //GD.Print($"Toukka left area: {body.Name}");
          string areaName = body.Name.ToString();
 
                 if (body is Area2D area)
                 {
                     if (area.GetParent() is Toukka otherToukka)
                     {
-                        GD.Print($"Toukka left detection area of another Toukka: {otherToukka.Name}");
+                      //  GD.Print($"Toukka left detection area of another Toukka: {otherToukka.Name}");
                         SpeedUp();
                     }
                 }
@@ -241,20 +288,22 @@ public partial class Toukka : Sprite2D
                 {
                     if (tileMapLayer.Name == detectedCrossWalk)
                     {
-                        GD.Print($"Toukka left crosswalk: {tileMapLayer.Name}");
+                       // GD.Print($"Toukka left crosswalk: {tileMapLayer.Name}");
                         detectedCrossWalk = "";
                     }
             }
+
         }
 
         private void SpeedUp()
         {
-            if (isSlowingDown)
-            {
                 isSlowingDown = false;
+                isStopped = false;
+                isSpeedingUp = true;
+                speedupTimer = speedupDuration;
                 _speed = normalSpeed;
-                GD.Print("Speeding up as the path is clear.");
-            }
+               // GD.Print("Speeding up...");
+
         }
 
         private void TurnRight()
@@ -269,7 +318,7 @@ public partial class Toukka : Sprite2D
         else if (currentDirection == Directions[3]) // Right
             currentDirection = Directions[1]; // Down
 
-        GD.Print("Turning Right");
+       // GD.Print("Turning Right");
 		RotateSprite(90);
     }
 
@@ -285,14 +334,14 @@ public partial class Toukka : Sprite2D
         else if (currentDirection == Directions[3]) // Right
             currentDirection = Directions[0]; // Up
 
-        GD.Print("Turning Left");
+       // GD.Print("Turning Left");
         isTurning = false;
 		RotateSprite(-90);
     }
 
     private void ContinueStraight()
     {
-        GD.Print("Continuing Straight");
+       // GD.Print("Continuing Straight");
         isTurning = false;
     }
 
@@ -323,11 +372,9 @@ public partial class Toukka : Sprite2D
 
     private void StopToukka() {
         if (atCrossWalk && detectedCrossWalk == sieniSuojaTie) {
-            GD.Print($"Stopping for Sieni: {detectedCrossWalk} = {sieniSuojaTie}");
-            _speed = stopSpeed;
-        }
-        else {
-            _speed = normalSpeed;
+        GD.Print($"Stopping for Sieni: {detectedCrossWalk} = {sieniSuojaTie}");
+        _speed = stopSpeed;
+        isStopped = true;
         }
     }
 }

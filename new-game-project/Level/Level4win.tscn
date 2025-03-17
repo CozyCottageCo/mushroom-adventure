@@ -1,8 +1,8 @@
-[gd_scene load_steps=45 format=4 uid="uid://bjnpayj15o63u"]
+[gd_scene load_steps=45 format=4 uid="uid://b05pvvxhtfuro"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
-[ext_resource type="Texture2D" uid="uid://c8fch07xpjdvg" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="3_5osyu"]
+[ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="3_5osyu"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="3_vf2wu"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="4_7ajab"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="5_nrcu1"]
@@ -598,7 +598,6 @@ z_index = 1
 position = Vector2(658, 186)
 rotation = -0.0120482
 script = ExtResource("17_at888")
-Speed = 150.0
 StartDirection = 2
 
 [node name="Toukka2" parent="." instance=ExtResource("16_wmgee")]
@@ -606,7 +605,6 @@ z_index = 1
 position = Vector2(283, -30)
 rotation = 4.71239
 script = ExtResource("17_at888")
-Speed = 150.0
 StartDirection = 1
 
 [node name="Toukka3" parent="." instance=ExtResource("16_wmgee")]
@@ -615,7 +613,6 @@ position = Vector2(327, 405)
 rotation = 1.5708
 flip_v = true
 script = ExtResource("17_at888")
-Speed = 150.0
 StartDirection = 0
 
 [node name="Toukka4" parent="." instance=ExtResource("16_wmgee")]
@@ -624,7 +621,6 @@ position = Vector2(-49, 228)
 rotation = -0.0120482
 flip_h = true
 script = ExtResource("17_at888")
-Speed = 150.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 517.0

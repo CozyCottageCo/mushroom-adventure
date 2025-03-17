@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://c4u03m6odprsk"]
+[gd_scene load_steps=40 format=4 uid="uid://wmisq1c3ss0n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jucmq"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_kuheb"]
@@ -530,7 +530,6 @@ z_index = 1
 position = Vector2(658, 186)
 rotation = -0.0120482
 script = ExtResource("17_upitk")
-Speed = 150.0
 StartDirection = 2
 
 [node name="Toukka2" parent="." instance=ExtResource("16_6fyaq")]
@@ -538,7 +537,6 @@ z_index = 1
 position = Vector2(283, -30)
 rotation = 4.71239
 script = ExtResource("17_upitk")
-Speed = 150.0
 StartDirection = 1
 
 [node name="Toukka3" parent="." instance=ExtResource("16_6fyaq")]
@@ -547,7 +545,6 @@ position = Vector2(327, 405)
 rotation = 1.5708
 flip_v = true
 script = ExtResource("17_upitk")
-Speed = 150.0
 StartDirection = 0
 
 [node name="Toukka4" parent="." instance=ExtResource("16_6fyaq")]
@@ -556,4 +553,3 @@ position = Vector2(-49, 228)
 rotation = -0.0120482
 flip_h = true
 script = ExtResource("17_upitk")
-Speed = 150.0

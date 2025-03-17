@@ -535,7 +535,7 @@ StartDirection = 2
 
 [node name="Toukka2" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(327, 392)
+position = Vector2(324, 391)
 rotation = 1.5708
 script = ExtResource("16_3xm7w")
 StartDirection = 0
@@ -549,9 +549,16 @@ StartDirection = 1
 
 [node name="Toukka4" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(-25, 229)
+position = Vector2(-19, 226)
 scale = Vector2(-1, 1)
 script = ExtResource("16_3xm7w")
 
 [node name="Sieni" parent="." instance=ExtResource("18_7xa28")]
 position = Vector2(416, 129)
+
+[node name="Toukka5" parent="." instance=ExtResource("16_572cx")]
+z_index = 1
+position = Vector2(515, 184)
+script = ExtResource("16_3xm7w")
+normalSpeed = 50.0
+StartDirection = 2
