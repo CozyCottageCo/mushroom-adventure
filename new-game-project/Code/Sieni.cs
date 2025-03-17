@@ -10,7 +10,12 @@
 
 		[Export] private string _gridScenePath = "res://Level/Grid.tscn";
 
+		private Vector2 currentPosition;
+		private Vector2 initialPosition;
+
 		public event EventHandler<string> PysähtynytSuojaTielle;
+
+		public event EventHandler<string> PoistuuSuojaTieltä;
 		public bool onSuojaTiellä = false;
 		private string suojaTieNimi = "";
 
@@ -32,11 +37,16 @@
 			{
 			PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 			grid = (Grid)gridScene.Instantiate(); // load&instantiate grid, place snake
-			GlobalPosition = new Vector2(128,64); // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
+			initialPosition = Position;
+       		currentPosition = initialPosition;
+			Position = initialPosition;
+			GlobalPosition = initialPosition; // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
 			_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); // alustetaa animationplayer
+			GD.Print(GlobalPosition);
 
 
 			GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered; // tää monitoroi millon kollisio tapahtuu tilemaplayeri kans
+			GetNode<Area2D>("Area2D").BodyExited += OnBodyExited;
 			GetNode<Area2D>("Area2D").AreaEntered += OnAreaEntered; // tää area2d (töl hetkel toukka)
 
 			suojaTieTimer = new Timer();
@@ -127,8 +137,24 @@
 				GD.Print("Mis vitus me ollaan"); // out of bounds
 			}
 		}
-
 	}
+
+	private void OnBodyExited(Node body) {
+		GD.Print($"Exiting body: {body.Name}");
+    string bodyName = body.Name.ToString();
+
+    if (body is TileMapLayer tileMapLayer) // Check if it's a TileMapLayer
+    {
+        if (bodyName.StartsWith("Suojatie")) // Check if it's a crosswalk
+        {
+            GD.Print($"Sieni is leaving the crosswalk: {bodyName}");
+            onSuojaTiellä = false; // Sieni is no longer on the crosswalk
+			PoistuuSuojaTieltä?.Invoke(this, suojaTieNimi);
+            suojaTieNimi = ""; // Clear crosswalk name
+
+        }
+    }
+}
 
 	private void OnAreaEntered(Area2D area)
 	{
@@ -143,12 +169,20 @@
 	}
 
 	private void OnSuojaTieTimeout() {
-		if (onSuojaTiellä && _currentSpeed == 0)
-        {
-            GD.Print("Sieni has been on the crosswalk for 1.5 seconds. Stopping Toukka.");
-            PysähtynytSuojaTielle?.Invoke(this, suojaTieNimi);
-        }
-	}
+    GD.Print("Timeout triggered, checking conditions...");
+
+    if (onSuojaTiellä && _currentSpeed == 0)
+    {
+        GD.Print($"Sieni has been on the crosswalk for {suojaTieAika} seconds. Stopping Toukka.");
+        PysähtynytSuojaTielle?.Invoke(this, suojaTieNimi);
+    }
+    else
+    {
+        GD.Print($"Conditions not met: onSuojaTiellä = {onSuojaTiellä}, _currentSpeed = {_currentSpeed}");
+    }
+}
+
+
 
 
 	private void RunAnimation(Vector2 direction) { // animaatiokoodi

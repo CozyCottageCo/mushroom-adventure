@@ -75,9 +75,7 @@ namespace SieniPeli
             } else {
                 GD.Print("VoittoScreen not found");
             }
-            PackedScene sieniScene = ResourceLoader.Load<PackedScene>("res://Level/Sieni.tscn");
-            _sieni = (Sieni)sieniScene.Instantiate();
-            AddChild(_sieni);
+            _sieni = GetNode<Sieni>("Sieni");
 
             GD.Print("Sieni node successfully instantiated and added to scene.");
 
@@ -149,6 +147,7 @@ namespace SieniPeli
                             (int)(_sieni.GlobalPosition.X / tileWidth),
                             (int)(_sieni.GlobalPosition.Y / tileHeight)
                         );
+                        GD.Print(sieniTile);
 
                         Vector2I touchTile = new Vector2I( // Muuttaa piirretyn viivan tile koordinaateiksi
                             (int)(touch.Position.X / tileWidth),
@@ -177,13 +176,13 @@ namespace SieniPeli
 
                         GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
 
-                        Vector2I lastTile = tilesUsed[tilesUsed.Count -1]; // katotaa mihi jäi viiva
+                        /*Vector2I lastTile = tilesUsed[tilesUsed.Count -1]; // katotaa mihi jäi viiva
                         if (lastTile != _täpläTile) { // jos viivan loppu != täplän positio
                             GD.Print("Line must end at täplä!"); // ei kelpaa
                             tilesUsed.Clear(); //uusiks reset käytetyt tiilet
                             _line.Points = new Vector2[0]; // uusiks reset viiva
                             return;
-                        }
+                        }*/ // koodi, jos halutaan ettei piirto voi loppua muualle kuin täplään
 
                         _goButton.Visible = true; // napit näkyviin
                         _redoButton.Visible = true;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://xf1ea28uubuc"]
+[gd_scene load_steps=5 format=3 uid="uid://xf1ea28uubuc"]
 
 [ext_resource type="Texture2D" uid="uid://bbul15v5320al" path="res://Art/Spritet/Ei-pelaajat/NPC_oik.värit.png" id="1_p7hym"]
 
@@ -9,17 +9,28 @@ region = Rect2(16, 64, 64, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2itsd"]
 size = Vector2(26, 25)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ttaut"]
+a = Vector2(-50, 10)
+
 [node name="Toukka" type="Sprite2D"]
 position = Vector2(-12, 0)
 texture = SubResource("AtlasTexture_0a61a")
 offset = Vector2(15, 0)
 region_rect = Rect2(0, 0, 200, 184)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionArea2D" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 255
+collision_mask = 34
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(17, 2)
 shape = SubResource("RectangleShape2D_2itsd")
 debug_color = Color(0.694348, 0.437084, 0.622198, 0.42)
+
+[node name="DetectionArea2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
+position = Vector2(0, -10)
+shape = SubResource("SegmentShape2D_ttaut")
