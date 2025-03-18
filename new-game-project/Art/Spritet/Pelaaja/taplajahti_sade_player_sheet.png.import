@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://b2nat7wi0gprh"
+=======
+uid="uid://vai0im1gh2ph"
+>>>>>>> 3fc78c5ac8a21ea3847b3f1b7d105e0702e461c0
 path="res://.godot/imported/taplajahti_sade_player_sheet.png-edce7f504695e10df888fc6c702fc9a8.ctex"
 metadata={
 "vram_texture": false

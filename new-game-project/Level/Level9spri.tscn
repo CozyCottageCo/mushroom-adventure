@@ -1,9 +1,9 @@
-[gd_scene load_steps=47 format=4 uid="uid://blgfbaa1lybm1"]
+[gd_scene load_steps=47 format=4 uid="uid://cnrdd7yb4esf"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_n34lu"]
-[ext_resource type="Texture2D" uid="uid://n4k73yj70x6m" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_lbgmv"]
+[ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_lbgmv"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_qciaj"]
-[ext_resource type="Texture2D" uid="uid://c8fch07xpjdvg" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="3_p8jsm"]
+[ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="3_p8jsm"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_t485m"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="5_x73on"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_cnxye"]
@@ -628,7 +628,6 @@ z_index = 1
 position = Vector2(658, 186)
 rotation = -0.0120482
 script = ExtResource("18_4jcd8")
-Speed = 150.0
 StartDirection = 2
 
 [node name="Toukka2" parent="." instance=ExtResource("17_sjiv6")]
@@ -636,7 +635,6 @@ z_index = 1
 position = Vector2(283, -30)
 rotation = 4.71239
 script = ExtResource("18_4jcd8")
-Speed = 150.0
 StartDirection = 1
 
 [node name="Toukka3" parent="." instance=ExtResource("17_sjiv6")]
@@ -645,7 +643,6 @@ position = Vector2(327, 405)
 rotation = 1.5708
 flip_v = true
 script = ExtResource("18_4jcd8")
-Speed = 150.0
 StartDirection = 0
 
 [node name="Toukka4" parent="." instance=ExtResource("17_sjiv6")]
@@ -654,7 +651,6 @@ position = Vector2(-49, 228)
 rotation = -0.0120482
 flip_h = true
 script = ExtResource("18_4jcd8")
-Speed = 150.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 517.0
