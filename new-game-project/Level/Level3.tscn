@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=4 uid="uid://wmisq1c3ss0n"]
+[gd_scene load_steps=42 format=4 uid="uid://wmisq1c3ss0n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jucmq"]
+[ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_gcmou"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_kuheb"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="3_4f81g"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="4_dk4dl"]
@@ -17,6 +18,30 @@
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="15_y3xvn"]
 [ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_6fyaq"]
 [ext_resource type="Script" path="res://Code/Toukka.cs" id="17_upitk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
+texture = ExtResource("2_gcmou")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("2_kuheb")
@@ -68,6 +93,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_8f82l")
+sources/0 = SubResource("TileSetAtlasSource_lj7qn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13wsf"]
 texture = ExtResource("3_4f81g")
@@ -527,7 +553,7 @@ shape = SubResource("RectangleShape2D_3qogq")
 
 [node name="Toukka" parent="." instance=ExtResource("16_6fyaq")]
 z_index = 1
-position = Vector2(658, 186)
+position = Vector2(678, 182)
 rotation = -0.0120482
 script = ExtResource("17_upitk")
 StartDirection = 2

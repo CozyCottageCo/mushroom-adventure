@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hs1c3j7k0la"
-path="res://.godot/imported/taplajahti_sade_player_sheet.png-edce7f504695e10df888fc6c702fc9a8.ctex"
+uid="uid://b0tvwy1x8ssol"
+path="res://.godot/imported/Tileset_tieviivattest.png-783e0333886967411f42165774743848.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Pelaaja/taplajahti_sade_player_sheet.png"
-dest_files=["res://.godot/imported/taplajahti_sade_player_sheet.png-edce7f504695e10df888fc6c702fc9a8.ctex"]
+source_file="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png"
+dest_files=["res://.godot/imported/Tileset_tieviivattest.png-783e0333886967411f42165774743848.ctex"]
 
 [params]
 
