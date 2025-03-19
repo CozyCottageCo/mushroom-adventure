@@ -8,19 +8,19 @@
 	public partial class Sieni : Sprite2D
 	{
 
-		[Export] private string _gridScenePath = "res://Level/Grid.tscn";
+		[Export] private string _gridScenePath = "res://Level/grid.tscn";
 
 		private Vector2 currentPosition;
 		private Vector2 initialPosition;
 
-		public event EventHandler<string> PysähtynytSuojaTielle;
+		[Signal] public delegate void PysähtynytSuojaTielleEventHandler(string suojaTieName, bool onSuojaTiellä);
 
-		public event EventHandler<string> PoistuuSuojaTieltä;
+		[Signal] public delegate void PoistuuSuojaTieltäEventHandler(string suojaTieName, bool onSuojaTiellä);
 		public bool onSuojaTiellä = false;
 		private string suojaTieNimi = "";
 
 		private Timer suojaTieTimer;
-		private const float suojaTieAika = 2.5f;
+		private const float suojaTieAika = 2.0f;
 
 				private Vector2 _direction = Vector2.Zero; // movement initialized at zero (no movement)
 				private Grid grid; //initialize grid
@@ -40,7 +40,7 @@
 			initialPosition = Position;
        		currentPosition = initialPosition;
 			Position = initialPosition;
-			GlobalPosition = initialPosition; // örh alotuskoordinaatti ainakin marginaalien verran nurkasta (emt onko tällä nii väliä)
+			GlobalPosition = initialPosition;
 			_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer"); // alustetaa animationplayer
 			GD.Print(GlobalPosition);
 
@@ -67,8 +67,7 @@
 			Vector2 targetPosition = path[currentTargetIndex];
 			Vector2 direction = (targetPosition - GlobalPosition).Normalized(); // suunta näiden erotus
 			float distance = _currentSpeed * (float)delta; // kuinka pal liikutaan (freimiä sekunnissa x framet tjsp)
-
-			GlobalPosition += direction * distance; // positio liikkuu suunnan x etäisyyden
+			GlobalPosition = GlobalPosition.MoveToward(targetPosition, distance); // positio liikkuu suunnan x etäisyyden
 			RunAnimation(direction); // ajetaan liikkues animaatioo
 
 			if (GlobalPosition.DistanceTo(targetPosition) < distance) { // jos tarpeeks lähel kohdetta, asetetaan et ollaan perillä (ettei junnaa)
@@ -141,7 +140,7 @@
 
 	private void OnBodyExited(Node body) {
 		GD.Print($"Exiting body: {body.Name}");
-    string bodyName = body.Name.ToString();
+    	string bodyName = body.Name.ToString();
 
     if (body is TileMapLayer tileMapLayer) // Check if it's a TileMapLayer
     {
@@ -149,7 +148,7 @@
         {
             GD.Print($"Sieni is leaving the crosswalk: {bodyName}");
             onSuojaTiellä = false; // Sieni is no longer on the crosswalk
-			PoistuuSuojaTieltä?.Invoke(this, suojaTieNimi);
+			EmitSignal(nameof(PoistuuSuojaTieltä), suojaTieNimi, onSuojaTiellä);
             suojaTieNimi = ""; // Clear crosswalk name
 
         }
@@ -174,7 +173,8 @@
     if (onSuojaTiellä && _currentSpeed == 0)
     {
         GD.Print($"Sieni has been on the crosswalk for {suojaTieAika} seconds. Stopping Toukka.");
-        PysähtynytSuojaTielle?.Invoke(this, suojaTieNimi);
+        EmitSignal(nameof(PysähtynytSuojaTielle), suojaTieNimi, onSuojaTiellä);
+
     }
     else
     {
@@ -227,6 +227,5 @@
 		}
 	}
 
-
-	}
+    }
 	}
