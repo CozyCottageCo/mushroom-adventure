@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cop4c25sde6jo"
+=======
+uid="uid://48ec3n4qxnod"
+>>>>>>> 9849e954980611e7b0beaa19d47c3c852086618e
 path="res://.godot/imported/täplä_sheet.png-93f306448643929ea0b7989282f4d55c.ctex"
 metadata={
 "vram_texture": false
