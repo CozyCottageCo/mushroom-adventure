@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccttw6jc0eygj"
-path="res://.godot/imported/täplä_sheet.png-93f306448643929ea0b7989282f4d55c.ctex"
+uid="uid://b5kweeajwx8yp"
+path="res://.godot/imported/taplajahti_vesi.png-87078b97dbb6bdab1b67c18040c9d083.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Pelaaja/täplä_sheet.png"
-dest_files=["res://.godot/imported/täplä_sheet.png-93f306448643929ea0b7989282f4d55c.ctex"]
+source_file="res://Art/Spritet/Ympäristö/taplajahti_vesi.png"
+dest_files=["res://.godot/imported/taplajahti_vesi.png-87078b97dbb6bdab1b67c18040c9d083.ctex"]
 
 [params]
 

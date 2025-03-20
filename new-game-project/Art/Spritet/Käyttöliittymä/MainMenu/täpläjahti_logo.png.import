@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccttw6jc0eygj"
-path="res://.godot/imported/täplä_sheet.png-93f306448643929ea0b7989282f4d55c.ctex"
+uid="uid://c7riypqdptch2"
+path="res://.godot/imported/täpläjahti_logo.png-d01fb7a491cedb84bdd0fd1d1e6a57bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Pelaaja/täplä_sheet.png"
-dest_files=["res://.godot/imported/täplä_sheet.png-93f306448643929ea0b7989282f4d55c.ctex"]
+source_file="res://Art/Spritet/Käyttöliittymä/MainMenu/täpläjahti_logo.png"
+dest_files=["res://.godot/imported/täpläjahti_logo.png-d01fb7a491cedb84bdd0fd1d1e6a57bd.ctex"]
 
 [params]
 
