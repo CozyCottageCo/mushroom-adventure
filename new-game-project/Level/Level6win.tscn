@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=4 uid="uid://duvpuolgf3g5r"]
+[gd_scene load_steps=51 format=4 uid="uid://duvpuolgf3g5r"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ll65p"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_foktk"]
+[ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_w3bjm"]
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="3_obs4j"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_lxsv3"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="5_dnn01"]
@@ -16,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="14_0der2"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_idug2"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_n8ie1"]
-[ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="17_tf0yi"]
-[ext_resource type="Script" path="res://Code/Toukka.cs" id="18_lsfir"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="18_ifv3i"]
+[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_qg58n"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="19_wrlu5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -288,15 +289,50 @@ region = Rect2(20, 134, 716, 716)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qogq"]
-size = Vector2(2.78124, 3.3125)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyhy1"]
 atlas = ExtResource("19_wrlu5")
 region = Rect2(527, 228, 103, 123)
 
+[sub_resource type="Curve2D" id="Curve2D_bqxjn"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 86, -23, 0, 0, 0, 0, 88, 228, 0, 0, 0, 0, 86, 415)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_sfj5x"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 86, -29, 0, 0, 0, 0, 86, 235, 0, 0, 0, 0, 667, 235)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_c0bft"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 134, 415, 0, 0, 0, 0, 136, 238, 0, 0, 0, 0, 135, -38)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_xifcg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 135, 419, 0, 0, 0, 0, 135, 237, 0, 0, 0, 0, 666, 234)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_afax1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 663, 184, 0, 0, 0, 0, 135, 185, 0, 0, 0, 0, 136, -39)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_ujq5v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 674, 183, 0, 0, 0, 0, 85, 188, 0, 0, 0, 0, 85, 424)
+}
+point_count = 3
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ll65p")
+
+[node name="CrossWalkManager" parent="." instance=ExtResource("2_w3bjm")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -561,73 +597,6 @@ script = ExtResource("16_n8ie1")
 position = Vector2(36, 84)
 shape = SubResource("RectangleShape2D_5ivg4")
 
-[node name="Risteykset" type="Node2D" parent="."]
-
-[node name="Risteys2" type="Area2D" parent="Risteykset"]
-collision_layer = 255
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys2"]
-position = Vector2(325, 229)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys3" type="Area2D" parent="Risteykset"]
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys3"]
-position = Vector2(294.344, 226.609)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys4" type="Area2D" parent="Risteykset"]
-position = Vector2(1, 4)
-collision_layer = 32
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys4"]
-position = Vector2(288.438, 184.375)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys" type="Area2D" parent="Risteykset"]
-position = Vector2(2, 2)
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys"]
-position = Vector2(324, 186)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Toukka" parent="." instance=ExtResource("17_tf0yi")]
-z_index = 1
-position = Vector2(658, 186)
-rotation = -0.0120482
-script = ExtResource("18_lsfir")
-StartDirection = 2
-
-[node name="Toukka2" parent="." instance=ExtResource("17_tf0yi")]
-z_index = 1
-position = Vector2(91, -18)
-rotation = 4.71239
-script = ExtResource("18_lsfir")
-StartDirection = 1
-
-[node name="Toukka3" parent="." instance=ExtResource("17_tf0yi")]
-z_index = 1
-position = Vector2(133, 405)
-rotation = 1.5708
-flip_v = true
-script = ExtResource("18_lsfir")
-StartDirection = 0
-
-[node name="Toukka4" parent="." instance=ExtResource("17_tf0yi")]
-z_index = 1
-position = Vector2(-49, 228)
-rotation = -0.0120482
-flip_h = true
-script = ExtResource("18_lsfir")
-
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 position = Vector2(200, 279)
 scale = Vector2(1.19231, 1.1701)
@@ -652,3 +621,30 @@ offset_top = 357.0
 offset_right = 638.0
 offset_bottom = 380.0
 text = "Juhannuskylänkoulu"
+
+[node name="Sieni" parent="." instance=ExtResource("19_qg58n")]
+position = Vector2(352, 135)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_bqxjn")
+
+[node name="Path2D2" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_sfj5x")
+
+[node name="Path2D3" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_c0bft")
+
+[node name="Path2D4" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_xifcg")
+
+[node name="Path2D5" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_afax1")
+
+[node name="Path2D6" type="Path2D" parent="Node2D"]
+curve = SubResource("Curve2D_ujq5v")
+
+[node name="Muurahainen" parent="Node2D/Path2D6" instance=ExtResource("18_ifv3i")]
+position = Vector2(674, 183)
+rotation = 3.1331

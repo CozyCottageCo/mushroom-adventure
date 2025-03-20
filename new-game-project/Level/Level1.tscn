@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_qa13n"]
 [ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_572cx"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_fsa4o"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Murkku.tscn" id="17_v62nk"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_7xa28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -579,10 +579,11 @@ script = null
 curve = SubResource("Curve2D_kynpq")
 
 [node name="Yläjäbä" parent="Reitit/Path2D2" instance=ExtResource("17_v62nk")]
-position = Vector2(280.736, 288.625)
+position = Vector2(280.736, 288.624)
 rotation = 1.58362
 scale = Vector2(-1, -1)
 progress = 313.654
+script = null
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8gas6")
@@ -591,6 +592,7 @@ curve = SubResource("Curve2D_8gas6")
 position = Vector2(278, -30)
 rotation = 1.55523
 scale = Vector2(-1, -1)
+script = null
 
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_yu000")
@@ -607,6 +609,7 @@ position = Vector2(327.127, 86.0799)
 rotation = -1.5628
 scale = Vector2(-1, 1)
 progress = 493.925
+script = null
 
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_vepq3")
@@ -615,15 +618,17 @@ curve = SubResource("Curve2D_vepq3")
 position = Vector2(-33, 230)
 rotation = -0.00319488
 scale = Vector2(-1, 1)
+script = null
 
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_rwnpu")
 
 [node name="Murkku" parent="Reitit/Path2D7" instance=ExtResource("17_v62nk")]
-position = Vector2(326.928, 230.535)
+position = Vector2(326.929, 230.536)
 rotation = -1.58634
 scale = Vector2(-1, 1)
 progress = 191.405
+script = null
 
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ay1lq")
@@ -632,6 +637,7 @@ curve = SubResource("Curve2D_ay1lq")
 position = Vector2(329, 422)
 rotation = -1.5861
 scale = Vector2(-1, 1)
+script = null
 
 [node name="Path2D9" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_rtl8j")
@@ -658,6 +664,7 @@ position = Vector2(565.728, 187.561)
 rotation = 3.1365
 scale = Vector2(-1, -1)
 progress = 110.278
+script = null
 
 [node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_2d6bc")

@@ -7,7 +7,7 @@ namespace SieniPeli {
         [Export] protected float maxSpeed = 100f;
         [Export] protected float kiihdytysSpeed = 40f;
         [Export] protected float jarrutusSpeed = 80f;
-        [Export] protected float minRollingSpeed = 10f;
+        [Export] protected float minRollingSpeed = 20f;
 
         private CrossWalkManager CrossWalkManager;
 
@@ -100,7 +100,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
-                if (area.GetParent() is Ötökkä otherÖtökkä && otherÖtökkä != this) {
+                if (body.IsInGroup ("Ötökkä") && body != this) {
                     // Block the movement to simulate slowing down
                     isBlocked = true;
                 }
@@ -124,7 +124,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area) {
                 // Ensure it's not the same as this instance's collision area
-                if (area.GetParent() is Ötökkä otherÖtökkä && otherÖtökkä != this) {
+                if (body.IsInGroup("Ötökkä") && body != this) {
 
                     // Unblock the movement to simulate resuming speed
                     isBlocked = false;
@@ -145,10 +145,10 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
-                if (area.GetParent() is Ötökkä otherÖtökkä && otherÖtökkä != this) {
+                if (body.IsInGroup("Ötökkä") && body != this) {
                     if (!isStopped) {
                     // Block the movement to simulate slowing down
-                    blockedBy = otherÖtökkä.GetInstanceId().ToString();
+                    blockedBy = body.GetInstanceId().ToString();
                     Stop();}
                     CheckCrossWalkStatus();
                 }
@@ -172,8 +172,8 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area) {
                 // Ensure it's not the same as this instance's collision area
-                if (area.GetParent() is Ötökkä otherÖtökkä && otherÖtökkä != this) {
-                    if (otherÖtökkä.GetInstanceId().ToString() == blockedBy) {
+                if (body.IsInGroup("Ötökkä") && body != this) {
+                    if (body.GetInstanceId().ToString() == blockedBy) {
                     blockedBy = "";
                     Resume();
                     }
