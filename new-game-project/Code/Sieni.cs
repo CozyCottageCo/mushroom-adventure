@@ -20,7 +20,10 @@
 		private string suojaTieNimi = "";
 
 		private Timer suojaTieTimer;
+		private Timer suojaTieDelayTimer;
+		private bool canEmitSignal = true;
 		private const float suojaTieAika = 2.0f;
+		private const float suojaTieDelayAika = 10.0f;
 
 				private Vector2 _direction = Vector2.Zero; // movement initialized at zero (no movement)
 				private Grid grid; //initialize grid
@@ -54,6 +57,12 @@
        		suojaTieTimer.OneShot = true;
         	suojaTieTimer.Timeout += OnSuojaTieTimeout;
         	AddChild(suojaTieTimer);
+
+			suojaTieDelayTimer = new Timer();
+        	suojaTieDelayTimer.WaitTime = suojaTieDelayAika;
+       		suojaTieDelayTimer.OneShot = true;
+        	suojaTieDelayTimer.Timeout += OnDelayTimeOut;
+        	AddChild(suojaTieDelayTimer);
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -170,10 +179,16 @@
 	private void OnSuojaTieTimeout() {
     GD.Print("Timeout triggered, checking conditions...");
 
-    if (onSuojaTiellä && _currentSpeed == 0)
+    if (onSuojaTiellä && _currentSpeed == 0 && canEmitSignal)
     {
         GD.Print($"Sieni has been on the crosswalk for {suojaTieAika} seconds. Stopping Toukka.");
-        EmitSignal(nameof(PysähtynytSuojaTielle), suojaTieNimi, onSuojaTiellä);
+
+            // Emit the signal after the timeout period (timer reset)
+            EmitSignal(nameof(PysähtynytSuojaTielle), suojaTieNimi, onSuojaTiellä);
+			canEmitSignal = false;
+			suojaTieDelayTimer.Start();
+             // Restart the timer to ensure it doesn't keep firing too quickly
+
 
     }
     else
@@ -181,6 +196,12 @@
         GD.Print($"Conditions not met: onSuojaTiellä = {onSuojaTiellä}, _currentSpeed = {_currentSpeed}");
     }
 }
+
+	private void OnDelayTimeOut() {
+		GD.Print("Delay passed");
+		canEmitSignal = true;
+		suojaTieTimer.Start();
+	}
 
 
 

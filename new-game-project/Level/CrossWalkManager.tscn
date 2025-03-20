@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://fb8v61vu14qw"]
 
-[ext_resource type="Script" path="res://CrossWalkManager.cs" id="1_bjbpq"]
+[ext_resource type="Script" path="res://Code/CrossWalkManager.cs" id="1_w0aml"]
 
 [node name="CrossWalkManager" type="Node2D"]
-script = ExtResource("1_bjbpq")
+script = ExtResource("1_w0aml")

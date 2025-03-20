@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsjalxwejwv1a"]
+
+[ext_resource type="Texture2D" uid="uid://bmkgg8rdqgrqm" path="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/tileset_muurahainen pysty 30x59, sivu 31x59.png" id="1_2o0s8"]
+[ext_resource type="Script" path="res://Code/Ötökkä.cs" id="1_l5fii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4axx"]
+atlas = ExtResource("1_2o0s8")
+region = Rect2(0, 0, 59, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a60ib"]
+size = Vector2(54, 20)
+
+[node name="Ötökkä" type="PathFollow2D"]
+script = ExtResource("1_l5fii")
+
+[node name="Murkku" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_i4axx")
+
+[node name="CollisionArea2D" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+collision_layer = 16
+collision_mask = 218
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_a60ib")
+debug_color = Color(0.694348, 0.437084, 0.622198, 0.42)
+
+[node name="DetectionArea2DLong" type="Area2D" parent="."]
+position = Vector2(-9, -1)
+collision_layer = 64
+collision_mask = 152
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DLong"]
+position = Vector2(-4, 0)
+polygon = PackedVector2Array(-81, -22, -81, 19, 12, 2)
+
+[node name="DetectionArea2DShort" type="Area2D" parent="."]
+position = Vector2(-9, -1)
+collision_layer = 64
+collision_mask = 152
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
+position = Vector2(-4, 0)
+polygon = PackedVector2Array(-37, -1, -37, 3, 12, 2)

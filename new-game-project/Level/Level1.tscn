@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://41pfhvf6suvj"]
+[gd_scene load_steps=54 format=4 uid="uid://41pfhvf6suvj"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_6sskp"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_gwywm"]
@@ -15,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="13_ieksi"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_f83l7"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_qa13n"]
-[ext_resource type="Script" path="res://Code/Toukka.cs" id="16_3xm7w"]
 [ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_572cx"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_fsa4o"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Murkku.tscn" id="17_v62nk"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_7xa28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -229,17 +229,80 @@ region = Rect2(20, 134, 716, 716)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_blwae"]
-size = Vector2(12, 12)
+[sub_resource type="Curve2D" id="Curve2D_qi5pf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 280, -31, 0, 0, 0, 0, 282, 191, 0, 0, 0, 0, -16, 193)
+}
+point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa8op"]
-size = Vector2(12, 12)
+[sub_resource type="Curve2D" id="Curve2D_kynpq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 279, -25, 0, 0, 0, 0, 282, 190, 0, 0, 0, 0, 279, 424)
+}
+point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhwc6"]
-size = Vector2(12, 12)
+[sub_resource type="Curve2D" id="Curve2D_8gas6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 278, -30, 0, 0, 0, 0, 282, 227, 0, 0, 0, 0, 671, 228)
+}
+point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ts3v3"]
-size = Vector2(12, 12)
+[sub_resource type="Curve2D" id="Curve2D_yu000"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -15, 227, 0, 0, 0, 0, 280, 227, 0, 0, 0, 0, 280, 422)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_jlx6q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -27, 228, 0, 0, 0, 0, 326, 227, 0, 0, 0, 0, 328, -23)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_vepq3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -33, 230, 0, 0, 0, 0, 280, 229, 0, 0, 0, 0, 675, 227)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_rwnpu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 330, 422, 0, 0, 0, 0, 327, 229, 0, 0, 0, 0, 681, 227)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_ay1lq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 329, 422, 0, 0, 0, 0, 326, 226, 0, 0, 0, 0, 326, -41)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_rtl8j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 326, 429, 0, 0, 0, 0, 327, 191, 0, 0, 0, 0, -18, 192)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_hppwg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 668, 190, 0, 0, 0, 0, 327, 192, 0, 0, 0, 0, 326, -42)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_tnpfy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 676, 187, 0, 0, 0, 0, 283, 189, 0, 0, 0, 0, 279, 419)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_2d6bc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 688, 188, 0, 0, 0, 0, 576.973, 185.92, 0, 0, 0, 0, 566.348, 187.452, 0, 0, 0, 0, 327, 187, 0, 0, 0, 0, -17, 193)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y72lu"]
+size = Vector2(92, 91)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_6sskp")
@@ -501,77 +564,139 @@ script = ExtResource("16_fsa4o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
 shape = SubResource("RectangleShape2D_5ivg4")
 
-[node name="Risteykset" type="Node2D" parent="."]
-position = Vector2(137, 101)
-scale = Vector2(0.5, 0.5)
+[node name="Reitit" type="Node2D" parent="."]
 
-[node name="Risteys2" type="Area2D" parent="Risteykset"]
-position = Vector2(6, -3)
-collision_layer = 32
-collision_mask = 128
+[node name="Path2D" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_qi5pf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys2"]
-position = Vector2(372, 251)
-shape = SubResource("RectangleShape2D_blwae")
+[node name="Murkku" parent="Reitit/Path2D" instance=ExtResource("17_v62nk")]
+position = Vector2(280, -31)
+rotation = 1.56179
+scale = Vector2(-1, -1)
+script = null
 
-[node name="Risteys3" type="Area2D" parent="Risteykset"]
-position = Vector2(-5, 2)
-collision_layer = 32
-collision_mask = 128
+[node name="Path2D2" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_kynpq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys3"]
-position = Vector2(293, 244)
-shape = SubResource("RectangleShape2D_wa8op")
+[node name="Yläjäbä" parent="Reitit/Path2D2" instance=ExtResource("17_v62nk")]
+position = Vector2(280.736, 288.625)
+rotation = 1.58362
+scale = Vector2(-1, -1)
+progress = 313.654
 
-[node name="Risteys4" type="Area2D" parent="Risteykset"]
-position = Vector2(2, -3)
-collision_layer = 32
-collision_mask = 128
+[node name="Path2D3" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_8gas6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys4"]
-position = Vector2(288, 177)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_lhwc6")
+[node name="Murkku" parent="Reitit/Path2D3" instance=ExtResource("17_v62nk")]
+position = Vector2(278, -30)
+rotation = 1.55523
+scale = Vector2(-1, -1)
 
-[node name="Risteys" type="Area2D" parent="Risteykset"]
-position = Vector2(11, -4)
-collision_layer = 32
-collision_mask = 128
+[node name="Path2D4" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_yu000")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys"]
-position = Vector2(369, 180)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_ts3v3")
+[node name="Murkku" parent="Reitit/Path2D4" instance=ExtResource("17_v62nk")]
+position = Vector2(-15, 227)
+script = null
+
+[node name="Path2D5" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_jlx6q")
+
+[node name="Murkku" parent="Reitit/Path2D5" instance=ExtResource("17_v62nk")]
+position = Vector2(327.127, 86.0799)
+rotation = -1.5628
+scale = Vector2(-1, 1)
+progress = 493.925
+
+[node name="Path2D6" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_vepq3")
+
+[node name="Vasenjäbä" parent="Reitit/Path2D6" instance=ExtResource("17_v62nk")]
+position = Vector2(-33, 230)
+rotation = -0.00319488
+scale = Vector2(-1, 1)
+
+[node name="Path2D7" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_rwnpu")
+
+[node name="Murkku" parent="Reitit/Path2D7" instance=ExtResource("17_v62nk")]
+position = Vector2(326.928, 230.535)
+rotation = -1.58634
+scale = Vector2(-1, 1)
+progress = 191.405
+
+[node name="Path2D8" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_ay1lq")
+
+[node name="Alajäbä" parent="Reitit/Path2D8" instance=ExtResource("17_v62nk")]
+position = Vector2(329, 422)
+rotation = -1.5861
+scale = Vector2(-1, 1)
+
+[node name="Path2D9" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_rtl8j")
+
+[node name="Murkku" parent="Reitit/Path2D9" instance=ExtResource("17_v62nk")]
+position = Vector2(326, 429)
+rotation = -1.56659
+script = null
+
+[node name="Path2D10" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_hppwg")
+
+[node name="Murkku" parent="Reitit/Path2D10" instance=ExtResource("17_v62nk")]
+position = Vector2(667.156, 190.005)
+rotation = 3.13573
+progress = 1.15002
+script = null
+
+[node name="Path2D11" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_tnpfy")
+
+[node name="Ötökkä" parent="Reitit/Path2D11" instance=ExtResource("17_v62nk")]
+position = Vector2(565.728, 187.561)
+rotation = 3.1365
+scale = Vector2(-1, -1)
+progress = 110.278
+
+[node name="Path2D12" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_2d6bc")
+
+[node name="Oikeejäbä" parent="Reitit/Path2D12" instance=ExtResource("17_v62nk")]
+position = Vector2(688, 188)
+rotation = -3.12286
+scale = Vector2(-1, -1)
 
 [node name="Toukka" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(655, 183)
-script = ExtResource("16_3xm7w")
-stopDistance = 40.0
-StartDirection = 2
+position = Vector2(159, -116)
 
 [node name="Toukka2" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(330, 402)
+position = Vector2(-132, 25)
 rotation = 1.5708
-script = ExtResource("16_3xm7w")
-stopDistance = 40.0
-StartDirection = 0
 
 [node name="Toukka3" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(-17, 225)
+position = Vector2(-271, -78)
 scale = Vector2(-1, 1)
-script = ExtResource("16_3xm7w")
-stopDistance = 40.0
 
 [node name="Toukka4" parent="." instance=ExtResource("16_572cx")]
 z_index = 1
-position = Vector2(279, -17)
+position = Vector2(244, -154)
 rotation = -1.5708
-script = ExtResource("16_3xm7w")
-stopDistance = 40.0
-StartDirection = 1
+
+[node name="Toukka5" parent="." instance=ExtResource("16_572cx")]
+z_index = 1
+position = Vector2(14, -123)
 
 [node name="Sieni" parent="." instance=ExtResource("18_7xa28")]
 position = Vector2(412, 76)
+
+[node name="Intersection" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Intersection"]
+position = Vector2(305, 208.5)
+shape = SubResource("RectangleShape2D_y72lu")

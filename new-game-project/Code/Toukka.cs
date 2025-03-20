@@ -240,6 +240,7 @@ public partial class Toukka : Sprite2D
             if (area.GetParent() is Toukka otherToukka && otherToukka != this)
             {
               //  GD.Print($"{this.Name} detected another Toukka: {otherToukka.Name}");
+                ötökkäAhead = true;
                 SlowDown(otherToukka);
 
             }
@@ -332,7 +333,6 @@ public partial class Toukka : Sprite2D
 
         private void SpeedUp()
         {
-
 
                 if (CrossWalkManager.CrossWalkOccupied && CrossWalkManager.CurrentCrossWalk == detectedCrossWalk)
                 {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xf1ea28uubuc"]
+[gd_scene load_steps=5 format=3 uid="uid://xf1ea28uubuc"]
 
 [ext_resource type="Texture2D" uid="uid://bbul15v5320al" path="res://Art/Spritet/Ei-pelaajat/NPC_oik.värit.png" id="1_p7hym"]
 
@@ -8,9 +8,6 @@ region = Rect2(16, 64, 64, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2itsd"]
 size = Vector2(61, 26.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcup8"]
-size = Vector2(61, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4vne"]
 size = Vector2(11, 11)
@@ -34,9 +31,8 @@ debug_color = Color(0.694348, 0.437084, 0.622198, 0.42)
 collision_layer = 64
 collision_mask = 24
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2D"]
-position = Vector2(-31, 1)
-shape = SubResource("RectangleShape2D_mcup8")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2D"]
+polygon = PackedVector2Array(-62, -11, -62, 11, 0, 1)
 
 [node name="MiddleArea2D" type="Area2D" parent="."]
 collision_layer = 128
@@ -45,3 +41,5 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleArea2D"]
 position = Vector2(23, 3)
 shape = SubResource("RectangleShape2D_e4vne")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]

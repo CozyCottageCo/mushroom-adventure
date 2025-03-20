@@ -170,9 +170,22 @@ namespace SieniPeli
                         //GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
                         UpdateTileAtPosition(touch.Position); // kursorin highlight metodikutsu
                     }
-                    else if (!touch.Pressed && _drawing) // jos kosketus irtoo kesken piirtämisen
+                    if (!touch.Pressed && _drawing) // jos kosketus irtoo kesken piirtämisen
                     {
                         _drawing = false; // piirto loppu
+
+                     if (tilesUsed.Count <= 3)
+                        {
+                            GD.Print("Path is too short!");
+                            tilesUsed.Clear();
+                            savedPath.Clear();
+                            _line.Points = new Vector2[0];
+                            _goButton.Visible = false;
+                            _redoButton.Visible = false;
+                            _buttonsVisible = false;
+                            return;
+
+                        }
 
                         GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
 
