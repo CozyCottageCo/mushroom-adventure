@@ -100,7 +100,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
-                if (body.IsInGroup ("Ötökkä") && body != this) {
+                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     // Block the movement to simulate slowing down
                     isBlocked = true;
                 }
@@ -124,7 +124,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area) {
                 // Ensure it's not the same as this instance's collision area
-                if (body.IsInGroup("Ötökkä") && body != this) {
+                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
 
                     // Unblock the movement to simulate resuming speed
                     isBlocked = false;
@@ -145,7 +145,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
-                if (body.IsInGroup("Ötökkä") && body != this) {
+                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     if (!isStopped) {
                     // Block the movement to simulate slowing down
                     blockedBy = body.GetInstanceId().ToString();
@@ -172,7 +172,7 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area) {
                 // Ensure it's not the same as this instance's collision area
-                if (body.IsInGroup("Ötökkä") && body != this) {
+                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     if (body.GetInstanceId().ToString() == blockedBy) {
                     blockedBy = "";
                     Resume();

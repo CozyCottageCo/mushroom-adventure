@@ -583,7 +583,6 @@ position = Vector2(280.736, 288.624)
 rotation = 1.58362
 scale = Vector2(-1, -1)
 progress = 313.654
-script = null
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8gas6")
@@ -609,7 +608,6 @@ position = Vector2(327.127, 86.0799)
 rotation = -1.5628
 scale = Vector2(-1, 1)
 progress = 493.925
-script = null
 
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_vepq3")
@@ -618,7 +616,6 @@ curve = SubResource("Curve2D_vepq3")
 position = Vector2(-33, 230)
 rotation = -0.00319488
 scale = Vector2(-1, 1)
-script = null
 
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_rwnpu")
@@ -628,7 +625,6 @@ position = Vector2(326.929, 230.536)
 rotation = -1.58634
 scale = Vector2(-1, 1)
 progress = 191.405
-script = null
 
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ay1lq")
@@ -637,13 +633,12 @@ curve = SubResource("Curve2D_ay1lq")
 position = Vector2(329, 422)
 rotation = -1.5861
 scale = Vector2(-1, 1)
-script = null
 
 [node name="Path2D9" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_rtl8j")
 
 [node name="Murkku" parent="Reitit/Path2D9" instance=ExtResource("17_v62nk")]
-position = Vector2(326, 429)
+position = Vector2(364, 428)
 rotation = -1.56659
 script = null
 
@@ -664,13 +659,12 @@ position = Vector2(565.728, 187.561)
 rotation = 3.1365
 scale = Vector2(-1, -1)
 progress = 110.278
-script = null
 
 [node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_2d6bc")
 
 [node name="Oikeejäbä" parent="Reitit/Path2D12" instance=ExtResource("17_v62nk")]
-position = Vector2(688, 188)
+position = Vector2(673, 188)
 rotation = -3.12286
 scale = Vector2(-1, -1)
 

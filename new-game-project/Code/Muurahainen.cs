@@ -9,6 +9,7 @@ namespace SieniPeli {
 		[Export] protected float minRollingSpeedMuurahainen = 20f;
 
         public override void _Ready() {
+			AddToGroup("Ötökkä");
             base._Ready();
             maxSpeed = maxSpeedMuurahainen;
             kiihdytysSpeed = kiihdytysMuurahainen;
