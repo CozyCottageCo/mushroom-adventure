@@ -1,23 +1,23 @@
-[gd_scene load_steps=42 format=4 uid="uid://bd0y2b5xffus2"]
+[gd_scene load_steps=62 format=4 uid="uid://bd0y2b5xffus2"]
 
-[ext_resource type="Script" path="res://Code/Touch.cs" id="1_tqoba"]
-[ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ye4y3"]
-[ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_u7n6c"]
-[ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="4_sb5ha"]
-[ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="5_fn6ug"]
-[ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="5_vh75a"]
-[ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="6_4q6oi"]
-[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="7_sfhjt"]
-[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="8_2m3p7"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_bg1il"]
-[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="14_pstv6"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_lplcq"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="16_lpv5s"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="17_fdeca"]
-[ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="20_l1who"]
+[ext_resource type="Script" path="res://Code/Touch.cs" id="1_cnv3m"]
+[ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_c86kc"]
+[ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_k48bx"]
+[ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="4_800wi"]
+[ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="5_jfkb3"]
+[ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="6_sh5e6"]
+[ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="7_sk7k1"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="8_1g2wi"]
+[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_fttdb"]
+[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="10_n0wmb"]
+[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="11_l2y5g"]
+[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="12_nu23h"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="13_nkhao"]
+[ext_resource type="Script" path="res://Code/Täplä.cs" id="14_v5lk0"]
+[ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="15_rprlh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hiblp"]
-texture = ExtResource("2_ye4y3")
+texture = ExtResource("2_c86kc")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 3:0/0 = 0
@@ -43,7 +43,7 @@ texture_region_size = Vector2i(32, 32)
 5:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
-texture = ExtResource("3_u7n6c")
+texture = ExtResource("3_k48bx")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -88,7 +88,7 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqk07"]
-texture = ExtResource("4_sb5ha")
+texture = ExtResource("4_800wi")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 2:0/0 = 0
@@ -117,7 +117,7 @@ texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g318c"]
-texture = ExtResource("5_fn6ug")
+texture = ExtResource("5_jfkb3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 2:0/0 = 0
@@ -155,7 +155,7 @@ sources/0 = SubResource("TileSetAtlasSource_hiblp")
 sources/3 = SubResource("TileSetAtlasSource_g318c")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13wsf"]
-texture = ExtResource("5_vh75a")
+texture = ExtResource("6_sh5e6")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 3:0/0 = 0
@@ -184,7 +184,7 @@ texture_region_size = Vector2i(32, 32)
 5:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55taa"]
-texture = ExtResource("4_sb5ha")
+texture = ExtResource("4_800wi")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 2:0/0 = 0
@@ -212,7 +212,7 @@ texture_region_size = Vector2i(32, 32)
 5:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ylnn"]
-texture = ExtResource("5_fn6ug")
+texture = ExtResource("5_jfkb3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -252,11 +252,11 @@ sources/1 = SubResource("TileSetAtlasSource_55taa")
 sources/2 = SubResource("TileSetAtlasSource_8ylnn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
-atlas = ExtResource("8_2m3p7")
+atlas = ExtResource("9_fttdb")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynlbp"]
-atlas = ExtResource("8_2m3p7")
+atlas = ExtResource("9_fttdb")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_h3axx"]
@@ -276,7 +276,7 @@ unicode = 108
 events = [SubResource("InputEventKey_ggbqe")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cq6g"]
-atlas = ExtResource("8_2m3p7")
+atlas = ExtResource("9_fttdb")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="ImageTexture" id="ImageTexture_jilax"]
@@ -364,18 +364,138 @@ HScrollBar/styles/scroll = SubResource("StyleBoxFlat_e8q54")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7e520")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qm3g"]
-atlas = ExtResource("14_pstv6")
+atlas = ExtResource("11_l2y5g")
 region = Rect2(435, 421, 47, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
-atlas = ExtResource("15_lplcq")
+atlas = ExtResource("12_nu23h")
 region = Rect2(20, 134, 716, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
 
+[sub_resource type="Curve2D" id="Curve2D_ifsyg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 144, 400, 0, 0, 0, 0, 143, 168, 0, 0, 0, 0, 658, 174)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_seyif"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 146, 404, 0, 0, 0, 0, 145, 147, 0, 0, 0, 0, -8, 144)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_fgtwx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 147, 406, 0, 0, 0, 0, 143, 41, 0, 0, 0, 0, 650, 44)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_e845f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 149, 406, 0, 0, 0, 0, 145, 15, 0, 0, 0, 0, -19, 15)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_mqv2i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 650, 150, 0, 0, 0, 0, 111, 142, 0, 0, 0, 0, 112, 406)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_bfgj2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 654, 150, 0, 0, 0, 0, -13, 145)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_sh4oa"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 654, 148, 0, 0, 0, 0, 142, 142, 0, 0, 0, 0, 142, 35, 0, 0, 0, 0, 659, 41)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_l70yt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 655, 149, 0, 0, 0, 0, 143, 143, 0, 0, 0, 0, 144, 16, 0, 0, 0, 0, -12, 15)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_n0cvq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 172, 0, 0, 0, 0, 112, 175, 0, 0, 0, 0, 113, 400)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_3hmr1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -7, 176, 0, 0, 0, 0, 661, 174)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_tfihe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -7, 176, 0, 0, 0, 0, 145, 174, 0, 0, 0, 0, 146, 41, 0, 0, 0, 0, 654, 41)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_5x4bo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9, 177, 0, 0, 0, 0, 147, 176, 0, 0, 0, 0, 145, 15, 0, 0, 0, 0, -20, 14)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_mwnw0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 655, 16, 0, 0, 0, 0, 114, 17, 0, 0, 0, 0, 113, 404)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_4gnyb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 659, 16, 0, 0, 0, 0, 113, 17, 0, 0, 0, 0, 113, 176, 0, 0, 0, 0, 664, 175)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_h42so"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 661, 16, 0, 0, 0, 0, 113, 17, 0, 0, 0, 0, 113, 145, 0, 0, 0, 0, -16, 146)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_k21vc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 657, 16, 0, 0, 0, 0, -19.7297, 15)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ixk1d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9, 45, 0, 0, 0, 0, 115, 47, 0, 0, 0, 0, 113, 399)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_27jsu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -15, 47, 0, 0, 0, 0, 114, 49, 0, 0, 0, 0, 114, 176, 0, 0, 0, 0, 663, 176)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_4qgt8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2, 48, 0, 0, 0, 0, 113, 46, 0, 0, 0, 0, 113, 143, 0, 0, 0, 0, -12, 146)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_m88ef"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -5, 48, 0, 0, 0, 0, 668, 41)
+}
+point_count = 2
+
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_tqoba")
+script = ExtResource("1_cnv3m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -408,7 +528,7 @@ tile_set = SubResource("TileSet_lgc1i")
 tile_map_data = PackedByteArray("AAAAAAAAAgAFAAMAAAABAAAAAgAFAAMAAAACAAAAAgAFAAMAAAADAAAAAgAFAAMAAAAEAAAAAgAFAAMAAAAFAAAAAgAFAAMAAAAGAAAAAgAFAAMAAAAHAAAAAgAFAAMAAAAIAAAAAgAFAAMAAAAJAAAAAgAFAAMAAAAKAAAAAgAFAAMAAAALAAAAAgAFAAMAAAAMAAAAAgAFAAMAAAANAAAAAgAFAAMAAAAOAAAAAgAFAAMAAAAPAAAAAgAFAAMAAAAQAAAAAgAFAAMAAAARAAAAAgAFAAMAAAASAAAAAgAFAAMAAAATAAAAAgAFAAMAAAAAAAQAAgAFAAMAAAABAAQAAgAFAAMAAAADAAQAAgADAAQAACAEAAQAAgAFAAMAAAAFAAQAAgAFAAMAAAAGAAQAAgAFAAMAAAAHAAQAAgAFAAMAAAAIAAQAAgAFAAMAAAAJAAQAAgAFAAMAAAAKAAQAAgAFAAMAAAALAAQAAgAFAAMAAAAMAAQAAgAFAAMAAAANAAQAAgAFAAMAAAAOAAQAAgAFAAMAAAAPAAQAAgAFAAMAAAAQAAQAAgAFAAMAAAARAAQAAgAFAAMAAAASAAQAAgAFAAMAAAATAAQAAgAFAAMAAAAAAAUAAgAFAAQAAAABAAUAAgAFAAQAAAADAAUAAgADAAQAACAEAAUAAgAEAAQAACAFAAUAAgAFAAQAAAAGAAUAAgAFAAQAAAAHAAUAAgAFAAQAAAAIAAUAAgAFAAQAAAAJAAUAAgAFAAQAAAAKAAUAAgAFAAQAAAALAAUAAgAFAAQAAAAMAAUAAgAFAAQAAAANAAUAAgAFAAQAAAAOAAUAAgAFAAQAAAAPAAUAAgAFAAQAAAAQAAUAAgAFAAQAAAARAAUAAgAFAAQAAAASAAUAAgAFAAQAAAATAAUAAgAFAAQAAAAAAAEAAgAFAAQAAAABAAEAAgAFAAQAAAACAAEAAgAFAAQAAAADAAEAAgADAAQAACAEAAEAAgAEAAQAACAFAAEAAgAFAAQAAAAGAAEAAgAFAAQAAAAHAAEAAgAFAAQAAAAIAAEAAgAFAAQAAAAJAAEAAgAFAAQAAAAKAAEAAgAFAAQAAAALAAEAAgAFAAQAAAAMAAEAAgAFAAQAAAANAAEAAgAFAAQAAAAOAAEAAgAFAAQAAAAPAAEAAgAFAAQAAAAQAAEAAgAFAAQAAAARAAEAAgAFAAQAAAASAAEAAgAFAAQAAAATAAEAAgAFAAQAAAAEAAoAAgAEAAQAACAEAAgAAgAEAAQAACAEAAcAAgAEAAQAACAEAAYAAgAEAAQAACAEAAsAAgAEAAQAACAEAAIAAgAEAAQAACADAAsAAgADAAQAACADAAoAAgADAAQAACADAAgAAgADAAQAACADAAcAAgADAAQAACADAAYAAgADAAQAACADAAIAAgADAAQAACA=")
 tile_set = SubResource("TileSet_lgc1i")
 
-[node name="grid" parent="." instance=ExtResource("6_4q6oi")]
+[node name="grid" parent="." instance=ExtResource("7_sk7k1")]
 modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
@@ -418,7 +538,7 @@ offset_top = 310.0
 offset_right = 80.0
 offset_bottom = 382.0
 scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("7_sfhjt")
+theme_override_fonts/font = ExtResource("8_1g2wi")
 theme_override_font_sizes/font_size = 20
 theme_override_icons/icon = SubResource("AtlasTexture_02iyd")
 action_mode = 0
@@ -434,7 +554,7 @@ offset_top = 309.0
 offset_right = 655.0
 offset_bottom = 381.0
 scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("7_sfhjt")
+theme_override_fonts/font = ExtResource("8_1g2wi")
 theme_override_font_sizes/font_size = 20
 theme_override_icons/icon = SubResource("AtlasTexture_ynlbp")
 action_mode = 0
@@ -477,7 +597,7 @@ layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
 theme_override_constants/separation = 30
-script = ExtResource("13_bg1il")
+script = ExtResource("10_n0wmb")
 "_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
 _jatkaButton = NodePath("Jatka")
 _reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
@@ -521,7 +641,7 @@ layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
 theme_override_constants/separation = 30
-script = ExtResource("13_bg1il")
+script = ExtResource("10_n0wmb")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _reTryButton = NodePath("ReTry")
 "_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
@@ -569,7 +689,7 @@ color = Color(0.231373, 0.878431, 0.388235, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
 layout_mode = 2
-script = ExtResource("13_bg1il")
+script = ExtResource("10_n0wmb")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
 _reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
@@ -592,13 +712,13 @@ text = "Tasovalikkoon"
 [node name="Täplä" type="Sprite2D" parent="."]
 position = Vector2(202, 216)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("16_lpv5s")
+texture = ExtResource("13_nkhao")
 
 [node name="Area2D" type="Area2D" parent="Täplä"]
 position = Vector2(-868, 68)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("17_fdeca")
+script = ExtResource("14_v5lk0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
 position = Vector2(868, -56)
@@ -614,6 +734,69 @@ text = "Sammon koulu"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(220, 270)
 scale = Vector2(1.09155, 1.10674)
-texture = ExtResource("20_l1who")
+texture = ExtResource("15_rprlh")
 region_enabled = true
 region_rect = Rect2(47.6, 244.3, 71.5, 89.1)
+
+[node name="Reitit" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_ifsyg")
+
+[node name="Path2D2" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_seyif")
+
+[node name="Path2D3" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_fgtwx")
+
+[node name="Path2D4" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_e845f")
+
+[node name="Path2D5" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_mqv2i")
+
+[node name="Path2D6" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_bfgj2")
+
+[node name="Path2D7" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_sh4oa")
+
+[node name="Path2D8" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_l70yt")
+
+[node name="Path2D9" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_n0cvq")
+
+[node name="Path2D10" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_3hmr1")
+
+[node name="Path2D11" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_tfihe")
+
+[node name="Path2D12" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_5x4bo")
+
+[node name="Path2D13" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_mwnw0")
+
+[node name="Path2D14" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_4gnyb")
+
+[node name="Path2D15" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_h42so")
+
+[node name="Path2D16" type="Path2D" parent="Reitit"]
+scale = Vector2(1.0137, 1)
+curve = SubResource("Curve2D_k21vc")
+
+[node name="Path2D17" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_ixk1d")
+
+[node name="Path2D18" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_27jsu")
+
+[node name="Path2D19" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_4qgt8")
+
+[node name="Path2D20" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_m88ef")

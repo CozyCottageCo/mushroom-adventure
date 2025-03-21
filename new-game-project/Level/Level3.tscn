@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://wmisq1c3ss0n"]
+[gd_scene load_steps=39 format=4 uid="uid://wmisq1c3ss0n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jucmq"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_gcmou"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="13_tdjjm"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="14_axtv1"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="15_y3xvn"]
-[ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_6fyaq"]
-[ext_resource type="Script" path="res://Code/Toukka.cs" id="17_upitk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
 texture = ExtResource("2_gcmou")
@@ -252,9 +250,6 @@ region = Rect2(20, 134, 716, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qogq"]
-size = Vector2(2.78124, 3.3125)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jucmq")
@@ -512,70 +507,3 @@ script = ExtResource("15_y3xvn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
 shape = SubResource("RectangleShape2D_5ivg4")
-
-[node name="Risteykset" type="Node2D" parent="."]
-
-[node name="Risteys2" type="Area2D" parent="Risteykset"]
-collision_layer = 255
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys2"]
-position = Vector2(325, 229)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys3" type="Area2D" parent="Risteykset"]
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys3"]
-position = Vector2(294.344, 226.609)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys4" type="Area2D" parent="Risteykset"]
-position = Vector2(1, 4)
-collision_layer = 32
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys4"]
-position = Vector2(288.438, 184.375)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys" type="Area2D" parent="Risteykset"]
-position = Vector2(2, 2)
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys"]
-position = Vector2(324, 186)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Toukka" parent="." instance=ExtResource("16_6fyaq")]
-z_index = 1
-position = Vector2(678, 182)
-rotation = -0.0120482
-script = ExtResource("17_upitk")
-StartDirection = 2
-
-[node name="Toukka2" parent="." instance=ExtResource("16_6fyaq")]
-z_index = 1
-position = Vector2(283, -30)
-rotation = 4.71239
-script = ExtResource("17_upitk")
-StartDirection = 1
-
-[node name="Toukka3" parent="." instance=ExtResource("16_6fyaq")]
-z_index = 1
-position = Vector2(327, 405)
-rotation = 1.5708
-flip_v = true
-script = ExtResource("17_upitk")
-StartDirection = 0
-
-[node name="Toukka4" parent="." instance=ExtResource("16_6fyaq")]
-z_index = 1
-position = Vector2(-49, 228)
-rotation = -0.0120482
-flip_h = true
-script = ExtResource("17_upitk")
