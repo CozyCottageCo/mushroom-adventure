@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=43 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="13_wfj6f"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="14_c7mkx"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="15_5tcu5"]
-[ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_wmgee"]
-[ext_resource type="Script" path="res://Code/Toukka.cs" id="17_at888"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_nt7hn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -592,35 +590,6 @@ collision_mask = 16
 position = Vector2(324, 186)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Toukka" parent="." instance=ExtResource("16_wmgee")]
-z_index = 1
-position = Vector2(658, 186)
-rotation = -0.0120482
-script = ExtResource("17_at888")
-StartDirection = 2
-
-[node name="Toukka2" parent="." instance=ExtResource("16_wmgee")]
-z_index = 1
-position = Vector2(283, -30)
-rotation = 4.71239
-script = ExtResource("17_at888")
-StartDirection = 1
-
-[node name="Toukka3" parent="." instance=ExtResource("16_wmgee")]
-z_index = 1
-position = Vector2(327, 405)
-rotation = 1.5708
-flip_v = true
-script = ExtResource("17_at888")
-StartDirection = 0
-
-[node name="Toukka4" parent="." instance=ExtResource("16_wmgee")]
-z_index = 1
-position = Vector2(-49, 228)
-rotation = -0.0120482
-flip_h = true
-script = ExtResource("17_at888")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 517.0
