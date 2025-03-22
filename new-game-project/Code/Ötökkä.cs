@@ -35,6 +35,8 @@ namespace SieniPeli {
 
         private Vector2 firstPoint;
         private Vector2 startPosition;
+        private Vector2 endPosition;
+        private bool isTurning = false;
         private bool printed = false;
 
         public override void _Ready() {
@@ -46,6 +48,11 @@ namespace SieniPeli {
             path = GetParent<Path2D>();
             startPosition = path.Curve.GetPointPosition(0);
             firstPoint = path.Curve.GetPointPosition(1);
+            endPosition = path.Curve.GetPointPosition(2);
+            isTurning = IsTurning(startPosition, firstPoint, endPosition);
+            if (isTurning) {
+                GD.Print($"{this.Name} is turning");
+            }
 
             SetInitialDirection(firstPoint, startPosition);
             _direction = _initialDirection;
@@ -87,7 +94,7 @@ namespace SieniPeli {
         }
 
         if ((this.Name == "Ylös" || this.Name == "Ylösoikea") && !printed){
-        GD.Print(_direction);
+       // GD.Print(_direction);
         printed = true;
         }
 
@@ -161,7 +168,8 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
                     var otherÖtökkä = parentNode as Ötökkä;
                     if (otherÖtökkä != null) {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
-                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction)) {
+                        bool otherTurning = otherÖtökkä.GetTurning();
+                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction, otherTurning)) {
                             isBlocked = true;
                             blockedBySpeed = otherÖtökkä.GetSpeed();
                         }
@@ -217,8 +225,9 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     var otherÖtökkä = parentNode as Ötökkä;
                     if (otherÖtökkä != null) {
-                        Vector2 other_direction = otherÖtökkä._direction;
-                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction)) {
+                        Vector2 other_direction = otherÖtökkä.GetDirection();
+                        bool otherTurning = otherÖtökkä.GetTurning();
+                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction, otherTurning)) {
                             GD.Print($"{this.Name} blocked by{parentNode.Name}");
                             if (String.IsNullOrEmpty(blockedBy)) {}
                             GD.Print($"Somehow empty {blockedBy}");
@@ -323,6 +332,9 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             public Vector2 GetDirection() {
                 return _direction;
             }
+            public bool GetTurning() {
+                return isTurning;
+            }
 
             public float GetSpeed() {
                 return currentSpeed;
@@ -332,8 +344,21 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
                 return dotProduct > 0f;
             }
 
-            private bool ShouldGiveWay (Vector2 otherDirection) {
+            private bool IsOppositeDirection(Vector2 otherDirection) {
+                if (GetCardinalDirection(_direction) == GetCardinalDirection(-otherDirection)) {
+                return true;
+                }
+                return false;
+            }
 
+            private bool ShouldGiveWay (Vector2 otherDirection, bool otherTurning) {
+
+
+                if(isTurning && !IsOppositeDirection(otherDirection) && !otherTurning) {
+                    return true;
+                } else if (!isTurning) {
+                    return false;
+                }
 
                 Vector2 roundedDirection = GetCardinalDirection(_direction);
                 Vector2 roundedOtherDirection = GetCardinalDirection(otherDirection);
@@ -383,6 +408,24 @@ private string GetDirectionAsString(Vector2 direction) {
     if (direction.Y < 0) return "Up";
     if (direction.Y > 0) return "Down";
     return "Unknown";
+}
+
+private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) {
+       Vector2 startVector = start;
+       Vector2 middleVector = middle;
+       Vector2 endVector = end;
+
+
+       // GD.Print($"{this.Name} start {startVector} middle {middleVector} end {endVector}");
+       Vector2 toTurn = SetDirection(startVector, middleVector);
+       Vector2 toEnd = SetDirection(middleVector, endVector);
+
+        GD.Print($"{this.Name}, {toTurn}, {toEnd}");
+       if (toTurn != toEnd) {
+        return true;
+       }
+       return false;
+
 }
 
 private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) {

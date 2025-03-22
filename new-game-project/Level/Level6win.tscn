@@ -638,10 +638,10 @@ kiihdytysMuurahainen = 50.0
 [node name="Path2D2" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_sfj5x")
 
-[node name="Muurahainen" parent="Node2D/Path2D2" instance=ExtResource("18_ifv3i")]
-position = Vector2(86, 74.0883)
+[node name="Alasoikea" parent="Node2D/Path2D2" instance=ExtResource("18_ifv3i")]
+position = Vector2(86, 109.411)
 rotation = 1.5708
-progress = 103.09
+progress = 138.411
 
 [node name="Path2D3" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_c0bft")
@@ -655,23 +655,24 @@ kiihdytysMuurahainen = 50.0
 curve = SubResource("Curve2D_xifcg")
 
 [node name="Ylösoikea" parent="Node2D/Path2D4" instance=ExtResource("18_ifv3i")]
-position = Vector2(135, 283.098)
+position = Vector2(135, 249.148)
 rotation = -1.5708
-progress = 135.9
+progress = 169.839
 kiihdytysMuurahainen = 50.0
 
 [node name="Path2D5" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_afax1")
 
-[node name="Muurahainen" parent="Node2D/Path2D5" instance=ExtResource("18_ifv3i")]
-position = Vector2(563.996, 184.188)
+[node name="Vasenylös" parent="Node2D/Path2D5" instance=ExtResource("18_ifv3i")]
+position = Vector2(313.469, 184.662)
 rotation = 3.1397
-progress = 98.8884
+progress = 349.531
 
 [node name="Path2D6" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_ujq5v")
 
 [node name="VasenAlas" parent="Node2D/Path2D6" instance=ExtResource("18_ifv3i")]
-position = Vector2(674, 183)
-rotation = 3.1331
+position = Vector2(85, 190.908)
+rotation = 1.5708
+progress = 591.953
 kiihdytysMuurahainen = 50.0
