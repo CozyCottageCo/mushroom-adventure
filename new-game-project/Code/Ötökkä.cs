@@ -1,3 +1,4 @@
+
 using Godot;
 using System;
 using SieniPeli;
@@ -19,14 +20,38 @@ namespace SieniPeli {
 
         private bool isBlocked = false;
         private string blockedBy = "";
+        private bool alreadyBlocked = false;
+
+        private float blockedBySpeed = 0f;
 
         private float stopTime = 0f;
         private const float maxStopTime = 8f;
+
+        private Vector2 _direction;
+        private Vector2 _initialDirection;
+        private Vector2 _initialDirectionSaved;
+        private Vector2 previousPosition;
+        private Path2D path = null;
+
+        private Vector2 firstPoint;
+        private Vector2 startPosition;
+        private bool printed = false;
 
         public override void _Ready() {
             AddToGroup("Ötökkä");
             CrossWalkManager = GetNode<CrossWalkManager>("/root/Node2D/CrossWalkManager");
             currentSpeed = maxSpeed;
+            previousPosition = Position;
+
+            path = GetParent<Path2D>();
+            startPosition = path.Curve.GetPointPosition(0);
+            firstPoint = path.Curve.GetPointPosition(1);
+
+            SetInitialDirection(firstPoint, startPosition);
+            _direction = _initialDirection;
+            _initialDirectionSaved = _initialDirection;
+
+             GD.Print("Initial Direction: ", _initialDirection);
 
             var detectionAreaLong = GetNode<Area2D>("DetectionArea2DLong");
             var detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
@@ -46,6 +71,36 @@ namespace SieniPeli {
         }
 
         public override void _Process(double delta) {
+
+
+            if (Mathf.Abs(ProgressRatio) > 0.95f) {
+                blockedBy = "";
+                }
+
+         if (MathF.Abs(ProgressRatio) > 0.001f) {
+            _direction = _initialDirectionSaved;
+            printed = false;
+        }
+        if (MathF.Abs(ProgressRatio) > 0.01f) {
+
+            _direction = SetDirection(Position, previousPosition);
+        }
+
+        if ((this.Name == "Ylös" || this.Name == "Ylösoikea") && !printed){
+        GD.Print(_direction);
+        printed = true;
+        }
+
+
+
+
+
+    // Flip the sprite vertically if the path moves down (negative y _direction)
+GetNode<Sprite2D>("Sprite2D").FlipV = _direction.Y > 0;
+GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
+
+         previousPosition = Position;
+
             if (isStopped || blockedBy != "") {
                 stopTime += (float)delta;
 
@@ -59,6 +114,8 @@ namespace SieniPeli {
             }
             stopTime = 0f;
             Move((float)delta);
+
+
         }
 
         protected virtual void Move(float delta) {
@@ -101,8 +158,14 @@ namespace SieniPeli {
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
-                    // Block the movement to simulate slowing down
-                    isBlocked = true;
+                    var otherÖtökkä = parentNode as Ötökkä;
+                    if (otherÖtökkä != null) {
+                        Vector2 other_direction = otherÖtökkä.GetDirection();
+                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction)) {
+                            isBlocked = true;
+                            blockedBySpeed = otherÖtökkä.GetSpeed();
+                        }
+                    }
                 }
             }
             else if (body is TileMapLayer tileMapLayer)
@@ -145,11 +208,27 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
+                if (blockedBy != "") {
+                if (body.GetInstanceId().ToString() != blockedBy || alreadyBlocked) {
+                    GD.Print($"{body.GetInstanceId().ToString()} isnt {blockedBy}");
+                return;
+                }
+            }
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
-                    if (!isStopped) {
-                    // Block the movement to simulate slowing down
-                    blockedBy = body.GetInstanceId().ToString();
-                    Stop();}
+                    var otherÖtökkä = parentNode as Ötökkä;
+                    if (otherÖtökkä != null) {
+                        Vector2 other_direction = otherÖtökkä._direction;
+                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction)) {
+                            GD.Print($"{this.Name} blocked by{parentNode.Name}");
+                            if (String.IsNullOrEmpty(blockedBy)) {}
+                            GD.Print($"Somehow empty {blockedBy}");
+                            blockedBy = body.GetInstanceId().ToString();
+                            alreadyBlocked = true;
+                            Stop();
+                           // GD.Print($"Direction {GetDirectionAsString(_direction)} for {GetDirectionAsString(other_direction)}");
+                        }
+                    }
+
                     CheckCrossWalkStatus();
                 }
             }
@@ -171,10 +250,21 @@ namespace SieniPeli {
         private void OnShortRangeExited(Node body) {
             string areaName = body.Name;
             if (body is Area2D area) {
+
+                 if (blockedBy != "") {
+                if (body.GetInstanceId().ToString() != blockedBy) {
+                    GD.Print($"{body.GetInstanceId().ToString()} isnt {blockedBy}");
+                return;
+                }
+
+            }
                 // Ensure it's not the same as this instance's collision area
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     if (body.GetInstanceId().ToString() == blockedBy) {
+
+                        GD.Print($"{this.Name} Stopped being blocked by {parentNode.Name}");
                     blockedBy = "";
+                    alreadyBlocked = false;
                     Resume();
                     }
                 }
@@ -228,5 +318,131 @@ namespace SieniPeli {
                 Resume();
             }
             }
+
+
+            public Vector2 GetDirection() {
+                return _direction;
+            }
+
+            public float GetSpeed() {
+                return currentSpeed;
+            }
+            private bool IsSame_direction(Vector2 other_direction) {
+                float dotProduct = _direction.Dot(other_direction);
+                return dotProduct > 0f;
+            }
+
+            private bool ShouldGiveWay (Vector2 otherDirection) {
+
+
+                Vector2 roundedDirection = GetCardinalDirection(_direction);
+                Vector2 roundedOtherDirection = GetCardinalDirection(otherDirection);
+
+
+                 if (roundedDirection == new Vector2(-1, 0) && roundedOtherDirection == new Vector2(0, 1)) {  // Left -> Down
+
+        return true;
+    }
+    else if (roundedDirection == new Vector2(1, 0) && roundedOtherDirection == new Vector2(0, -1)) {  // Right -> Up
+        GD.Print("[GiveWay Check] Going right, give way to up. moving");
+        return true;
+    }
+    else if (roundedDirection == new Vector2(0, -1) && roundedOtherDirection == new Vector2(-1,0)) {  // Up -> Left
+        GD.Print("[GiveWay Check] Going up, give way to left moving");
+        return true;
+    }
+    else if (roundedDirection == new Vector2(0, 1) && roundedOtherDirection == new Vector2(1, 0)) {  // Down -> Right
+        GD.Print("[GiveWay Check] Going down, give way to right moving");
+        return true;
+    }
+
+    // No yield condition met, meaning no giving way
+
+    return false; // Current object does not give way
+}
+
+// Helper function to round the direction to cardinal directions (-1, 0, 1)
+private Vector2 GetCardinalDirection(Vector2 direction) {
+    if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y)) {
+        return new Vector2(Mathf.Sign(direction.X), 0);  // Left or Right
+    }
+    else if (Mathf.Abs(direction.Y) > Mathf.Abs(direction.X)) {
+        return new Vector2(0, Mathf.Sign(direction.Y));  // Up or Down
+    }
+    else {
+        return new Vector2(0, 0);  // Unknown direction if both X and Y are close to 0
+    }
+
+}
+
+// Helper function to convert the direction to a human-readable string (e.g., "Left", "Right")
+private string GetDirectionAsString(Vector2 direction) {
+    // Now we only check if X or Y is positive or negative
+    if (direction.X < 0) return "Left";
+    if (direction.X > 0) return "Right";
+    if (direction.Y < 0) return "Up";
+    if (direction.Y > 0) return "Down";
+    return "Unknown";
+}
+
+private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) {
+      // Get the first curve point
+
+                // Calculate the initial direction as the normalized vector from the start position to the first point
+                _initialDirection = (firstPoint - startPosition).Normalized();
+                 const float THRESHOLD = 0.1f;
+            if (Mathf.Abs(_initialDirection.Y) < THRESHOLD) {
+    _initialDirection.Y = 0f; // Small Y changes, treat as 0
+}
+else if (_initialDirection.Y > THRESHOLD) {
+    _initialDirection.Y = 1f; // Positive Y, treat as down (1)
+}
+else if (_initialDirection.Y < -THRESHOLD) {
+    _initialDirection.Y = -1f; // Negative Y, treat as up (-1)
+}
+
+// Handle X direction
+if (Mathf.Abs(_initialDirection.X) < THRESHOLD) {
+    _initialDirection.X = 0f; // Small X changes, treat as 0
+}
+else if (_initialDirection.X > THRESHOLD) {
+    _initialDirection.X = 1f; // Positive X, treat as right (1)
+}
+else if (_initialDirection.X < -THRESHOLD) {
+    _initialDirection.X = -1f; // Negative X, treat as left (-1)
+}
+            _direction = _initialDirection;
+}
+
+private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
+                 const float THRESHOLD = 0.1f;
+                Vector2 direction = (position - lastposition).Normalized();
+
+                if (direction == Vector2.Zero) {
+                    direction = _direction;
+                }
+            if (Mathf.Abs(direction.Y) < THRESHOLD) {
+    direction.Y = 0f; // Small Y changes, treat as 0
+}
+else if (direction.Y > THRESHOLD) {
+    direction.Y = 1f; // Positive Y, treat as down (1)
+}
+else if (direction.Y < -THRESHOLD) {
+    direction.Y = -1f; // Negative Y, treat as up (-1)
+}
+
+// Handle X direction
+if (Mathf.Abs(direction.X) < THRESHOLD) {
+    direction.X = 0f; // Small X changes, treat as 0
+}
+else if (direction.X > THRESHOLD) {
+    direction.X = 1f; // Positive X, treat as right (1)
+}
+else if (direction.X < -THRESHOLD) {
+    direction.X = -1f; // Negative X, treat as left (-1)
+}
+           return direction;
+}
+
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://bd0y2b5xffus2"]
+[gd_scene load_steps=62 format=4 uid="uid://bamcjoiy1iedy"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_cnv3m"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_c86kc"]

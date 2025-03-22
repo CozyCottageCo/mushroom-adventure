@@ -638,7 +638,7 @@ scale = Vector2(-1, 1)
 curve = SubResource("Curve2D_rtl8j")
 
 [node name="Murkku" parent="Reitit/Path2D9" instance=ExtResource("17_v62nk")]
-position = Vector2(364, 428)
+position = Vector2(326, 429)
 rotation = -1.56659
 script = null
 
@@ -664,7 +664,7 @@ progress = 110.278
 curve = SubResource("Curve2D_2d6bc")
 
 [node name="Oikeejäbä" parent="Reitit/Path2D12" instance=ExtResource("17_v62nk")]
-position = Vector2(673, 188)
+position = Vector2(688, 188)
 rotation = -3.12286
 scale = Vector2(-1, -1)
 
