@@ -43,4 +43,4 @@ collision_mask = 152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
 position = Vector2(17, -1)
-polygon = PackedVector2Array(48, 3, 50, -18, 12, 2, 64, 80)
+polygon = PackedVector2Array(59, 83, 61, -73, 5, -41, 7, 59)

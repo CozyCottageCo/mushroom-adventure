@@ -93,8 +93,8 @@ namespace SieniPeli {
             _direction = SetDirection(Position, previousPosition);
         }
 
-        if ((this.Name == "Ylös" || this.Name == "Ylösoikea") && !printed){
-       // GD.Print(_direction);
+        if ((this.Name == "Vasenylös") && !printed){
+        GD.Print(SetDirection(endPosition, firstPoint));
         printed = true;
         }
 
@@ -345,19 +345,34 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             }
 
             private bool IsOppositeDirection(Vector2 otherDirection) {
-                if (GetCardinalDirection(_direction) == GetCardinalDirection(-otherDirection)) {
-                return true;
+                Vector2 negatedDirection = -otherDirection; // Negate the direction first
+                Vector2 myCardinal = GetCardinalDirection(_direction); // Get cardinal direction for this instance
+                Vector2 otherCardinal = GetCardinalDirection(negatedDirection); // Get cardinal direction for negated direction
+
+                // Print to help debug
+                GD.Print($"{this.Name} direction {myCardinal} other {otherCardinal}");
+
+                if (myCardinal == otherCardinal) {
+                    return true;
                 }
                 return false;
             }
 
             private bool ShouldGiveWay (Vector2 otherDirection, bool otherTurning) {
-
-
-                if(isTurning && !IsOppositeDirection(otherDirection) && !otherTurning) {
-                    return true;
-                } else if (!isTurning) {
+                // opposite direction kusee varmaa jotain
+                // tajusin et vasemmalle kääntyvien pitää väistää kaikkee abaut
+                // oikeelle kääntyvien pitäs väistää vaa vasemmalta tulevaa suoraa liikennettä
+                if (!isTurning) {
                     return false;
+                /*}
+                else if(IsOppositeDirection(otherDirection)) {
+                    return false;;*/
+
+                } else if (isTurning && (GetCardinalDirection(otherDirection) != new Vector2(0, -1)) && (SetDirection(endPosition, firstPoint) != new Vector2(0,1))) {
+                    return false; // ei iha toimi viel toi et se varoo suoraa menevii oikeel kääntyes
+                } else if (isTurning && !otherTurning) {
+                            // näkee liia kauas ni stoppaa liia aikasi
+                    return true;
                 }
 
                 Vector2 roundedDirection = GetCardinalDirection(_direction);
@@ -417,7 +432,7 @@ private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) {
 
 
        // GD.Print($"{this.Name} start {startVector} middle {middleVector} end {endVector}");
-       Vector2 toTurn = SetDirection(startVector, middleVector);
+       Vector2 toTurn = SetDirection(startVector, middleVector); // nä o vääripäi kai
        Vector2 toEnd = SetDirection(middleVector, endVector);
 
         GD.Print($"{this.Name}, {toTurn}, {toEnd}");

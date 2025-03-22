@@ -670,9 +670,3 @@ progress = 349.531
 
 [node name="Path2D6" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_ujq5v")
-
-[node name="VasenAlas" parent="Node2D/Path2D6" instance=ExtResource("18_ifv3i")]
-position = Vector2(85, 190.908)
-rotation = 1.5708
-progress = 591.953
-kiihdytysMuurahainen = 50.0
