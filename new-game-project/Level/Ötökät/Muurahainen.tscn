@@ -13,8 +13,9 @@ size = Vector2(54, 20)
 [node name="Muurahainen" type="PathFollow2D"]
 script = ExtResource("1_t2ct4")
 
-[node name="Murkku" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_i4axx")
+flip_h = true
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
 position = Vector2(-1, 0)
@@ -32,8 +33,8 @@ collision_layer = 64
 collision_mask = 152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DLong"]
-position = Vector2(-4, 0)
-polygon = PackedVector2Array(-81, -22, -81, 19, 12, 2)
+position = Vector2(15, -1)
+polygon = PackedVector2Array(120, 108, 118, -79, 12, 2)
 
 [node name="DetectionArea2DShort" type="Area2D" parent="."]
 position = Vector2(-9, -1)
@@ -41,5 +42,5 @@ collision_layer = 64
 collision_mask = 152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
-position = Vector2(-4, 0)
-polygon = PackedVector2Array(-37, -1, -37, 3, 12, 2)
+position = Vector2(17, -1)
+polygon = PackedVector2Array(48, 3, 50, -18, 12, 2, 64, 80)
