@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_qa13n"]
 [ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_572cx"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_fsa4o"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
+[ext_resource type="PackedScene" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_7xa28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -638,7 +638,7 @@ scale = Vector2(-1, 1)
 curve = SubResource("Curve2D_rtl8j")
 
 [node name="Murkku" parent="Reitit/Path2D9" instance=ExtResource("17_v62nk")]
-position = Vector2(364, 428)
+position = Vector2(326, 429)
 rotation = -1.56659
 script = null
 
@@ -664,7 +664,7 @@ progress = 110.278
 curve = SubResource("Curve2D_2d6bc")
 
 [node name="Oikeejäbä" parent="Reitit/Path2D12" instance=ExtResource("17_v62nk")]
-position = Vector2(673, 188)
+position = Vector2(688, 188)
 rotation = -3.12286
 scale = Vector2(-1, -1)
 
