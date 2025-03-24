@@ -20,7 +20,7 @@ flip_h = true
 [node name="CollisionArea2D" type="Area2D" parent="."]
 position = Vector2(-1, 0)
 collision_layer = 16
-collision_mask = 218
+collision_mask = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(1, 1)
@@ -38,9 +38,9 @@ polygon = PackedVector2Array(120, 108, 118, -79, 12, 2)
 
 [node name="DetectionArea2DShort" type="Area2D" parent="."]
 position = Vector2(-9, -1)
-collision_layer = 64
-collision_mask = 152
+collision_layer = 32
+collision_mask = 24
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
 position = Vector2(17, -1)
-polygon = PackedVector2Array(59, 83, 61, -73, 5, -41, 7, 59)
+polygon = PackedVector2Array(56, 59, 59, -49, 5, -20, 6, 29)

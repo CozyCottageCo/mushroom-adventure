@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://dtylhrc23bv7g"]
+[gd_scene load_steps=52 format=4 uid="uid://dtylhrc23bv7g"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ll65p"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_foktk"]
@@ -325,9 +325,12 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_ujq5v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 674, 183, 0, 0, 0, 0, 85, 188, 0, 0, 0, 0, 85, 424)
+"points": PackedVector2Array(0, 0, 0, 0, 674, 183, 0, 0, 0, 0, 191, 182, 0, 0, 0, 0, 85, 188, 0, 0, 0, 0, 85, 424)
 }
-point_count = 3
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0byps"]
+size = Vector2(89, 96)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ll65p")
@@ -670,3 +673,11 @@ progress = 349.531
 
 [node name="Path2D6" type="Path2D" parent="Node2D"]
 curve = SubResource("Curve2D_ujq5v")
+
+[node name="Risteys" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteys"]
+position = Vector2(115.5, 208)
+shape = SubResource("RectangleShape2D_0byps")

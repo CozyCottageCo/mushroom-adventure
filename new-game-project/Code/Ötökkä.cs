@@ -8,6 +8,7 @@ namespace SieniPeli {
         [Export] protected float maxSpeed = 100f;
         [Export] protected float kiihdytysSpeed = 40f;
         [Export] protected float jarrutusSpeed = 80f;
+        [Export] protected float risteysSpeed = 50f;
         [Export] protected float minRollingSpeed = 20f;
 
         private CrossWalkManager CrossWalkManager;
@@ -19,6 +20,9 @@ namespace SieniPeli {
         private string detectedCrossWalk = "";
 
         private bool isBlocked = false;
+        private bool approachingRisteys = false;
+        private bool inRisteys = false;
+
         private string blockedBy = "";
         private bool alreadyBlocked = false;
 
@@ -37,6 +41,7 @@ namespace SieniPeli {
         private Vector2 startPosition;
         private Vector2 endPosition;
         private bool isTurning = false;
+        private Vector2 _turnDirection;
         private bool printed = false;
 
         public override void _Ready() {
@@ -51,14 +56,18 @@ namespace SieniPeli {
             endPosition = path.Curve.GetPointPosition(2);
             isTurning = IsTurning(startPosition, firstPoint, endPosition);
             if (isTurning) {
-                GD.Print($"{this.Name} is turning");
+                GD.Print($"{this.Name} is turning {firstPoint} {endPosition}");
+               _turnDirection = SetTurnDirection(firstPoint, endPosition);
+               GD.Print(_turnDirection);
+
+
             }
 
             SetInitialDirection(firstPoint, startPosition);
             _direction = _initialDirection;
             _initialDirectionSaved = _initialDirection;
 
-             GD.Print("Initial Direction: ", _initialDirection);
+             GD.Print($"{this.Name} Initial Direction: ", _initialDirectionSaved);
 
             var detectionAreaLong = GetNode<Area2D>("DetectionArea2DLong");
             var detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
@@ -72,6 +81,8 @@ namespace SieniPeli {
             detectionAreaShort.AreaExited += OnShortRangeExited;
             detectionAreaShort.BodyEntered += OnShortRangeEntered;
             detectionAreaShort.BodyExited += OnShortRangeExited;
+            collisionArea.AreaEntered += OnCrossWalkEntered;
+            collisionArea.AreaExited += OnCrossWalkExited;
             collisionArea.BodyEntered += OnCrossWalkEntered;
             collisionArea.BodyExited += OnCrossWalkExited;
 
@@ -91,10 +102,11 @@ namespace SieniPeli {
         if (MathF.Abs(ProgressRatio) > 0.01f) {
 
             _direction = SetDirection(Position, previousPosition);
+
         }
 
         if ((this.Name == "Vasenylös") && !printed){
-        GD.Print(SetDirection(endPosition, firstPoint));
+       //GD.Print(_direction);
         printed = true;
         }
 
@@ -129,7 +141,12 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             if (blockedBy != "") {
                 return;
             }
-            if (!isBlocked) {
+            if (approachingRisteys) {
+                currentSpeed =  Mathf.MoveToward(currentSpeed, risteysSpeed, jarrutusSpeed * delta);
+            } else if (inRisteys) {
+                currentSpeed = risteysSpeed;
+            }
+            else if (!isBlocked) {
                 currentSpeed = Mathf.MoveToward(currentSpeed, maxSpeed, kiihdytysSpeed * delta);
             } else {
                 currentSpeed = Mathf.MoveToward(currentSpeed, minRollingSpeed, jarrutusSpeed * delta);
@@ -164,12 +181,15 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
+                if (areaName == "Risteys" && isTurning) {
+                    approachingRisteys = true;
+                }
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     var otherÖtökkä = parentNode as Ötökkä;
                     if (otherÖtökkä != null) {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
                         bool otherTurning = otherÖtökkä.GetTurning();
-                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction, otherTurning)) {
+                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction, otherTurning) && !IsOppositeDirection(other_direction)) {
                             isBlocked = true;
                             blockedBySpeed = otherÖtökkä.GetSpeed();
                         }
@@ -227,8 +247,13 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
                     if (otherÖtökkä != null) {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
                         bool otherTurning = otherÖtökkä.GetTurning();
-                        if (IsSame_direction(other_direction) || ShouldGiveWay(other_direction, otherTurning)) {
-                            GD.Print($"{this.Name} blocked by{parentNode.Name}");
+                        bool otherRisteys = false;
+                        if (otherTurning) {
+                            other_direction = otherÖtökkä.GetTurnDirection();
+                            otherRisteys = otherÖtökkä.GetRisteys();
+                        }
+                        if (ShouldYieldWithTurning(_direction, other_direction, isTurning, otherTurning, otherRisteys, otherÖtökkä.Name)) {
+                            //GD.Print($"{this.Name} blocked by{parentNode.Name}");
                             if (String.IsNullOrEmpty(blockedBy)) {}
                             GD.Print($"Somehow empty {blockedBy}");
                             blockedBy = body.GetInstanceId().ToString();
@@ -303,12 +328,24 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
                 }
 
             }
+            if (areaName == "Risteys" && isTurning) {
+                approachingRisteys = false;
+                inRisteys = true;
+            } else {
+                approachingRisteys = false;
+            }
         }
         private void OnCrossWalkExited(Node Area2D) {
+            string areaName = Area2D.Name;
+
             if (isOnCrossWalk) {
                 isOnCrossWalk = false;
               //int($"{this.Name} has left crosswalk");
                 CheckCrossWalkStatus();
+            }
+            if (areaName == "Risteys") {
+                inRisteys = false;
+                GD.Print("left risteys");
             }
         }
 
@@ -339,44 +376,52 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             public float GetSpeed() {
                 return currentSpeed;
             }
+
+            public bool GetRisteys() {
+                return inRisteys;
+            }
             private bool IsSame_direction(Vector2 other_direction) {
                 float dotProduct = _direction.Dot(other_direction);
                 return dotProduct > 0f;
             }
 
-            private bool IsOppositeDirection(Vector2 otherDirection) {
-                Vector2 negatedDirection = -otherDirection; // Negate the direction first
-                Vector2 myCardinal = GetCardinalDirection(_direction); // Get cardinal direction for this instance
-                Vector2 otherCardinal = GetCardinalDirection(negatedDirection); // Get cardinal direction for negated direction
+            private bool IsOppositeDirection(Vector2 otherBugDirection) {
+                string thisDirectionString = GetDirectionAsString(_direction);
+               string otherBugDirectionString = GetDirectionAsString(otherBugDirection);
 
-                // Print to help debug
-                GD.Print($"{this.Name} direction {myCardinal} other {otherCardinal}");
-
-                if (myCardinal == otherCardinal) {
+                switch (thisDirectionString, otherBugDirectionString) {
+                    case ("Up", "Down"):
                     return true;
+                    case ("Down", "Up"):
+                    return true;
+                    case ("Left", "Right"):
+                    return true;
+                    case ("Right", "Left"):
+                    return true;
+                    default:
+                    return false;
                 }
-                return false;
             }
 
-            private bool ShouldGiveWay (Vector2 otherDirection, bool otherTurning) {
+            private bool ShouldGiveWay (Vector2 otherBugDirection, bool otherTurning) {
                 // opposite direction kusee varmaa jotain
                 // tajusin et vasemmalle kääntyvien pitää väistää kaikkee abaut
                 // oikeelle kääntyvien pitäs väistää vaa vasemmalta tulevaa suoraa liikennettä
                 if (!isTurning) {
                     return false;
                 /*}
-                else if(IsOppositeDirection(otherDirection)) {
+                else if(IsOppositeDirection(otherBugDirection)) {
                     return false;;*/
 
-                } else if (isTurning && (GetCardinalDirection(otherDirection) != new Vector2(0, -1)) && (SetDirection(endPosition, firstPoint) != new Vector2(0,1))) {
-                    return false; // ei iha toimi viel toi et se varoo suoraa menevii oikeel kääntyes
+                } if (isTurning && (GetCardinalDirection(otherBugDirection) != new Vector2(0, -1)) && (SetDirection(endPosition, firstPoint) != new Vector2(0,1))) {
+                    return false; // ei toimi, koska ylhäältä alas tuleva oikeel kääntyvä tekee oikeestaan vasemman käännöksen ,mut tää kattoo sen oikeeks: pitää vertaa alkuperäsee directionii
                 } else if (isTurning && !otherTurning) {
                             // näkee liia kauas ni stoppaa liia aikasi
                     return true;
                 }
 
                 Vector2 roundedDirection = GetCardinalDirection(_direction);
-                Vector2 roundedOtherDirection = GetCardinalDirection(otherDirection);
+                Vector2 roundedOtherDirection = GetCardinalDirection(otherBugDirection);
 
 
                  if (roundedDirection == new Vector2(-1, 0) && roundedOtherDirection == new Vector2(0, 1)) {  // Left -> Down
@@ -403,44 +448,40 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
 
 // Helper function to round the direction to cardinal directions (-1, 0, 1)
 private Vector2 GetCardinalDirection(Vector2 direction) {
-    if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y)) {
+    const float THRESHOLD = 0.01f;  // Small values treated as 0
+
+    if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y) + THRESHOLD) {
         return new Vector2(Mathf.Sign(direction.X), 0);  // Left or Right
     }
-    else if (Mathf.Abs(direction.Y) > Mathf.Abs(direction.X)) {
+    else if (Mathf.Abs(direction.Y) > Mathf.Abs(direction.X) + THRESHOLD) {
         return new Vector2(0, Mathf.Sign(direction.Y));  // Up or Down
     }
     else {
-        return new Vector2(0, 0);  // Unknown direction if both X and Y are close to 0
+        return new Vector2(0, 0);  // Unknown or too small movement
     }
-
 }
+
 
 // Helper function to convert the direction to a human-readable string (e.g., "Left", "Right")
-private string GetDirectionAsString(Vector2 direction) {
-    // Now we only check if X or Y is positive or negative
-    if (direction.X < 0) return "Left";
-    if (direction.X > 0) return "Right";
-    if (direction.Y < 0) return "Up";
-    if (direction.Y > 0) return "Down";
-    return "Unknown";
-}
+
 
 private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) {
-       Vector2 startVector = start;
-       Vector2 middleVector = middle;
-       Vector2 endVector = end;
+    // Calculate the change in X and Y from start to end
+    float deltaX = Mathf.Abs(end.X - start.X);
+    float deltaY = Mathf.Abs(end.Y - start.Y);
 
+    const float TURN_THRESHOLD = 50f;  // Threshold for detecting a significant turn
 
-       // GD.Print($"{this.Name} start {startVector} middle {middleVector} end {endVector}");
-       Vector2 toTurn = SetDirection(startVector, middleVector); // nä o vääripäi kai
-       Vector2 toEnd = SetDirection(middleVector, endVector);
+    GD.Print($"Delta X: {deltaX}, Delta Y: {deltaY}");
 
-        GD.Print($"{this.Name}, {toTurn}, {toEnd}");
-       if (toTurn != toEnd) {
-        return true;
-       }
-       return false;
+    // Check if either the X or Y change is greater than the threshold
+    if (deltaX > TURN_THRESHOLD && deltaY > TURN_THRESHOLD) {
+        GD.Print($"{this.Name} is turning (delta > {TURN_THRESHOLD})");
+        return true;  // Significant turn detected
+    }
 
+    GD.Print($"{this.Name} is not turning");
+    return false;  // No significant turn detected
 }
 
 private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) {
@@ -473,11 +514,15 @@ else if (_initialDirection.X < -THRESHOLD) {
 }
 
 private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
-                 const float THRESHOLD = 0.1f;
-                Vector2 direction = (position - lastposition).Normalized();
-
-                if (direction == Vector2.Zero) {
-                    direction = _direction;
+                 const float THRESHOLD = 0.01f;
+                Vector2 direction = (position - lastposition);
+                Vector2 cardinalDirection = GetCardinalDirection(direction);
+                if (cardinalDirection == Vector2.Zero || (Mathf.Abs(cardinalDirection.X) > 0 && Mathf.Abs(cardinalDirection.Y) > 0)) {
+                    if (!isTurning) {
+                    direction = _initialDirectionSaved;
+                    } else {
+                        direction = GetTurnDirection();
+                    }
                 }
             if (Mathf.Abs(direction.Y) < THRESHOLD) {
     direction.Y = 0f; // Small Y changes, treat as 0
@@ -502,5 +547,166 @@ else if (direction.X < -THRESHOLD) {
            return direction;
 }
 
+
+
+    private string GetDirectionAsString(Vector2 direction) {
+    // Now we only check if X or Y is positive or negative
+    if (direction == new Vector2(1,0)) return "Right";
+    if (direction == new Vector2(-1,0)) return "Left";
+    if (direction == new Vector2(0,1)) return "Down";
+    if (direction == new Vector2(0,-1)) return "Up";
+
+
+    return "Unknown";
+}
+
+private Vector2 SetTurnDirection(Vector2 point1, Vector2 point2)
+{
+    const float THRESHOLD = 0.1f;
+
+    // Calculate the direction vector based on the difference between the points
+    Vector2 direction = (point2 - point1).Normalized();
+
+    // Apply the threshold logic to determine the direction
+    if (Mathf.Abs(direction.Y) < THRESHOLD) {
+        direction.Y = 0f; // Small Y changes, treat as 0
+    }
+    else if (direction.Y > THRESHOLD) {
+        direction.Y = 1f; // Positive Y, treat as down (1)
+    }
+    else if (direction.Y < -THRESHOLD) {
+        direction.Y = -1f; // Negative Y, treat as up (-1)
+    }
+
+    // Handle X direction
+    if (Mathf.Abs(direction.X) < THRESHOLD) {
+        direction.X = 0f; // Small X changes, treat as 0
+    }
+    else if (direction.X > THRESHOLD) {
+        direction.X = 1f; // Positive X, treat as right (1)
+    }
+    else if (direction.X < -THRESHOLD) {
+        direction.X = -1f; // Negative X, treat as left (-1)
+    }
+
+    // Return the final direction as a Vector2
+    return direction;
+}
+
+
+public Vector2 GetTurnDirection() {
+    return _turnDirection;
+}
+
+private bool RightTurn(Vector2 turnDirection) {
+    string turnDirectionString = GetDirectionAsString(turnDirection);
+    string currentDirectionString = GetDirectionAsString(_initialDirectionSaved);
+
+    switch (currentDirectionString, turnDirectionString){
+        case ("Up", "Right"):
+        return true;
+        case ("Left", "Up"):
+        return true;
+        case ("Down", "Left"):
+        return true;
+        case ("Right", "Down"):
+        return true;
+        default:
+        return false;
+    }
+}
+
+
+private bool ShouldYieldWithTurning(Vector2 thisDirection, Vector2 otherDirection, bool isTurning, bool otherTurning, bool otherRisteys, string otherÖtökkä)
+{
+    string thisBugDirection = GetDirectionAsString(thisDirection);
+    string otherBugDirection = GetDirectionAsString(otherDirection);
+    if (thisBugDirection == "Unknown") {
+        GD.Print(thisDirection);
+        if(!isTurning) {
+        thisBugDirection = GetDirectionAsString(_initialDirectionSaved);
+        }
+        else {
+            thisBugDirection = GetDirectionAsString(_turnDirection);
+        }
+    }
+
+    GD.Print($"Checking yield: {this.Name} ({thisBugDirection}, Turning: {isTurning}), {otherÖtökkä}({otherBugDirection}, Turning: {otherTurning}, InIntersection: {otherRisteys})");
+
+    if (isTurning) {
+        thisBugDirection = GetDirectionAsString(_turnDirection);
+        GD.Print($"This bug is turning, using turn direction: {thisBugDirection}");
+    }
+
+    // Case 1: If both cars are not turning (both are going straight), apply the straight yield rules.
+    if (!isTurning && !otherTurning)
+    {
+        GD.Print("Both cars are going straight, checking straight yield rules...");
+        if (thisBugDirection == "Up" && otherBugDirection == "Left") {
+            GD.Print("Car going Up yields to car going Left.");
+            return true;
+        }
+        if (thisBugDirection == "Down" && otherBugDirection == "Right") {
+            GD.Print("Car going Down yields to car going Right.");
+            return true;
+        }
+        if (thisBugDirection == "Left" && otherBugDirection == "Down") {
+            GD.Print("Car going Left yields to car going Down.");
+            return true;
+        }
+        if (thisBugDirection == "Right" && otherBugDirection == "Up") {
+            GD.Print("Car going Right yields to car going Up.");
+            return true;
+        }
+    }
+
+    // Case 2: If the current car is turning and the other car is not, the current car yields.
+    if (isTurning && !otherTurning)
+    {
+        if(RightTurn(_turnDirection)){
+            return false;
+        } else {
+        GD.Print("This bug is turning while the other bug is not. Yielding...");
+        return true;
+        }
+    }
+
+  // Case 3: If the other car is turning and the current car is not, the other car yields.
+    if (!isTurning && otherTurning)
+    {
+        GD.Print("Other bug is turning while this bug is not.");
+        if (!IsOppositeDirection(otherDirection)) {
+            GD.Print(thisBugDirection, otherBugDirection); // tää ei toimiiiii. Pitäs kattoo initial direction tjsp.
+            return true;
+        }
+        GD.Print("Other bug is turning but not in front. No yield needed.");
+        return false;
+    }
+
+    // Case 4: Both cars are turning
+    if (isTurning && otherTurning)
+    {
+        GD.Print("Both bugs are turning, checking crossing conditions...");
+        if (thisBugDirection == "Right" && otherBugDirection == "Right")
+        {
+            GD.Print("Both bugs are turning right, no yield needed.");
+            return false;
+        }
+        if (thisBugDirection == "Left" && otherBugDirection == "Left")
+        {
+            GD.Print("Both bugs are turning left, they yield to each other.");
+            return true;
+        }
+        if ((thisBugDirection == "Left" && otherBugDirection == "Right") ||
+            (thisBugDirection == "Right" && otherBugDirection == "Left"))
+        {
+            GD.Print("One bug is turning left and the other is turning right, they yield to each other.");
+            return true;
+        }
+    }
+
+    GD.Print("No specific yield condition met. No yield needed.");
+    return false;
+}
     }
 }
