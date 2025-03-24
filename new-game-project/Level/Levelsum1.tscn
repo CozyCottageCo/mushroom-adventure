@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://cnrdd7yb4esf"]
+[gd_scene load_steps=52 format=4 uid="uid://cnrdd7yb4esf"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_iulsk"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_jajw7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="5_penxf"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="6_ueki2"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="7_0hcq6"]
+[ext_resource type="Texture2D" uid="uid://oep65ipe1lo7" path="res://Art/Spritet/Ympäristö/Kävelytie.png" id="7_keq6v"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="8_ldh48"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_jyaui"]
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="10_5o5nb"]
@@ -215,6 +216,37 @@ texture_region_size = Vector2i(32, 32)
 4:4/0 = 0
 5:4/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrixk"]
+texture = ExtResource("7_keq6v")
+texture_region_size = Vector2i(32, 32)
+7:3/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_lgc1i"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 8
@@ -222,6 +254,7 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_13wsf")
 sources/1 = SubResource("TileSetAtlasSource_55taa")
 sources/2 = SubResource("TileSetAtlasSource_hai1r")
+sources/3 = SubResource("TileSetAtlasSource_rrixk")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
 atlas = ExtResource("9_jyaui")
@@ -389,7 +422,8 @@ tile_set = SubResource("TileSet_1iyxx")
 tile_map_data = PackedByteArray("AAATAAQAAQACAAIAAAASAAQAAQACAAIAAAARAAQAAQACAAIAAAAQAAQAAQACAAIAAAAPAAQAAQACAAIAAAAOAAQAAQACAAIAAAANAAQAAQACAAIAAAAMAAQAAQACAAIAAAALAAQAAQACAAIAAAAKAAQAAQACAAIAAAAJAAQAAQACAAIAAAAIAAQAAQACAAIAAAAHAAQAAQACAAIAAAAGAAQAAQACAAIAAAAFAAQAAQACAAIAAAAEAAQAAQACAAIAAAADAAQAAQACAAIAAAACAAQAAQACAAIAAAABAAQAAQACAAIAAAAAAAQAAQACAAIAAAATAAUAAQACAAMAAAASAAUAAQACAAMAAAARAAUAAQACAAMAAAAQAAUAAQACAAMAAAAPAAUAAQACAAMAAAAOAAUAAQACAAMAAAANAAUAAQACAAMAAAAMAAUAAQACAAMAAAALAAUAAQACAAMAAAAKAAUAAQACAAMAAAAJAAUAAQACAAMAAAAIAAUAAQACAAMAAAAHAAUAAQACAAMAAAAGAAUAAQACAAMAAAAFAAUAAQACAAMAAAAEAAUAAQACAAMAAAADAAUAAQACAAMAAAACAAUAAQACAAMAAAABAAUAAQACAAMAAAAAAAUAAQACAAMAAAAAAAgAAQACAAIAAAABAAgAAQACAAIAAAACAAgAAQACAAIAAAADAAgAAQACAAIAAAAEAAgAAQACAAIAAAAFAAgAAQACAAIAAAAFAAkAAQACAAMAAAAGAAgAAQACAAIAAAAGAAkAAQACAAMAAAAHAAgAAQACAAIAAAAHAAkAAQACAAMAAAAIAAgAAQACAAIAAAAIAAkAAQACAAMAAAAJAAgAAQACAAIAAAAJAAkAAQACAAMAAAAKAAgAAQACAAIAAAAKAAkAAQACAAMAAAALAAgAAQACAAIAAAALAAkAAQACAAMAAAAMAAgAAQACAAIAAAAMAAkAAQACAAMAAAANAAgAAQACAAIAAAANAAkAAQACAAMAAAAOAAgAAQACAAIAAAAOAAkAAQACAAMAAAAPAAgAAQACAAIAAAAPAAkAAQACAAMAAAAQAAgAAQACAAIAAAAQAAkAAQACAAMAAAARAAgAAQACAAIAAAARAAkAAQACAAMAAAASAAgAAQACAAIAAAASAAkAAQACAAMAAAATAAgAAQACAAIAAAATAAkAAQACAAMAAAAAAAkAAQACAAMAAAABAAkAAQACAAMAAAACAAkAAQACAAMAAAADAAkAAQACAAMAAAAEAAkAAQACAAMAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
-[node name="Suojatiepohja" type="TileMapLayer" parent="."]
+[node name="Kävelytie" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAoAAwACAAkAAAABAAoAAwADAAkAAAACAAoAAwAEAAkAAAADAAoAAwAFAAkAAAAEAAoAAwACAAkAAAAFAAoAAwADAAkAAAAGAAoAAwAEAAkAAAAHAAoAAwAFAAkAAGAIAAoAAwACAAkAAAAJAAoAAwAGAAgAAAAKAAoAAwAFAAgAAAALAAoAAwAGAAgAADAMAAoAAwAGAAcAAAANAAoAAwAFAAcAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie1" type="TileMapLayer" parent="."]

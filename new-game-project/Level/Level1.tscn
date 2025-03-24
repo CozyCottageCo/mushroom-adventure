@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_qa13n"]
 [ext_resource type="PackedScene" uid="uid://xf1ea28uubuc" path="res://Level/Murkku.tscn" id="16_572cx"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_fsa4o"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
+[ext_resource type="PackedScene" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_7xa28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
