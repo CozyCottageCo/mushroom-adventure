@@ -706,9 +706,9 @@ script = ExtResource("20_2scnj")
 shape = SubResource("RectangleShape2D_5ivg4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 483.0
+offset_left = 471.0
 offset_top = 356.0
-offset_right = 640.0
+offset_right = 638.0
 offset_bottom = 379.0
 text = "Kauppakeskus Ratina
 "
