@@ -1,4 +1,8 @@
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [gd_scene load_steps=67 format=4 uid="uid://dxw6ha364wvjd"]
+=======
+[gd_scene load_steps=66 format=4 uid="uid://dxw6ha364wvjd"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_c07gc"]
 [ext_resource type="Texture2D" uid="uid://br5naq38ml8rk" path="res://Art/Spritet/Ympäristö/taplajahti_kevät.png" id="2_amp5l"]
@@ -7,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_ymr0k"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="5_0tlw8"]
 [ext_resource type="Texture2D" uid="uid://oep65ipe1lo7" path="res://Art/Spritet/Ympäristö/Kävelytie.png" id="6_pa5p0"]
+[ext_resource type="Texture2D" uid="uid://boj5c2d3h4325" path="res://Art/Spritet/Ympäristö/firefly.png" id="7_158ww"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="7_hs53e"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="8_g7hoq"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_nhqq2"]
@@ -201,6 +206,7 @@ texture_region_size = Vector2i(32, 32)
 4:10/0 = 0
 5:10/0 = 0
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm55q"]
 texture = ExtResource("2_amp5l")
 texture_region_size = Vector2i(32, 32)
@@ -235,6 +241,29 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
+=======
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hees"]
+texture = ExtResource("7_158ww")
+texture_region_size = Vector2i(32, 32)
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/animation_frame_8/duration = 1.0
+0:0/animation_frame_9/duration = 1.0
+0:0/animation_frame_10/duration = 1.0
+0:0/animation_frame_11/duration = 1.0
+0:0/animation_frame_12/duration = 1.0
+0:0/animation_frame_13/duration = 1.0
+0:0/animation_frame_14/duration = 1.0
+0:0/animation_frame_15/duration = 1.0
+0:0/0 = 0
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 
 [sub_resource type="TileSet" id="TileSet_lgc1i"]
 tile_size = Vector2i(32, 32)
@@ -243,7 +272,11 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_13wsf")
 sources/1 = SubResource("TileSetAtlasSource_0ujcp")
 sources/2 = SubResource("TileSetAtlasSource_63uqy")
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 sources/3 = SubResource("TileSetAtlasSource_mm55q")
+=======
+sources/3 = SubResource("TileSetAtlasSource_1hees")
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
 atlas = ExtResource("9_nhqq2")
@@ -526,11 +559,19 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAEAAAAAAAEAAAADAAEAAAAAAAIAAAADAAE
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Tie" type="TileMapLayer" parent="."]
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 tile_map_data = PackedByteArray("AAAAAAsAAAACAAMAAAABAAsAAAACAAMAAAACAAsAAAADAAIAAFADAAsAAAACAAQAAAAEAAsAAAACAAQAAAAFAAsAAAADAAIAAAAGAAsAAAACAAMAAAAHAAsAAAACAAMAAAAIAAsAAAACAAMAAAAJAAsAAAACAAMAAAAKAAsAAAACAAMAAAALAAsAAAACAAMAAAAMAAsAAAACAAMAAAANAAsAAAACAAMAAAAOAAsAAAACAAMAAAAPAAsAAAACAAMAAAAQAAsAAAACAAMAAAARAAsAAAACAAMAAAASAAsAAAACAAMAAAATAAsAAAACAAMAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAADAAIAADADAAoAAAACAAQAAAAEAAoAAAACAAQAAAAFAAoAAAADAAIAAGAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAARAAoAAAACAAIAAAASAAoAAAACAAIAAAATAAoAAAACAAIAAAADAAAAAAACAAQAAAADAAEAAAACAAQAAAADAAIAAAACAAQAAAADAAMAAAACAAQAAAADAAQAAAACAAQAAAADAAUAAAACAAQAAAADAAYAAAACAAQAAAADAAgAAAACAAQAAAADAAkAAAACAAQAAAACAAAAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAACAAMAAAAAAAIAAAACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAACAAgAAAAAAAIAAAACAAkAAAAAAAIAAAAKAAAAAAABAAIAAAAKAAIAAAABAAIAAAAKAAMAAAABAAIAAAAKAAQAAAABAAIAAAAJAAAAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAYAAAAFAAQAAGAKAAYAAAACAAMAAAALAAYAAAACAAMAAAAMAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAARAAYAAAACAAMAAAASAAYAAAACAAMAAAATAAYAAAACAAMAAAALAAUAAAACAAIAAAAMAAUAAAACAAIAAAAOAAUAAAACAAIAAAAPAAUAAAACAAIAAAAQAAUAAAACAAIAAAARAAUAAAACAAIAAAASAAUAAAACAAIAAAATAAUAAAACAAIAAAAJAAUAAAAAAAIAAAAKAAUAAAADAAIAAGAFAAkAAAABAAIAAAAFAAgAAAABAAIAAAAFAAYAAAABAAIAAAAFAAUAAAABAAIAAAAFAAQAAAABAAIAAAAFAAMAAAABAAIAAAAFAAIAAAABAAIAAAAFAAEAAAABAAIAAAAFAAAAAAABAAIAAAAEAAAAAAACAAQAAAAEAAEAAAACAAQAAAAEAAIAAAACAAQAAAAEAAMAAAACAAQAAAAEAAQAAAACAAQAAAAEAAUAAAACAAQAAAAEAAYAAAACAAQAAAAEAAgAAAACAAQAAAAEAAkAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Suojatiepohja" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAoAAQADAAMAAAABAAoAAQADAAMAAAACAAoAAQADAAMAAAADAAoAAQADAAMAAAAEAAoAAQADAAMAAAAFAAoAAQADAAMAAAAGAAoAAQADAAMAAAAHAAoAAQADAAMAAAAIAAoAAQADAAMAAAAJAAoAAQADAAMAAAAKAAoAAQADAAMAAAALAAoAAQADAAMAAAAMAAoAAQADAAMAAAANAAoAAQADAAMAAAAOAAoAAQADAAMAAAAPAAoAAQADAAMAAAAQAAoAAQADAAMAAAARAAoAAQADAAMAAAASAAoAAQADAAMAAAATAAoAAQADAAMAAAAKAAUAAQADAAMAAAALAAUAAQADAAMAAAAMAAUAAQADAAMAAAANAAUAAwACAAIAAAAOAAUAAQADAAMAAAAPAAUAAQADAAMAAAAQAAUAAQADAAMAAAARAAUAAQADAAMAAAASAAUAAQADAAMAAAATAAUAAQADAAMAAAAKAAYAAQACAAQAAAALAAYAAQACAAQAAAAMAAYAAQACAAQAAAANAAYAAwACAAMAAAAOAAYAAQACAAQAAAAPAAYAAQACAAQAAAAQAAYAAQACAAQAAAARAAYAAQACAAQAAAASAAYAAQACAAQAAAATAAYAAQACAAQAAAATAAsAAQACAAQAAAASAAsAAQACAAQAAAARAAsAAQACAAQAAAAQAAsAAQACAAQAAAAPAAsAAQACAAQAAAAOAAsAAQACAAQAAAANAAsAAQACAAQAAAAMAAsAAQACAAQAAAALAAsAAQACAAQAAAAKAAsAAQACAAQAAAAJAAsAAQACAAQAAAAIAAsAAQACAAQAAAAHAAsAAQACAAQAAAAFAAsAAQACAAQAAAAEAAsAAQACAAQAAAADAAsAAQACAAQAAAACAAsAAQACAAQAAAABAAsAAQACAAQAAAAAAAsAAQACAAQAAAAGAAsAAQACAAQAAAAJAAAAAQADAAMAAGAJAAEAAwAAAAIAAAAJAAIAAQADAAMAAGAJAAMAAQADAAMAAGAJAAQAAQADAAMAAGAJAAUAAQADAAMAAGAKAAQAAQACAAQAAGAKAAMAAQACAAQAAGAKAAIAAQACAAQAAGAKAAEAAwABAAIAAAAKAAAAAQACAAQAAGADAAkAAQACAAQAAGADAAgAAQACAAQAAGADAAcAAwADAAQAAAADAAYAAQACAAQAAGADAAUAAQACAAQAAGADAAQAAQACAAQAAGADAAMAAQACAAQAAGADAAIAAQACAAQAAGADAAEAAQACAAQAAGADAAAAAQACAAQAAGAEAAAAAQADAAQAABAEAAEAAQADAAQAABAEAAIAAQADAAQAABAEAAMAAQADAAQAABAEAAQAAQADAAQAABAEAAUAAQADAAQAABAEAAYAAQADAAQAABAEAAcAAwADAAQAAAAEAAgAAQADAAQAABAEAAkAAQADAAQAABACAAkAAQADAAMAAGACAAgAAQADAAMAAGACAAcAAwAAAAIAAAACAAYAAQADAAMAAGACAAUAAQADAAMAAGACAAQAAQADAAMAAGACAAMAAQADAAMAAGACAAIAAQADAAMAAGACAAEAAQADAAMAAGACAAAAAQADAAMAAGAFAAAAAQADAAMAAFAFAAEAAQADAAMAAFAFAAIAAQADAAMAAFAFAAMAAQADAAMAAFAFAAQAAQADAAMAAFAFAAUAAQADAAMAAFAFAAYAAQADAAMAAFAFAAcAAwABAAIAAAAFAAgAAQADAAMAAFAFAAkAAQADAAMAAFA=")
+=======
+tile_map_data = PackedByteArray("AAAAAAsAAAACAAMAAAABAAsAAAACAAMAAAACAAsAAAADAAIAAFADAAsAAAAFAAMAAAAEAAsAAAAFAAMAAAAFAAsAAAADAAIAAAAGAAsAAAACAAMAAAAHAAsAAAACAAMAAAAIAAsAAAACAAMAAAAJAAsAAAACAAMAAAAKAAsAAAACAAMAAAALAAsAAAACAAMAAAAMAAsAAAACAAMAAAANAAsAAAACAAMAAAAOAAsAAAACAAMAAAAPAAsAAAACAAMAAAAQAAsAAAACAAMAAAARAAsAAAACAAMAAAASAAsAAAACAAMAAAATAAsAAAACAAMAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAADAAIAADADAAoAAAAFAAMAAAAEAAoAAAAFAAMAAAAFAAoAAAADAAIAAGAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAARAAoAAAACAAIAAAASAAoAAAACAAIAAAATAAoAAAACAAIAAAADAAAAAAAFAAMAAAADAAEAAAAFAAMAAAADAAIAAAAFAAMAAAADAAMAAAAFAAMAAAADAAQAAAAFAAMAAAADAAUAAAAFAAMAAAADAAYAAAAFAAMAAAADAAcAAAAFAAMAAAADAAgAAAAFAAMAAAADAAkAAAAFAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAACAAMAAAAAAAIAAAACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAACAAcAAAAAAAIAAAACAAgAAAAAAAIAAAACAAkAAAAAAAIAAAAKAAAAAAABAAIAAAAKAAEAAAABAAIAAAAKAAIAAAABAAIAAAAKAAMAAAABAAIAAAAKAAQAAAABAAIAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAYAAAAFAAQAAGAKAAYAAAACAAMAAAALAAYAAAACAAMAAAAMAAYAAAACAAMAAAANAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAARAAYAAAACAAMAAAASAAYAAAACAAMAAAATAAYAAAACAAMAAAALAAUAAAACAAIAAAAMAAUAAAACAAIAAAANAAUAAAACAAIAAAAOAAUAAAACAAIAAAAPAAUAAAACAAIAAAAQAAUAAAACAAIAAAARAAUAAAACAAIAAAASAAUAAAACAAIAAAATAAUAAAACAAIAAAAJAAUAAAAAAAIAAAAKAAUAAAADAAIAAGAFAAkAAAABAAIAAAAFAAgAAAABAAIAAAAFAAcAAAABAAIAAAAFAAYAAAABAAIAAAAFAAUAAAABAAIAAAAFAAQAAAABAAIAAAAFAAMAAAABAAIAAAAFAAIAAAABAAIAAAAFAAEAAAABAAIAAAAFAAAAAAABAAIAAAAEAAAAAAAFAAMAAAAEAAEAAAAFAAMAAAAEAAIAAAAFAAMAAAAEAAMAAAAFAAMAAAAEAAQAAAAFAAMAAAAEAAUAAAAFAAMAAAAEAAYAAAAFAAMAAAAEAAcAAAAFAAMAAAAEAAgAAAAFAAMAAAAEAAkAAAAFAAMAAAA=")
+tile_set = SubResource("TileSet_1iyxx")
+
+[node name="Tiviivat" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAoAAQADAAMAAAABAAoAAQADAAMAAAACAAoAAQADAAMAAAADAAoAAQADAAMAAAAEAAoAAQADAAMAAAAFAAoAAQADAAMAAAAGAAoAAQADAAMAAAAHAAoAAQADAAMAAAAIAAoAAQADAAMAAAAJAAoAAQADAAMAAAAKAAoAAQADAAMAAAALAAoAAQADAAMAAAAMAAoAAQADAAMAAAANAAoAAQADAAMAAAAOAAoAAQADAAMAAAAPAAoAAQADAAMAAAAQAAoAAQADAAMAAAARAAoAAQADAAMAAAASAAoAAQADAAMAAAATAAoAAQADAAMAAAAKAAUAAQADAAMAAAALAAUAAQADAAMAAAAMAAUAAQADAAMAAAANAAUAAQADAAMAAAAOAAUAAQADAAMAAAAPAAUAAQADAAMAAAAQAAUAAQADAAMAAAARAAUAAQADAAMAAAASAAUAAQADAAMAAAATAAUAAQADAAMAAAAKAAYAAQACAAQAAAALAAYAAQACAAQAAAAMAAYAAQACAAQAAAANAAYAAQACAAQAAAAOAAYAAQACAAQAAAAPAAYAAQACAAQAAAAQAAYAAQACAAQAAAARAAYAAQACAAQAAAASAAYAAQACAAQAAAATAAYAAQACAAQAAAATAAsAAQACAAQAAAASAAsAAQACAAQAAAARAAsAAQACAAQAAAAQAAsAAQACAAQAAAAPAAsAAQACAAQAAAAOAAsAAQACAAQAAAANAAsAAQACAAQAAAAMAAsAAQACAAQAAAALAAsAAQACAAQAAAAKAAsAAQACAAQAAAAJAAsAAQACAAQAAAAIAAsAAQACAAQAAAAHAAsAAQACAAQAAAAFAAsAAQACAAQAAAAEAAsAAQACAAQAAAADAAsAAQACAAQAAAACAAsAAQACAAQAAAABAAsAAQACAAQAAAAAAAsAAQACAAQAAAAGAAsAAQACAAQAAAAJAAAAAQADAAMAAGAJAAEAAQADAAMAAGAJAAIAAQADAAMAAGAJAAMAAQADAAMAAGAJAAQAAQADAAMAAGAJAAUAAQADAAMAAGAKAAQAAQACAAQAAGAKAAMAAQACAAQAAGAKAAIAAQACAAQAAGAKAAEAAQACAAQAAGAKAAAAAQACAAQAAGADAAkAAQACAAQAAGADAAgAAQACAAQAAGADAAcAAQACAAQAAGADAAYAAQACAAQAAGADAAUAAQACAAQAAGADAAQAAQACAAQAAGADAAMAAQACAAQAAGADAAIAAQACAAQAAGADAAEAAQACAAQAAGADAAAAAQACAAQAAGAEAAAAAQADAAQAABAEAAEAAQADAAQAABAEAAIAAQADAAQAABAEAAMAAQADAAQAABAEAAQAAQADAAQAABAEAAUAAQADAAQAABAEAAYAAQADAAQAABAEAAcAAQADAAQAABAEAAgAAQADAAQAABAEAAkAAQADAAQAABACAAkAAQADAAMAAGACAAgAAQADAAMAAGACAAcAAQADAAMAAGACAAYAAQADAAMAAGACAAUAAQADAAMAAGACAAQAAQADAAMAAGACAAMAAQADAAMAAGACAAIAAQADAAMAAGACAAEAAQADAAMAAGACAAAAAQADAAMAAGAFAAAAAQADAAMAAFAFAAEAAQADAAMAAFAFAAIAAQADAAMAAFAFAAMAAQADAAMAAFAFAAQAAQADAAMAAFAFAAUAAQADAAMAAFAFAAYAAQADAAMAAFAFAAcAAQADAAMAAFAFAAgAAQADAAMAAFAFAAkAAQADAAMAAFA=")
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie" type="TileMapLayer" parent="."]
@@ -545,7 +586,8 @@ tile_set = SubResource("TileSet_lgc1i")
 tile_map_data = PackedByteArray("AAANAAUAAwAFAAIAADANAAYAAwAFAAIAADANAAQAAwAEAAEAAAANAAcAAwAEAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
-[node name="Suojatie4" type="TileMapLayer" parent="."]
+[node name="Liikennevalot" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAYAAwAAAAAAAAABAAYAAwAAAAAAAAAOAAYAAwAAAAAAAAAMAAQAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="grid" parent="." instance=ExtResource("7_hs53e")]
@@ -744,11 +786,62 @@ script = ExtResource("14_64qyp")
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_5ivg4")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Node2D" type="Node2D" parent="."]
+=======
+[node name="Risteykset" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Node2D"]
+[node name="Risteys2" type="Area2D" parent="Risteykset"]
+collision_layer = 255
+collision_mask = 246
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys2"]
+position = Vector2(325, 229)
+shape = SubResource("RectangleShape2D_3qogq")
+
+[node name="Risteys3" type="Area2D" parent="Risteykset"]
+collision_layer = 48
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys3"]
+position = Vector2(294.344, 226.609)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_3qogq")
+
+[node name="Risteys4" type="Area2D" parent="Risteykset"]
+position = Vector2(1, 4)
+collision_layer = 32
+collision_mask = 246
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys4"]
+position = Vector2(288.438, 184.375)
+shape = SubResource("RectangleShape2D_3qogq")
+
+[node name="Risteys" type="Area2D" parent="Risteykset"]
+position = Vector2(2, 2)
+collision_layer = 48
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys"]
+position = Vector2(324, 186)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_3qogq")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 510.0
+offset_top = 364.0
+offset_right = 640.0
+offset_bottom = 387.0
+text = "Hatanpäänkoulu"
+
+[node name="Reitit" type="Node2D" parent="."]
+visible = false
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
+
+[node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_v0d0r")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D" instance=ExtResource("15_10wng")]
 position = Vector2(659, 177)
 rotation = 3.14159
@@ -768,86 +861,115 @@ position = Vector2(173, 408)
 rotation = -1.5708
 
 [node name="Path2D4" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D2" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_b8ank")
+
+[node name="Path2D3" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_0u3ge")
+
+[node name="Path2D4" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_sa4nw")
 
-[node name="Path2D5" type="Path2D" parent="Node2D"]
+[node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_nhulc")
 
-[node name="Path2D6" type="Path2D" parent="Node2D"]
+[node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_70mh7")
 
-[node name="Path2D7" type="Path2D" parent="Node2D"]
+[node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8w22l")
 
-[node name="Path2D8" type="Path2D" parent="Node2D"]
+[node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_j2waq")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D8" instance=ExtResource("15_10wng")]
 position = Vector2(112, 433)
 rotation = -1.58111
 
 [node name="Path2D9" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D9" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_g1ovr")
 
-[node name="Path2D10" type="Path2D" parent="Node2D"]
+[node name="Path2D10" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_gg30a")
 
-[node name="Path2D11" type="Path2D" parent="Node2D"]
+[node name="Path2D11" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_wdmmc")
 
-[node name="Path2D12" type="Path2D" parent="Node2D"]
+[node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_trd8g")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D12" instance=ExtResource("15_10wng")]
 position = Vector2(671, 338)
 rotation = -3.13021
 
 [node name="Path2D13" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D13" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_l478x")
 
-[node name="Path2D14" type="Path2D" parent="Node2D"]
+[node name="Path2D14" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_c71l6")
 
-[node name="Path2D15" type="Path2D" parent="Node2D"]
+[node name="Path2D15" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_e5ghr")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D15" instance=ExtResource("15_10wng")]
 position = Vector2(144, -12)
 rotation = 1.5708
 
 [node name="Path2D16" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D16" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_kij3n")
 
-[node name="Path2D17" type="Path2D" parent="Node2D"]
+[node name="Path2D17" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_dknvu")
 
-[node name="Path2D18" type="Path2D" parent="Node2D"]
+[node name="Path2D18" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_arcyk")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D18" instance=ExtResource("15_10wng")]
 position = Vector2(79, -14)
 rotation = 1.5708
 
 [node name="Path2D19" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D19" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_anlf6")
 
-[node name="Path2D20" type="Path2D" parent="Node2D"]
+[node name="Path2D20" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5bdta")
 
-[node name="Path2D21" type="Path2D" parent="Node2D"]
+[node name="Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_cuoy0")
 
-[node name="Path2D22" type="Path2D" parent="Node2D"]
+[node name="Path2D22" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_bncg2")
 
+<<<<<<< HEAD:new-game-project/Level/Level8.tscn
 [node name="Muurahainen" parent="Node2D/Path2D22" instance=ExtResource("15_10wng")]
 position = Vector2(-18, 364)
 rotation = 0.00143678
 
 [node name="Path2D23" type="Path2D" parent="Node2D"]
+=======
+[node name="Path2D23" type="Path2D" parent="Reitit"]
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelspri4.tscn
 curve = SubResource("Curve2D_xqwib")
 
-[node name="Path2D24" type="Path2D" parent="Node2D"]
+[node name="Path2D24" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ijqcq")
 
 [node name="Sieni" parent="." instance=ExtResource("15_luii4")]

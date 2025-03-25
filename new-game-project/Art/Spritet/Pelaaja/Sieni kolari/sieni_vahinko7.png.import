@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://db0dofe63u7h"
+=======
+uid="uid://cbdimuf55jht2"
+>>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67
 path="res://.godot/imported/sieni_vahinko7.png-76e1d06d278b00f5068dc3b341845277.ctex"
 metadata={
 "vram_texture": false

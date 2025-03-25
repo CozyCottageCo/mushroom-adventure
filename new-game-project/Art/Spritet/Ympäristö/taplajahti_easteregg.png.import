@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://y4b6coeoxika"
-=======
-uid="uid://drg2d0f1w6iok"
->>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67
-path="res://.godot/imported/sieni_vahinko5.png-1a807a760b2edef4341026a853b6f286.ctex"
+uid="uid://clcfloq7760ob"
+path="res://.godot/imported/taplajahti_easteregg.png-dc88a713f0be7b166855e7b15aaa3133.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko5.png"
-dest_files=["res://.godot/imported/sieni_vahinko5.png-1a807a760b2edef4341026a853b6f286.ctex"]
+source_file="res://Art/Spritet/Ympäristö/taplajahti_easteregg.png"
+dest_files=["res://.godot/imported/taplajahti_easteregg.png-dc88a713f0be7b166855e7b15aaa3133.ctex"]
 
 [params]
 
