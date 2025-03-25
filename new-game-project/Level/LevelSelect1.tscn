@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmd433gja3ef2"]
+[gd_scene load_steps=10 format=3 uid="uid://154c28wioqj6"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_2dnda"]
-[ext_resource type="Texture2D" uid="uid://dkfplo2q5i1em" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_summer.png" id="2_74184"]
+[ext_resource type="Texture2D" uid="uid://gno5ss2k5pot" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_winter.png" id="2_2ij1w"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_x877a"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="3_8yss8"]
 [ext_resource type="Texture2D" uid="uid://dctb68l0dd65" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png" id="4_ohrdw"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="5_54qxi"]
-[ext_resource type="Texture2D" uid="uid://dcjggl1eba2xk" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_täplällä.png" id="5_duiop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13q10"]
 atlas = ExtResource("3_8yss8")
@@ -16,7 +15,7 @@ region = Rect2(24, 30, 42, 51)
 atlas = ExtResource("4_ohrdw")
 region = Rect2(160, 32, 32, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6l227"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlo0k"]
 atlas = ExtResource("5_54qxi")
 region = Rect2(64, 64, 64, 64)
 
@@ -44,57 +43,56 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("2_74184")
+texture = ExtResource("2_2ij1w")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="Background"]
 visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 30.0
+offset_left = 32.0
 offset_top = 1.0
-offset_right = 23.0
+offset_right = 32.0
 offset_bottom = 99.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.87451, 0, 1)
-theme_override_colors/font_outline_color = Color(3.91062e-07, 0.243288, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("2_x877a")
 theme_override_font_sizes/font_size = 80
-text = "Valitse taso (1)"
+text = "Valitse taso (2)"
 horizontal_alignment = 1
+
+[node name="Taso1" type="TextureButton" parent="Background"]
+layout_mode = 2
+offset_left = 98.0
+offset_top = 109.0
+offset_right = 140.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso2" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 231.0
-offset_top = 66.0
-offset_right = 273.0
-offset_bottom = 117.0
+offset_left = 309.0
+offset_top = 262.0
+offset_right = 351.0
+offset_bottom = 313.0
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso3" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 369.0
-offset_top = 208.0
-offset_right = 1010.0
-offset_bottom = 691.0
-texture_normal = ExtResource("5_duiop")
-
-[node name="Taso1" type="TextureButton" parent="Background"]
-layout_mode = 2
-offset_left = 87.0
-offset_top = 206.0
-offset_right = 727.0
-offset_bottom = 686.0
-texture_normal = ExtResource("3_8yss8")
+offset_left = 384.0
+offset_top = 116.0
+offset_right = 426.0
+offset_bottom = 167.0
+texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso4" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 477.0
-offset_top = 24.0
-offset_right = 1117.0
-offset_bottom = 504.0
-texture_normal = ExtResource("5_duiop")
+offset_left = 504.0
+offset_top = 46.0
+offset_right = 546.0
+offset_bottom = 97.0
+texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]
 layout_mode = 2
@@ -106,8 +104,8 @@ texture_normal = SubResource("AtlasTexture_vxr3q")
 
 [node name="MainMenu" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 1.0
-offset_top = 6.0
-offset_right = 65.0
-offset_bottom = 70.0
-texture_normal = SubResource("AtlasTexture_6l227")
+offset_left = -1.0
+offset_top = 9.0
+offset_right = 63.0
+offset_bottom = 73.0
+texture_normal = SubResource("AtlasTexture_xlo0k")

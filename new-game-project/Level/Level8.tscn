@@ -1,7 +1,8 @@
-[gd_scene load_steps=66 format=4 uid="uid://dxw6ha364wvjd"]
+[gd_scene load_steps=69 format=4 uid="uid://bvn5x88skkgab"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_c07gc"]
 [ext_resource type="Texture2D" uid="uid://br5naq38ml8rk" path="res://Art/Spritet/Ympäristö/taplajahti_kevät.png" id="2_amp5l"]
+[ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_ekemv"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_i4s12"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_ymr0k"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="5_0tlw8"]
@@ -15,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="12_2r5j3"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="13_xbkv2"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="14_64qyp"]
+[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="15_luii4"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_l18mr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ox8db"]
 texture = ExtResource("2_amp5l")
@@ -25,6 +28,7 @@ texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -32,22 +36,34 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 5:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:2/0 = 0
 1:3/0 = 0
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:4/0 = 0
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("3_i4s12")
@@ -210,6 +226,41 @@ texture_region_size = Vector2i(32, 32)
 0:0/animation_frame_15/duration = 1.0
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wtnjw"]
+texture = ExtResource("2_amp5l")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_lgc1i"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 8
@@ -218,6 +269,7 @@ sources/0 = SubResource("TileSetAtlasSource_13wsf")
 sources/1 = SubResource("TileSetAtlasSource_0ujcp")
 sources/2 = SubResource("TileSetAtlasSource_63uqy")
 sources/3 = SubResource("TileSetAtlasSource_1hees")
+sources/4 = SubResource("TileSetAtlasSource_wtnjw")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
 atlas = ExtResource("9_nhqq2")
@@ -342,12 +394,15 @@ region = Rect2(20, 134, 716, 716)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qogq"]
-size = Vector2(2.78124, 3.3125)
-
-[sub_resource type="Curve2D" id="Curve2D_v0d0r"]
+[sub_resource type="Curve2D" id="Curve2D_gg30a"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 659, 177, 0, 0, 0, 0, 333, 177, 0, 0, 0, 0, 333, -8)
+"points": PackedVector2Array(0, 0, 0, 0, 667, 337, 0, 0, 0, 0, 111, 334, 0, 0, 0, 0, 111, -28)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_0u3ge"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 173, 408, 0, 0, 0, 0, 173, 364, 0, 0, 0, 0, 660, 365)
 }
 point_count = 3
 
@@ -357,9 +412,9 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_0u3ge"]
+[sub_resource type="Curve2D" id="Curve2D_v0d0r"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 173, 408, 0, 0, 0, 0, 173, 364, 0, 0, 0, 0, 660, 365)
+"points": PackedVector2Array(0, 0, 0, 0, 659, 177, 0, 0, 0, 0, 333, 177, 0, 0, 0, 0, 333, -8)
 }
 point_count = 3
 
@@ -396,12 +451,6 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_g1ovr"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 662, 338, 0, 0, 0, 0, 172, 338, 0, 0, 0, 0, 173, -14)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_gg30a"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 667, 337, 0, 0, 0, 0, 111, 334, 0, 0, 0, 0, 111, -28)
 }
 point_count = 3
 
@@ -496,31 +545,38 @@ script = ExtResource("1_c07gc")
 scale = Vector2(2, 2)
 anchor_mode = 0
 
+[node name="CrossWalkManager" parent="." instance=ExtResource("2_ekemv")]
+
 [node name="Map" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAEAAAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAAAAAMAAAADAAEAAAAAAAQAAAADAAEAAAABAAAAAAADAAEAAAABAAEAAAADAAEAAAABAAIAAAADAAEAAAABAAMAAAADAAEAAAABAAQAAAADAAEAAAAMAAAAAAADAAEAAAAMAAEAAAADAAEAAAAMAAIAAAADAAEAAAAMAAMAAAADAAEAAAAMAAQAAAADAAEAAAANAAAAAAADAAEAAAANAAEAAAADAAEAAAANAAIAAAADAAEAAAANAAMAAAADAAEAAAANAAQAAAADAAEAAAAOAAAAAAADAAEAAAAOAAEAAAADAAEAAAAOAAIAAAADAAEAAAAOAAMAAAADAAEAAAAOAAQAAAADAAEAAAAPAAAAAAADAAEAAAAPAAEAAAADAAEAAAAPAAIAAAADAAEAAAAPAAMAAAADAAEAAAAPAAQAAAADAAEAAAAQAAAAAAADAAEAAAAQAAEAAAADAAEAAAAQAAIAAAADAAEAAAAQAAMAAAADAAEAAAAQAAQAAAADAAEAAAARAAAAAAADAAEAAAARAAEAAAADAAEAAAARAAIAAAADAAEAAAARAAMAAAADAAEAAAARAAQAAAADAAEAAAASAAAAAAADAAEAAAASAAEAAAADAAEAAAASAAIAAAADAAEAAAASAAMAAAADAAEAAAASAAQAAAADAAEAAAATAAAAAAADAAEAAAATAAEAAAADAAEAAAATAAIAAAADAAEAAAATAAMAAAADAAEAAAATAAQAAAADAAEAAAAAAAgAAAADAAEAAAABAAgAAAADAAEAAAAGAAgAAAADAAEAAAAGAAkAAAADAAEAAAAHAAkAAAADAAEAAAAHAAgAAAADAAEAAAABAAkAAAADAAEAAAAAAAkAAAADAAEAAAALAAgAAAADAAEAAAALAAkAAAADAAEAAAAMAAkAAAADAAEAAAANAAkAAAADAAEAAAANAAgAAAADAAEAAAAMAAgAAAADAAEAAAAOAAkAAAADAAEAAAAPAAkAAAADAAEAAAAPAAgAAAADAAEAAAAQAAkAAAADAAEAAAAQAAgAAAADAAEAAAAOAAgAAAADAAEAAAARAAkAAAADAAEAAAASAAkAAAADAAEAAAASAAgAAAADAAEAAAARAAgAAAADAAEAAAATAAkAAAADAAEAAAATAAgAAAADAAEAAAAGAAAAAAADAAEAAAAGAAEAAAADAAEAAAAHAAAAAAADAAEAAAAHAAEAAAADAAEAAAAGAAIAAAADAAEAAAAHAAIAAAADAAEAAAAHAAMAAAADAAEAAAAHAAQAAAADAAEAAAAGAAQAAAADAAEAAAAGAAMAAAADAAEAAAALAAAAAAADAAEAAAALAAEAAAADAAEAAAALAAIAAAADAAEAAAALAAMAAAADAAEAAAALAAQAAAADAAEAAAATAAcAAAADAAEAAAASAAcAAAADAAEAAAARAAcAAAADAAEAAAAQAAcAAAADAAEAAAAPAAcAAAADAAEAAAAOAAcAAAADAAEAAAANAAcAAAADAAEAAAAMAAcAAAADAAEAAAALAAcAAAADAAEAAAAKAAcAAAADAAEAAAAJAAcAAAADAAEAAAAIAAcAAAADAAEAAAAHAAcAAAADAAEAAAAGAAcAAAADAAEAAAAIAAkAAAADAAEAAAAJAAkAAAADAAEAAAAKAAkAAAADAAEAAAAKAAgAAAADAAEAAAAJAAgAAAADAAEAAAAIAAgAAAADAAEAAAAIAAYAAAADAAEAAAAIAAUAAAADAAEAAAAIAAQAAAADAAEAAAAIAAMAAAADAAEAAAAIAAIAAAADAAEAAAAIAAEAAAADAAEAAAAIAAAAAAADAAEAAAAGAAYAAAADAAEAAAAHAAYAAAADAAEAAAAHAAUAAAADAAEAAAAGAAUAAAADAAEAAAABAAUAAAADAAEAAAABAAYAAAADAAEAAAABAAcAAAADAAEAAAAAAAcAAAADAAEAAAAAAAYAAAADAAEAAAAAAAUAAAADAAEAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Tie" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAsAAAACAAMAAAABAAsAAAACAAMAAAACAAsAAAADAAIAAFADAAsAAAAFAAMAAAAEAAsAAAAFAAMAAAAFAAsAAAADAAIAAAAGAAsAAAACAAMAAAAHAAsAAAACAAMAAAAIAAsAAAACAAMAAAAJAAsAAAACAAMAAAAKAAsAAAACAAMAAAALAAsAAAACAAMAAAAMAAsAAAACAAMAAAANAAsAAAACAAMAAAAOAAsAAAACAAMAAAAPAAsAAAACAAMAAAAQAAsAAAACAAMAAAARAAsAAAACAAMAAAASAAsAAAACAAMAAAATAAsAAAACAAMAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAADAAIAADADAAoAAAAFAAMAAAAEAAoAAAAFAAMAAAAFAAoAAAADAAIAAGAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAARAAoAAAACAAIAAAASAAoAAAACAAIAAAATAAoAAAACAAIAAAADAAAAAAAFAAMAAAADAAEAAAAFAAMAAAADAAIAAAAFAAMAAAADAAMAAAAFAAMAAAADAAQAAAAFAAMAAAADAAUAAAAFAAMAAAADAAYAAAAFAAMAAAADAAcAAAAFAAMAAAADAAgAAAAFAAMAAAADAAkAAAAFAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAACAAMAAAAAAAIAAAACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAACAAcAAAAAAAIAAAACAAgAAAAAAAIAAAACAAkAAAAAAAIAAAAKAAAAAAABAAIAAAAKAAEAAAABAAIAAAAKAAIAAAABAAIAAAAKAAMAAAABAAIAAAAKAAQAAAABAAIAAAAJAAAAAAAAAAIAAAAJAAEAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAYAAAAFAAQAAGAKAAYAAAACAAMAAAALAAYAAAACAAMAAAAMAAYAAAACAAMAAAANAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAARAAYAAAACAAMAAAASAAYAAAACAAMAAAATAAYAAAACAAMAAAALAAUAAAACAAIAAAAMAAUAAAACAAIAAAANAAUAAAACAAIAAAAOAAUAAAACAAIAAAAPAAUAAAACAAIAAAAQAAUAAAACAAIAAAARAAUAAAACAAIAAAASAAUAAAACAAIAAAATAAUAAAACAAIAAAAJAAUAAAAAAAIAAAAKAAUAAAADAAIAAGAFAAkAAAABAAIAAAAFAAgAAAABAAIAAAAFAAcAAAABAAIAAAAFAAYAAAABAAIAAAAFAAUAAAABAAIAAAAFAAQAAAABAAIAAAAFAAMAAAABAAIAAAAFAAIAAAABAAIAAAAFAAEAAAABAAIAAAAFAAAAAAABAAIAAAAEAAAAAAAFAAMAAAAEAAEAAAAFAAMAAAAEAAIAAAAFAAMAAAAEAAMAAAAFAAMAAAAEAAQAAAAFAAMAAAAEAAUAAAAFAAMAAAAEAAYAAAAFAAMAAAAEAAcAAAAFAAMAAAAEAAgAAAAFAAMAAAAEAAkAAAAFAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAsAAAACAAMAAAABAAsAAAACAAMAAAACAAsAAAADAAIAAFADAAsAAAAFAAMAAAAEAAsAAAAFAAMAAAAFAAsAAAADAAIAAAAGAAsAAAACAAMAAAAHAAsAAAACAAMAAAAIAAsAAAACAAMAAAAJAAsAAAACAAMAAAAKAAsAAAACAAMAAAALAAsAAAACAAMAAAAMAAsAAAACAAMAAAANAAsAAAACAAMAAAAOAAsAAAACAAMAAAAPAAsAAAACAAMAAAAQAAsAAAACAAMAAAARAAsAAAACAAMAAAASAAsAAAACAAMAAAATAAsAAAACAAMAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAADAAIAADADAAoAAAAFAAMAAAAEAAoAAAAFAAMAAAAFAAoAAAADAAIAAGAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAARAAoAAAACAAIAAAASAAoAAAACAAIAAAATAAoAAAACAAIAAAADAAAAAAAFAAMAAAADAAEAAAAFAAMAAAADAAIAAAAFAAMAAAADAAMAAAAFAAMAAAADAAQAAAAFAAMAAAADAAUAAAAFAAMAAAADAAYAAAAFAAMAAAADAAgAAAAFAAMAAAADAAkAAAAFAAMAAAACAAAAAAAAAAIAAAACAAEAAAAAAAIAAAACAAIAAAAAAAIAAAACAAMAAAAAAAIAAAACAAQAAAAAAAIAAAACAAUAAAAAAAIAAAACAAYAAAAAAAIAAAACAAgAAAAAAAIAAAACAAkAAAAAAAIAAAAKAAAAAAABAAIAAAAKAAIAAAABAAIAAAAKAAMAAAABAAIAAAAKAAQAAAABAAIAAAAJAAAAAAAAAAIAAAAJAAIAAAAAAAIAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAIAAAAJAAYAAAAFAAQAAGAKAAYAAAACAAMAAAALAAYAAAACAAMAAAAMAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAARAAYAAAACAAMAAAASAAYAAAACAAMAAAATAAYAAAACAAMAAAALAAUAAAACAAIAAAAMAAUAAAACAAIAAAAOAAUAAAACAAIAAAAPAAUAAAACAAIAAAAQAAUAAAACAAIAAAARAAUAAAACAAIAAAASAAUAAAACAAIAAAATAAUAAAACAAIAAAAJAAUAAAAAAAIAAAAKAAUAAAADAAIAAGAFAAkAAAABAAIAAAAFAAgAAAABAAIAAAAFAAYAAAABAAIAAAAFAAUAAAABAAIAAAAFAAQAAAABAAIAAAAFAAMAAAABAAIAAAAFAAIAAAABAAIAAAAFAAEAAAABAAIAAAAFAAAAAAABAAIAAAAEAAAAAAAFAAMAAAAEAAEAAAAFAAMAAAAEAAIAAAAFAAMAAAAEAAMAAAAFAAMAAAAEAAQAAAAFAAMAAAAEAAUAAAAFAAMAAAAEAAYAAAAFAAMAAAAEAAgAAAAFAAMAAAAEAAkAAAAFAAMAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Tiviivat" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAoAAQADAAMAAAABAAoAAQADAAMAAAACAAoAAQADAAMAAAADAAoAAQADAAMAAAAEAAoAAQADAAMAAAAFAAoAAQADAAMAAAAGAAoAAQADAAMAAAAHAAoAAQADAAMAAAAIAAoAAQADAAMAAAAJAAoAAQADAAMAAAAKAAoAAQADAAMAAAALAAoAAQADAAMAAAAMAAoAAQADAAMAAAANAAoAAQADAAMAAAAOAAoAAQADAAMAAAAPAAoAAQADAAMAAAAQAAoAAQADAAMAAAARAAoAAQADAAMAAAASAAoAAQADAAMAAAATAAoAAQADAAMAAAAKAAUAAQADAAMAAAALAAUAAQADAAMAAAAMAAUAAQADAAMAAAANAAUAAQADAAMAAAAOAAUAAQADAAMAAAAPAAUAAQADAAMAAAAQAAUAAQADAAMAAAARAAUAAQADAAMAAAASAAUAAQADAAMAAAATAAUAAQADAAMAAAAKAAYAAQACAAQAAAALAAYAAQACAAQAAAAMAAYAAQACAAQAAAANAAYAAQACAAQAAAAOAAYAAQACAAQAAAAPAAYAAQACAAQAAAAQAAYAAQACAAQAAAARAAYAAQACAAQAAAASAAYAAQACAAQAAAATAAYAAQACAAQAAAATAAsAAQACAAQAAAASAAsAAQACAAQAAAARAAsAAQACAAQAAAAQAAsAAQACAAQAAAAPAAsAAQACAAQAAAAOAAsAAQACAAQAAAANAAsAAQACAAQAAAAMAAsAAQACAAQAAAALAAsAAQACAAQAAAAKAAsAAQACAAQAAAAJAAsAAQACAAQAAAAIAAsAAQACAAQAAAAHAAsAAQACAAQAAAAFAAsAAQACAAQAAAAEAAsAAQACAAQAAAADAAsAAQACAAQAAAACAAsAAQACAAQAAAABAAsAAQACAAQAAAAAAAsAAQACAAQAAAAGAAsAAQACAAQAAAAJAAAAAQADAAMAAGAJAAEAAQADAAMAAGAJAAIAAQADAAMAAGAJAAMAAQADAAMAAGAJAAQAAQADAAMAAGAJAAUAAQADAAMAAGAKAAQAAQACAAQAAGAKAAMAAQACAAQAAGAKAAIAAQACAAQAAGAKAAEAAQACAAQAAGAKAAAAAQACAAQAAGADAAkAAQACAAQAAGADAAgAAQACAAQAAGADAAcAAQACAAQAAGADAAYAAQACAAQAAGADAAUAAQACAAQAAGADAAQAAQACAAQAAGADAAMAAQACAAQAAGADAAIAAQACAAQAAGADAAEAAQACAAQAAGADAAAAAQACAAQAAGAEAAAAAQADAAQAABAEAAEAAQADAAQAABAEAAIAAQADAAQAABAEAAMAAQADAAQAABAEAAQAAQADAAQAABAEAAUAAQADAAQAABAEAAYAAQADAAQAABAEAAcAAQADAAQAABAEAAgAAQADAAQAABAEAAkAAQADAAQAABACAAkAAQADAAMAAGACAAgAAQADAAMAAGACAAcAAQADAAMAAGACAAYAAQADAAMAAGACAAUAAQADAAMAAGACAAQAAQADAAMAAGACAAMAAQADAAMAAGACAAIAAQADAAMAAGACAAEAAQADAAMAAGACAAAAAQADAAMAAGAFAAAAAQADAAMAAFAFAAEAAQADAAMAAFAFAAIAAQADAAMAAFAFAAMAAQADAAMAAFAFAAQAAQADAAMAAFAFAAUAAQADAAMAAFAFAAYAAQADAAMAAFAFAAcAAQADAAMAAFAFAAgAAQADAAMAAFAFAAkAAQADAAMAAFA=")
 tile_set = SubResource("TileSet_lgc1i")
 
+[node name="Suojatiepoha" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAAcABAAAAAIAAAADAAcABAAFAAMAAAAEAAcABAAFAAMAAAAFAAcABAABAAIAAAANAAYABAACAAMAAAANAAUABAACAAIAAAAKAAEABAABAAIAAAAJAAEABAAAAAIAAAA=")
+tile_set = SubResource("TileSet_lgc1i")
+
 [node name="Suojatie" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAACAAcAAAAFAAIAAGADAAcAAAAFAAIAAGAEAAcAAAAFAAIAAGAFAAcAAQADAAIAAGA=")
+tile_map_data = PackedByteArray("AAACAAcABAAFAAIAAFADAAcABAAFAAIAAFAEAAcABAAFAAIAAFAFAAcABAAFAAIAAFABAAcABAAEAAEAAAAGAAcABAAEAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAJAAEAAAAFAAIAAFAKAAEAAAAFAAIAAFA=")
+tile_map_data = PackedByteArray("AAAJAAEABAAFAAIAAFAKAAEABAAFAAIAAFAIAAEABAAEAAEAAAALAAEABAAEAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie3" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAANAAUAAAAFAAIAAAANAAYAAAAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAANAAUABAAFAAIAAAANAAYABAAFAAIAAAANAAQABAAEAAEAAAANAAcABAAEAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Liikennevalot" type="TileMapLayer" parent="."]
+z_index = 2
 tile_map_data = PackedByteArray("AAAGAAYAAwAAAAAAAAABAAYAAwAAAAAAAAAOAAYAAwAAAAAAAAAMAAQAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
@@ -529,6 +585,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
+z_index = 2
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -544,6 +601,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
+z_index = 2
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -560,6 +618,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Menu" type="TextureButton" parent="."]
+z_index = 3
 offset_left = 606.0
 offset_right = 670.0
 offset_bottom = 64.0
@@ -570,7 +629,7 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" type="PanelContainer" parent="."]
 visible = false
-z_index = 2
+z_index = 3
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -614,7 +673,7 @@ text = "Jatka"
 
 [node name="KolariScreen" type="PanelContainer" parent="."]
 visible = false
-z_index = 2
+z_index = 3
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -665,7 +724,7 @@ text = "Ok"
 
 [node name="VoittoScreen" type="PanelContainer" parent="."]
 visible = false
-z_index = 2
+z_index = 3
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -706,7 +765,7 @@ layout_mode = 2
 text = "Tasovalikkoon"
 
 [node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(528, 56)
+position = Vector2(526, 81)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("13_xbkv2")
 
@@ -720,122 +779,116 @@ script = ExtResource("14_64qyp")
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_5ivg4")
 
-[node name="Risteykset" type="Node2D" parent="."]
-
-[node name="Risteys2" type="Area2D" parent="Risteykset"]
-collision_layer = 255
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys2"]
-position = Vector2(325, 229)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys3" type="Area2D" parent="Risteykset"]
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys3"]
-position = Vector2(294.344, 226.609)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys4" type="Area2D" parent="Risteykset"]
-position = Vector2(1, 4)
-collision_layer = 32
-collision_mask = 246
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys4"]
-position = Vector2(288.438, 184.375)
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Risteys" type="Area2D" parent="Risteykset"]
-position = Vector2(2, 2)
-collision_layer = 48
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Risteykset/Risteys"]
-position = Vector2(324, 186)
-rotation = -1.5708
-shape = SubResource("RectangleShape2D_3qogq")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 510.0
-offset_top = 364.0
-offset_right = 640.0
-offset_bottom = 387.0
-text = "Hatanpäänkoulu"
-
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
-[node name="Path2D" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_v0d0r")
-
-[node name="Path2D2" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_b8ank")
-
-[node name="Path2D3" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_0u3ge")
-
-[node name="Path2D4" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_sa4nw")
-
-[node name="Path2D5" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_nhulc")
-
-[node name="Path2D6" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_70mh7")
-
-[node name="Path2D7" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_8w22l")
-
-[node name="Path2D8" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_j2waq")
-
-[node name="Path2D9" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_g1ovr")
-
-[node name="Path2D10" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D10" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_gg30a")
 
-[node name="Path2D11" type="Path2D" parent="Reitit"]
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D10" instance=ExtResource("17_l18mr")]
+position = Vector2(667, 337)
+rotation = -3.1362
+
+[node name="Reitit#Path2D3" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_0u3ge")
+
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D3" instance=ExtResource("17_l18mr")]
+position = Vector2(173, 408)
+rotation = -1.5708
+
+[node name="Reitit#Path2D2" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_b8ank")
+
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D2" instance=ExtResource("17_l18mr")]
+position = Vector2(307, -5)
+rotation = 1.55184
+
+[node name="Reitit#Path2D" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_v0d0r")
+
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D" instance=ExtResource("17_l18mr")]
+position = Vector2(659, 177)
+rotation = 3.14159
+
+[node name="Reitit#Path2D4" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_sa4nw")
+
+[node name="Reitit#Path2D5" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_nhulc")
+
+[node name="Reitit#Path2D6" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_70mh7")
+
+[node name="Reitit#Path2D7" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_8w22l")
+
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D7" instance=ExtResource("17_l18mr")]
+position = Vector2(112, 428)
+rotation = -1.57302
+
+[node name="Reitit#Path2D8" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_j2waq")
+
+[node name="Reitit#Path2D9" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_g1ovr")
+
+[node name="Reitit#Path2D11" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_wdmmc")
 
-[node name="Path2D12" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_trd8g")
 
-[node name="Path2D13" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D13" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_l478x")
 
-[node name="Path2D14" type="Path2D" parent="Reitit"]
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D13" instance=ExtResource("17_l18mr")]
+position = Vector2(581.508, 337.532)
+rotation = -3.13653
+progress = 92.4935
+
+[node name="Reitit#Path2D14" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_c71l6")
 
-[node name="Path2D15" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D15" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_e5ghr")
 
-[node name="Path2D16" type="Path2D" parent="Reitit"]
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D15" instance=ExtResource("17_l18mr")]
+position = Vector2(144, -12)
+rotation = 1.5708
+
+[node name="Reitit#Path2D16" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kij3n")
 
-[node name="Path2D17" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D17" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_dknvu")
 
-[node name="Path2D18" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D18" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_arcyk")
 
-[node name="Path2D19" type="Path2D" parent="Reitit"]
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D18" instance=ExtResource("17_l18mr")]
+position = Vector2(79, -14)
+rotation = 1.5708
+
+[node name="Reitit#Path2D19" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_anlf6")
 
-[node name="Path2D20" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D20" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5bdta")
 
-[node name="Path2D21" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_cuoy0")
 
-[node name="Path2D22" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D22" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_bncg2")
 
-[node name="Path2D23" type="Path2D" parent="Reitit"]
+[node name="Muurahainen" parent="Reitit/Reitit#Path2D22" instance=ExtResource("17_l18mr")]
+position = Vector2(-18, 364)
+rotation = 0.00143678
+
+[node name="Reitit#Path2D23" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_xqwib")
 
-[node name="Path2D24" type="Path2D" parent="Reitit"]
+[node name="Reitit#Path2D24" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ijqcq")
+
+[node name="Sieni" parent="." instance=ExtResource("15_luii4")]
+position = Vector2(0, 42)

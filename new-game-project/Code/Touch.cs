@@ -39,12 +39,14 @@ namespace SieniPeli
 
         public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
+        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); //sama ku Colors.Red
         public override void _Ready()
         {
             _line = new Line2D
             {
+
                 Width = 5,
-                DefaultColor = Colors.Red
+                DefaultColor = lineColor
             };
             AddChild(_line);
 

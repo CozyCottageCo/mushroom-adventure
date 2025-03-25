@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://154c28wioqj6"]
+[gd_scene load_steps=10 format=3 uid="uid://25munss1t5c8"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_i803h"]
+[ext_resource type="Texture2D" uid="uid://0g25ieajihm5" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_spring.png" id="2_8kq5h"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_baq1n"]
-[ext_resource type="Texture2D" uid="uid://gno5ss2k5pot" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_winter.png" id="2_j7rrb"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="3_rpjkf"]
 [ext_resource type="Texture2D" uid="uid://dctb68l0dd65" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png" id="4_xcrt6"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="5_l5wli"]
@@ -42,9 +42,9 @@ offset_bottom = 360.0
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_right = 641.0
+offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("2_j7rrb")
+texture = ExtResource("2_8kq5h")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Background"]
@@ -65,34 +65,34 @@ horizontal_alignment = 1
 
 [node name="Taso5" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 98.0
-offset_top = 109.0
-offset_right = 140.0
-offset_bottom = 160.0
+offset_left = 88.0
+offset_top = 202.0
+offset_right = 130.0
+offset_bottom = 253.0
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso6" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 309.0
-offset_top = 262.0
-offset_right = 351.0
-offset_bottom = 313.0
+offset_left = 276.0
+offset_top = 77.0
+offset_right = 318.0
+offset_bottom = 128.0
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso7" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 384.0
-offset_top = 116.0
-offset_right = 426.0
-offset_bottom = 167.0
+offset_left = 319.0
+offset_top = 263.0
+offset_right = 361.0
+offset_bottom = 314.0
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso8" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 504.0
-offset_top = 46.0
-offset_right = 546.0
-offset_bottom = 97.0
+offset_left = 506.0
+offset_top = 185.0
+offset_right = 548.0
+offset_bottom = 236.0
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]
