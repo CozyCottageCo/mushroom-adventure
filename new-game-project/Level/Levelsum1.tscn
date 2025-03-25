@@ -671,11 +671,11 @@ script = ExtResource("18_145y7")
 shape = SubResource("RectangleShape2D_5ivg4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 455.0
+offset_left = 571.0
 offset_top = 350.0
-offset_right = 628.0
+offset_right = 636.0
 offset_bottom = 373.0
-text = "Potentiaalinen röimaa"
+text = "Röimaa"
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 position = Vector2(599, 167)

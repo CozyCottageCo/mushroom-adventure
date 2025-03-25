@@ -42,7 +42,7 @@ offset_bottom = 360.0
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_right = 640.0
+offset_right = 641.0
 offset_bottom = 360.0
 texture = ExtResource("2_j7rrb")
 expand_mode = 1
