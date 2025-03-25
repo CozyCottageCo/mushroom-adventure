@@ -591,3 +591,9 @@ curve = SubResource("Curve2D_x2ht7")
 
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ei2mj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(409, 96)
+texture = ExtResource("13_174jl")
+region_enabled = true
+region_rect = Rect2(488.19, -0.290176, 87.1201, 116.685)

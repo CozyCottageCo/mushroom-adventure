@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://b04l4v8kwcxhu"]
+[gd_scene load_steps=67 format=4 uid="uid://b04l4v8kwcxhu"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_nsyop"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ojod2"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="8_ob0d7"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="9_lmd2c"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="10_p4ydp"]
+[ext_resource type="Texture2D" uid="uid://cd2fqoeuveyub" path="res://Art/Spritet/Ympäristö/Lehdetfall2.png" id="11_bfxwa"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_se7r8"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_8fboi"]
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_kuyd1"]
@@ -691,6 +692,11 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(336, 192)
+scale = Vector2(0.844221, 0.843956)
+texture = ExtResource("11_bfxwa")
+
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
@@ -887,6 +893,7 @@ region_enabled = true
 region_rect = Rect2(336.5, 338.4, 42.9, 21.6001)
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f7gbj")
@@ -952,3 +959,9 @@ curve = SubResource("Curve2D_5m1vt")
 
 [node name="Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5wyvv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(495, 312)
+texture = ExtResource("5_n6c3t")
+region_enabled = true
+region_rect = Rect2(247.105, 231.857, 73.9945, 128.143)

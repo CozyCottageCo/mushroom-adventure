@@ -633,3 +633,10 @@ visible = false
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_yvvla")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(48.25, 228.25)
+scale = Vector2(1.2377, 1.22973)
+texture = ExtResource("17_pccpn")
+region_enabled = true
+region_rect = Rect2(578.273, -5.0909, 61.7271, 111.151)
