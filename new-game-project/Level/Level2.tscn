@@ -402,6 +402,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
+z_index = 2
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -417,6 +418,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
+z_index = 2
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0

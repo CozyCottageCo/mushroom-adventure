@@ -328,6 +328,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
+z_index = 2
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -343,6 +344,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
+z_index = 2
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -360,7 +362,7 @@ expand_icon = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(93, 173)
+position = Vector2(94, 175)
 scale = Vector2(0.644531, 0.804687)
 texture = ExtResource("7_1jbtl")
 flip_h = true
@@ -592,30 +594,18 @@ position = Vector2(324, 186)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_3qogq")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 517.0
-offset_top = 359.0
-offset_right = 637.0
-offset_bottom = 382.0
-text = "Harjottelu"
-
 [node name="Kärissypuu" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(602, 91)
 scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Kärissypuu"]
+z_index = 1
 position = Vector2(-145.935, -23.075)
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(68.1679, -0.667171, 30.493, 94.6806)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(317, 354)
-scale = Vector2(1.78889, 1.92105)
-texture = ExtResource("18_nt7hn")
-region_enabled = true
-region_rect = Rect2(336.5, 340.6, 45.1, 19.4001)
 
 [node name="Sieni" parent="." instance=ExtResource("18_nw2sx")]
 position = Vector2(291, 322)
