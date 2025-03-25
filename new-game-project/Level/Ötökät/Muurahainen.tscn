@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsjalxwejwv1a"]
+[gd_scene load_steps=6 format=3 uid="uid://bsjalxwejwv1a"]
 
 [ext_resource type="Texture2D" uid="uid://bmkgg8rdqgrqm" path="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/tileset_muurahainen pysty 30x59, sivu 31x59.png" id="1_2o0s8"]
 [ext_resource type="Script" path="res://Code/Muurahainen.cs" id="1_t2ct4"]
@@ -10,6 +10,9 @@ region = Rect2(0, 0, 59, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a60ib"]
 size = Vector2(54, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2es2"]
+size = Vector2(33.5, 11)
+
 [node name="Muurahainen" type="PathFollow2D"]
 script = ExtResource("1_t2ct4")
 
@@ -20,7 +23,7 @@ flip_h = true
 [node name="CollisionArea2D" type="Area2D" parent="."]
 position = Vector2(-1, 0)
 collision_layer = 16
-collision_mask = 250
+collision_mask = 506
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(1, 1)
@@ -39,8 +42,17 @@ polygon = PackedVector2Array(120, 108, 118, -79, 12, 2)
 [node name="DetectionArea2DShort" type="Area2D" parent="."]
 position = Vector2(-9, -1)
 collision_layer = 32
-collision_mask = 24
+collision_mask = 152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
 position = Vector2(17, -1)
-polygon = PackedVector2Array(56, 59, 59, -49, 5, -20, 6, 29)
+polygon = PackedVector2Array(56, 59, 56, -97, 5, -74, 6, 29)
+
+[node name="DetectionArea2DFront" type="Area2D" parent="."]
+position = Vector2(-9, -1)
+collision_layer = 256
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2DFront"]
+position = Vector2(34.75, 1)
+shape = SubResource("RectangleShape2D_f2es2")

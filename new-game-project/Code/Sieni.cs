@@ -140,7 +140,11 @@
 				Touch touch = GetNode<Touch>("/root/Node2D"); // öäh main nodesta taas otetaan ratkasu
 				touch.Kolari();  // kolarikutsu
 			}
-			else
+			else if (tileMapLayer.Name == "Vesi") {
+				GD.Print("Hukutaaaa");
+				Touch touch = GetNode<Touch>("/root/Node2D"); // öäh main nodesta taas otetaan ratkasu
+				touch.Kolari();  // kolarikutsu, kutsu stringin mukaa to do
+			}
 			{
 				GD.Print("Mis vitus me ollaan"); // out of bounds
 			}
@@ -168,7 +172,7 @@
 	{
 		GD.Print($"Sieni collided with: {area.Name}");
 
-		if (area.GetType().Name == "CollisionArea2D") // purkkaratkasu
+		if (area.Name == "CollisionArea2D") // purkkaratkasu
 		{
 			GD.Print("Sieni touched Ötökkä!");
 			Touch touch = GetNode<Touch>("/root/Node2D");

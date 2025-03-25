@@ -1,24 +1,29 @@
-[gd_scene load_steps=39 format=4 uid="uid://wmisq1c3ss0n"]
+[gd_scene load_steps=50 format=4 uid="uid://wmisq1c3ss0n"]
 
-[ext_resource type="Script" path="res://Code/Touch.cs" id="1_jucmq"]
-[ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_gcmou"]
-[ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_kuheb"]
-[ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="3_4f81g"]
-[ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="4_dk4dl"]
-[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="5_n0wpl"]
-[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="6_aar4v"]
-[ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="7_6pj4h"]
-[ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="8_v7u6o"]
-[ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="9_mf5cr"]
-[ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="10_j4fgl"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="11_273ug"]
-[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="12_vvtcg"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="13_tdjjm"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="14_axtv1"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="15_y3xvn"]
+[ext_resource type="Script" path="res://Code/Touch.cs" id="1_3bcgo"]
+[ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_pyera"]
+[ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_qf8n8"]
+[ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_druyg"]
+[ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="4_5il5w"]
+[ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="5_7ner2"]
+[ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="6_1gd2v"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="7_jjvmt"]
+[ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="8_qmb4h"]
+[ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="9_6hge6"]
+[ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_u7sgb"]
+[ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_j3mtf"]
+[ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_m7esm"]
+[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_3cpi1"]
+[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="14_qda8u"]
+[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_rw2y7"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="16_gh13j"]
+[ext_resource type="Script" path="res://Code/Täplä.cs" id="17_i6ob3"]
+[ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_a7x4a"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_3pnlq"]
+[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_6a5i0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
-texture = ExtResource("2_gcmou")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s3vv"]
+texture = ExtResource("2_pyera")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -42,7 +47,7 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
-texture = ExtResource("2_kuheb")
+texture = ExtResource("3_druyg")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -86,15 +91,46 @@ texture_region_size = Vector2i(32, 32)
 5:1/0 = 0
 4:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqk07"]
+texture = ExtResource("4_5il5w")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+1:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_1iyxx"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_8f82l")
-sources/0 = SubResource("TileSetAtlasSource_lj7qn")
+sources/2 = SubResource("TileSetAtlasSource_bqk07")
+sources/0 = SubResource("TileSetAtlasSource_2s3vv")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13wsf"]
-texture = ExtResource("3_4f81g")
+texture = ExtResource("5_7ner2")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 3:0/0 = 0
@@ -122,18 +158,75 @@ texture_region_size = Vector2i(32, 32)
 4:4/0 = 0
 5:4/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55taa"]
+texture = ExtResource("4_5il5w")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bsk7o"]
+texture = ExtResource("2_pyera")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_lgc1i"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_13wsf")
+sources/1 = SubResource("TileSetAtlasSource_55taa")
+sources/2 = SubResource("TileSetAtlasSource_bsk7o")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
-atlas = ExtResource("6_aar4v")
+atlas = ExtResource("8_qmb4h")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynlbp"]
-atlas = ExtResource("6_aar4v")
+atlas = ExtResource("8_qmb4h")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="InputEventKey" id="InputEventKey_h3axx"]
@@ -153,7 +246,7 @@ unicode = 108
 events = [SubResource("InputEventKey_ggbqe")]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cq6g"]
-atlas = ExtResource("6_aar4v")
+atlas = ExtResource("8_qmb4h")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="ImageTexture" id="ImageTexture_jilax"]
@@ -241,52 +334,68 @@ HScrollBar/styles/scroll = SubResource("StyleBoxFlat_e8q54")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7e520")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qm3g"]
-atlas = ExtResource("12_vvtcg")
+atlas = ExtResource("14_qda8u")
 region = Rect2(435, 421, 47, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
-atlas = ExtResource("13_tdjjm")
+atlas = ExtResource("15_rw2y7")
 region = Rect2(20, 134, 716, 716)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
 size = Vector2(128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyhy1"]
+atlas = ExtResource("18_a7x4a")
+region = Rect2(527, 228, 103, 123)
+
+[sub_resource type="Curve2D" id="Curve2D_4smxl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -6, 207, 0, 0, 0, 0, 647, 208)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8rqbf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 648, 235, 0, 0, 0, 0, -9, 235)
+}
+point_count = 2
+
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_jucmq")
+script = ExtResource("1_3bcgo")
+
+[node name="CrossWalkManager" parent="." instance=ExtResource("2_qf8n8")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
 anchor_mode = 0
 
 [node name="Map" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAQACAAEAAAAAAAEAAQACAAEAAAAAAAIAAQACAAEAAAAAAAMAAQACAAEAAAAAAAQAAQACAAEAAAABAAAAAQACAAEAAAABAAEAAQACAAEAAAABAAIAAQACAAEAAAABAAMAAQACAAEAAAABAAQAAQACAAEAAAACAAAAAQACAAEAAAACAAEAAQACAAEAAAACAAIAAQACAAEAAAACAAMAAQACAAEAAAACAAQAAQACAAEAAAADAAAAAQACAAEAAAADAAEAAQACAAEAAAADAAIAAQACAAEAAAADAAMAAQACAAEAAAADAAQAAQACAAEAAAAEAAAAAQACAAEAAAAEAAEAAQACAAEAAAAEAAIAAQACAAEAAAAEAAMAAQACAAEAAAAEAAQAAQACAAEAAAAFAAAAAQACAAEAAAAFAAEAAQACAAEAAAAFAAIAAQACAAEAAAAFAAMAAQACAAEAAAAFAAQAAQACAAEAAAAMAAAAAQADAAEAAAAMAAEAAQADAAEAAAAMAAIAAQADAAEAAAAMAAMAAQADAAEAAAAMAAQAAQAEAAEAAAANAAAAAQADAAEAAAANAAEAAQADAAEAAAANAAIAAQADAAEAAAANAAMAAQADAAEAAAANAAQAAQAEAAEAAAAOAAAAAQADAAEAAAAOAAEAAQADAAEAAAAOAAIAAQADAAEAAAAOAAMAAQADAAEAAAAOAAQAAQAEAAEAAAAPAAAAAQADAAEAAAAPAAEAAQADAAEAAAAPAAIAAQADAAEAAAAPAAMAAQADAAEAAAAPAAQAAQAEAAEAAAAQAAAAAQADAAEAAAAQAAEAAQADAAEAAAAQAAIAAQADAAEAAAAQAAMAAQADAAEAAAAQAAQAAQAEAAEAAAARAAAAAQADAAEAAAARAAEAAQADAAEAAAARAAIAAQADAAEAAAARAAMAAQADAAEAAAARAAQAAQAEAAEAAAASAAAAAQADAAEAAAASAAEAAQADAAEAAAASAAIAAQADAAEAAAASAAMAAQADAAEAAAASAAQAAQAEAAEAAAATAAAAAQADAAEAAAATAAEAAQADAAEAAAATAAIAAQADAAEAAAATAAMAAQADAAEAAAATAAQAAQAEAAEAAAAHAAsAAQAAAAIAAFAHAAoAAQADAAEAAAAGAAoAAQADAAEAAAAFAAoAAQADAAEAAAAEAAoAAQADAAEAAAADAAoAAQADAAEAAAACAAoAAQADAAEAAAABAAoAAQADAAEAAAAAAAoAAQADAAEAAAALAAoAAQADAAEAAAAMAAoAAQADAAEAAAANAAoAAQADAAEAAAAOAAoAAQADAAEAAAAPAAoAAQADAAEAAAAQAAoAAQADAAEAAAARAAoAAQADAAEAAAASAAoAAQADAAEAAAATAAoAAQADAAEAAAAAAAsAAQAAAAIAAFABAAsAAQAAAAIAAFACAAsAAQAAAAIAAFADAAsAAQAAAAIAAFAEAAsAAQAAAAIAAFAFAAsAAQAAAAIAAFAGAAsAAQAAAAIAAFALAAsAAQAAAAIAAFAMAAsAAQAAAAIAAFANAAsAAQAAAAIAAFAOAAsAAQAAAAIAAFAPAAsAAQAAAAIAAFAQAAsAAQAAAAIAAFARAAsAAQAAAAIAAFASAAsAAQAAAAIAAFATAAsAAQAAAAIAAFAAAAgAAQAEAAEAAAABAAgAAQAEAAEAAAACAAgAAQAEAAEAAAADAAgAAQAEAAEAAAAEAAgAAQAEAAEAAAAFAAgAAQAEAAEAAAAGAAgAAQAEAAEAAAAGAAkAAQAEAAEAAAAHAAkAAQAEAAEAAAAHAAgAAQAEAAEAAAAFAAkAAQAEAAEAAAAEAAkAAQAEAAEAAAADAAkAAQAEAAEAAAACAAkAAQAEAAEAAAABAAkAAQAEAAEAAAAAAAkAAQAEAAEAAAALAAgAAQADAAEAAAALAAkAAQADAAEAAAAMAAkAAQADAAEAAAANAAkAAQADAAEAAAANAAgAAQADAAEAAAAMAAgAAQADAAEAAAAOAAkAAQADAAEAAAAPAAkAAQADAAEAAAAPAAgAAQADAAEAAAAQAAkAAQADAAEAAAAQAAgAAQADAAEAAAAOAAgAAQADAAEAAAARAAkAAQADAAEAAAASAAkAAQADAAEAAAASAAgAAQADAAEAAAARAAgAAQADAAEAAAATAAkAAQADAAEAAAATAAgAAQADAAEAAAAGAAAAAQADAAEAAAAGAAEAAQADAAEAAAAHAAAAAQAEAAEAAAAHAAEAAQAEAAEAAAAGAAIAAQADAAEAAAAHAAIAAQAEAAEAAAAHAAMAAQAEAAEAAAAHAAQAAQAEAAEAAAAGAAQAAQADAAEAAAAGAAMAAQADAAEAAAALAAAAAQAEAAEAAAALAAEAAQAEAAEAAAALAAIAAQAEAAEAAAALAAMAAQAEAAEAAAALAAQAAQAEAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAgADAAEAAAAAAAEAAgADAAEAAAAAAAIAAgADAAEAAAAAAAMAAgADAAEAAAAAAAQAAgADAAEAAAABAAAAAgADAAEAAAABAAEAAgACAAEAAAABAAIAAgACAAEAAAABAAMAAgADAAEAAAABAAQAAgADAAEAAAACAAAAAgADAAEAAAACAAEAAgADAAEAAAACAAIAAgADAAEAAAACAAMAAgADAAEAAAACAAQAAgADAAEAAAADAAAAAgADAAEAAAADAAEAAgADAAEAAAADAAIAAgACAAEAAAADAAMAAgADAAEAAAADAAQAAgADAAEAAAAEAAAAAgADAAEAAAAEAAEAAgADAAEAAAAEAAIAAgADAAEAAAAEAAMAAgADAAEAAAAEAAQAAgADAAEAAAAFAAAAAgADAAEAAAAFAAEAAgACAAEAAAAFAAIAAgADAAEAAAAFAAMAAgACAAEAAAAFAAQAAgADAAEAAAAMAAAAAgADAAEAAAAMAAEAAgADAAEAAAAMAAIAAgADAAEAAAAMAAMAAgACAAEAAAAMAAQAAgADAAEAAAANAAAAAgADAAEAAAANAAEAAgACAAEAAAANAAIAAgADAAEAAAANAAMAAgACAAEAAAANAAQAAgACAAEAAAAOAAAAAgADAAEAAAAOAAEAAgADAAEAAAAOAAIAAgADAAEAAAAOAAMAAgADAAEAAAAOAAQAAgADAAEAAAAPAAAAAgADAAEAAAAPAAEAAgADAAEAAAAPAAIAAgACAAEAAAAPAAMAAgADAAEAAAAPAAQAAgADAAEAAAAQAAAAAgACAAEAAAAQAAEAAgADAAEAAAAQAAIAAgADAAEAAAAQAAMAAgACAAEAAAAQAAQAAgADAAEAAAARAAAAAgADAAEAAAARAAEAAgADAAEAAAARAAIAAgADAAEAAAARAAMAAgADAAEAAAARAAQAAgADAAEAAAASAAAAAgACAAEAAAASAAEAAgADAAEAAAASAAIAAgACAAEAAAASAAMAAgACAAEAAAATAAAAAgADAAEAAAATAAEAAgADAAEAAAATAAIAAgADAAEAAAATAAMAAgADAAEAAAATAAQAAgADAAEAAAAHAAsAAgACAAAAAAAAAAoAAgADAAEAAAALAAoAAgAEAAEAAAAMAAoAAgADAAEAAAANAAoAAgADAAEAAAAOAAoAAgAEAAEAAAAPAAoAAgADAAEAAAAQAAoAAgADAAEAAAARAAoAAgAEAAEAAAASAAoAAgAEAAEAAAATAAoAAgADAAEAAAAAAAsAAgACAAAAAAABAAsAAgACAAAAAAACAAsAAgACAAAAAAADAAsAAgACAAAAAAAEAAsAAgACAAAAAAAFAAsAAgACAAAAAAAGAAsAAgACAAAAAAALAAsAAgACAAAAAAAMAAsAAgACAAAAAAANAAsAAgACAAAAAAAOAAsAAgACAAAAAAAPAAsAAgACAAAAAAAQAAsAAgACAAAAAAARAAsAAgACAAAAAAASAAsAAgACAAAAAAATAAsAAgACAAAAAAAAAAgAAgADAAEAAAAAAAkAAgADAAEAAAALAAgAAgAEAAEAAAALAAkAAgAEAAEAAAAMAAkAAgADAAEAAAANAAkAAgADAAEAAAANAAgAAgADAAEAAAAMAAgAAgADAAEAAAAOAAkAAgADAAEAAAAPAAkAAgAEAAEAAAAPAAgAAgADAAEAAAAQAAkAAgADAAEAAAAQAAgAAgADAAEAAAAOAAgAAgADAAEAAAARAAkAAgADAAEAAAASAAkAAgADAAEAAAASAAgAAgADAAEAAAARAAgAAgADAAEAAAATAAkAAgADAAEAAAATAAgAAgADAAEAAAAGAAAAAgADAAEAAAAGAAEAAgADAAEAAAAHAAAAAgADAAEAAAAHAAEAAgADAAEAAAAGAAIAAgADAAEAAAAHAAIAAgACAAEAAAAHAAMAAgADAAEAAAAHAAQAAgADAAEAAAAGAAQAAgADAAEAAAAGAAMAAgACAAEAAAALAAAAAgADAAEAAAALAAEAAgADAAEAAAALAAIAAgADAAEAAAALAAMAAgADAAEAAAALAAQAAgADAAEAAAABAAoAAgADAAEAAAAKAAIAAgADAAEAAAAJAAIAAgACAAEAAAAIAAIAAgADAAEAAAAIAAMAAgACAAEAAAAJAAMAAgACAAEAAAAKAAMAAgADAAEAAAAKAAQAAgADAAEAAAAJAAQAAgADAAEAAAAIAAQAAgADAAEAAAAKAAgAAgADAAEAAAAJAAgAAgADAAEAAAAIAAgAAgADAAEAAAAIAAkAAgAEAAEAAAAIAAoAAgADAAEAAAAJAAoAAgADAAEAAAAKAAoAAgADAAEAAAAKAAkAAgAEAAEAAAAJAAkAAgAEAAEAAAAHAAkAAgADAAEAAAAGAAkAAgADAAEAAAAGAAgAAgADAAEAAAAHAAgAAgAEAAEAAAAHAAoAAgADAAEAAAAFAAkAAgADAAEAAAAEAAkAAgAEAAEAAAADAAkAAgAEAAEAAAACAAkAAgAEAAEAAAABAAkAAgAEAAEAAAACAAoAAgADAAEAAAADAAoAAgADAAEAAAAEAAoAAgAEAAEAAAAFAAoAAgADAAEAAAAGAAoAAgADAAEAAAAIAAsAAgACAAAAAAAJAAsAAgACAAAAAAAKAAsAAgACAAAAAAAKAAEAAgACAAEAAAAJAAEAAgADAAEAAAAIAAEAAgADAAEAAAAIAAAAAgADAAEAAAAJAAAAAgADAAEAAAAKAAAAAgADAAEAAAABAAgAAgAEAAEAAAACAAgAAgAEAAEAAAADAAgAAgAEAAEAAAAEAAgAAgADAAEAAAAFAAgAAgAEAAEAAAATAAUAAgADAAEAAAASAAUAAgADAAEAAAARAAUAAgADAAEAAAAQAAUAAgADAAEAAAAPAAUAAgADAAEAAAAOAAUAAgADAAEAAAANAAUAAgADAAEAAAAMAAUAAgADAAEAAAALAAUAAgADAAEAAAAKAAUAAgADAAEAAAAJAAUAAgADAAEAAAAIAAUAAgADAAEAAAAHAAUAAgADAAEAAAAGAAUAAgADAAEAAAAFAAUAAgADAAEAAAAEAAUAAgADAAEAAAADAAUAAgADAAEAAAAAAAUAAgADAAEAAAABAAUAAgADAAEAAAACAAUAAgADAAEAAAASAAQAAgAEAAEAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Tie" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAIAAAAAQABAAIAADAIAAEAAQABAAIAADAIAAIAAQABAAIAADAJAAAAAQADAAQAAAAJAAEAAQADAAQAAAAJAAIAAQADAAQAAAAKAAAAAQABAAIAAAAKAAEAAQABAAIAAAAKAAIAAQABAAIAAAAKAAQAAQABAAIAAAAPAAUAAQABAAIAAGAQAAUAAQABAAIAAGARAAUAAQABAAIAAGARAAYAAQADAAQAAAARAAcAAQABAAIAAFASAAUAAQABAAIAAGASAAYAAQADAAQAAAASAAcAAQABAAIAAFATAAUAAQABAAIAAGATAAYAAQADAAQAAAATAAcAAQABAAIAAFALAAYAAQADAAQAAAALAAUAAQABAAIAAGAMAAUAAQABAAIAAGAMAAYAAQADAAQAAAAMAAcAAQABAAIAAFAOAAUAAQABAAIAAGAOAAYAAQADAAQAAAAPAAYAAQADAAQAAAAQAAYAAQADAAQAAAAQAAcAAQABAAIAAFAPAAcAAQABAAIAAFAOAAcAAQABAAIAAFABAAUAAQABAAIAAGAAAAUAAQABAAIAAGABAAYAAQADAAQAAAACAAYAAQADAAQAAAADAAYAAQADAAQAAAADAAcAAQABAAIAAFACAAcAAQABAAIAAFABAAcAAQABAAIAAFAAAAYAAQADAAQAAAAEAAYAAQADAAQAAAAEAAcAAQABAAIAAFACAAUAAQABAAIAAGADAAUAAQABAAIAAGAEAAUAAQABAAIAAGAFAAUAAQABAAIAAGAFAAYAAQADAAQAAAAFAAcAAQABAAIAAFAIAAgAAQABAAIAADAKAAoAAQABAAIAAAAKAAsAAQAEAAMAAFAAAAcAAQABAAIAAFAIAAQAAQABAAIAADAJAAYAAQADAAQAAAAIAAUAAQADAAIAADAJAAcAAQADAAQAAAAJAAgAAQADAAQAAAAJAAQAAQADAAQAAAAKAAYAAQADAAQAAAAJAAUAAQADAAQAAAALAAcAAQABAAIAAFAKAAcAAQADAAIAAAAKAAgAAQABAAIAAAAHAAYAAQADAAQAAAAIAAcAAQADAAQAAAAHAAUAAQABAAIAAGAKAAUAAQADAAIAAGAHAAcAAQABAAIAAFAJAAsAAQADAAQAAAAJAAoAAQADAAQAAAAIAAsAAQAEAAMAAAAIAAoAAQABAAIAADAIAAYAAQADAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAcAAgACAAIAADABAAcAAgACAAIAADACAAcAAgACAAIAADADAAcAAgACAAIAADAFAAcAAgACAAIAADAGAAcAAgACAAIAADAHAAcAAgACAAIAADAIAAcAAgACAAIAADAJAAcAAgACAAIAADAKAAcAAgACAAIAADALAAcAAgACAAIAADAMAAcAAgACAAIAADANAAcAAgACAAIAADAOAAcAAgACAAIAADAPAAcAAgACAAIAADAQAAcAAgACAAIAADARAAcAAgACAAIAADASAAcAAgACAAIAADATAAcAAgACAAIAADATAAYAAgACAAIAAAARAAYAAgACAAIAAAAPAAYAAgACAAIAAAANAAYAAgACAAIAAAAKAAYAAgACAAIAAAAIAAYAAgACAAIAAAAGAAYAAgACAAIAAAACAAYAAgACAAIAAAAAAAYAAgACAAIAAAABAAYAAgACAAIAAAADAAYAAgACAAIAAAAFAAYAAgACAAIAAAAHAAYAAgACAAIAAAAJAAYAAgACAAIAAAALAAYAAgACAAIAAAAMAAYAAgACAAIAAAAOAAYAAgACAAIAAAAQAAYAAgACAAIAAAASAAYAAgACAAIAAAA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Suojatiepohja" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAANAAUAAAACAAMAADANAAYAAAADAAQAAAANAAcAAAACAAMAAAAIAAkAAAACAAMAAFAJAAkAAAADAAQAAAAKAAkAAAACAAMAAGAIAAMAAAACAAMAAFAJAAMAAAADAAQAAAAKAAMAAAACAAMAAGAAAAYAAAAEAAQAAAALAAYAAAAEAAQAABAMAAYAAAAEAAQAABAOAAYAAAAEAAQAABAPAAYAAAAEAAQAABAQAAYAAAAEAAQAABARAAYAAAAEAAQAABASAAYAAAAEAAQAABATAAYAAAAEAAQAABAJAAoAAAAFAAQAACAJAAgAAAAFAAQAACAJAAQAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAsAAAAFAAQAACAIAAYAAAAEAAQAAAAHAAYAAAAEAAQAAAAGAAUAAAACAAMAADAGAAcAAAACAAMAAAACAAYAAAAEAAQAAAAGAAYAAAADAAQAAAABAAYAAAAEAAQAAAADAAYAAAAEAAQAAAAEAAYAAAAEAAQAAAAFAAYAAAAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAAEAAYAAQACAAIAAAAEAAcAAQACAAIAADA=")
 tile_set = SubResource("TileSet_lgc1i")
 
-[node name="Suojatie" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAAEAAQAAAALAAYAAAAEAAQAABAMAAYAAAAEAAQAABAOAAYAAAAEAAQAABAPAAYAAAAEAAQAABAQAAYAAAAEAAQAABARAAYAAAAEAAQAABASAAYAAAAEAAQAABATAAYAAAAEAAQAABAJAAoAAAAFAAQAACAJAAgAAAAFAAQAACAJAAQAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAsAAAAFAAQAACAIAAYAAAAEAAQAAAAHAAYAAAAEAAQAAAAGAAUAAAAFAAIAAAAGAAcAAAAFAAIAAAACAAYAAAAEAAQAAAAGAAYAAAAFAAIAAAABAAYAAAAEAAQAAAADAAYAAAAEAAQAAAAEAAYAAAAEAAQAAAAFAAYAAAAEAAQAAAAGAAQAAAAEAAEAAAAGAAgAAAAEAAEAAAA=")
+[node name="Suojatie1" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAEAAcAAQAFAAIAAAAEAAYAAQAFAAIAAAAEAAUAAQACAAEAAAAEAAgAAQACAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie2" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAAEAAQAAAALAAYAAAAEAAQAABAMAAYAAAAEAAQAABAOAAYAAAAEAAQAABAPAAYAAAAEAAQAABAQAAYAAAAEAAQAABARAAYAAAAEAAQAABASAAYAAAAEAAQAABATAAYAAAAEAAQAABAJAAoAAAAFAAQAACAJAAgAAAAFAAQAACAJAAQAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAsAAAAFAAQAACAIAAYAAAAEAAQAAAAHAAYAAAAEAAQAAAACAAYAAAAEAAQAAAABAAYAAAAEAAQAAAADAAYAAAAEAAQAAAAEAAYAAAAEAAQAAAAFAAYAAAAEAAQAAAAIAAMAAAAFAAIAAFAJAAMAAAAFAAIAAFAKAAMAAAAFAAIAAFAHAAMAAAADAAEAAAALAAMAAAADAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie3" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAAEAAQAAAALAAYAAAAEAAQAABAMAAYAAAAEAAQAABAOAAYAAAAEAAQAABAPAAYAAAAEAAQAABAQAAYAAAAEAAQAABARAAYAAAAEAAQAABASAAYAAAAEAAQAABATAAYAAAAEAAQAABAJAAoAAAAFAAQAACAJAAgAAAAFAAQAACAJAAQAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAsAAAAFAAQAACAIAAYAAAAEAAQAAAAHAAYAAAAEAAQAAAACAAYAAAAEAAQAAAABAAYAAAAEAAQAAAADAAYAAAAEAAQAAAAEAAYAAAAEAAQAAAAFAAYAAAAEAAQAAAAHAAkAAAADAAEAAAAIAAkAAAAFAAIAAFAJAAkAAAAFAAIAAFAKAAkAAAAFAAIAAFALAAkAAAAEAAEAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
-[node name="Suojatie4" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAYAAAAEAAQAAAALAAYAAAAEAAQAABAMAAYAAAAEAAQAABAOAAYAAAAEAAQAABAPAAYAAAAEAAQAABAQAAYAAAAEAAQAABARAAYAAAAEAAQAABASAAYAAAAEAAQAABATAAYAAAAEAAQAABAJAAoAAAAFAAQAACAJAAgAAAAFAAQAACAJAAQAAAAFAAQAAAAJAAAAAAAFAAQAAAAJAAEAAAAFAAQAAAAJAAIAAAAFAAQAAAAJAAsAAAAFAAQAACAIAAYAAAAEAAQAAAAHAAYAAAAEAAQAAAACAAYAAAAEAAQAAAABAAYAAAAEAAQAAAADAAYAAAAEAAQAAAAEAAYAAAAEAAQAAAAFAAYAAAAEAAQAAAANAAQAAAAEAAEAAAANAAUAAAAFAAIAAAANAAYAAAAFAAIAAAANAAcAAAAFAAIAAAANAAgAAAAEAAEAAAA=")
+[node name="Tieviivat" type="TileMapLayer" parent="Suojatie3"]
+tile_map_data = PackedByteArray("AAAEAAYAAgADAAMAAAADAAYAAgADAAMAAAACAAYAAgADAAMAAAABAAYAAgADAAMAAAAAAAYAAgADAAMAAAAFAAYAAgADAAMAAAAGAAYAAgADAAMAAAAHAAYAAgADAAMAAAAIAAYAAgADAAMAAAAJAAYAAgADAAMAAAAKAAYAAgADAAMAAAALAAYAAgADAAMAAAAMAAYAAgADAAMAAAANAAYAAgADAAMAAAAOAAYAAgADAAMAAAAPAAYAAgADAAMAAAAQAAYAAgADAAMAAAARAAYAAgADAAMAAAASAAYAAgADAAMAAAATAAYAAgADAAMAAAAAAAcAAgACAAQAAAABAAcAAgACAAQAAAACAAcAAgACAAQAAAADAAcAAgACAAQAAAAEAAcAAgACAAQAAAAFAAcAAgACAAQAAAAGAAcAAgACAAQAAAAHAAcAAgACAAQAAAAIAAcAAgACAAQAAAAJAAcAAgACAAQAAAAKAAcAAgACAAQAAAALAAcAAgACAAQAAAAMAAcAAgACAAQAAAANAAcAAgACAAQAAAAOAAcAAgACAAQAAAAPAAcAAgACAAQAAAAQAAcAAgACAAQAAAARAAcAAgACAAQAAAASAAcAAgACAAQAAAATAAcAAgACAAQAAAA=")
 tile_set = SubResource("TileSet_lgc1i")
 
-[node name="grid" parent="." instance=ExtResource("4_dk4dl")]
+[node name="grid" parent="." instance=ExtResource("6_1gd2v")]
 modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
@@ -296,7 +405,7 @@ offset_top = 310.0
 offset_right = 80.0
 offset_bottom = 382.0
 scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("5_n0wpl")
+theme_override_fonts/font = ExtResource("7_jjvmt")
 theme_override_font_sizes/font_size = 20
 theme_override_icons/icon = SubResource("AtlasTexture_02iyd")
 action_mode = 0
@@ -312,7 +421,7 @@ offset_top = 309.0
 offset_right = 655.0
 offset_bottom = 381.0
 scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("5_n0wpl")
+theme_override_fonts/font = ExtResource("7_jjvmt")
 theme_override_font_sizes/font_size = 20
 theme_override_icons/icon = SubResource("AtlasTexture_ynlbp")
 action_mode = 0
@@ -323,29 +432,36 @@ expand_icon = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(479, 77)
-texture = ExtResource("7_6pj4h")
+position = Vector2(615, 276)
+scale = Vector2(0.644531, 0.804687)
+texture = ExtResource("9_6hge6")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D8"]
+z_index = 2
+position = Vector2(-72.9212, 68.3495)
+scale = Vector2(1.22257, 0.764192)
+texture = ExtResource("9_6hge6")
+
 [node name="Sprite2D9" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(65, 127)
-texture = ExtResource("8_v7u6o")
+z_index = 2
+position = Vector2(65, 126)
+texture = ExtResource("10_u7sgb")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(65, -1)
-texture = ExtResource("9_mf5cr")
+texture = ExtResource("11_j3mtf")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(65, 63)
-texture = ExtResource("10_j4fgl")
+texture = ExtResource("12_m7esm")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
@@ -361,7 +477,6 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 [node name="PauseMenuPanel" type="PanelContainer" parent="."]
 visible = false
 z_index = 2
-layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
 anchor_right = 1.0
@@ -383,7 +498,7 @@ layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
 theme_override_constants/separation = 30
-script = ExtResource("11_273ug")
+script = ExtResource("13_3cpi1")
 "_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
 _jatkaButton = NodePath("Jatka")
 _reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
@@ -395,7 +510,10 @@ theme = SubResource("Theme_5oel6")
 text = "Palaa päävalikkoon"
 
 [node name="Asetukset" type="Button" parent="PauseMenuPanel/PauseMenu"]
+modulate = Color(0.49, 1, 0.558, 1)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("7_jjvmt")
+theme_override_font_sizes/font_size = 21
 text = "Asetukset"
 
 [node name="Jatka" type="Button" parent="PauseMenuPanel/PauseMenu"]
@@ -427,7 +545,7 @@ layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
 theme_override_constants/separation = 30
-script = ExtResource("11_273ug")
+script = ExtResource("13_3cpi1")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _reTryButton = NodePath("ReTry")
 "_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
@@ -475,7 +593,7 @@ color = Color(0.231373, 0.878431, 0.388235, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
 layout_mode = 2
-script = ExtResource("11_273ug")
+script = ExtResource("13_3cpi1")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
 _reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
@@ -496,14 +614,135 @@ layout_mode = 2
 text = "Tasovalikkoon"
 
 [node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(464, 336)
+position = Vector2(510, 45)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("14_axtv1")
+texture = ExtResource("16_gh13j")
 
 [node name="Area2D" type="Area2D" parent="Täplä"]
+position = Vector2(-208, -64)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("15_y3xvn")
+script = ExtResource("17_i6ob3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
+position = Vector2(216, 68)
 shape = SubResource("RectangleShape2D_5ivg4")
+
+[node name="Kärissypuu" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(600, 112)
+scale = Vector2(1.19231, 1.1701)
+texture = SubResource("AtlasTexture_kyhy1")
+
+[node name="lamppu" type="Sprite2D" parent="Kärissypuu"]
+z_index = 2
+position = Vector2(-73.8064, 28.2026)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(56.8554, 1.18422, 44.6448, 74.9211)
+
+[node name="lamppu2" type="Sprite2D" parent="Kärissypuu"]
+z_index = 2
+position = Vector2(-306.968, 29.0573)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(56.8554, 1.18422, 44.6448, 74.9211)
+
+[node name="lamppu3" type="Sprite2D" parent="Kärissypuu"]
+z_index = 2
+position = Vector2(-182.839, 29.9119)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(56.8554, 1.18422, 44.6448, 74.9211)
+
+[node name="lamppu4" type="Sprite2D" parent="Kärissypuu"]
+z_index = 2
+position = Vector2(-488.968, 135.885)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(56.8554, 1.18422, 44.6448, 74.9211)
+
+[node name="Tuoli" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(70, 269)
+scale = Vector2(1.34146, 1.46)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(435.5, 309.8, 82.5001, 50.2001)
+
+[node name="aita1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(625, 246)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita7" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(577, 182)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(574, 248)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(523, 248)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita6" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(628, 181)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(421, 249)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="aita4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(472, 248)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(554.3, 177.8, 72.6, 45.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(180, 307)
+scale = Vector2(0.843284, 0.875)
+texture = ExtResource("18_a7x4a")
+region_enabled = true
+region_rect = Rect2(438, 240, 67, 64)
+
+[node name="Reitit" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_4smxl")
+
+[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("19_3pnlq")]
+position = Vector2(-6, 207)
+rotation = 0.00153139
+
+[node name="Path2D2" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_8rqbf")
+
+[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("19_3pnlq")]
+position = Vector2(648, 235)
+rotation = 3.14159
+
+[node name="Sieni" parent="." instance=ExtResource("19_6a5i0")]
+z_index = 1
+position = Vector2(480, 298)

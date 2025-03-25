@@ -77,6 +77,7 @@ namespace SieniPeli
 				string screenNumber = currentScreen.Replace("LevelSelect", "");
 				if (int.TryParse(screenNumber, out int thisScreenNumber)) {
                 	LoadSelectionScreen(thisScreenNumber - 1);
+                    GD.Print(thisScreenNumber);
 				}
                 LoadSelectionScreen(thisScreenNumber - 1);
             }
