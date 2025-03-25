@@ -670,16 +670,6 @@ script = ExtResource("18_145y7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
 shape = SubResource("RectangleShape2D_5ivg4")
 
-<<<<<<< HEAD:new-game-project/Level/Level9.tscn
-=======
-[node name="Label" type="Label" parent="."]
-offset_left = 571.0
-offset_top = 350.0
-offset_right = 636.0
-offset_bottom = 373.0
-text = "Röimaa"
-
->>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67:new-game-project/Level/Levelsum1.tscn
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 position = Vector2(599, 167)
 scale = Vector2(1.19231, 1.1701)

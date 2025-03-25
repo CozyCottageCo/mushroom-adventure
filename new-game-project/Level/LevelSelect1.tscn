@@ -43,12 +43,8 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-<<<<<<< HEAD
 texture = ExtResource("2_2ij1w")
 expand_mode = 1
-=======
-texture = ExtResource("2_74184")
->>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67
 
 [node name="Label" type="Label" parent="Background"]
 visible = false
@@ -76,22 +72,14 @@ texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso2" type="TextureButton" parent="Background"]
 layout_mode = 2
-<<<<<<< HEAD
 offset_left = 309.0
 offset_top = 262.0
 offset_right = 351.0
 offset_bottom = 313.0
-=======
-offset_left = 231.0
-offset_top = 66.0
-offset_right = 273.0
-offset_bottom = 117.0
->>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67
 texture_normal = SubResource("AtlasTexture_13q10")
 
 [node name="Taso3" type="TextureButton" parent="Background"]
 layout_mode = 2
-<<<<<<< HEAD
 offset_left = 384.0
 offset_top = 116.0
 offset_right = 426.0
@@ -105,29 +93,6 @@ offset_top = 46.0
 offset_right = 546.0
 offset_bottom = 97.0
 texture_normal = SubResource("AtlasTexture_13q10")
-=======
-offset_left = 369.0
-offset_top = 208.0
-offset_right = 1010.0
-offset_bottom = 691.0
-texture_normal = ExtResource("5_duiop")
-
-[node name="Taso1" type="TextureButton" parent="Background"]
-layout_mode = 2
-offset_left = 87.0
-offset_top = 206.0
-offset_right = 727.0
-offset_bottom = 686.0
-texture_normal = ExtResource("3_8yss8")
-
-[node name="Taso4" type="TextureButton" parent="Background"]
-layout_mode = 2
-offset_left = 477.0
-offset_top = 24.0
-offset_right = 1117.0
-offset_bottom = 504.0
-texture_normal = ExtResource("5_duiop")
->>>>>>> e6323707d597b9cf39e3b4ba8e895989a203af67
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]
 layout_mode = 2
