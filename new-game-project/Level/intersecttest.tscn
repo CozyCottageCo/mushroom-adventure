@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdilh1v4p8l87"]
+
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="1_fmmhs"]
+[ext_resource type="Script" path="res://Code/ÖtökkäTestCode.cs" id="2_gvxik"]
+
+[sub_resource type="Curve2D" id="Curve2D_fejwb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 540, 63, 0, 0, 0, 0, 236, 64, 0, 0, 0, 0, 58, 64)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_j0au6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 537, 140, 0, 0, 0, 0, 297, 261, 0, 0, 0, 0, 226, 353)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_cgimm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 517, 259, 0, 0, 0, 0, 250, 270, 0, 0, 0, 0, 172, 266)
+}
+point_count = 3
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_fejwb")
+
+[node name="Muurahainen" parent="Path2D" instance=ExtResource("1_fmmhs")]
+position = Vector2(540, 63)
+rotation = 3.1383
+script = ExtResource("2_gvxik")
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_j0au6")
+
+[node name="Muurahainen" parent="Path2D2" instance=ExtResource("1_fmmhs")]
+position = Vector2(537, 140)
+rotation = 2.67462
+script = ExtResource("2_gvxik")
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_cgimm")
+
+[node name="Muurahainen" parent="Path2D3" instance=ExtResource("1_fmmhs")]
+position = Vector2(517, 259)
+rotation = 3.10042
+script = ExtResource("2_gvxik")
