@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://b04l4v8kwcxhu"]
+[gd_scene load_steps=71 format=4 uid="uid://b04l4v8kwcxhu"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_nsyop"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ojod2"]
@@ -959,7 +959,6 @@ scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f7gbj")
@@ -1078,17 +1077,11 @@ progress = 26.3538
 [node name="Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5wyvv")
 
-<<<<<<< HEAD:new-game-project/Level/Levelfall2.tscn
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(495, 312)
 texture = ExtResource("5_n6c3t")
 region_enabled = true
 region_rect = Rect2(247.105, 231.857, 73.9945, 128.143)
-=======
+
 [node name="Sieni" parent="." instance=ExtResource("19_tplw0")]
-<<<<<<< HEAD
-position = Vector2(578, 330)
-=======
-position = Vector2(574, 328)
->>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level14.tscn
->>>>>>> 46ea06bed5def4c169c65953ec8496f19310a8b3
+position = Vector2(582, 328)
