@@ -739,6 +739,58 @@ curve = SubResource("Curve2D_jf35a")
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_d4wmc")
 
+<<<<<<< HEAD:new-game-project/Level/Levelspri2.tscn
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50.5, 58)
+scale = Vector2(1.17308, 1.6)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(326, 330, 52, 30)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(361, 61)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(415.401, -0.469879, 83.4901, 128.26)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(369, 149)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(333.755, 296.648, 27.7018, 28.9624)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(371, 107)
+scale = Vector2(0.981481, 1)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(333.755, 296.648, 27.7018, 28.9624)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(493, 219)
+scale = Vector2(0.981481, 1)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(333.755, 296.648, 27.7018, 28.9624)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(181, 217)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(364.458, 281.809, 48.9059, 22.0145)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(506, 34)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(364.458, 281.809, 48.9059, 22.0145)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(211, 218)
+texture = ExtResource("15_vkww1")
+region_enabled = true
+region_rect = Rect2(364.458, 281.809, 48.9059, 22.0145)
+=======
 [node name="Muurahainen7" parent="Reitit/Path2D7" instance=ExtResource("15_c6a7u")]
 position = Vector2(112, -9)
 rotation = 1.56033
@@ -754,3 +806,4 @@ collision_mask = 112
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Risteys"]
 position = Vector2(-7, 1)
 shape = SubResource("RectangleShape2D_3u6op")
+>>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level6.tscn

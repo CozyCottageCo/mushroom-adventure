@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="8_ob0d7"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="9_lmd2c"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="10_p4ydp"]
+[ext_resource type="Texture2D" uid="uid://cd2fqoeuveyub" path="res://Art/Spritet/Ympäristö/Lehdetfall2.png" id="11_bfxwa"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_se7r8"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_8fboi"]
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_kuyd1"]
@@ -770,6 +771,11 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(336, 192)
+scale = Vector2(0.844221, 0.843956)
+texture = ExtResource("11_bfxwa")
+
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 visible = false
 z_index = 1
@@ -953,6 +959,7 @@ scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f7gbj")
@@ -1071,5 +1078,17 @@ progress = 26.3538
 [node name="Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5wyvv")
 
+<<<<<<< HEAD:new-game-project/Level/Levelfall2.tscn
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(495, 312)
+texture = ExtResource("5_n6c3t")
+region_enabled = true
+region_rect = Rect2(247.105, 231.857, 73.9945, 128.143)
+=======
 [node name="Sieni" parent="." instance=ExtResource("19_tplw0")]
+<<<<<<< HEAD
 position = Vector2(578, 330)
+=======
+position = Vector2(574, 328)
+>>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level14.tscn
+>>>>>>> 46ea06bed5def4c169c65953ec8496f19310a8b3
