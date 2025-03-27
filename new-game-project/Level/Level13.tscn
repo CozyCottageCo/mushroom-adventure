@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://jj10ixqyka5k"]
+[gd_scene load_steps=65 format=4 uid="uid://ieh5nu5b3m6n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ceull"]
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="2_51a2x"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_jvjx4"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="25_737fm"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="26_xfmt8"]
+[ext_resource type="Texture2D" uid="uid://cpe2k75kx143g" path="res://Art/Spritet/Ympäristö/lehdetfall13.png" id="28_l88gk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbsyq"]
 texture = ExtResource("2_51a2x")
@@ -827,6 +828,7 @@ text = "Kauppakeskus Ratina
 "
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 position = Vector2(2, 7)
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
@@ -906,3 +908,8 @@ position = Vector2(454, 51)
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(462.4, 167.3, 158.4, 55)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.708749, 0.704587)
+texture = ExtResource("28_l88gk")

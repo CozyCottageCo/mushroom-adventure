@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://c46dywi1a4ki5"]
+[gd_scene load_steps=48 format=4 uid="uid://1bpe3jgbq5kn"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jplb2"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_cc0b1"]
@@ -600,6 +600,7 @@ region_enabled = true
 region_rect = Rect2(192, 302, 57, 56)
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kgfp3")

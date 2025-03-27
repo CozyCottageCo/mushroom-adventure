@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://c0wrhdospnm0x"]
+[gd_scene load_steps=61 format=4 uid="uid://ddevvnw2e36ip"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_587tk"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_baugi"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_hxykr"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_15tgk"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="18_vc703"]
+[ext_resource type="Texture2D" uid="uid://dx74or157b18" path="res://Art/Spritet/Ympäristö/lehdetfall16.png" id="20_x5u4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s58r0"]
 texture = ExtResource("2_u1enu")
@@ -894,20 +895,8 @@ position = Vector2(324, 186)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_3qogq")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(250, 77)
-scale = Vector2(0.96875, 1.0407)
-texture = ExtResource("8_xmhdk")
-region_enabled = true
-region_rect = Rect2(525, 231, 128, 129)
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(263, 107)
-texture = ExtResource("8_xmhdk")
-region_enabled = true
-region_rect = Rect2(370, 108, 52, 120)
-
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f2u20")
@@ -1006,3 +995,13 @@ progress = 45.4896
 
 [node name="Sieni" parent="." instance=ExtResource("18_15tgk")]
 position = Vector2(578, 169)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.40524, 1.39627)
+texture = ExtResource("20_x5u4s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.702525, 0.703297)
+texture = ExtResource("20_x5u4s")

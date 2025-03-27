@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://duvpuolgf3g5r"]
+[gd_scene load_steps=53 format=4 uid="uid://cik8js07fs5q3"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_vsax5"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_neclt"]

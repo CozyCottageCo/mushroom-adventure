@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cnrdd7yb4esf"]
+[gd_scene load_steps=55 format=4 uid="uid://lq58jgsin0vr"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_iulsk"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_jajw7"]
@@ -696,6 +696,7 @@ region_enabled = true
 region_rect = Rect2(60, 148, 29, 26)
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_q1stt")
