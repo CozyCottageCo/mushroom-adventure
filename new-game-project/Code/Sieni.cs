@@ -116,7 +116,7 @@
 		private void OnBodyEntered(Node body) // träkkää collisioneita (täplä träkkää itse)
 	{
 		GD.Print($"current body: {body.Name}");
-		string bodyName = body.Name.ToString();
+		string bodyName = body.Name;
 
 		if (body is TileMapLayer tileMapLayer) // jos kollisio tapahtuu tilemaplayerin kanssa..
 		{
@@ -138,12 +138,12 @@
 			{
 				GD.Print("Kolariiii!");
 				Touch touch = GetNode<Touch>("/root/Node2D"); // öäh main nodesta taas otetaan ratkasu
-				touch.Kolari();  // kolarikutsu
+				touch.Kolari(bodyName);  // kolarikutsu
 			}
 			else if (tileMapLayer.Name == "Vesi") {
 				GD.Print("Hukutaaaa");
 				Touch touch = GetNode<Touch>("/root/Node2D"); // öäh main nodesta taas otetaan ratkasu
-				touch.Kolari();  // kolarikutsu, kutsu stringin mukaa to do
+				touch.Kolari(bodyName);  // kolarikutsu, kutsu stringin mukaa to do
 			}
 			{
 				GD.Print("Mis vitus me ollaan"); // out of bounds
@@ -170,13 +170,14 @@
 
 	private void OnAreaEntered(Area2D area)
 	{
+		string areaName = area.Name;
 		GD.Print($"Sieni collided with: {area.Name}");
 
 		if (area.Name == "CollisionArea2D") // purkkaratkasu
 		{
 			GD.Print("Sieni touched Ötökkä!");
 			Touch touch = GetNode<Touch>("/root/Node2D");
-			touch.Kolari();
+			touch.Kolari(areaName);
 		}
 	}
 

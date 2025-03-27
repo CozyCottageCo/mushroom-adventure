@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://d24lv7asxllgh"
+=======
+uid="uid://d0baonkl2pktx"
+>>>>>>> 398d33a10b5fa1c6e89a2466e4fc619447663469
 path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
 metadata={
 "vram_texture": false

@@ -39,6 +39,7 @@ namespace SieniPeli
 
         public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
+        public bool _kolariActive = false;
         Color lineColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); //sama ku Colors.Red
         public override void _Ready()
         {
@@ -318,18 +319,47 @@ namespace SieniPeli
     }
         }
 
-        public async void Kolari() {
-            await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
-        if (_kolariScreen != null)
-            {
-                _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
-                if(_kolariScreen.Visible == true) {
-                    _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
-                    GetTree().Paused = true; // pausettaa pelin myös
-                } else if(_kolariScreen.Visible == false) {
-                    _buttonsVisible = false;
+        public async void Kolari(string kohde) {
+            if (_kolariActive) return; // Prevent multiple calls
+            _kolariActive = true;
+            if (kohde != "Tie" && kohde != "Vesi") { // atm vaa jos ei oo vesi tai tie, mut omil ötököil omat
+                if (_kolariScreen != null)
+                    {
+                    _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreen.Visible == true) {
+                        _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                        GetTree().Paused = true; // pausettaa pelin myös
+                    } else if(_kolariScreen.Visible == false) {
+                        _buttonsVisible = false;
+                    }
                 }
-        }
+            }
+             else if (kohde.StartsWith("Tie")) { // oma screen
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
+                if (_kolariScreen != null)
+                    {
+                    _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreen.Visible == true) {
+                        _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                        GetTree().Paused = true; // pausettaa pelin myös
+                    } else if(_kolariScreen.Visible == false) {
+                        _buttonsVisible = false;
+                    }
+                }
+            }
+            else if (kohde.StartsWith("Vesi")) { // oma screen
+            await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
+                if (_kolariScreen != null)
+                    {
+                    _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreen.Visible == true) {
+                        _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                        GetTree().Paused = true; // pausettaa pelin myös
+                    } else if(_kolariScreen.Visible == false) {
+                        _buttonsVisible = false;
+                    }
+                }
+            }
         }
 
         public void Voitto() { // voittopaneeli näkyville, piirto jne pois

@@ -1,8 +1,4 @@
-<<<<<<< HEAD:new-game-project/Level/Levelfall2.tscn
-[gd_scene load_steps=67 format=4 uid="uid://b04l4v8kwcxhu"]
-=======
-[gd_scene load_steps=70 format=4 uid="uid://b04l4v8kwcxhu"]
->>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level14.tscn
+[gd_scene load_steps=71 format=4 uid="uid://b04l4v8kwcxhu"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_nsyop"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ojod2"]
@@ -743,7 +739,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 5
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -759,7 +755,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 5
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -797,7 +793,7 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Menu" type="TextureButton" parent="."]
-z_index = 3
+z_index = 5
 offset_left = 606.0
 offset_right = 670.0
 offset_bottom = 64.0
@@ -808,7 +804,7 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" type="PanelContainer" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -852,7 +848,7 @@ text = "Jatka"
 
 [node name="KolariScreen" type="PanelContainer" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -903,7 +899,7 @@ text = "Ok"
 
 [node name="VoittoScreen" type="PanelContainer" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -963,7 +959,6 @@ scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f7gbj")
@@ -1082,13 +1077,11 @@ progress = 26.3538
 [node name="Path2D21" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_5wyvv")
 
-<<<<<<< HEAD:new-game-project/Level/Levelfall2.tscn
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(495, 312)
 texture = ExtResource("5_n6c3t")
 region_enabled = true
 region_rect = Rect2(247.105, 231.857, 73.9945, 128.143)
-=======
+
 [node name="Sieni" parent="." instance=ExtResource("19_tplw0")]
-position = Vector2(574, 328)
->>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level14.tscn
+position = Vector2(582, 328)
