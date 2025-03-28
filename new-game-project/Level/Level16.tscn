@@ -893,6 +893,8 @@ position = Vector2(578, 169)
 [node name="Täplä" parent="." instance=ExtResource("19_wstr2")]
 position = Vector2(49, 208)
 
-[node name="KolariScreenTie" parent="." instance=ExtResource("20_ncwuk")]
-
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("21_b3y8m")]
+visible = false
+
+[node name="KolariScreenTie" parent="." instance=ExtResource("20_ncwuk")]
+visible = false

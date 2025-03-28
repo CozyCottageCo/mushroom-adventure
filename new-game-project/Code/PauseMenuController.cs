@@ -24,10 +24,10 @@ public override void _Ready() {
 	_touch = GetNode<Touch>("/root/Node2D"); // root node, nappeja kii
 	_palaaPääValikkoonButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPääValikkoonPressed)));
 	_jatkaButton.Connect(Button.SignalName.Pressed, new Callable(_touch, nameof(Touch.OnMenuButtonPressed)));
-
+	// suoraan touch.cs lainattu metodi mikä vaa flippas sen paneelin näkyvyyden
 
 	_peliLäpiButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(PeliLäpiPressed)));
-	// suoraan touch.cs lainattu metodi mikä vaa flippas sen paneelin näkyvyyden
+
 
 }
 }

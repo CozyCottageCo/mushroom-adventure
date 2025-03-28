@@ -309,11 +309,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh5ix"]
 size = Vector2(10, 11)
 
-[sub_resource type="Animation" id="Animation_5ejfx"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_e171l"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_5ejfx"]
+resource_name = "new_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h8c8i"]
 _data = {
