@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://cejo7mkkmb7wy"]
+
+[ext_resource type="Texture2D" uid="uid://ccttw6jc0eygj" path="res://Art/Spritet/Pelaaja/täplä_sheet.png" id="1_4c7ws"]
+[ext_resource type="Script" path="res://Code/Täplä.cs" id="2_7isre"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmbj1"]
+atlas = ExtResource("1_4c7ws")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox477"]
+size = Vector2(32, 27)
+
+[sub_resource type="Animation" id="Animation_i2ryd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vmgp1"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [2, 3, 0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgrj0"]
+_data = {
+"RESET": SubResource("Animation_i2ryd"),
+"hover": SubResource("Animation_vmgp1")
+}
+
+[sub_resource type="Curve" id="Curve_dsoj8"]
+_data = [Vector2(0.653846, 0.43956), 0.0, 0.0, 0, 0, Vector2(0.653846, 0.43956), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4n7fn"]
+width = 33
+curve = SubResource("Curve_dsoj8")
+
+[node name="Täplä" type="Sprite2D"]
+texture = SubResource("AtlasTexture_qmbj1")
+hframes = 4
+script = ExtResource("2_7isre")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ox477")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fgrj0")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0.25, -1.5)
+scale = Vector2(0.984848, 27)
+color = Color(0, 0, 0, 1)
+texture = SubResource("CurveTexture_4n7fn")

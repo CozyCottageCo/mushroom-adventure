@@ -15,6 +15,7 @@ private SceneTree _mainMenuSceneTree = null;
 public override void _Ready() {
 {
 	base._Ready();
+
 	_mainMenuSceneTree = GetTree();
 	if (_mainMenuSceneTree == null) {
 		GD.PrintErr("Ei löy'y scenetree");

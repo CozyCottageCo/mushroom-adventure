@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxvt3tsukuyui"
-path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
+uid="uid://bmm3y200xik08"
+path="res://.godot/imported/etana_bussi-Sheet.png-8fa75f5ebf5439e8894295bcede937ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/sirkka_walk-Sheet 59x42.png"
-dest_files=["res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"]
+source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/etana_bussi-Sheet.png"
+dest_files=["res://.godot/imported/etana_bussi-Sheet.png-8fa75f5ebf5439e8894295bcede937ad.ctex"]
 
 [params]
 

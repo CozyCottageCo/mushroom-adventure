@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxvt3tsukuyui"
-path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
+uid="uid://cnjp71dybecdf"
+path="res://.godot/imported/sieni_victory-Sheet.png-ba4e8263d397e747b98eee1af820020b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/sirkka_walk-Sheet 59x42.png"
-dest_files=["res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"]
+source_file="res://Art/Spritet/Pelaaja/sieni_victory-Sheet.png"
+dest_files=["res://.godot/imported/sieni_victory-Sheet.png-ba4e8263d397e747b98eee1af820020b.ctex"]
 
 [params]
 

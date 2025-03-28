@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://omelctygapl7"]
+
+[ext_resource type="Script" path="res://Code/KolariScreenController.cs" id="1_4le0a"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_cnq5n"]
+[ext_resource type="Texture2D" uid="uid://co5vnsmijrwju" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko1.png" id="2_nqmb7"]
+[ext_resource type="Texture2D" uid="uid://1msed63vt7bp" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko2.png" id="3_rv4sp"]
+[ext_resource type="Texture2D" uid="uid://dkj0h8h8o0tcg" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko3.png" id="4_gklpk"]
+[ext_resource type="Texture2D" uid="uid://t7ajljc3q7vy" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko4.png" id="5_tp7a5"]
+[ext_resource type="Texture2D" uid="uid://bcqxkshuvq8lk" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko5.png" id="6_d318l"]
+[ext_resource type="Texture2D" uid="uid://cicmemko7gi0e" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko6.png" id="7_3mdpf"]
+[ext_resource type="Texture2D" uid="uid://m82n7fxin35y" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko7.png" id="8_pc0ff"]
+[ext_resource type="Texture2D" uid="uid://d13gmu66754i4" path="res://Art/Spritet/Pelaaja/Sieni kolari/sieni_vahinko8.png" id="9_koblg"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_yasid"]
+frames = 8
+frame_0/texture = ExtResource("2_nqmb7")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("3_rv4sp")
+frame_1/duration = 0.2
+frame_2/texture = ExtResource("4_gklpk")
+frame_2/duration = 0.2
+frame_3/texture = ExtResource("5_tp7a5")
+frame_3/duration = 0.2
+frame_4/texture = ExtResource("6_d318l")
+frame_4/duration = 0.2
+frame_5/texture = ExtResource("7_3mdpf")
+frame_5/duration = 0.2
+frame_6/texture = ExtResource("8_pc0ff")
+frame_6/duration = 0.2
+frame_7/texture = ExtResource("9_koblg")
+frame_7/duration = 0.2
+
+[node name="KolariScreenÖtökkä" type="PanelContainer" node_paths=PackedStringArray("_reTryButton")]
+visible = false
+z_index = 5
+offset_left = 230.0
+offset_top = 100.0
+offset_right = 430.0
+offset_bottom = 281.0
+script = ExtResource("1_4le0a")
+_reTryButton = NodePath("KolariScreenController/Button")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0.231373, 0.878431, 0.388235, 1)
+
+[node name="KolariScreenController" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="KolariScreenController"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cnq5n")
+theme_override_font_sizes/font_size = 23
+text = "Kolari!"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="KolariScreenController"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_yasid")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="KolariScreenController"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cnq5n")
+text = "Varo muuta liikennettä! Muista, että ruutua painamalla voit pysähtyä."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="KolariScreenController"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cnq5n")
+text = "Yritä uudelleen"

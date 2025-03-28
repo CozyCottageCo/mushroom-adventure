@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://djkvhrxf5jqpm"]
+
+[ext_resource type="Script" path="res://Code/KolariScreenController.cs" id="1_4kcdj"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_tgxe0"]
+
+[node name="KolariScreenTie" type="PanelContainer" node_paths=PackedStringArray("_reTryButton")]
+visible = false
+z_index = 5
+offset_left = 230.0
+offset_top = 100.0
+offset_right = 430.0
+offset_bottom = 250.0
+script = ExtResource("1_4kcdj")
+_reTryButton = NodePath("KolariScreenController/Button")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 2
+color = Color(0.231373, 0.878431, 0.388235, 1)
+
+[node name="KolariScreenController" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="KolariScreenController"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tgxe0")
+theme_override_font_sizes/font_size = 25
+text = "Ups!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="KolariScreenController"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tgxe0")
+text = "Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="KolariScreenController"]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tgxe0")
+text = "Yritä uudelleen"

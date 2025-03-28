@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxvt3tsukuyui"
-path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
+uid="uid://bflegtymijy7m"
+path="res://.godot/imported/uusi_levelselect.png-fd4791935a0eecd279b86c7b2d2ead56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/sirkka_walk-Sheet 59x42.png"
-dest_files=["res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"]
+source_file="res://Art/Spritet/Käyttöliittymä/Levelselection/uusi_levelselect.png"
+dest_files=["res://.godot/imported/uusi_levelselect.png-fd4791935a0eecd279b86c7b2d2ead56.ctex"]
 
 [params]
 

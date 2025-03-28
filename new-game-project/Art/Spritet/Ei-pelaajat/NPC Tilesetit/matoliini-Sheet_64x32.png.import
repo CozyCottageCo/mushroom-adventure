@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxvt3tsukuyui"
-path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
+uid="uid://r6eiocklaggx"
+path="res://.godot/imported/matoliini-Sheet_64x32.png-6b577106c534bef35c7f7d735036fdb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/sirkka_walk-Sheet 59x42.png"
-dest_files=["res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"]
+source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/matoliini-Sheet_64x32.png"
+dest_files=["res://.godot/imported/matoliini-Sheet_64x32.png-6b577106c534bef35c7f7d735036fdb5.ctex"]
 
 [params]
 
