@@ -42,7 +42,8 @@ private void OnKokoelmaPressed()
 
 private void OnAsetuksetPressed()
 {
-	GD.Print("Asetukset pressed");
+	_mainMenuSceneTree.ChangeSceneToFile("res://Level/Settings.tscn");
+	GD.Print("Asetukset opened");
 }
 
 private void OnPoistuPressed()
