@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dchtmefq8rd5p"]
+[gd_scene load_steps=55 format=4 uid="uid://cknxuij7toi1d"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_d4urg"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_8hox8"]
@@ -15,13 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_kxvs7"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_sak1m"]
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_qb7s7"]
-[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="14_ew64u"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_tbvuh"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="16_4vkdt"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="17_53scv"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_q2gsi"]
+[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="20_nmekp"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="20_w145u"]
+[ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="21_57l8c"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="21_ku860"]
+[ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="22_ygpii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqiu0"]
 texture = ExtResource("2_em6u5")
@@ -391,16 +391,9 @@ HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_1didj")
 HScrollBar/styles/scroll = SubResource("StyleBoxFlat_e8q54")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7e520")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qm3g"]
-atlas = ExtResource("14_ew64u")
-region = Rect2(435, 421, 47, 59)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
 atlas = ExtResource("15_tbvuh")
 region = Rect2(20, 134, 716, 716)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
-size = Vector2(128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyhy1"]
 atlas = ExtResource("18_q2gsi")
@@ -586,7 +579,7 @@ show_behind_parent = true
 layout_mode = 2
 color = Color(0.231373, 0.878431, 0.388235, 1)
 
-[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
+[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
 layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
@@ -594,7 +587,6 @@ theme_override_constants/separation = 30
 script = ExtResource("13_qb7s7")
 "_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
 _jatkaButton = NodePath("Jatka")
-_reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
 "_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
 
 [node name="PalaaMainMenuun" type="Button" parent="PauseMenuPanel/PauseMenu"]
@@ -609,57 +601,6 @@ text = "Asetukset"
 [node name="Jatka" type="Button" parent="PauseMenuPanel/PauseMenu"]
 layout_mode = 2
 text = "Jatka"
-
-[node name="KolariScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 209.0
-offset_top = 106.0
-offset_right = 409.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="KolariScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="PauseMenu" type="VBoxContainer" parent="KolariScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_reTryButton", "_peliLäpiButton")]
-layout_direction = 1
-layout_mode = 2
-mouse_filter = 0
-theme_override_constants/separation = 30
-script = ExtResource("13_qb7s7")
-"_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
-_reTryButton = NodePath("ReTry")
-"_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
-
-[node name="Label" type="Label" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-text = "Kolaroit!"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_2qm3g")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="Label2" type="Label" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-text = "Elä mene autotielle!"
-horizontal_alignment = 1
-
-[node name="ReTry" type="Button" parent="KolariScreen/PauseMenu"]
-process_mode = 2
-layout_mode = 2
-text = "Ok"
 
 [node name="VoittoScreen" type="PanelContainer" parent="."]
 visible = false
@@ -681,12 +622,11 @@ show_behind_parent = true
 layout_mode = 2
 color = Color(0.231373, 0.878431, 0.388235, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
 layout_mode = 2
 script = ExtResource("13_qb7s7")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
-_reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
 "_peliLäpiButton" = NodePath("Button")
 
 [node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
@@ -703,20 +643,6 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(80, 241)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("16_4vkdt")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("17_53scv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_5ivg4")
-
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(567, 63)
@@ -725,17 +651,17 @@ texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="aita1" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(584, 311)
+position = Vector2(576, 314)
 texture = ExtResource("18_q2gsi")
 region_enabled = true
-region_rect = Rect2(458.6, 176.7, 181.4, 46.2)
+region_rect = Rect2(472.318, 176.7, 134.821, 46.2)
 
 [node name="aita2" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(461, 312)
+position = Vector2(471, 314)
 texture = ExtResource("18_q2gsi")
 region_enabled = true
-region_rect = Rect2(458.6, 176.7, 181.4, 46.2)
+region_rect = Rect2(477.212, 176.7, 162.788, 46.2)
 
 [node name="lamppu1" type="Sprite2D" parent="."]
 z_index = 1
@@ -755,6 +681,7 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_5575v")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_3fucj")
@@ -801,5 +728,20 @@ position = Vector2(244.652, 145.314)
 rotation = 1.57937
 progress = 157.321
 
+[node name="Täplä" parent="." instance=ExtResource("20_nmekp")]
+position = Vector2(80, 272)
+
 [node name="Sieni" parent="." instance=ExtResource("20_w145u")]
 position = Vector2(481, 194)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(193, 265)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(419.72, 0.220032, 71.39, 119.79)
+
+[node name="KolariScreenTie" parent="." instance=ExtResource("21_57l8c")]
+visible = false
+
+[node name="KolariScreenÖtökkä" parent="." instance=ExtResource("22_ygpii")]
+visible = false

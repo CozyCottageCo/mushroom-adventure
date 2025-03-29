@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bxekhb8cqwis8"]
+[gd_scene load_steps=44 format=4 uid="uid://bxekhb8cqwis8"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_n1lpo"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_fve1x"]
@@ -9,13 +9,13 @@
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_ir7fe"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_pyhue"]
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="8_0fy6i"]
-[ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="9_t4rdy"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="10_crc0e"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="11_v774d"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="12_mx7hr"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="13_174jl"]
+[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="14_1k226"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="14_4i2fr"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="15_336ta"]
+[ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_30874"]
+[ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_pcmmg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ujvs"]
 texture = ExtResource("2_fve1x")
@@ -299,16 +299,9 @@ HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_1didj")
 HScrollBar/styles/scroll = SubResource("StyleBoxFlat_e8q54")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7e520")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qm3g"]
-atlas = ExtResource("9_t4rdy")
-region = Rect2(435, 421, 47, 59)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
 atlas = ExtResource("10_crc0e")
 region = Rect2(20, 134, 716, 716)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
-size = Vector2(128, 128)
 
 [sub_resource type="Curve2D" id="Curve2D_oyeip"]
 _data = {
@@ -384,7 +377,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 5
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -400,7 +393,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 5
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -417,7 +410,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Menu" type="TextureButton" parent="."]
-z_index = 3
+z_index = 5
 offset_left = 606.0
 offset_right = 670.0
 offset_bottom = 64.0
@@ -428,7 +421,7 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" type="PanelContainer" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -446,7 +439,7 @@ show_behind_parent = true
 layout_mode = 2
 color = Color(0.231373, 0.878431, 0.388235, 1)
 
-[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
+[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
 layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
@@ -454,7 +447,6 @@ theme_override_constants/separation = 30
 script = ExtResource("8_0fy6i")
 "_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
 _jatkaButton = NodePath("Jatka")
-_reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
 "_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
 
 [node name="PalaaMainMenuun" type="Button" parent="PauseMenuPanel/PauseMenu"]
@@ -470,60 +462,9 @@ text = "Asetukset"
 layout_mode = 2
 text = "Jatka"
 
-[node name="KolariScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 209.0
-offset_top = 106.0
-offset_right = 409.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="KolariScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="PauseMenu" type="VBoxContainer" parent="KolariScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_reTryButton", "_peliLäpiButton")]
-layout_direction = 1
-layout_mode = 2
-mouse_filter = 0
-theme_override_constants/separation = 30
-script = ExtResource("8_0fy6i")
-"_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
-_reTryButton = NodePath("ReTry")
-"_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
-
-[node name="Label" type="Label" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-text = "Kolaroit!"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_2qm3g")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="Label2" type="Label" parent="KolariScreen/PauseMenu"]
-layout_mode = 2
-text = "Elä mene autotielle!"
-horizontal_alignment = 1
-
-[node name="ReTry" type="Button" parent="KolariScreen/PauseMenu"]
-process_mode = 2
-layout_mode = 2
-text = "Ok"
-
 [node name="VoittoScreen" type="PanelContainer" parent="."]
 visible = false
-z_index = 3
+z_index = 5
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -541,12 +482,11 @@ show_behind_parent = true
 layout_mode = 2
 color = Color(0.231373, 0.878431, 0.388235, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_reTryButton", "_peliLäpiButton")]
+[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
 layout_mode = 2
 script = ExtResource("8_0fy6i")
 "_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
 _jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
-_reTryButton = NodePath("../../KolariScreen/PauseMenu/ReTry")
 "_peliLäpiButton" = NodePath("Button")
 
 [node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
@@ -562,21 +502,6 @@ expand_mode = 4
 process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
-
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(175, 337)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("11_v774d")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-position = Vector2(-100, -144)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("12_mx7hr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-position = Vector2(100, 136)
-shape = SubResource("RectangleShape2D_5ivg4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(215, 172)
@@ -622,17 +547,16 @@ progress = 309.618
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ei2mj")
 
-<<<<<<< HEAD:new-game-project/Level/Levelsum2.tscn
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(409, 96)
-texture = ExtResource("13_174jl")
-region_enabled = true
-region_rect = Rect2(488.19, -0.290176, 87.1201, 116.685)
-=======
 [node name="Muurahainen" parent="Reitit/Path2D6" instance=ExtResource("14_4i2fr")]
 position = Vector2(-13, 204)
 rotation = -0.00358421
 
+[node name="Täplä" parent="." instance=ExtResource("14_1k226")]
+position = Vector2(80, 338)
+
 [node name="Sieni" parent="." instance=ExtResource("15_336ta")]
 position = Vector2(480, 324)
->>>>>>> de837682979f1bf0f99beeb2f5c382cbc03ed99e:new-game-project/Level/Level10.tscn
+
+[node name="KolariScreenTie" parent="." instance=ExtResource("15_30874")]
+
+[node name="KolariScreenÖtökkä" parent="." instance=ExtResource("16_pcmmg")]

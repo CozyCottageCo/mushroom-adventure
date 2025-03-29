@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://djkvhrxf5jqpm"]
+
+[ext_resource type="Script" path="res://Code/KolariScreenController.cs" id="1_4kcdj"]
+[ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="2_ciypu"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_tgxe0"]
+[ext_resource type="LabelSettings" uid="uid://ckq4p3hy4wetj" path="res://Art/Spritet/Käyttöliittymä/kolariscreenlabel.tres" id="4_ufk8i"]
+[ext_resource type="LabelSettings" uid="uid://c7w76o68lofe2" path="res://Art/Spritet/Käyttöliittymä/kolariscreenlabel2.tres" id="5_sc76c"]
+[ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="6_2fxk8"]
+[ext_resource type="StyleBox" uid="uid://6vpm0rv8cbm8" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbutton.tres" id="6_j54pu"]
+
+[sub_resource type="FontVariation" id="FontVariation_at1w4"]
+base_font = ExtResource("2_tgxe0")
+spacing_top = 3
+
+[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton")]
+z_index = 5
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 230.0
+offset_top = 105.0
+offset_right = 430.0
+offset_bottom = 255.0
+script = ExtResource("1_4kcdj")
+_reTryButton = NodePath("KolariScreenTie/Control/KolariScreenController/Button")
+
+[node name="KolariScreenTie" type="Panel" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="KolariScreenTie"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("2_ciypu")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="KolariScreenTie"]
+layout_mode = 1
+anchor_right = 1.0
+grow_horizontal = 2
+pivot_offset = Vector2(100, 0)
+
+[node name="KolariScreenController" type="VBoxContainer" parent="KolariScreenTie/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+alignment = 1
+
+[node name="Label" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_tgxe0")
+theme_override_font_sizes/font_size = 23
+text = "Ups!
+"
+label_settings = ExtResource("4_ufk8i")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tgxe0")
+text = "Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie."
+label_settings = ExtResource("5_sc76c")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="KolariScreenTie/Control/KolariScreenController"]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = SubResource("FontVariation_at1w4")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/hover = ExtResource("6_2fxk8")
+theme_override_styles/normal = ExtResource("6_j54pu")
+text = "Yritä uudelleen"

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using SieniPeli;
 
 namespace SieniPeli
 {
@@ -14,7 +15,7 @@ namespace SieniPeli
 		[Export] private TextureButton _mainMenuButton = null;
 
         private SceneTree _levelSelectSceneTree = null;
-        string currentScreen = "";
+        public string currentScreen = "";
 
         public override void _Ready()
         {
@@ -101,5 +102,9 @@ namespace SieniPeli
 			string mainMenuPath = "res://Level/MainMenu.tscn";
 			_levelSelectSceneTree.ChangeSceneToFile(mainMenuPath);
 		}
+
+        public string GetCurrentLevelSelect() {
+            return currentScreen;
+        }
     }
 }

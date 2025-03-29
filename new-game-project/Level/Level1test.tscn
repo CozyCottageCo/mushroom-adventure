@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://41pfhvf6suvj"]
+[gd_scene load_steps=53 format=4 uid="uid://7fj1sbrlj66r"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_6sskp"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_gwywm"]

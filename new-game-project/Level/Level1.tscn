@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=42 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -14,8 +14,7 @@
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="11_dhwq1"]
 [ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="12_kx0il"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="13_wfj6f"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="14_c7mkx"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="15_5tcu5"]
+[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_3h71i"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_nt7hn"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_nw2sx"]
 
@@ -284,9 +283,6 @@ region = Rect2(435, 421, 47, 59)
 atlas = ExtResource("13_wfj6f")
 region = Rect2(20, 134, 716, 716)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
-size = Vector2(128, 128)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qogq"]
 size = Vector2(2.78124, 3.3125)
 
@@ -544,19 +540,6 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(535, 75)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("14_c7mkx")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("15_5tcu5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-shape = SubResource("RectangleShape2D_5ivg4")
-
 [node name="Risteykset" type="Node2D" parent="."]
 
 [node name="Risteys2" type="Area2D" parent="Risteykset"]
@@ -594,6 +577,9 @@ collision_mask = 16
 position = Vector2(324, 186)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_3qogq")
+
+[node name="Täplä" parent="." instance=ExtResource("17_3h71i")]
+position = Vector2(463, 79)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
