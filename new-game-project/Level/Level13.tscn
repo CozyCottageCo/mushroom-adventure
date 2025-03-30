@@ -755,7 +755,6 @@ text = "Kauppakeskus Ratina
 "
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 position = Vector2(2, 7)
 
 [node name="Path2D" type="Path2D" parent="Reitit"]

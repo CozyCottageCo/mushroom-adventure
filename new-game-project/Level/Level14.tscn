@@ -786,6 +786,7 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Menu" type="TextureButton" parent="."]
+visible = false
 z_index = 5
 offset_left = 606.0
 offset_right = 670.0
@@ -1016,5 +1017,7 @@ position = Vector2(177, 52)
 position = Vector2(582, 328)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("21_cxjgf")]
+visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("22_uug8e")]
+visible = false
