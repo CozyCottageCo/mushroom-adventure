@@ -42,7 +42,7 @@ namespace SieniPeli
         public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
         public bool _kolariActive = false;
-        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); //sama ku Colors.Red
+        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red
         public override void _Ready()
         {
 

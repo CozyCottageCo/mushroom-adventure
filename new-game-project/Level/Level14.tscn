@@ -786,7 +786,6 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Menu" type="TextureButton" parent="."]
-visible = false
 z_index = 5
 offset_left = 606.0
 offset_right = 670.0
