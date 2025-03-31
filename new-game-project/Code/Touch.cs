@@ -35,7 +35,9 @@ namespace SieniPeli
         private TextureButton _menuButton;
 
         private PanelContainer _menuPanel = null; // alustettu menupaneeli
-        public PanelContainer _kolariScreen = null;
+        public Control _kolariScreen = null;
+        public Control _kolariScreenTie = null;
+        public Control _kolariScreenVesi = null;
 
         public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
@@ -43,6 +45,8 @@ namespace SieniPeli
         Color lineColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); //sama ku Colors.Red
         public override void _Ready()
         {
+
+
             _line = new Line2D
             {
 
@@ -61,14 +65,45 @@ namespace SieniPeli
                 GD.Print("Menu not found");
             }
 
-            _kolariScreen = GetNode<PanelContainer>("KolariScreen"); // haetaa kolariscreeni
-             if (_kolariScreen != null)
-            {
-                _kolariScreen.Visible = false; // piilos eka
-                GD.Print("KolariScreen found"); //debug
-            } else {
-                GD.Print("KolariScreen not found");
-            }
+            _kolariScreen = GetNodeOrNull<Control>("KolariScreenÖtökkä");
+    if (_kolariScreen != null)
+    {
+        GD.Print("KolariScreenTie found");
+
+        _kolariScreen.Visible = false;
+        // Ensure button is connected
+    }
+    else
+    {
+        GD.PrintErr("KolariScreenÖtökkä not found");
+    }
+
+     _kolariScreenTie = GetNodeOrNull<Control>("KolariScreenTie");
+    if (_kolariScreenTie != null)
+    {
+        GD.Print("KolariScreenTie found");
+
+        _kolariScreenTie.Visible = false;
+        // Ensure button is connected
+    }
+    else
+    {
+        GD.PrintErr("KolariScreenTie not found");
+    }
+
+     _kolariScreenVesi = GetNodeOrNull<Control>("KolariScreenVesi");
+    if (_kolariScreenVesi != null)
+    {
+        GD.Print("KolariScreenTie found");
+
+        _kolariScreenVesi.Visible = false;
+        // Ensure button is connected
+    }
+    else
+    {
+        GD.PrintErr("KolariScreenVesi not found");
+    }
+
 
              _voittoScreen = GetNode<PanelContainer>("VoittoScreen"); // haetaa kolariscreeni
              if (_voittoScreen != null)
@@ -336,26 +371,26 @@ namespace SieniPeli
             }
              else if (kohde.StartsWith("Tie")) { // oma screen
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
-                if (_kolariScreen != null)
+                if (_kolariScreenTie != null)
                     {
-                    _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
-                    if(_kolariScreen.Visible == true) {
+                    _kolariScreenTie.Visible = !_kolariScreenTie.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreenTie.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
-                        GetTree().Paused = true; // pausettaa pelin myös
-                    } else if(_kolariScreen.Visible == false) {
+                        GetTree().Paused = true;
+                    } else if(_kolariScreenTie.Visible == false) {
                         _buttonsVisible = false;
                     }
                 }
             }
             else if (kohde.StartsWith("Vesi")) { // oma screen
             await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii kävellä tielle
-                if (_kolariScreen != null)
+                if (_kolariScreenVesi != null)
                     {
-                    _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
-                    if(_kolariScreen.Visible == true) {
+                    _kolariScreenVesi.Visible = !_kolariScreenVesi.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreenVesi.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
-                    } else if(_kolariScreen.Visible == false) {
+                    } else if(_kolariScreenVesi.Visible == false) {
                         _buttonsVisible = false;
                     }
                 }

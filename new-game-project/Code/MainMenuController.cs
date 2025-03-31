@@ -15,6 +15,7 @@ private SceneTree _mainMenuSceneTree = null;
 public override void _Ready() {
 {
 	base._Ready();
+
 	_mainMenuSceneTree = GetTree();
 	if (_mainMenuSceneTree == null) {
 		GD.PrintErr("Ei löy'y scenetree");
@@ -42,7 +43,8 @@ private void OnKokoelmaPressed()
 
 private void OnAsetuksetPressed()
 {
-	GD.Print("Asetukset pressed");
+	_mainMenuSceneTree.ChangeSceneToFile("res://Level/Settings.tscn");
+	GD.Print("Asetukset opened");
 }
 
 private void OnPoistuPressed()

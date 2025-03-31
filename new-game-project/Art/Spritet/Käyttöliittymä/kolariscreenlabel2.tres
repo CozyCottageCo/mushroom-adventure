@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c7w76o68lofe2"]
+
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="1_luxwu"]
+
+[resource]
+font = ExtResource("1_luxwu")
+font_size = 17
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
