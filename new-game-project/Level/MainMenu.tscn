@@ -13,7 +13,7 @@
 atlas = ExtResource("3_akugd")
 region = Rect2(121, 279, 248, 50)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p44bq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13vhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y2dbk"]
 atlas = ExtResource("3_akugd")
@@ -25,7 +25,7 @@ region = Rect2(119, 280, 252, 49)
 atlas = ExtResource("3_akugd")
 region = Rect2(120, 279, 249, 50)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_kokoelmaButton", "_asetuksetButton", "_poistuButton")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_asetuksetButton", "_poistuButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,7 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h2r1c")
 _pelaaButton = NodePath("Background/VBoxContainer/Pelaa")
-_kokoelmaButton = NodePath("")
 _asetuksetButton = NodePath("Background/VBoxContainer/Asetukset")
 _poistuButton = NodePath("Background/VBoxContainer/Poistu")
 
@@ -86,7 +85,7 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p44bq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13vhx")
 text = "Asetukset"
 icon = SubResource("AtlasTexture_y2dbk")
 flat = true
