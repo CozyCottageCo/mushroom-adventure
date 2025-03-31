@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://tijsgb4aepty"]
+[gd_scene load_steps=53 format=4 uid="uid://tijsgb4aepty"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ivwg2"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_30k70"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_trftm"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_delo8"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="5_bs0ep"]
+[ext_resource type="Texture2D" uid="uid://brtxc0xxn8tth" path="res://Art/Spritet/Ympäristö/Kävelytie11.png" id="6_a78uv"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_dnsjr"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_0bsaj"]
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="8_uj1px"]
@@ -407,6 +408,11 @@ tile_set = SubResource("TileSet_lgc1i")
 tile_map_data = PackedByteArray("AAATAAgAAQAFAAMAAAAGAAMAAQAFAAMAAAAHAAMAAQAFAAMAAAAIAAMAAQAFAAMAAAAJAAMAAQAFAAMAAAALAAMAAQAFAAMAAAAMAAMAAQAFAAMAAAANAAMAAQAFAAMAAAAOAAMAAQAFAAMAAAAPAAMAAQAFAAMAAAAQAAMAAQAFAAMAAAARAAMAAQAFAAMAAAASAAMAAQAFAAMAAAATAAMAAQAFAAMAAAAGAAgAAQAFAAMAAAAHAAgAAQAFAAMAAAAIAAgAAQAFAAMAAAAJAAgAAQAFAAMAAAAKAAgAAQAFAAMAAAALAAgAAQAFAAMAAAAMAAgAAQAFAAMAAAANAAgAAQAFAAMAAAAPAAgAAQAFAAMAAAAQAAgAAQAFAAMAAAARAAgAAQAFAAMAAAASAAgAAQAFAAMAAAAGAAkAAQAFAAQAAAAHAAkAAQAFAAQAAAAIAAkAAQAFAAQAAAAJAAkAAQAFAAQAAAAKAAkAAQAFAAQAAAALAAkAAQAFAAQAAAAMAAkAAQAFAAQAAAANAAkAAQAFAAQAAAAPAAkAAQAFAAQAAAAQAAkAAQAFAAQAAAARAAkAAQAFAAQAAAASAAkAAQAFAAQAAAATAAkAAQAFAAQAAAAGAAQAAQAFAAQAAAAHAAQAAQAFAAQAAAAIAAQAAQAFAAQAAAAJAAQAAQAFAAQAAAALAAQAAQAFAAQAAAAMAAQAAQAFAAQAAAANAAQAAQAFAAQAAAAOAAQAAQAFAAQAAAAPAAQAAQAFAAQAAAAQAAQAAQAFAAQAAAARAAQAAQAFAAQAAAASAAQAAQAFAAQAAAATAAQAAQAFAAQAAAAFAAgAAQAEAAQAACAFAAkAAQAEAAQAACAFAAoAAQAEAAQAACAFAAsAAQAEAAQAACAFAAcAAQAEAAQAACAFAAYAAQAEAAQAACAFAAUAAQAEAAQAACAFAAQAAQAEAAQAACAFAAAAAQAEAAQAACAFAAEAAQAEAAQAACAFAAMAAQAEAAQAACAEAAAAAQADAAQAACAEAAEAAQADAAQAACAEAAMAAQADAAQAACAEAAQAAQADAAQAACAEAAUAAQADAAQAACAEAAYAAQADAAQAACAEAAcAAQADAAQAACAEAAgAAQADAAQAACAEAAkAAQADAAQAACAEAAoAAQADAAQAACAEAAsAAQADAAQAACA=")
 tile_set = SubResource("TileSet_lgc1i")
 
+[node name="Kävelytie" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.668058, 0.667826)
+texture = ExtResource("6_a78uv")
+
 [node name="grid" parent="." instance=ExtResource("5_bs0ep")]
 modulate = Color(1, 1, 1, 0.0980392)
 
@@ -606,12 +612,6 @@ script = ExtResource("12_gpsjn")
 position = Vector2(104, 140)
 shape = SubResource("RectangleShape2D_5ivg4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(257, 189)
-texture = ExtResource("13_v1yqv")
-region_enabled = true
-region_rect = Rect2(111, 0, 122, 148)
-
 [node name="Sieni" parent="." instance=ExtResource("15_2ubuy")]
 position = Vector2(35, 297)
 
@@ -688,3 +688,21 @@ curve = SubResource("Curve2D_f2w4l")
 [node name="Muurahainen" parent="Reitit/Path2D12" instance=ExtResource("16_pfyx7")]
 position = Vector2(230.278, 142)
 progress = 239.28
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(250, 181)
+texture = ExtResource("13_v1yqv")
+region_enabled = true
+region_rect = Rect2(111, 0, 122, 148)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(280, 225)
+texture = ExtResource("13_v1yqv")
+region_enabled = true
+region_rect = Rect2(341.091, 240.637, 83.6158, 42.0952)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(268, 240)
+texture = ExtResource("13_v1yqv")
+region_enabled = true
+region_rect = Rect2(445.66, 313.428, 62.0455, 40.1197)
