@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coihksvhuiwnl"
-path="res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"
+uid="uid://vpm1w5n8e5f6"
+path="res://.godot/imported/taplajahti_lattia.png-7edd3b7af2c0138db3763297e1a42587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/sirkka_walk-Sheet 59x42.png"
-dest_files=["res://.godot/imported/sirkka_walk-Sheet 59x42.png-a9009033823cdb26ec002e0624433b4e.ctex"]
+source_file="res://Art/Spritet/Ympäristö/taplajahti_lattia.png"
+dest_files=["res://.godot/imported/taplajahti_lattia.png-7edd3b7af2c0138db3763297e1a42587.ctex"]
 
 [params]
 

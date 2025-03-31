@@ -13,7 +13,7 @@
 atlas = ExtResource("3_akugd")
 region = Rect2(121, 279, 248, 50)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p44bq"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13vhx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y2dbk"]
 atlas = ExtResource("3_akugd")
@@ -85,7 +85,7 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_f5mu4")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p44bq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13vhx")
 text = "Asetukset"
 icon = SubResource("AtlasTexture_y2dbk")
 flat = true

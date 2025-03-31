@@ -4,7 +4,6 @@ namespace SieniPeli;
 public partial class MainMenuController : Control
 {
 [Export] private Button _pelaaButton = null;
-[Export] private Button _kokoelmaButton = null;
 [Export] private Button _asetuksetButton = null;
 
 
@@ -22,7 +21,6 @@ public override void _Ready() {
 	}
 
 	_pelaaButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPelaaPressed)));
-	_kokoelmaButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnKokoelmaPressed)));
 	_asetuksetButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnAsetuksetPressed)));
 	_poistuButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPoistuPressed)));
 	// kuuntelee napin painallusta, laukasee metodin _pelaaButton.Pressed += OnNewGamePressed();
