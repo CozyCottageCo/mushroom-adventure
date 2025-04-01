@@ -69,6 +69,16 @@ namespace SieniPeli {
 			GlobalPosition = GlobalPosition.MoveToward(targetPosition, distance);
 
 			RunAnimation(direction); // Play appropriate animation
+			if (_currentSpeed > 0) {
+				AudioStreamPlayer2D footStepPlayer = GetNode<AudioStreamPlayer2D>("FootStepPlayer");
+				if (!footStepPlayer.Playing) { // Only play if not already playing
+					footStepPlayer.Play();
+				}
+			} else {
+				AudioStreamPlayer2D footStepPlayer = GetNode<AudioStreamPlayer2D>("FootStepPlayer");
+				footStepPlayer.Stop(); // Stop sound when stopping
+			}
+
 
 			if (GlobalPosition.DistanceTo(targetPosition) < distance) {
 				GlobalPosition = targetPosition;
@@ -113,12 +123,15 @@ namespace SieniPeli {
 
 			_lastDirection = direction; // Store last direction for idle state
 
+
+
 			switch ((direction.X, direction.Y)) {
 				case (0, 1): Play("walk"); break;
 				case (0, -1): Play("walkup"); break;
 				case (-1, 0): Play("walkleft"); break;
 				case (1, 0): Play("walkright"); break;
 			}
+
 		}
 
 		public void Celebrate() {

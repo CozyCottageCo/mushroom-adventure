@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace SieniPeli;
+namespace SieniPeli {
 
 public partial class SettingsController : Control
 {
@@ -13,6 +13,7 @@ public partial class SettingsController : Control
 	[Export] private CheckButton _movementToggle = null;
 	[Export] private Button _backButton = null;
 
+	[Export] private Button _resetProgress = null;
 	public override void _Ready()
 	{
 		LoadSettings();
@@ -22,6 +23,7 @@ public partial class SettingsController : Control
 		_volumeSlider.Connect(HSlider.SignalName.ValueChanged, new Callable(this, nameof(OnVolumeChanged)));
 		_movementToggle.Connect(CheckButton.SignalName.Toggled, new Callable(this, nameof(OnMovementToggled)));
 		_backButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnBackPressed)));
+		_resetProgress.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetPressed)));
 	}
 
 	private void LoadSettings()
@@ -91,4 +93,10 @@ public partial class SettingsController : Control
 	{
 		GetTree().ChangeSceneToFile("res://Level/MainMenu.tscn");
 	}
+
+	private void OnResetPressed() { // mahdollisuus resetoida tallennus (ainakin pelikehityksen ajaksi kiva olla)
+		SaveManager saveManager = GetNode<SaveManager>("/root/SaveManager");
+		saveManager.Reset();
+	}
+}
 }

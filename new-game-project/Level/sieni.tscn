@@ -1,12 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://dubf6ilea57vj"]
+[gd_scene load_steps=43 format=3 uid="uid://dubf6ilea57vj"]
 
 [ext_resource type="Texture2D" uid="uid://cnjp71dybecdf" path="res://Art/Spritet/Pelaaja/sieni_victory-Sheet.png" id="1_2crur"]
 [ext_resource type="Texture2D" uid="uid://dm13chg5nfy3t" path="res://Art/Spritet/Pelaaja/sieni_idle_atlas.png" id="1_atfsp"]
 [ext_resource type="Texture2D" uid="uid://bdh6rgpjs24p1" path="res://Art/Spritet/Pelaaja/taplajahti_player_sheet.png" id="1_ohc12"]
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="2_s2h7s"]
-[ext_resource type="AudioStream" uid="uid://cn2vmpi1kh5cn" path="res://Art/Sound/foot.ogg" id="3_orxcb"]
 [ext_resource type="Script" path="res://Code/FootStepPlayer.cs" id="4_s1f0l"]
-[ext_resource type="AudioStream" uid="uid://bokoo2hu1yj3a" path="res://Art/Sound/foot 2.ogg" id="5_xmdx1"]
+[ext_resource type="AudioStream" uid="uid://drnf1vqiqcrxr" path="res://Art/Sound/kavelyja.mp3" id="5_ol8fk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avhx7"]
 atlas = ExtResource("1_2crur")
@@ -309,18 +308,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh5ix"]
 size = Vector2(10, 11)
 
-[sub_resource type="Animation" id="Animation_e171l"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_5ejfx"]
-resource_name = "new_animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8c8i"]
-_data = {
-"RESET": SubResource("Animation_e171l"),
-"new_animation": SubResource("Animation_5ejfx")
-}
-
 [node name="Sieni" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_4ulul")
 animation = &"walk"
@@ -366,18 +353,6 @@ theme_override_font_sizes/font_size = 10
 text = "OK"
 
 [node name="FootStepPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_orxcb")
+stream = ExtResource("5_ol8fk")
 volume_db = 5.403
-autoplay = true
 script = ExtResource("4_s1f0l")
-
-[node name="FootStepPlayer2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_xmdx1")
-volume_db = 5.403
-autoplay = true
-script = ExtResource("4_s1f0l")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_h8c8i")
-}

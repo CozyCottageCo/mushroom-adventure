@@ -36,6 +36,10 @@ private Touch _touch = null;
         {
             GD.Print("Täplä löydetty!");
 			_sieni.Celebrate();
+			string currentLevelPath = GetTree().CurrentScene.SceneFilePath;
+			string currentLevel = currentLevelPath.GetFile().GetBaseName(); //katotaan tason nimi missä ollaan
+			var saveManager = GetNode<SaveManager>("/root/SaveManager");
+			saveManager.MarkLevelCompleted(currentLevel); // savemanageriin tason nimi tallennusta varten tehdyksi
 			await ToSignal(GetTree().CreateTimer(5f), "timeout");
 			_touch.Voitto(); // voittometodi kutsu
 			GetTree().Paused = true;

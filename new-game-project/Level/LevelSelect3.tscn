@@ -1,30 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmd433gja3ef2"]
+[gd_scene load_steps=11 format=3 uid="uid://dmd433gja3ef2"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_6cdvr"]
 [ext_resource type="Texture2D" uid="uid://dkfplo2q5i1em" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_summer.png" id="2_rjatt"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_xa4a2"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="4_i3x8h"]
-[ext_resource type="Texture2D" uid="uid://dctb68l0dd65" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png" id="5_3x772"]
-[ext_resource type="Texture2D" uid="uid://dcjggl1eba2xk" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_täplällä.png" id="5_nj0f5"]
+[ext_resource type="Texture2D" uid="uid://bflegtymijy7m" path="res://Art/Spritet/Käyttöliittymä/Levelselection/uusi_levelselect.png" id="5_14ocd"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="6_jpaqb"]
+[ext_resource type="Texture2D" uid="uid://b6c10mlcgh331" path="res://Art/Spritet/Pelaaja/täpläsingle.png" id="7_chh7j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_13q10"]
-atlas = ExtResource("4_i3x8h")
-region = Rect2(24, 30, 42, 51)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpcym"]
+atlas = ExtResource("5_14ocd")
+region = Rect2(48, 0, 48, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vxr3q"]
-atlas = ExtResource("5_3x772")
-region = Rect2(160, 32, 32, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oh16f"]
-atlas = ExtResource("5_3x772")
-region = Rect2(160, 32, 32, 96)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1yy5"]
+atlas = ExtResource("5_14ocd")
+region = Rect2(0, 0, 48, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l227"]
 atlas = ExtResource("6_jpaqb")
 region = Rect2(64, 64, 64, 64)
 
-[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton")]
+[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "TäpläCount")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +35,7 @@ _taso4Button = NodePath("Background/Taso12")
 "_eteenpäinButton" = NodePath("Background/Eteenpäin")
 "_takaisinpäinButton" = NodePath("Background/Takaisinpäin")
 _mainMenuButton = NodePath("Background/MainMenu")
+"TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -70,58 +67,110 @@ text = "Valitse taso (1)"
 horizontal_alignment = 1
 
 [node name="Taso9" type="TextureButton" parent="Background"]
+z_index = 2
 layout_mode = 2
-offset_left = 87.0
-offset_top = 221.0
-offset_right = 727.0
-offset_bottom = 701.0
+offset_left = 84.0
+offset_top = 209.0
+offset_right = 724.0
+offset_bottom = 689.0
 texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso10" type="TextureButton" parent="Background"]
+z_index = 2
 layout_mode = 2
-offset_left = 231.0
-offset_top = 71.0
-offset_right = 273.0
-offset_bottom = 122.0
-texture_normal = SubResource("AtlasTexture_13q10")
+offset_left = 205.0
+offset_top = 37.0
+offset_right = 845.0
+offset_bottom = 517.0
+texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso 11" type="TextureButton" parent="Background"]
+z_index = 2
 layout_mode = 2
-offset_left = 369.0
-offset_top = 224.0
-offset_right = 1010.0
-offset_bottom = 707.0
-texture_normal = ExtResource("5_nj0f5")
+offset_left = 368.0
+offset_top = 207.0
+offset_right = 1009.0
+offset_bottom = 690.0
+texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso12" type="TextureButton" parent="Background"]
+z_index = 2
 layout_mode = 2
-offset_left = 480.0
-offset_top = 30.0
-offset_right = 1120.0
-offset_bottom = 510.0
-texture_normal = ExtResource("5_nj0f5")
+offset_left = 477.0
+offset_top = 27.0
+offset_right = 1117.0
+offset_bottom = 507.0
+texture_normal = ExtResource("4_i3x8h")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 599.0
-offset_top = 139.0
-offset_right = 636.0
-offset_bottom = 235.0
-texture_normal = SubResource("AtlasTexture_vxr3q")
+offset_left = 580.0
+offset_top = 150.0
+offset_right = 628.0
+offset_bottom = 246.0
+texture_normal = SubResource("AtlasTexture_vpcym")
 
 [node name="Takaisinpäin" type="TextureButton" parent="Background"]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 135.0
-offset_right = 61.0
-offset_bottom = 231.0
-texture_normal = SubResource("AtlasTexture_oh16f")
-flip_h = true
+offset_left = 12.0
+offset_top = 150.0
+offset_right = 60.0
+offset_bottom = 246.0
+texture_normal = SubResource("AtlasTexture_f1yy5")
 
 [node name="MainMenu" type="TextureButton" parent="Background"]
 layout_mode = 2
-offset_left = 1.0
-offset_top = 6.0
-offset_right = 65.0
-offset_bottom = 70.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 69.0
 texture_normal = SubResource("AtlasTexture_6l227")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -36.0
+offset_right = -129.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(-40, -40)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_direction = 2
+layout_mode = 0
+offset_right = 37.0
+offset_bottom = 37.0
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer"]
+z_index = 5
+layout_mode = 2
+texture = ExtResource("7_chh7j")
+stretch_mode = 2
+
+[node name="TäpläCount" type="Label" parent="Panel/HBoxContainer"]
+z_index = 5
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_xa4a2")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+modulate = Color(0.813258, 0.813258, 0.813258, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 120.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.67451)
