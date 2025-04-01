@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://1bpe3jgbq5kn"]
+[gd_scene load_steps=47 format=4 uid="uid://1bpe3jgbq5kn"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jplb2"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_cc0b1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="16_vv0s6"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="17_jgghl"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="17_lytqy"]
+[ext_resource type="Texture2D" uid="uid://cr4d6h8qk8pcp" path="res://Art/Spritet/Ympäristö/Kävelytie12.png" id="18_08ggq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofr8g"]
 texture = ExtResource("2_iexua")
@@ -525,6 +526,7 @@ region_enabled = true
 region_rect = Rect2(192, 302, 57, 56)
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kgfp3")
@@ -569,11 +571,20 @@ position = Vector2(-11, 44)
 rotation = -0.001497
 
 [node name="Täplä" parent="." instance=ExtResource("15_t41rs")]
+z_index = 1
 position = Vector2(495, 335)
 
 [node name="Sieni" parent="." instance=ExtResource("17_lytqy")]
+z_index = 1
 position = Vector2(3, 104)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("16_iwb6c")]
+visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("17_jgghl")]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.593692, 0.593508)
+texture = ExtResource("18_08ggq")
