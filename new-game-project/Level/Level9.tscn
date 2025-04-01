@@ -441,6 +441,7 @@ tile_set = SubResource("TileSet_lgc1i")
 
 [node name="grid" parent="." instance=ExtResource("7_0hcq6")]
 modulate = Color(1, 1, 1, 0.0980392)
+position = Vector2(392, 226)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
@@ -478,14 +479,16 @@ expand_icon = true
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(35, 82)
+position = Vector2(24, 64)
+scale = Vector2(0.75, 1)
 texture = ExtResource("11_xlowt")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(35, 19)
+position = Vector2(24, 1)
+scale = Vector2(0.75, 1)
 texture = ExtResource("13_khhau")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
@@ -706,19 +709,31 @@ region_enabled = true
 region_rect = Rect2(467, 169, 173, 47)
 
 [node name="Sprite2D16" type="Sprite2D" parent="."]
-position = Vector2(390, 177)
+position = Vector2(596, 116)
 texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(467, 169, 173, 47)
 
 [node name="Sprite2D13" type="Sprite2D" parent="."]
-position = Vector2(390, 177)
+position = Vector2(472, 116)
 texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(467, 169, 173, 47)
 
+[node name="Sprite2D24" type="Sprite2D" parent="."]
+position = Vector2(106, 117)
+texture = ExtResource("19_w6i2n")
+region_enabled = true
+region_rect = Rect2(467, 169, 173, 47)
+
+[node name="Sprite2D25" type="Sprite2D" parent="."]
+position = Vector2(34, 122)
+texture = ExtResource("19_w6i2n")
+region_enabled = true
+region_rect = Rect2(571.207, 179.831, 68.7927, 36.1685)
+
 [node name="Sprite2D17" type="Sprite2D" parent="."]
-position = Vector2(390, 177)
+position = Vector2(348, 116)
 texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(467, 169, 173, 47)

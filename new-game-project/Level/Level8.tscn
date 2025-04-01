@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://ctj1sdoqdsunv"]
+[gd_scene load_steps=68 format=4 uid="uid://ctj1sdoqdsunv"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_c07gc"]
 [ext_resource type="Texture2D" uid="uid://br5naq38ml8rk" path="res://Art/Spritet/Ympäristö/taplajahti_kevät.png" id="2_amp5l"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="17_378yx"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_l18mr"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="18_v5oxk"]
+[ext_resource type="Texture2D" uid="uid://dnpxhyi70jeq3" path="res://Art/Spritet/Ympäristö/Kävelytie08.png" id="19_sathg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ox8db"]
 texture = ExtResource("2_amp5l")
@@ -705,6 +706,7 @@ layout_mode = 2
 text = "Tasovalikkoon"
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Reitit#Path2D10" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_gg30a")
@@ -816,12 +818,20 @@ curve = SubResource("Curve2D_xqwib")
 curve = SubResource("Curve2D_ijqcq")
 
 [node name="Täplä" parent="." instance=ExtResource("16_67lkm")]
+z_index = 1
 position = Vector2(527, 82)
 
 [node name="Sieni" parent="." instance=ExtResource("15_luii4")]
+z_index = 1
 position = Vector2(0, 42)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("17_378yx")]
 visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("18_v5oxk")]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.49961, 0.498701)
+texture = ExtResource("19_sathg")
