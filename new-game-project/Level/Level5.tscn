@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cknxuij7toi1d"]
+[gd_scene load_steps=56 format=4 uid="uid://cknxuij7toi1d"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_d4urg"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_8hox8"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="21_57l8c"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="21_ku860"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="22_ygpii"]
+[ext_resource type="Texture2D" uid="uid://5jxkgj0g4jwj" path="res://Art/Spritet/Ympäristö/Kävelytie05.png" id="23_udy43"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqiu0"]
 texture = ExtResource("2_em6u5")
@@ -645,8 +646,8 @@ text = "Tasovalikkoon"
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(567, 63)
-scale = Vector2(1.19231, 1.1701)
+position = Vector2(24.0001, 127)
+scale = Vector2(0.916543, 1.04033)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="aita1" type="Sprite2D" parent="."]
@@ -681,6 +682,7 @@ position = Vector2(-5, -1.5)
 shape = SubResource("RectangleShape2D_5575v")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_3fucj")
@@ -731,9 +733,11 @@ progress = 157.321
 position = Vector2(80, 272)
 
 [node name="Sieni" parent="." instance=ExtResource("20_w145u")]
+z_index = 1
 position = Vector2(481, 194)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(193, 265)
 texture = ExtResource("18_q2gsi")
 region_enabled = true
@@ -744,3 +748,8 @@ visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("22_ygpii")]
 visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.529363, 0.528926)
+texture = ExtResource("23_udy43")
