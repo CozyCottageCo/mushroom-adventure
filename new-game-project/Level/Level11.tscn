@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://tijsgb4aepty"]
+[gd_scene load_steps=49 format=4 uid="uid://tijsgb4aepty"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ivwg2"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_30k70"]
@@ -12,11 +12,9 @@
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="8_uj1px"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="10_522fl"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="13_v1yqv"]
-[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="15_0r42c"]
+[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="14_vsh1j"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="15_2ubuy"]
-[ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_y2aen"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="16_pfyx7"]
-[ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_rybig"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ujvs"]
 texture = ExtResource("2_30k70")
@@ -537,21 +535,6 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(242, 337)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("11_q25lw")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-position = Vector2(-100, -144)
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("12_gpsjn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-position = Vector2(104, 140)
-shape = SubResource("RectangleShape2D_5ivg4")
-
 [node name="Sieni" parent="." instance=ExtResource("15_2ubuy")]
 position = Vector2(35, 297)
 
@@ -627,6 +610,9 @@ curve = SubResource("Curve2D_f2w4l")
 [node name="Muurahainen" parent="Reitit/Path2D12" instance=ExtResource("16_pfyx7")]
 position = Vector2(230.278, 142)
 progress = 239.28
+
+[node name="Täplä" parent="." instance=ExtResource("14_vsh1j")]
+position = Vector2(252, 339)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(250, 181)

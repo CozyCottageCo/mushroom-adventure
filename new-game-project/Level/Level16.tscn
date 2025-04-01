@@ -779,6 +779,11 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.702525, 0.703297)
+texture = ExtResource("20_x5u4s")
+
 [node name="Reitit" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
@@ -879,11 +884,6 @@ progress = 45.4896
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(1.40524, 1.39627)
-texture = ExtResource("20_x5u4s")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(320, 192)
-scale = Vector2(0.702525, 0.703297)
 texture = ExtResource("20_x5u4s")
 
 [node name="Sieni" parent="." instance=ExtResource("18_15tgk")]
