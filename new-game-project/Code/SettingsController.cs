@@ -7,13 +7,16 @@ public partial class SettingsController : Control
 {
 	private string configPath = "user://settings.cfg";
 	private ConfigFile config = new ConfigFile();
-
 	[Export] private OptionButton _languageOption = null;
 	[Export] private HSlider _volumeSlider = null;
 	[Export] private CheckButton _movementToggle = null;
 	[Export] private Button _backButton = null;
-
 	[Export] private Button _resetProgress = null;
+	[Export] private Label _volumeLabel = null;
+	[Export] private Label _movementLabel = null;
+	[Export] private Label _languageLabel = null;
+	[Export] private Label _settingsLabel = null;
+
 	public override void _Ready()
 	{
 		LoadSettings();
@@ -28,27 +31,26 @@ public partial class SettingsController : Control
 
 	private void LoadSettings()
 	{
-		// Yritetetään config filen latausta
 		if (config.Load(configPath) != Error.Ok)
 		{
 			GD.Print("No settings file found, creating a new one...");
-
-			// Jos config filua ei löydy luodaan uusi default arvoilla
 			config.SetValue("Settings", "Language", 0);
 			config.SetValue("Settings", "Volume", 1.0);
 			config.SetValue("Settings", "AlternativeMovement", false);
-
-			// tallennetaan congif file
 			config.Save(configPath);
 		}
 
-		// Ladataan arvot congif filulta
-		_languageOption.Selected = (int)config.GetValue("Settings", "Language", 0);
+		// Load saved language
+		int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
+		_languageOption.Selected = savedLanguage;
+		TranslationServer.SetLocale(savedLanguage == 0 ? "en" : "fi");
+
+		// Load other settings
 		_volumeSlider.Value = (float)(double)config.GetValue("Settings", "Volume", 1.0);
 		_movementToggle.ButtonPressed = (bool)config.GetValue("Settings", "AlternativeMovement", false);
 
-		// Volume muuttuu heti
-		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), Mathf.LinearToDb((float)_volumeSlider.Value));
+		// Update UI text
+		UpdateUIText();
 	}
 
 
@@ -64,10 +66,19 @@ public partial class SettingsController : Control
 
 	private void OnLanguageChanged(int index)
 	{
-		SaveSettings();
-		GD.Print("Language changed to " + index);
-		// Tähänn pitäisi keksiä kielenvaihto tsydeemi
+		string selectedLanguage = index == 0 ? "en" : "fi";
+
+		// Change the locale
+		TranslationServer.SetLocale(selectedLanguage);
+
+		// Save the language setting
+		config.SetValue("Settings", "Language", index);
+		config.Save(configPath);
+
+		GD.Print("Language changed to: " + selectedLanguage);
 	}
+
+
 
 	private void OnVolumeChanged(double value)
 	{
@@ -98,5 +109,16 @@ public partial class SettingsController : Control
 		SaveManager saveManager = GetNode<SaveManager>("/root/SaveManager");
 		saveManager.Reset();
 	}
+
+	private void UpdateUIText()
+	{
+		_backButton.Text = Tr("back");
+		_resetProgress.Text = Tr("reset");
+		_volumeLabel.Text = Tr("volume");
+		_movementLabel.Text = Tr("movement");
+		_languageLabel.Text = Tr("language");
+		_settingsLabel.Text = Tr("settings");
+	}
+
 }
 }

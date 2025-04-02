@@ -41,6 +41,11 @@ DrawScreen={
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://translations.en.translation", "res://translations.fi.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -12,7 +12,7 @@
 base_font = ExtResource("2_tgxe0")
 spacing_top = 3
 
-[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton")]
+[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_hint2Label", "_crashLabel")]
 z_index = 5
 layout_direction = 1
 layout_mode = 3
@@ -23,6 +23,10 @@ offset_right = 430.0
 offset_bottom = 255.0
 script = ExtResource("1_4kcdj")
 _reTryButton = NodePath("KolariScreenTie/Control/KolariScreenController/Button")
+_whoopsLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
+_hintLabel = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
+_hint2Label = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
+_crashLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
 
 [node name="KolariScreenTie" type="Panel" parent="."]
 layout_direction = 1
@@ -60,7 +64,7 @@ grow_vertical = 2
 theme_override_constants/separation = 13
 alignment = 1
 
-[node name="Label" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+[node name="UpsLabel" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_tgxe0")
@@ -70,7 +74,7 @@ text = "Ups!
 label_settings = ExtResource("4_ufk8i")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+[node name="OhjeLabel" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tgxe0")
 text = "Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie."
