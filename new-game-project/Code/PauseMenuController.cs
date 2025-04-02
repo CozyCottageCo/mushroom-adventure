@@ -44,6 +44,7 @@ public override void _Ready() {
 }
 
     private void OnPääValikkoonPressed() { // menuun paluu
+			GetTree().Paused = false;
             string mainMenuPath = "res://Level/MainMenu.tscn";
             _mainMenuSceneTree.ChangeSceneToFile(mainMenuPath);
     }

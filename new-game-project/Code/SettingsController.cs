@@ -9,7 +9,7 @@ public partial class SettingsController : Control
 	private ConfigFile config = new ConfigFile();
 	[Export] private OptionButton _languageOption = null;
 	[Export] private HSlider _volumeSlider = null;
-	[Export] private CheckButton _movementToggle = null;
+	[Export] private CheckButton _movementToggle = null; // toggle on/off
 	[Export] private Button _backButton = null;
 	[Export] private Button _resetProgress = null;
 	[Export] private Label _volumeLabel = null;
@@ -118,6 +118,21 @@ public partial class SettingsController : Control
 		_movementLabel.Text = Tr("movement");
 		_languageLabel.Text = Tr("language");
 		_settingsLabel.Text = Tr("settings");
+	}
+
+	public bool GetMovementToggle() { // tarkistetaan mikä asetuksissa on tallennettu movement toggle likkkumiselle
+
+		 if (config.Load(configPath) != Error.Ok)
+            {
+                GD.Print("Settings file not found or failed to load.");
+                return false; // Default false jos ei lataa (tää taitaa itteasias bugittaa mut toimii just oikein :D)
+            }
+
+            // katotaa value
+            bool isMovementToggled = (bool)config.GetValue("Settings", "AlternativeMovement", false);
+            GD.Print($"Movement toggle state: {isMovementToggled}");
+
+            return isMovementToggled; // palautetaa liikkeelle
 	}
 
 }
