@@ -15,6 +15,17 @@ private LevelSelectionController levelSelectionController;
 private Touch _touch = null; // tää on vaa touch.cs alustus
 public override void _Ready() {
 {
+	ConfigFile config = new ConfigFile();
+        if (config.Load("user://settings.cfg") == Error.Ok)
+        {
+            int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
+            string locale = savedLanguage == 0 ? "en" : "fi";
+            TranslationServer.SetLocale(locale);
+        }
+
+        // Update UI text translations
+        UpdateUIText();
+
 	base._Ready();
 
 	_mainMenuSceneTree = GetTree();
@@ -33,6 +44,7 @@ public override void _Ready() {
 }
 
     private void OnPääValikkoonPressed() { // menuun paluu
+			GetTree().Paused = false;
             string mainMenuPath = "res://Level/MainMenu.tscn";
             _mainMenuSceneTree.ChangeSceneToFile(mainMenuPath);
     }
@@ -64,6 +76,12 @@ public override void _Ready() {
 	}
 	}
 
+	private void UpdateUIText()
+        {
+            _palaaPääValikkoonButton.Text = Tr("mainmenu");
+			_peliLäpiButton.Text = Tr("level");
+			_jatkaButton.Text = Tr("continue");
+        }
 
 }
 

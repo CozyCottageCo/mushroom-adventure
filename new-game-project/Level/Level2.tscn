@@ -493,12 +493,15 @@ show_behind_parent = true
 layout_mode = 2
 color = Color(0.231373, 0.878431, 0.388235, 1)
 
-[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel"]
+[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
 layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
 theme_override_constants/separation = 30
 script = ExtResource("15_8m3us")
+"_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
+_jatkaButton = NodePath("Jatka")
+"_peliLäpiButton" = NodePath("Asetukset")
 
 [node name="PalaaMainMenuun" type="Button" parent="PauseMenuPanel/PauseMenu"]
 layout_mode = 2

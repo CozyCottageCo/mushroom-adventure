@@ -52,7 +52,7 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="KolariScreenÖtökkä" type="PanelContainer" node_paths=PackedStringArray("_reTryButton")]
+[node name="KolariScreenÖtökkä" type="PanelContainer" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_hint2Label", "_crashLabel")]
 z_index = 5
 offset_left = 230.0
 offset_top = 100.0
@@ -60,6 +60,10 @@ offset_right = 430.0
 offset_bottom = 281.0
 script = ExtResource("1_4le0a")
 _reTryButton = NodePath("KolariScreenController/Button")
+_whoopsLabel = NodePath("KolariScreenController/Label")
+_hintLabel = NodePath("KolariScreenController/Label2")
+_hint2Label = NodePath("KolariScreenController/Label2")
+_crashLabel = NodePath("KolariScreenController/Label")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

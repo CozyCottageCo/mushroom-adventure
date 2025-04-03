@@ -27,7 +27,7 @@ namespace SieniPeli {
 		private List<Vector2> path = new List<Vector2>();
 		private int currentTargetIndex = 0;
 		public bool isMoving = false;
-		private float _currentSpeed = 50f;
+		private float _currentSpeed = 75f;
 
 		private bool celebrationTime = false;
 		private Vector2 _lastDirection = Vector2.Zero; // Store last direction for idle animations
@@ -102,7 +102,6 @@ namespace SieniPeli {
 
 		public void controlSpeed(float speed) {
 			_currentSpeed = speed;
-			GD.Print($"controlSpeed(): Speed set to {_currentSpeed}");
 		}
 
 		private void RunAnimation(Vector2 direction) {

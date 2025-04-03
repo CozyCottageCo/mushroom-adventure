@@ -42,10 +42,18 @@ namespace SieniPeli
         public PanelContainer _voittoScreen = null;
         private bool _buttonsVisible = false;
         public bool _kolariActive = false;
-        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red
+        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red,50% opacity
+
+        private SettingsController settings = null;
+        private bool toggleMode = false;
+        private bool stopBool = false;
         public override void _Ready()
         {
 
+            settings = GetNode<SettingsController>("/root/SettingsController");
+            if (settings == null) {
+                GD.PrintErr("no find settings");
+            }
 
             _line = new Line2D
             {
@@ -141,6 +149,7 @@ namespace SieniPeli
 
 
 
+
          }
 
         public override void _Input(InputEvent @event)
@@ -160,7 +169,26 @@ namespace SieniPeli
                 // pausetus koskemalla näyttöön
                 if (@event is InputEventScreenTouch screenTouch)
                 {
-                    if (screenTouch.IsPressed()) // kun kosketaan...
+                    toggleMode = settings.GetMovementToggle(); // haetaan asetusten current toggletilanne
+
+                GD.Print($"Current toggle = {toggleMode}, settings {settings.GetMovementToggle()}");
+                    if (toggleMode) { // jos toggle asetuksis true
+                        if (screenTouch.IsPressed()) {
+                            if (_sieni.isMoving)// jos sallittu kosketus & sieni on liikkeessä
+                        {
+                            if (!stopBool) {
+                            stopBool = true; // erilline bool joka pitää paikallaa vaik ei paina putkeen
+                            _sieni.controlSpeed(0); // Speed nollaan
+
+                        } else {
+                                stopBool = false; // erilline bool päästää seuraavasta klikistä liikkeelle taas
+                                _sieni.controlSpeed(75);
+                            }
+                        }
+                    }
+                } else {
+
+                if (screenTouch.IsPressed()) // jos togglemode false, mennää perus: kun kosketaan...
                     {
                         if (_sieni.isMoving) // jos sallittu kosketus & sieni on liikkeessä
                         {
@@ -174,6 +202,7 @@ namespace SieniPeli
                             _sieni.controlSpeed(75); // Lets mennään lehmät
                         }
                     }
+                }
                 }
 
                 // jos sieni ei liikkeessä (eikä ne napit ruudul), saa piirtää
@@ -252,7 +281,8 @@ namespace SieniPeli
                    // GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
                     UpdateTileAtPosition(drag.Position);
                 }
-                    }
+
+        }
 
         private void OnGoButtonPressed() { // kun go nappia painettu, liikutaan
             GD.Print("Go chosen! Sieni is moving...");
@@ -347,8 +377,10 @@ namespace SieniPeli
             {
                 _menuPanel.Visible = !_menuPanel.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_menuPanel.Visible == true) {
+                    GetTree().Paused = true;
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
+                    GetTree().Paused = false;
                     _buttonsVisible = false;
                 }
     }

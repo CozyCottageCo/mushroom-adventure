@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/SettingsController.cs" id="1_dpt5v"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_jgcyt"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress")]
+[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +14,12 @@ script = ExtResource("1_dpt5v")
 _languageOption = NodePath("VBoxContainer/HBoxContainer/OptionButton")
 _volumeSlider = NodePath("VBoxContainer/HSlider")
 _movementToggle = NodePath("VBoxContainer/HBoxContainer2/CheckButton")
-_backButton = NodePath("VBoxContainer/Button")
+_backButton = NodePath("VBoxContainer/BackButton")
 _resetProgress = NodePath("VBoxContainer/Reset")
+_volumeLabel = NodePath("VBoxContainer/VolumeLabel")
+_movementLabel = NodePath("VBoxContainer/HBoxContainer2/MovementLabel")
+_languageLabel = NodePath("VBoxContainer/HBoxContainer/LanguageLabel")
+_settingsLabel = NodePath("VBoxContainer/SettingsLabel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -24,20 +28,20 @@ offset_left = 131.0
 offset_top = 22.0
 offset_right = 521.0
 offset_bottom = 327.0
-focus_neighbor_left = NodePath("Label")
-focus_neighbor_top = NodePath("Label2")
+focus_neighbor_left = NodePath("SettingsLabel")
+focus_neighbor_top = NodePath("VolumeLabel")
 focus_neighbor_right = NodePath("HSlider")
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="SettingsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jgcyt")
 theme_override_font_sizes/font_size = 35
 text = "Asetukset"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="VolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jgcyt")
 theme_override_font_sizes/font_size = 23
@@ -56,7 +60,7 @@ text = "Reset progress"
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="LanguageLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jgcyt")
 theme_override_font_sizes/font_size = 23
@@ -64,11 +68,16 @@ text = "Kieli"
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+selected = 1
+item_count = 2
+popup/item_0/text = "English"
+popup/item_1/text = "Finnish"
+popup/item_1/id = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+[node name="MovementLabel" type="Label" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jgcyt")
 theme_override_font_sizes/font_size = 22
@@ -77,7 +86,7 @@ text = "Napauta pysäyttääksesi sieni"
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="BackButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2

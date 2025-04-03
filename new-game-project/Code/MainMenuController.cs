@@ -5,14 +5,23 @@ public partial class MainMenuController : Control
 {
 [Export] private Button _pelaaButton = null;
 [Export] private Button _asetuksetButton = null;
-
-
 [Export]private Button _poistuButton = null;
 
 private SceneTree _mainMenuSceneTree = null;
 
 public override void _Ready() {
 {
+	ConfigFile config = new ConfigFile();
+    if (config.Load("user://settings.cfg") == Error.Ok)
+    {
+        int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
+        string locale = savedLanguage == 0 ? "en" : "fi";
+        TranslationServer.SetLocale(locale);
+    }
+
+    // Update UI text translations
+    UpdateUIText();
+
 	base._Ready();
 
 	_mainMenuSceneTree = GetTree();
@@ -51,6 +60,12 @@ private void OnPoistuPressed()
 	_mainMenuSceneTree.Quit();
 }
 
+private void UpdateUIText()
+{
+    _pelaaButton.Text = Tr("play");
+    _asetuksetButton.Text = Tr("settings");
+    _poistuButton.Text = Tr("quit");
+}
 
 
 }
