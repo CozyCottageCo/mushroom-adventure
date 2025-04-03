@@ -755,6 +755,7 @@ text = "Kauppakeskus Ratina
 "
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 position = Vector2(2, 7)
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
@@ -803,9 +804,11 @@ position = Vector2(-10, 43)
 rotation = -0.00755273
 
 [node name="Sieni" parent="." instance=ExtResource("26_xfmt8")]
+z_index = 1
 position = Vector2(34, 323)
 
 [node name="Täplä" parent="." instance=ExtResource("25_j7bj3")]
+z_index = 1
 position = Vector2(590, 303)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
@@ -838,11 +841,20 @@ texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(462.4, 167.3, 158.4, 55)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Lehdet" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
 scale = Vector2(0.708749, 0.704587)
 texture = ExtResource("28_l88gk")
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("27_tmfpv")]
+visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("28_shr45")]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(585, 60)
+scale = Vector2(1.11194, 1.03333)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(346.049, 1.52137, 67.9395, 120.431)

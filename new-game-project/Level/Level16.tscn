@@ -1,11 +1,9 @@
-[gd_scene load_steps=58 format=4 uid="uid://ddevvnw2e36ip"]
+[gd_scene load_steps=54 format=4 uid="uid://ddevvnw2e36ip"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_587tk"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_baugi"]
-[ext_resource type="Texture2D" uid="uid://oep65ipe1lo7" path="res://Art/Spritet/Ympäristö/Kävelytie.png" id="2_u1enu"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_kg6vl"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="4_78vmc"]
-[ext_resource type="Texture2D" uid="uid://br5naq38ml8rk" path="res://Art/Spritet/Ympäristö/taplajahti_kevät.png" id="5_6mmtu"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="6_mnvq0"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="7_qi83h"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="8_xmhdk"]
@@ -20,40 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="20_ncwuk"]
 [ext_resource type="Texture2D" uid="uid://dx74or157b18" path="res://Art/Spritet/Ympäristö/lehdetfall16.png" id="20_x5u4s"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="21_b3y8m"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s58r0"]
-texture = ExtResource("2_u1enu")
-texture_region_size = Vector2i(32, 32)
-7:3/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("3_kg6vl")
@@ -135,40 +99,20 @@ texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6knfn"]
-texture = ExtResource("5_6mmtu")
-texture_region_size = Vector2i(32, 32)
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-2:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
+0:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_1iyxx"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_8f82l")
-sources/0 = SubResource("TileSetAtlasSource_s58r0")
 sources/2 = SubResource("TileSetAtlasSource_6o5fx")
-sources/3 = SubResource("TileSetAtlasSource_6knfn")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13wsf"]
 texture = ExtResource("6_mnvq0")
@@ -785,6 +729,7 @@ scale = Vector2(0.702525, 0.703297)
 texture = ExtResource("20_x5u4s")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f2u20")

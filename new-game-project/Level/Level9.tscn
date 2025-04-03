@@ -643,7 +643,7 @@ visible = false
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("23_od8ft")]
 visible = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Kävelytiesprite" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
 scale = Vector2(0.528926, 0.528926)
 texture = ExtResource("22_3pwra")
@@ -653,7 +653,7 @@ z_index = 1
 position = Vector2(231, 148)
 texture = ExtResource("19_w6i2n")
 region_enabled = true
-region_rect = Rect2(105, -4, 132, 158)
+region_rect = Rect2(112.858, -4, 116.203, 149.675)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 z_index = 1
