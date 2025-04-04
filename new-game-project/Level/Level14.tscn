@@ -1008,6 +1008,7 @@ curve = SubResource("Curve2D_5wyvv")
 position = Vector2(177, 52)
 
 [node name="Sieni" parent="." instance=ExtResource("19_tplw0")]
+z_index = 1
 position = Vector2(582, 328)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("21_cxjgf")]
