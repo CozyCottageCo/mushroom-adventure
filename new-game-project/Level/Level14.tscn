@@ -759,6 +759,7 @@ scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f7gbj")
@@ -881,6 +882,7 @@ curve = SubResource("Curve2D_5wyvv")
 position = Vector2(177, 52)
 
 [node name="Sieni" parent="." instance=ExtResource("19_tplw0")]
+z_index = 1
 position = Vector2(582, 328)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("21_cxjgf")]

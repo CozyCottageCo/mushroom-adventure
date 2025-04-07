@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=38 format=4 uid="uid://bxekhb8cqwis8"]
+=======
+[gd_scene load_steps=45 format=4 uid="uid://bxekhb8cqwis8"]
+>>>>>>> a42c651bb9b1fe5724226657e8d7a918dcb5755b
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_n1lpo"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_fve1x"]
@@ -17,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_30874"]
 [ext_resource type="Texture2D" uid="uid://dqensnk4gcgtq" path="res://Art/Spritet/Ympäristö/Kävelytie10.png" id="16_7y63b"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_pcmmg"]
+[ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_4r6no"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ujvs"]
 texture = ExtResource("2_fve1x")
@@ -432,7 +437,21 @@ visible = false
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("16_pcmmg")]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Kävelytiesprite" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
 scale = Vector2(0.56042, 0.55814)
 texture = ExtResource("16_7y63b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(257.125, -1.375)
+scale = Vector2(1.0558, 1.09615)
+texture = ExtResource("17_4r6no")
+region_enabled = true
+region_rect = Rect2(-0.177633, 78.2304, 112.823, 65.2557)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(52, 36)
+scale = Vector2(1.16518, 1.20769)
+texture = ExtResource("17_4r6no")
+region_enabled = true
+region_rect = Rect2(-0.177633, 78.2304, 112.823, 65.2557)
