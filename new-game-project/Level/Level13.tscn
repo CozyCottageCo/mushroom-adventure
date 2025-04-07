@@ -19,9 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="13_81ocd"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="14_qglwb"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="15_in1fh"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="16_bduqt"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="18_kin3v"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_jvjx4"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="25_737fm"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="25_j7bj3"]
@@ -29,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="27_tmfpv"]
 [ext_resource type="Texture2D" uid="uid://cpe2k75kx143g" path="res://Art/Spritet/Ympäristö/lehdetfall13.png" id="28_l88gk"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="28_shr45"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="29_lkr5p"]
+[ext_resource type="PackedScene" uid="uid://5yc71l024jx8" path="res://Level/KolariScreenVesi.tscn" id="30_qh3bc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbsyq"]
 texture = ExtResource("2_51a2x")
@@ -421,10 +422,6 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("11_fqf2m")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
-atlas = ExtResource("18_kin3v")
-region = Rect2(20, 134, 716, 716)
-
 [sub_resource type="Curve2D" id="Curve2D_qp8g4"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 140, 384, 0, 0, 0, 0, 139, 35, 0, 0, 0, 0, 650, 38)
@@ -581,45 +578,6 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("20_g0eho")]
 
-[node name="VoittoScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 243.0
-offset_top = 178.0
-offset_right = 365.0
-offset_bottom = 245.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="VoittoScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_jatkaButton")]
-layout_mode = 2
-script = ExtResource("16_bduqt")
-_jatkaButton = NodePath("")
-
-[node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-text = "Löysit täplän!"
-
-[node name="TextureRect" type="TextureRect" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_eknhn")
-expand_mode = 4
-
-[node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Tasovalikkoon"
-
 [node name="Label" type="Label" parent="."]
 offset_left = 471.0
 offset_top = 356.0
@@ -627,6 +585,8 @@ offset_right = 638.0
 offset_bottom = 379.0
 text = "Kauppakeskus Ratina
 "
+
+[node name="VoittoScreen" parent="." instance=ExtResource("21_oblwk")]
 
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
@@ -725,6 +685,10 @@ visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("28_shr45")]
 visible = false
+
+[node name="KolariScreenVajaa" parent="." instance=ExtResource("29_lkr5p")]
+
+[node name="KolariScreenVesi" parent="." instance=ExtResource("30_qh3bc")]
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(585, 60)

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=42 format=4 uid="uid://wmisq1c3ss0n"]
-=======
-[gd_scene load_steps=49 format=4 uid="uid://wmisq1c3ss0n"]
->>>>>>> a42c651bb9b1fe5724226657e8d7a918dcb5755b
+[gd_scene load_steps=42 format=4 uid="uid://cihbytpdgvv6f"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_3bcgo"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_pyera"]
@@ -17,16 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_u7sgb"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_j3mtf"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_m7esm"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_3cpi1"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_3je1j"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_bu3od"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_rw2y7"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_f2y5d"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="17_vm86f"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_a7x4a"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_1y76j"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_3pnlq"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_6a5i0"]
 [ext_resource type="Texture2D" uid="uid://beby2gx8glwrq" path="res://Art/Spritet/Ympäristö/Kävelytie03.png" id="22_4e2s0"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="22_hie3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s3vv"]
 texture = ExtResource("2_pyera")
@@ -271,10 +267,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctxwx"]
-atlas = ExtResource("15_rw2y7")
-region = Rect2(20, 134, 716, 716)
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3bcgo")
 
@@ -397,16 +389,15 @@ visible = false
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("15_bu3od")]
 visible = false
-<<<<<<< HEAD
-=======
 offset_left = 216.0
 offset_top = 99.0
 offset_right = 416.0
 offset_bottom = 288.0
->>>>>>> a42c651bb9b1fe5724226657e8d7a918dcb5755b
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("16_f2y5d")]
 visible = false
+
+[node name="KolariScreenVajaa" parent="." instance=ExtResource("17_vm86f")]
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
@@ -532,43 +523,7 @@ position = Vector2(465, 79)
 z_index = 1
 position = Vector2(480, 298)
 
-[node name="VoittoScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 243.0
-offset_top = 178.0
-offset_right = 365.0
-offset_bottom = 245.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="VoittoScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen"]
-layout_mode = 2
-script = ExtResource("13_3cpi1")
-
-[node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-text = "Löysit täplän!"
-
-[node name="TextureRect" type="TextureRect" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_ctxwx")
-expand_mode = 4
-
-[node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Tasovalikkoon"
+[node name="VoittoScreen" parent="." instance=ExtResource("22_hie3l")]
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(320, 192)

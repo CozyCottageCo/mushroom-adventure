@@ -29,6 +29,7 @@ namespace SieniPeli {
 		public bool isMoving = false;
 		private float _currentSpeed = 75f;
 
+		public bool atTäplä = false;
 		private bool celebrationTime = false;
 		private Vector2 _lastDirection = Vector2.Zero; // Store last direction for idle animations
 
@@ -84,8 +85,12 @@ namespace SieniPeli {
 				GlobalPosition = targetPosition;
 				currentTargetIndex++;
 
-				if (currentTargetIndex >= path.Count)
+				if (currentTargetIndex >= path.Count) {
 					isMoving = false;
+					if (!atTäplä) {
+						GameOver();
+					}
+			}
 			}
 		}
 
@@ -208,6 +213,12 @@ namespace SieniPeli {
 			GD.Print("Delay passed");
 			canEmitSignal = true;
 			suojaTieTimer.Start();
+		}
+
+		private void GameOver() {
+			GD.Print("Called");
+			Touch touch = GetNode<Touch>("/root/Node2D");
+			touch.Kolari("Vajaa");
 		}
 	}
 }

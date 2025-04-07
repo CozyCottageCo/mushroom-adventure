@@ -11,7 +11,7 @@
 [sub_resource type="FontVariation" id="FontVariation_at1w4"]
 base_font = ExtResource("2_tgxe0")
 
-[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_hint2Label", "_crashLabel")]
+[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton")]
 z_index = 5
 layout_direction = 1
 layout_mode = 3
@@ -22,10 +22,6 @@ offset_right = 430.0
 offset_bottom = 255.0
 script = ExtResource("1_4kcdj")
 _reTryButton = NodePath("KolariScreenTie/Control/KolariScreenController/Button")
-_whoopsLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
-_hintLabel = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
-_hint2Label = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
-_crashLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
 
 [node name="KolariScreenTie" type="Panel" parent="."]
 layout_direction = 1

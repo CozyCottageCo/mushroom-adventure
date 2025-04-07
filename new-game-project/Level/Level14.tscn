@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://b04l4v8kwcxhu"]
+[gd_scene load_steps=62 format=4 uid="uid://b04l4v8kwcxhu"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_nsyop"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ojod2"]
@@ -14,13 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://cd2fqoeuveyub" path="res://Art/Spritet/Ympäristö/Lehdetfall2.png" id="11_bfxwa"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_se7r8"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_8fboi"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="13_kuyd1"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_qjyge"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_wbiqt"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="16_22fwm"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="18_n1fiy"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_0yaov"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_tplw0"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="21_cxjgf"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_rguj8"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="22_uug8e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pn07n"]
@@ -454,10 +454,6 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("10_p4ydp")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
-atlas = ExtResource("15_qjyge")
-region = Rect2(20, 134, 716, 716)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyhy1"]
 atlas = ExtResource("5_n6c3t")
 region = Rect2(527, 228, 103, 123)
@@ -714,44 +710,7 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("15_wbiqt")]
 
-[node name="VoittoScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 5
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 243.0
-offset_top = 178.0
-offset_right = 365.0
-offset_bottom = 245.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="VoittoScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_jatkaButton")]
-layout_mode = 2
-script = ExtResource("13_kuyd1")
-_jatkaButton = NodePath("")
-
-[node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-text = "Löysit täplän!"
-
-[node name="TextureRect" type="TextureRect" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_eknhn")
-expand_mode = 4
-
-[node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Tasovalikkoon"
+[node name="VoittoScreen" parent="." instance=ExtResource("16_22fwm")]
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 position = Vector2(81, 297)
@@ -890,3 +849,5 @@ visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("22_uug8e")]
 visible = false
+
+[node name="KolariScreenVajaa" parent="." instance=ExtResource("22_rguj8")]

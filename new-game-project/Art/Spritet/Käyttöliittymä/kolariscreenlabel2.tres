@@ -5,6 +5,5 @@
 [resource]
 line_spacing = 2.0
 font = ExtResource("1_luxwu")
-font_size = 17
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
