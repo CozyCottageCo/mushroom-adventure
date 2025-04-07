@@ -34,7 +34,7 @@ namespace SieniPeli
 
         private TextureButton _menuButton;
 
-        private PanelContainer _menuPanel = null; // alustettu menupaneeli
+        private Control _menuPanel = null; // alustettu menupaneeli
         public Control _kolariScreen = null;
         public Control _kolariScreenTie = null;
         public Control _kolariScreenVesi = null;
@@ -64,7 +64,7 @@ namespace SieniPeli
             AddChild(_line);
 
 
-            _menuPanel = GetNode<PanelContainer>("PauseMenuPanel"); // haetaa menupaneeli
+            _menuPanel = GetNode<Control>("PauseMenuPanel"); // haetaa menupaneeli
              if (_menuPanel != null)
             {
                 _menuPanel.Visible = false; // piilos eka

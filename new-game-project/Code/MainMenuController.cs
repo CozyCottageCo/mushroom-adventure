@@ -23,6 +23,12 @@ public override void _Ready() {
     UpdateUIText();
 
 	base._Ready();
+	 Control settingsMenu = GetNode<Control>("Settings");
+		if (settingsMenu != null) {
+			settingsMenu.Visible = false; // Hide at start
+		} else {
+			GD.PrintErr("Settings menu node not found!");
+		}
 
 	_mainMenuSceneTree = GetTree();
 	if (_mainMenuSceneTree == null) {
@@ -50,9 +56,14 @@ private void OnKokoelmaPressed()
 
 private void OnAsetuksetPressed()
 {
-	_mainMenuSceneTree.ChangeSceneToFile("res://Level/Settings.tscn");
-	GD.Print("Asetukset opened");
-}
+	GD.Print("Asetukset pressed");
+		 Control settingsMenu = GetNode<Control>("Settings"); // Make sure the node path matches
+		if (settingsMenu != null) {
+			settingsMenu.Visible = !settingsMenu.Visible; // Toggle visibility
+		} else {
+			GD.PrintErr("Settings menu node not found!");
+		}
+	}
 
 private void OnPoistuPressed()
 {

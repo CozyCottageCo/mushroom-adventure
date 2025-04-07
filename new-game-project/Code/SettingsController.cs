@@ -12,14 +12,24 @@ public partial class SettingsController : Control
 	[Export] private CheckButton _movementToggle = null; // toggle on/off
 	[Export] private Button _backButton = null;
 	[Export] private Button _resetProgress = null;
+
+	[Export] private Button _olenVarma = null;
+
+	[Export] private Button _enOleVarma = null;
 	[Export] private Label _volumeLabel = null;
 	[Export] private Label _movementLabel = null;
 	[Export] private Label _languageLabel = null;
 	[Export] private Label _settingsLabel = null;
 
+	[Export] TextureRect confirmPanel = null;
+
 	public override void _Ready()
 	{
 		LoadSettings();
+		confirmPanel.Visible = false;
+		Node currentScene = GetTree().CurrentScene;
+
+
 
 		// Connect signals
 		_languageOption.Connect(OptionButton.SignalName.ItemSelected, new Callable(this, nameof(OnLanguageChanged)));
@@ -27,6 +37,9 @@ public partial class SettingsController : Control
 		_movementToggle.Connect(CheckButton.SignalName.Toggled, new Callable(this, nameof(OnMovementToggled)));
 		_backButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnBackPressed)));
 		_resetProgress.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetPressed)));
+		_olenVarma.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetConfirmPressed)));
+		_enOleVarma.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetCanceled)));
+
 	}
 
 	private void LoadSettings()
@@ -76,6 +89,7 @@ public partial class SettingsController : Control
 		config.Save(configPath);
 
 		GD.Print("Language changed to: " + selectedLanguage);
+		SaveSettings();
 	}
 
 
@@ -102,12 +116,40 @@ public partial class SettingsController : Control
 
 	private void OnBackPressed()
 	{
-		GetTree().ChangeSceneToFile("res://Level/MainMenu.tscn");
+		LoadSettings();
+		this.Visible = false; // Hide the settings menu instead of changing the scene
+    GD.Print("Settings menu hidden.");
 	}
 
 	private void OnResetPressed() { // mahdollisuus resetoida tallennus (ainakin pelikehityksen ajaksi kiva olla)
+		if (confirmPanel != null) {
+			confirmPanel.Visible = true;
+		}
+	}
+
+	private void OnResetConfirmPressed() {
 		SaveManager saveManager = GetNode<SaveManager>("/root/SaveManager");
 		saveManager.Reset();
+		confirmPanel.Visible = false;
+
+
+		 Node currentScene = GetTree().CurrentScene;
+		string scenePath = currentScene.SceneFilePath;
+		string sceneName = scenePath.GetFile().Replace(".tscn", "");
+		GD.Print("Current scene name: " + sceneName);
+
+        if (sceneName.StartsWith("Level"))
+    {
+        GD.Print("Level scene detected, switching to the main menu.");
+        // Change to the main menu scene
+		GetTree().Paused = false;
+        GetTree().ChangeSceneToFile("res://Level/MainMenu.tscn");
+
+    }
+	}
+
+	private void OnResetCanceled() {
+		confirmPanel.Visible = false;
 	}
 
 	private void UpdateUIText()

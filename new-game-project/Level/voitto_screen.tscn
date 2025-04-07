@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://buarwgli5yxtf"]
+
+[ext_resource type="Texture2D" uid="uid://bm7rducqsx74a" path="res://Art/Spritet/Käyttöliittymä/box.png" id="1_5fr8y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrqg2"]
+
+[node name="TextureRect" type="TextureRect"]
+z_index = 5
+offset_left = 245.0
+offset_top = 115.0
+offset_right = 395.0
+offset_bottom = 244.0
+texture = ExtResource("1_5fr8y")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 125.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vrqg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
