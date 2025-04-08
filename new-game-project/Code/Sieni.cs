@@ -194,6 +194,10 @@ namespace SieniPeli {
 				Touch touch = GetNode<Touch>("/root/Node2D");
 				touch.Kolari(areaName);
 			}
+			if (area.Name == "PunanenTie") {
+				Touch touch = GetNode<Touch>("/root/Node2D");
+				touch.Kolari("Tie");
+			}
 		}
 
 		private void OnSuojaTieTimeout() {

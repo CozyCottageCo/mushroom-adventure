@@ -367,17 +367,22 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("10_4ekpy")]
+visible = false
 
 [node name="Sieni" parent="." instance=ExtResource("15_2ubuy")]
 position = Vector2(35, 297)
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("14_h8i4q")]
+visible = false
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("15_q6hfu")]
+visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("16_e72cq")]
+visible = false
 
 [node name="VoittoScreen" parent="." instance=ExtResource("15_r8o1o")]
+visible = false
 
 [node name="Reitit" type="Node2D" parent="."]
 visible = false

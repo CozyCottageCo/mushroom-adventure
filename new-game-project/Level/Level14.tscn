@@ -709,8 +709,10 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("15_wbiqt")]
+visible = false
 
 [node name="VoittoScreen" parent="." instance=ExtResource("16_22fwm")]
+visible = false
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 position = Vector2(81, 297)
@@ -851,3 +853,4 @@ visible = false
 visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("22_rguj8")]
+visible = false

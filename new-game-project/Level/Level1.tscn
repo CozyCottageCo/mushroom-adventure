@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=33 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_vn1wx"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="14_sqd70"]
-[ext_resource type="PackedScene" uid="uid://b61ot5kwcyik5" path="res://Level/suojatievaloskene.tscn" id="15_uxbu6"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="16_t6t44"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_3h71i"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_nt7hn"]
@@ -316,9 +315,6 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 [node name="VoittoScreen" parent="." instance=ExtResource("13_vn1wx")]
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("14_sqd70")]
-
-[node name="Node2D" parent="." instance=ExtResource("15_uxbu6")]
-CrosswalkName = "Suojatie2"
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("16_t6t44")]
 

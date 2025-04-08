@@ -46,6 +46,8 @@ namespace SieniPeli {
         private Vector2 _turnDirection;
         private bool printed = false;
 
+        public bool blockedByLight = false;
+
         public override void _Ready() {
             AddToGroup("Ötökkä");
             CrossWalkManager = GetNode<CrossWalkManager>("/root/Node2D/CrossWalkManager");
@@ -169,7 +171,7 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
         }
 
         public virtual void Resume() {
-            if (!isStopped) return; // Prevent unnecessary calls
+            if (!isStopped || blockedByLight) return; // Prevent unnecessary calls
 
            // GD.Print($"{this.Name} resumes moving.");
             isStopped = false;
@@ -248,12 +250,15 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
+
                 if (blockedBy != "") {
                 if (body.GetInstanceId().ToString() != blockedBy || alreadyBlocked) {
                   //  GD.Print($"{body.GetInstanceId().ToString()} isnt {blockedBy}");
                 return;
                 }
             }
+
+
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     var otherÖtökkä = parentNode as Ötökkä;
                     if (otherÖtökkä != null) {
@@ -298,6 +303,8 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
 
         private void OnShortRangeExited(Node body) {
             string areaName = body.Name;
+
+
             if (body is Area2D area) {
 
                  if (blockedBy != "") {
@@ -333,6 +340,10 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
+                if (areaName == "Valotie") {
+                    blockedByLight = true;
+                    Stop();
+                }
                 if (blockedByFront != "") {
                 if (body.GetInstanceId().ToString() != blockedByFront || alreadyBlockedFront) {
                 return;
@@ -356,6 +367,11 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             string areaName = body.Name;
             if (body is Area2D area) {
 
+                if (areaName == "Valotie") {
+                    blockedByLight = false;
+                    Resume();
+
+                }
 
                 // Ensure it's not the same as this instance's collision area
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {

@@ -393,6 +393,7 @@ visible = false
 visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("16_phxsy")]
+visible = false
 
 [node name="Kävelytiesprite" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
