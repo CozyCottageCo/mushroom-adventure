@@ -20,7 +20,7 @@ namespace SieniPeli {
         };
 
         private AudioStreamPlayer2D currentPlayer = null;
-        private string currentSong = ""; // This will track the current playing song
+        private string currentSong = ""; // Träkkää current biisin (ettei bgmusic ala alusta mainmenu/level select välillä)
 
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
@@ -32,43 +32,43 @@ namespace SieniPeli {
         {
             string scenePath = GetTree().CurrentScene.SceneFilePath;
             string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
-            GD.Print(sceneName);
+            GD.Print(sceneName); // katotaan skenen nimi
 
-            if (sceneName.StartsWith("Level"))
+            if (sceneName.StartsWith("Level")) // jos alkaa Level, haetaa vuodenaika (toimii vaikka LevelSelect on asia)
             {
                 sceneName = GetSeasonFromLevel(sceneName);
             }
 
             GD.Print(sceneName + " current scene for music");
 
-            // Try to get the music associated with the scene
+            // Verrataan dictionaryyn tallennettuihin mikä player lyödään päälle
             if (sceneMusicMap.TryGetValue(sceneName, out string playerName))
             {
-                // If BackgroundMusic is already playing, skip playing it again
+                // Tarkistetaa ettei se yritä laittaa BG music uudelleen, skipataa jos niin
                 if (playerName == "BackgroundMusic" && currentSong == "BackgroundMusic")
                 {
                     GD.Print("BackgroundMusic already playing, no need to start again.");
-                    return; // Skip playing the music if it's already playing
+                    return; //skippp
                 }
 
-                // Stop the previous music if it's playing
+                // Vanha musa seis
                 if (currentPlayer != null && currentPlayer.Playing)
                 {
                     currentPlayer.Stop();
                 }
 
-                // Get the player node and start the music
+                // Playeri päälle
                 currentPlayer = GetNode<AudioStreamPlayer2D>(playerName);
                 if (currentPlayer != null && !currentPlayer.Playing)
                 {
                     currentPlayer.Play();
-                    currentSong = playerName; // Track the current playing music
+                    currentSong = playerName; // Ja träkätää se current biisi
                 }
             }
             else
             {
-                currentPlayer = null; // No music for this scene
-                currentSong = ""; // Clear the current track
+                currentPlayer = null; // Nullin tilantees ei mitn
+                currentSong = "";
             }
         }
 
@@ -76,17 +76,17 @@ namespace SieniPeli {
         {
             if (sceneName.StartsWith("Level"))
             {
-                // Extract the number from the scene name
-                string numberPart = sceneName.Substring(5); // after "Level"
+                // Katotaa mikä nro ekan 5 kirjaime jälkee; ei haittaa vaikka LevelSelect olemas
+                string numberPart = sceneName.Substring(5);
                 if (int.TryParse(numberPart, out int levelNum))
                 {
-                    int seasonIndex = (levelNum - 1) / 4; // every 4 levels is a season
+                    int seasonIndex = (levelNum - 1) / 4; // Katotaa joka 4 levelin nro jälkee eri season jne
                     string[] seasons = { "Winter", "Spring", "Summer", "Autumn" };
                     return seasons[seasonIndex % seasons.Length];
                 }
             }
 
-            return sceneName; // If not a level scene, just return the name as-is
+            return sceneName;
         }
 
         public override void _Process(double delta)

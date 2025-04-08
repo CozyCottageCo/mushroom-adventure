@@ -54,6 +54,7 @@ namespace SieniPeli
 
                 var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
                 musicPlayer.PlayMusicForCurrentScene();
+                // tason musalataus
 
             settings = GetNode<SettingsController>("/root/SettingsController");
             if (settings == null) {

@@ -30,7 +30,8 @@ namespace SieniPeli
         {
 
                 var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
-        musicPlayer.PlayMusicForCurrentScene();
+                musicPlayer.PlayMusicForCurrentScene();
+                // Levelselect musalataus
 
 
             base._Ready();

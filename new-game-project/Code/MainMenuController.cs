@@ -12,7 +12,7 @@ private SceneTree _mainMenuSceneTree = null;
 public override void _Ready() {
 {
 	var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
-        musicPlayer.PlayMusicForCurrentScene();
+        musicPlayer.PlayMusicForCurrentScene(); // musalataus
 
 	ConfigFile config = new ConfigFile();
     if (config.Load("user://settings.cfg") == Error.Ok)
