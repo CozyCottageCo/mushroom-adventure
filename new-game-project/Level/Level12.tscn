@@ -364,7 +364,7 @@ tile_map_data = PackedByteArray("AAAAAAIAAQACAAEAAAABAAIAAAADAAEAAAACAAIAAAADAAE
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Tie" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAATAAQAAAACAAIAAAATAAUAAQACAAMAAAASAAUAAQACAAMAAAARAAUAAQACAAMAAAAPAAUAAQACAAMAAAAOAAUAAQACAAMAAAANAAUAAQACAAMAAAAMAAUAAQACAAMAAAALAAUAAQACAAMAAAAKAAUAAQACAAMAAAAJAAUAAQACAAMAAAAIAAUAAQACAAMAAAAHAAUAAQACAAMAAAAGAAUAAQACAAMAAAAFAAUAAQACAAMAAAAEAAUAAQACAAMAAAADAAUAAQACAAMAAAACAAUAAQACAAMAAAACAAQAAAACAAIAAAABAAQAAAACAAIAAAAAAAQAAAACAAIAAAAAAAUAAQACAAMAAAABAAUAAQACAAMAAAAFAAQAAAACAAIAAAAGAAQAAAACAAIAAAAHAAQAAAACAAIAAAAIAAQAAAACAAIAAAAJAAQAAAACAAIAAAAKAAQAAAACAAIAAAALAAQAAAACAAIAAAAMAAQAAAACAAIAAAANAAQAAAACAAIAAAASAAQAAAACAAIAAAARAAQAAAACAAIAAAAPAAQAAAACAAIAAAAOAAQAAAACAAIAAAAEAAQAAAACAAIAAAADAAQAAAACAAIAAAATAAgAAAACAAMAAAASAAgAAAACAAMAAAARAAgAAAACAAMAAAAQAAgAAAACAAMAAAAPAAgAAAACAAMAAAAOAAgAAAACAAMAAAANAAgAAAACAAMAAAAMAAgAAAACAAMAAAALAAgAAAACAAMAAAAKAAgAAAACAAMAAAAJAAsAAAABAAAAAAAIAAsAAQAAAAIAAAAJAAkAAAABAAAAAAAJAAgAAQACAAQAAAAIAAkAAQAAAAIAAAAIAAgAAQAAAAIAAAAIAAcAAAAEAAMAAGAJAAcAAQACAAIAAAAKAAcAAQACAAIAAAALAAcAAQACAAIAAAAMAAcAAQACAAIAAAANAAcAAQACAAIAAAAOAAcAAQACAAIAAAAPAAcAAQACAAIAAAAQAAcAAQACAAIAAAARAAcAAQACAAIAAAASAAcAAQACAAIAAAATAAcAAQACAAIAAAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAAFAAAAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAIAAAAAAACAAIAAAAJAAAAAAACAAIAAAAKAAAAAAACAAIAAAALAAAAAAACAAIAAAAMAAAAAAACAAIAAAANAAAAAAACAAIAAAAOAAAAAAACAAIAAAAPAAAAAAACAAIAAAAQAAAAAAACAAIAAAARAAAAAAACAAIAAAASAAAAAAACAAIAAAATAAAAAAACAAIAAAATAAEAAAACAAMAAAASAAEAAAACAAMAAAARAAEAAAACAAMAAAAQAAEAAAACAAMAAAAPAAEAAAACAAMAAAAOAAEAAAACAAMAAAANAAEAAAACAAMAAAAMAAEAAAACAAMAAAALAAEAAAACAAMAAAAKAAEAAAACAAMAAAAJAAEAAAACAAMAAAAIAAEAAAACAAMAAAAHAAEAAAACAAMAAAAGAAEAAAACAAMAAAAFAAEAAAACAAMAAAAEAAEAAAACAAMAAAADAAEAAAACAAMAAAACAAEAAAACAAMAAAABAAEAAAACAAMAAAAAAAEAAAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAATAAQAAAACAAIAAAATAAUAAQACAAMAAAASAAUAAQACAAMAAAARAAUAAQACAAMAAAAPAAUAAQACAAMAAAAOAAUAAQACAAMAAAANAAUAAQACAAMAAAAMAAUAAQACAAMAAAALAAUAAQACAAMAAAAKAAUAAQACAAMAAAAJAAUAAQACAAMAAAAIAAUAAQACAAMAAAAHAAUAAQACAAMAAAAGAAUAAQACAAMAAAAFAAUAAQACAAMAAAAEAAUAAQACAAMAAAADAAUAAQACAAMAAAACAAUAAQACAAMAAAACAAQAAAACAAIAAAABAAQAAAACAAIAAAAAAAQAAAACAAIAAAAAAAUAAQACAAMAAAABAAUAAQACAAMAAAAFAAQAAAACAAIAAAAGAAQAAAACAAIAAAAHAAQAAAACAAIAAAAIAAQAAAACAAIAAAAJAAQAAAACAAIAAAAKAAQAAAACAAIAAAALAAQAAAACAAIAAAAMAAQAAAACAAIAAAANAAQAAAACAAIAAAASAAQAAAACAAIAAAARAAQAAAACAAIAAAAPAAQAAAACAAIAAAAOAAQAAAACAAIAAAAEAAQAAAACAAIAAAADAAQAAAACAAIAAAATAAgAAAACAAMAAAASAAgAAAACAAMAAAARAAgAAAACAAMAAAAQAAgAAAACAAMAAAAPAAgAAAACAAMAAAAOAAgAAAACAAMAAAANAAgAAAACAAMAAAAMAAgAAAACAAMAAAALAAgAAAACAAMAAAAKAAgAAAACAAMAAAAJAAsAAAABAAAAAAAIAAsAAQAAAAIAAAAJAAkAAAABAAAAAAAJAAgAAQACAAQAAAAIAAkAAQAAAAIAAAAIAAgAAQAAAAIAAAAIAAcAAAAEAAMAAGAJAAcAAQACAAIAAAAKAAcAAQACAAIAAAALAAcAAQACAAIAAAAMAAcAAQACAAIAAAANAAcAAQACAAIAAAAOAAcAAQACAAIAAAAPAAcAAQACAAIAAAAQAAcAAQACAAIAAAARAAcAAQACAAIAAAASAAcAAQACAAIAAAATAAcAAQACAAIAAAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAAFAAAAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAIAAAAAAACAAIAAAAJAAAAAAACAAIAAAAKAAAAAAACAAIAAAALAAAAAAACAAIAAAAMAAAAAAACAAIAAAANAAAAAAACAAIAAAAOAAAAAAACAAIAAAAPAAAAAAACAAIAAAAQAAAAAAACAAIAAAARAAAAAAACAAIAAAASAAAAAAACAAIAAAATAAAAAAACAAIAAAATAAEAAAACAAIAADASAAEAAAACAAIAADARAAEAAAACAAIAADAQAAEAAAACAAIAADAPAAEAAAACAAIAADAOAAEAAAACAAIAADANAAEAAAACAAIAADAMAAEAAAACAAIAADALAAEAAAACAAIAADAKAAEAAAACAAIAADAJAAEAAAACAAIAADAIAAEAAAACAAIAADAHAAEAAAACAAIAADAGAAEAAAACAAIAADAFAAEAAAACAAIAADAEAAEAAAACAAIAADADAAEAAAACAAIAADACAAEAAAACAAIAADABAAEAAAACAAIAADAAAAEAAAACAAIAADA=")
 tile_set = SubResource("TileSet_1iyxx")
 
 [node name="Liikennevalot" type="TileMapLayer" parent="."]
@@ -519,12 +519,6 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(196, 105)
-texture = ExtResource("13_tgfr4")
-region_enabled = true
-region_rect = Rect2(192, 302, 57, 56)
-
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
 
@@ -584,7 +578,177 @@ visible = false
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("17_jgghl")]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Kävelytiesprite" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
 scale = Vector2(0.593692, 0.593508)
 texture = ExtResource("18_08ggq")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(580, 8)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(267.547, -2.09044, 70.1674, 146.985)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(609, 306)
+scale = Vector2(0.896552, 0.908163)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(113.501, -2.09979, 116.9, 147.503)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(62, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(119, 195)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+position = Vector2(523, 63)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+position = Vector2(613, 62)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(186, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(310, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(434, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(70, 186)
+scale = Vector2(0.871795, 0.810924)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(-3.00073, 152.4, 78.157, 119.763)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(26, 219)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(-3.00073, 152.4, 78.157, 119.763)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(76, 255)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(453.725, 324.964, 49.7703, 22.7822)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(594, 77)
+scale = Vector2(0.865854, 1)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(366.203, 253.324, 41.5475, 25.7199)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(543, 36)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(501.912, -1.27239, 70.0186, 117.255)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(630, 46)
+scale = Vector2(0.857143, 0.84188)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(501.912, -1.27239, 70.0186, 117.255)
+
+[node name="Sprite2D16" type="Sprite2D" parent="."]
+position = Vector2(109, 208)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="Sprite2D17" type="Sprite2D" parent="."]
+position = Vector2(92, 218)
+scale = Vector2(1, 1.25)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="Sprite2D18" type="Sprite2D" parent="."]
+position = Vector2(555, 78)
+scale = Vector2(1, 1.25)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="Sprite2D19" type="Sprite2D" parent="."]
+position = Vector2(502.25, 60.25)
+scale = Vector2(1.01852, 1.26786)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="Sprite2D20" type="Sprite2D" parent="."]
+position = Vector2(608, 82)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D25" type="Sprite2D" parent="."]
+position = Vector2(525, 83)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D21" type="Sprite2D" parent="."]
+position = Vector2(572, 73)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D22" type="Sprite2D" parent="."]
+position = Vector2(514, 72)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D23" type="Sprite2D" parent="."]
+position = Vector2(113, 220)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D24" type="Sprite2D" parent="."]
+position = Vector2(138, 189)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="Sprite2D26" type="Sprite2D" parent="."]
+position = Vector2(598, 35)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(296.502, 282.378, 23.2527, 20.4209)
+
+[node name="Sprite2D27" type="Sprite2D" parent="."]
+position = Vector2(600, 50)
+scale = Vector2(0.818181, 1.05)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(288.63, 252.976, 44.0939, 20.576)
