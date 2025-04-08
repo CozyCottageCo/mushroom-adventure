@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jxmbpnq3ac5j"
+path="res://.godot/imported/taplajahti_winter.mp3-665e5e2268de60e4ee1c146443a42924.mp3str"
+
+[deps]
+
+source_file="res://Art/Sound/Täpläjahti OST/taplajahti_winter.mp3"
+dest_files=["res://.godot/imported/taplajahti_winter.mp3-665e5e2268de60e4ee1c146443a42924.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iggw3abxi7t7"
+path="res://.godot/imported/taplajahti_spring.mp3-7a543fd83d852bc63e7cf9a04afe87fe.mp3str"
+
+[deps]
+
+source_file="res://Art/Sound/Täpläjahti OST/taplajahti_spring.mp3"
+dest_files=["res://.godot/imported/taplajahti_spring.mp3-7a543fd83d852bc63e7cf9a04afe87fe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

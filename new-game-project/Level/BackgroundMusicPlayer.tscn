@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cclf0pjj5kbq"]
+
+[ext_resource type="AudioStream" uid="uid://co7gkdy255pok" path="res://Art/Sound/Täpläjahti OST/taplajahti_menu_levelselect.mp3" id="1_5sg0n"]
+[ext_resource type="Script" path="res://Code/MusicPlayer.cs" id="1_bimqy"]
+[ext_resource type="AudioStream" uid="uid://iggw3abxi7t7" path="res://Art/Sound/Täpläjahti OST/taplajahti_spring.mp3" id="2_34r58"]
+[ext_resource type="AudioStream" uid="uid://qo3w687qw738" path="res://Art/Sound/Täpläjahti OST/taplajahti_autumn.mp3" id="3_ant2s"]
+[ext_resource type="AudioStream" uid="uid://jxmbpnq3ac5j" path="res://Art/Sound/Täpläjahti OST/taplajahti_winter.mp3" id="4_prrqk"]
+
+[node name="MusicPlayer" type="Node2D"]
+script = ExtResource("1_bimqy")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_5sg0n")
+parameters/looping = true
+
+[node name="Spring" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_34r58")
+parameters/looping = true
+
+[node name="Autumn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ant2s")
+parameters/looping = true
+
+[node name="Summer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Winter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_prrqk")
+parameters/looping = true

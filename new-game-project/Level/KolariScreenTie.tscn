@@ -11,55 +11,31 @@
 [sub_resource type="FontVariation" id="FontVariation_at1w4"]
 base_font = ExtResource("2_tgxe0")
 
-[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton")]
-z_index = 5
-layout_direction = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 230.0
-offset_top = 105.0
-offset_right = 430.0
-offset_bottom = 255.0
-script = ExtResource("1_4kcdj")
-_reTryButton = NodePath("KolariScreenTie/Control/KolariScreenController/Button")
-
-[node name="KolariScreenTie" type="Panel" parent="."]
-layout_direction = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="KolariScreenTie"]
-layout_mode = 2
-offset_right = 200.0
-offset_bottom = 150.0
+[node name="KolariScreenTie" type="TextureRect" node_paths=PackedStringArray("_reTryButton")]
+offset_left = 220.0
+offset_top = 100.0
+offset_right = 420.0
+offset_bottom = 250.0
 texture = ExtResource("2_ciypu")
 expand_mode = 1
+script = ExtResource("1_4kcdj")
+_reTryButton = NodePath("KolariScreenController/Button")
 
-[node name="Control" type="Control" parent="KolariScreenTie"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-pivot_offset = Vector2(100, 0)
-
-[node name="KolariScreenController" type="VBoxContainer" parent="KolariScreenTie/Control"]
+[node name="KolariScreenController" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -1.0
-offset_bottom = 149.0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = -10.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="UpsLabel" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+[node name="UpsLabel" type="Label" parent="KolariScreenController"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_tgxe0")
@@ -69,7 +45,7 @@ text = "Ups!
 label_settings = ExtResource("4_ufk8i")
 horizontal_alignment = 1
 
-[node name="OhjeLabel" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
+[node name="OhjeLabel" type="Label" parent="KolariScreenController"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tgxe0")
 text = "Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie."
@@ -77,7 +53,7 @@ label_settings = ExtResource("5_sc76c")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="KolariScreenTie/Control/KolariScreenController"]
+[node name="Button" type="Button" parent="KolariScreenController"]
 process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
@@ -88,5 +64,6 @@ theme_override_constants/h_separation = 0
 theme_override_fonts/font = SubResource("FontVariation_at1w4")
 theme_override_font_sizes/font_size = 17
 theme_override_styles/hover = ExtResource("6_2fxk8")
+theme_override_styles/pressed_mirrored = ExtResource("6_2fxk8")
 theme_override_styles/normal = ExtResource("6_j54pu")
 text = "Yritä uudelleen"

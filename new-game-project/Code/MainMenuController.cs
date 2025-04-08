@@ -11,6 +11,9 @@ private SceneTree _mainMenuSceneTree = null;
 
 public override void _Ready() {
 {
+	var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
+        musicPlayer.PlayMusicForCurrentScene();
+
 	ConfigFile config = new ConfigFile();
     if (config.Load("user://settings.cfg") == Error.Ok)
     {
@@ -40,6 +43,8 @@ public override void _Ready() {
 	_poistuButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPoistuPressed)));
 	// kuuntelee napin painallusta, laukasee metodin _pelaaButton.Pressed += OnNewGamePressed();
 	// pitäs sit myös lopettaa, muute jää roskat latinkiin
+
+
 }
 }
 

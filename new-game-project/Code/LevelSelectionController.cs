@@ -28,6 +28,11 @@ namespace SieniPeli
 
         public override void _Ready()
         {
+
+                var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
+        musicPlayer.PlayMusicForCurrentScene();
+
+
             base._Ready();
             _levelSelectSceneTree = GetTree(); // ladataan scenetree
             if (_levelSelectSceneTree == null)

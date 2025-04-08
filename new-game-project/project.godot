@@ -13,12 +13,14 @@ config_version=5
 config/name="Sienipeli"
 run/main_scene="res://Level/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Art/Spritet/cozycottage_taplajahti_kuvake.png"
+config/windows_native_icon="res://Art/Spritet/cozycottage_taplajahti_kuvake.ico"
 
 [autoload]
 
 SaveManager="*res://Code/SaveManager.cs"
 SettingsController="*res://Code/SettingsController.cs"
+MusicPlayer="*res://Level/BackgroundMusicPlayer.tscn"
 
 [display]
 

@@ -51,23 +51,23 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="KolariScreenVajaa" type="PanelContainer" node_paths=PackedStringArray("_reTryButton")]
-z_index = 5
-custom_minimum_size = Vector2(200, 180)
-offset_left = 230.0
-offset_top = 105.0
-offset_right = 430.0
-offset_bottom = 283.0
+[node name="KolariScreenVajaa" type="TextureRect" node_paths=PackedStringArray("_reTryButton")]
+offset_left = 220.0
+offset_top = 90.0
+offset_right = 420.0
+offset_bottom = 270.0
+texture = ExtResource("2_bkih5")
+expand_mode = 1
 script = ExtResource("1_rye1a")
 _reTryButton = NodePath("KolariScreenController/Button")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("2_bkih5")
-expand_mode = 1
-
 [node name="KolariScreenController" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 172.0
+pivot_offset = Vector2(200, 0)
 mouse_filter = 0
 theme_override_constants/separation = 3
 
