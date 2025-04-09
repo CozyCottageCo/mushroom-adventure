@@ -441,7 +441,6 @@ region_enabled = true
 region_rect = Rect2(60, 148, 29, 26)
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_q1stt")

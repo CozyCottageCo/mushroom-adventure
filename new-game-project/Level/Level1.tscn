@@ -345,6 +345,7 @@ scale = Vector2(1.05247, 1.09725)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Sieni" parent="." instance=ExtResource("18_nw2sx")]
+z_index = 1
 position = Vector2(291, 322)
 
 [node name="kuusi" type="Sprite2D" parent="."]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cejo7mkkmb7wy"]
+[gd_scene load_steps=11 format=3 uid="uid://cejo7mkkmb7wy"]
 
 [ext_resource type="Texture2D" uid="uid://ccttw6jc0eygj" path="res://Art/Spritet/Pelaaja/täplä_sheet.png" id="1_4c7ws"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="2_7isre"]
+[ext_resource type="AudioStream" uid="uid://d2umbj0i6u46d" path="res://Art/Sound/taplajahti_tapla.saatu.mp3" id="3_r4uum"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmbj1"]
 atlas = ExtResource("1_4c7ws")
@@ -55,10 +56,11 @@ point_count = 2
 width = 33
 curve = SubResource("Curve_dsoj8")
 
-[node name="Täplä" type="Sprite2D"]
+[node name="Täplä" type="Sprite2D" node_paths=PackedStringArray("_voittoAudio")]
 texture = SubResource("AtlasTexture_qmbj1")
 hframes = 4
 script = ExtResource("2_7isre")
+_voittoAudio = NodePath("Voittoääni")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -80,4 +82,6 @@ scale = Vector2(0.984848, 27)
 color = Color(0, 0, 0, 1)
 texture = SubResource("CurveTexture_4n7fn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Voittoääni" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("3_r4uum")

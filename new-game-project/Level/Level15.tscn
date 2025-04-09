@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://b7d1orbihfja2"]
+[gd_scene load_steps=70 format=4 uid="uid://b7d1orbihfja2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_cnv3m"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_1g53c"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_fttdb"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="11_8iuyg"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="12_3n2ud"]
-[ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="15_rprlh"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="16_ai35w"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_2x5dq"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_t6k0i"]
@@ -603,20 +602,12 @@ visible = false
 [node name="VoittoScreen" parent="." instance=ExtResource("12_3n2ud")]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(220, 270)
-scale = Vector2(1.09155, 1.10674)
-texture = ExtResource("15_rprlh")
-region_enabled = true
-region_rect = Rect2(47.6, 244.3, 71.5, 89.1)
-
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
 scale = Vector2(0.80402, 0.843956)
 texture = ExtResource("19_7j6yn")
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ifsyg")
