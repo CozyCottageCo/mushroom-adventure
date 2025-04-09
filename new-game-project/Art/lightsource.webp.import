@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qik2e0pk65wc"
-uid="uid://fgkjgttthns7"
-path="res://.godot/imported/vesikauhu-sheet.png-3e9ae3364df65a7d0b64587fd25f36dd.ctex"
+uid="uid://6yeshgahw64e"
+path="res://.godot/imported/lightsource.webp-7b475dc5a90d128c3a0ea28c4a0894bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/vesikauhu-sheet.png"
-dest_files=["res://.godot/imported/vesikauhu-sheet.png-3e9ae3364df65a7d0b64587fd25f36dd.ctex"]
+source_file="res://Art/lightsource.webp"
+dest_files=["res://.godot/imported/lightsource.webp-7b475dc5a90d128c3a0ea28c4a0894bf.ctex"]
 
 [params]
 

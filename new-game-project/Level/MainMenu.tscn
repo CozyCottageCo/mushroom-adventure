@@ -112,4 +112,5 @@ texture = ExtResource("7_l83vo")
 expand_mode = 1
 
 [node name="Settings" parent="." instance=ExtResource("7_erw4x")]
+visible = false
 layout_mode = 1

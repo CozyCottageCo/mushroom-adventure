@@ -52,6 +52,10 @@ namespace SieniPeli
         public override void _Ready()
         {
 
+                var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
+                musicPlayer.PlayMusicForCurrentScene();
+                // tason musalataus
+
             settings = GetNode<SettingsController>("/root/SettingsController");
             if (settings == null) {
                 GD.PrintErr("no find settings");

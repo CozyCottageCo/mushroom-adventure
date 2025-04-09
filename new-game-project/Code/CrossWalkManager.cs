@@ -14,6 +14,8 @@ namespace SieniPeli {
         public bool CrossWalkOccupied => sieniSuojaTiellä;
         public string CurrentCrossWalk => sieniSuojaTie;
 
+        public bool StoppedByLight { get; private set; } = false;
+
         public override void _Ready()
         {
             CallDeferred(nameof(InitializeSieniNode));
