@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=38 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -337,7 +337,6 @@ visible = false
 [node name="Täplä" parent="." instance=ExtResource("17_3h71i")]
 z_index = 1
 position = Vector2(389, 56)
-position = Vector2(496, 79)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
@@ -461,14 +460,13 @@ region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
 
 [node name="klapi3" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(566, 365)
+position = Vector2(161, 299)
 rotation = -0.1309
 scale = Vector2(0.889432, 1.01512)
 skew = 0.00996828
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
-position = Vector2(161, 299)
 
 [node name="TutorialScene" parent="." instance=ExtResource("19_2neot")]
 visible = false

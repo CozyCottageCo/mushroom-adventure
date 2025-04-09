@@ -62,7 +62,7 @@ border_blend = true
 corner_detail = 1
 
 [node name="KolariScreenVesi" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_nappiAudio")]
-z_index = 5
+z_index = 8
 offset_left = 245.0
 offset_top = 100.0
 offset_right = 395.0
