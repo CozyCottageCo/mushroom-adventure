@@ -34,12 +34,14 @@ namespace SieniPeli
 
         private TextureButton _menuButton;
 
-        private PanelContainer _menuPanel = null; // alustettu menupaneeli
+        private Control _menuPanel = null; // alustettu menupaneeli
         public Control _kolariScreen = null;
         public Control _kolariScreenTie = null;
         public Control _kolariScreenVesi = null;
 
-        public PanelContainer _voittoScreen = null;
+        public Control _kolariScreenVajaa = null;
+
+        public TextureRect _voittoScreen = null;
         private bool _buttonsVisible = false;
         public bool _kolariActive = false;
         Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red,50% opacity
@@ -64,7 +66,7 @@ namespace SieniPeli
             AddChild(_line);
 
 
-            _menuPanel = GetNode<PanelContainer>("PauseMenuPanel"); // haetaa menupaneeli
+            _menuPanel = GetNode<Control>("PauseMenuPanel"); // haetaa menupaneeli
              if (_menuPanel != null)
             {
                 _menuPanel.Visible = false; // piilos eka
@@ -112,8 +114,21 @@ namespace SieniPeli
         GD.PrintErr("KolariScreenVesi not found");
     }
 
+     _kolariScreenVajaa = GetNodeOrNull<Control>("KolariScreenVajaa");
+    if (_kolariScreenVajaa != null)
+    {
+        GD.Print("KolariScreen Vajaa found");
 
-             _voittoScreen = GetNode<PanelContainer>("VoittoScreen"); // haetaa kolariscreeni
+        _kolariScreenVajaa.Visible = false;
+        // Ensure button is connected
+    }
+    else
+    {
+        GD.PrintErr("KolariScreenVajaa not found");
+    }
+
+
+             _voittoScreen = GetNode<TextureRect>("VoittoScreen"); // haetaa kolariscreeni
              if (_voittoScreen != null)
             {
                 _voittoScreen.Visible = false; // piilos eka
@@ -387,9 +402,10 @@ namespace SieniPeli
         }
 
         public async void Kolari(string kohde) {
+            GD.Print(kohde);
             if (_kolariActive) return; // Prevent multiple calls
             _kolariActive = true;
-            if (kohde != "Tie" && kohde != "Vesi") { // atm vaa jos ei oo vesi tai tie, mut omil ötököil omat
+            if (kohde != "Tie" && kohde != "Vesi" && kohde != "Vajaa") { // atm vaa jos ei oo vesi tai tie, mut omil ötököil omat
                 if (_kolariScreen != null)
                     {
                     _kolariScreen.Visible = !_kolariScreen.Visible; // jos näkyvis, pois, ja päinvastoi
@@ -420,6 +436,19 @@ namespace SieniPeli
                     {
                     _kolariScreenVesi.Visible = !_kolariScreenVesi.Visible; // jos näkyvis, pois, ja päinvastoi
                     if(_kolariScreenVesi.Visible == true) {
+                        _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
+                        GetTree().Paused = true; // pausettaa pelin myös
+                    } else if(_kolariScreenVesi.Visible == false) {
+                        _buttonsVisible = false;
+                    }
+                }
+            }
+            else if (kohde.StartsWith("Vajaa")) {
+                await ToSignal(GetTree().CreateTimer(0.5f), "timeout"); // hetke venailu, että ehtii astua ruutuu
+                if (_kolariScreenVajaa != null)
+                    {
+                    _kolariScreenVajaa.Visible = !_kolariScreenVajaa.Visible; // jos näkyvis, pois, ja päinvastoi
+                    if(_kolariScreenVajaa.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
                     } else if(_kolariScreenVesi.Visible == false) {

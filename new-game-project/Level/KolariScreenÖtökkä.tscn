@@ -55,9 +55,9 @@ corner_detail = 1
 [node name="KolariScreenÖtökkä" type="PanelContainer" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_hint2Label", "_crashLabel")]
 z_index = 5
 offset_left = 230.0
-offset_top = 100.0
+offset_top = 105.0
 offset_right = 430.0
-offset_bottom = 281.0
+offset_bottom = 283.0
 script = ExtResource("1_4le0a")
 _reTryButton = NodePath("KolariScreenController/Button")
 _whoopsLabel = NodePath("KolariScreenController/Label")
@@ -71,10 +71,9 @@ texture = ExtResource("2_c84nb")
 expand_mode = 1
 
 [node name="KolariScreenController" type="VBoxContainer" parent="."]
-layout_direction = 1
 layout_mode = 2
 mouse_filter = 0
-theme_override_constants/separation = 5
+theme_override_constants/separation = 3
 
 [node name="Label" type="Label" parent="KolariScreenController"]
 layout_direction = 1
@@ -101,6 +100,7 @@ autowrap_mode = 3
 [node name="Button" type="Button" parent="KolariScreenController"]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 0

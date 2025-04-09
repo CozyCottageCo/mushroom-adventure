@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="1_luxwu"]
 
 [resource]
+line_spacing = 2.0
 font = ExtResource("1_luxwu")
-font_size = 17
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)

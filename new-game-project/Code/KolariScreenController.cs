@@ -54,11 +54,21 @@ public partial class KolariScreenController : Control
         }
         private void UpdateUIText()
         {
+            if (_reTryButton != null) {
             _reTryButton.Text = Tr("retry");
+            }
+             if (_whoopsLabel != null) {
             _whoopsLabel.Text = Tr("whoops");
+             }
+             if (_hintLabel != null) {
             _hintLabel.Text = Tr("hint");
+             }
+             if (_crashLabel != null) {
             _crashLabel.Text = Tr("crash");
+             }
+             if (_hint2Label!= null) {
             _hint2Label.Text = Tr("hint2");
+             }
         }
     }
 }

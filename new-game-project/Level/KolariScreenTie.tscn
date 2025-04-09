@@ -10,9 +10,8 @@
 
 [sub_resource type="FontVariation" id="FontVariation_at1w4"]
 base_font = ExtResource("2_tgxe0")
-spacing_top = 3
 
-[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_hint2Label", "_crashLabel")]
+[node name="KolariScreenTie" type="Control" node_paths=PackedStringArray("_reTryButton")]
 z_index = 5
 layout_direction = 1
 layout_mode = 3
@@ -23,10 +22,6 @@ offset_right = 430.0
 offset_bottom = 255.0
 script = ExtResource("1_4kcdj")
 _reTryButton = NodePath("KolariScreenTie/Control/KolariScreenController/Button")
-_whoopsLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
-_hintLabel = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
-_hint2Label = NodePath("KolariScreenTie/Control/KolariScreenController/OhjeLabel")
-_crashLabel = NodePath("KolariScreenTie/Control/KolariScreenController/UpsLabel")
 
 [node name="KolariScreenTie" type="Panel" parent="."]
 layout_direction = 1
@@ -61,7 +56,7 @@ offset_top = -1.0
 offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="UpsLabel" type="Label" parent="KolariScreenTie/Control/KolariScreenController"]
@@ -85,6 +80,8 @@ autowrap_mode = 3
 [node name="Button" type="Button" parent="KolariScreenTie/Control/KolariScreenController"]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/h_separation = 0

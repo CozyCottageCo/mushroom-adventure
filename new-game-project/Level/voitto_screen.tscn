@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://buarwgli5yxtf"]
+
+[ext_resource type="Texture2D" uid="uid://bm7rducqsx74a" path="res://Art/Spritet/Käyttöliittymä/box.png" id="1_5fr8y"]
+[ext_resource type="Script" path="res://Code/VoittoScreenController.cs" id="2_w5h1b"]
+[ext_resource type="Texture2D" uid="uid://s3vqfjfxyeul" path="res://Art/happy_mush_tapla.png" id="2_x2t1l"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_u7ek2"]
+[ext_resource type="LabelSettings" uid="uid://c7w76o68lofe2" path="res://Art/Spritet/Käyttöliittymä/kolariscreenlabel2.tres" id="4_58crg"]
+[ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="5_a7jey"]
+[ext_resource type="StyleBox" uid="uid://6vpm0rv8cbm8" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbutton.tres" id="6_787xj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrqg2"]
+
+[node name="VoittoScreen" type="TextureRect" node_paths=PackedStringArray("_palaaTasoValikkoonButton")]
+z_index = 5
+offset_left = 245.0
+offset_top = 115.0
+offset_right = 395.0
+offset_bottom = 244.0
+texture = ExtResource("1_5fr8y")
+expand_mode = 1
+script = ExtResource("2_w5h1b")
+_palaaTasoValikkoonButton = NodePath("PanelContainer/VBoxContainer/Tasovalikkoon")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 145.0
+offset_bottom = 125.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vrqg2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_x2t1l")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_u7ek2")
+text = "Löysit täplän!"
+label_settings = ExtResource("4_58crg")
+horizontal_alignment = 1
+
+[node name="Tasovalikkoon" type="Button" parent="PanelContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_u7ek2")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/hover = ExtResource("5_a7jey")
+theme_override_styles/pressed = ExtResource("5_a7jey")
+theme_override_styles/normal = ExtResource("6_787xj")
+text = "Tasovalikkoon"

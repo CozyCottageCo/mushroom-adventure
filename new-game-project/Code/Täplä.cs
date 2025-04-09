@@ -35,6 +35,8 @@ private Touch _touch = null;
         if (area.GetParent() is Sieni player)  // aktivoituu ku Sieni-luokan olento osuu
         {
             GD.Print("Täplä löydetty!");
+			_sieni.atTäplä = true;
+			_sieni.controlSpeed(0);
 			_sieni.Celebrate();
 			string currentLevelPath = GetTree().CurrentScene.SceneFilePath;
 			string currentLevel = currentLevelPath.GetFile().GetBaseName(); //katotaan tason nimi missä ollaan

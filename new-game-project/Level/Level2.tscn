@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://ss4qsli6wb4w"]
+[gd_scene load_steps=40 format=4 uid="uid://bqgotk2sq8uh2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_gqkh4"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_mtntk"]
@@ -13,13 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_vdsem"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="15_8m3us"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_71fyo"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="16_wcq1b"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_pccpn"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="18_7ijlt"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_vudmf"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_alm4q"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
 [ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5jl1"]
@@ -256,94 +257,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="ImageTexture" id="ImageTexture_5po0o"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ia6en"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.4)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t383y"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rag3x"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.75, 0.75, 0.75, 0.75)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kekow"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfga1"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="Theme" id="Theme_wh5tg"]
-HScrollBar/icons/decrement = SubResource("ImageTexture_5po0o")
-HScrollBar/icons/decrement_highlight = SubResource("ImageTexture_5po0o")
-HScrollBar/icons/decrement_pressed = SubResource("ImageTexture_5po0o")
-HScrollBar/icons/increment = SubResource("ImageTexture_5po0o")
-HScrollBar/icons/increment_highlight = SubResource("ImageTexture_5po0o")
-HScrollBar/icons/increment_pressed = SubResource("ImageTexture_5po0o")
-HScrollBar/styles/grabber = SubResource("StyleBoxFlat_ia6en")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_t383y")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_rag3x")
-HScrollBar/styles/scroll = SubResource("StyleBoxFlat_kekow")
-HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_vfga1")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pe612"]
-atlas = ExtResource("16_wcq1b")
-region = Rect2(20, 134, 716, 716)
-
 [sub_resource type="InputEventKey" id="InputEventKey_ggbqe"]
 device = -1
 keycode = 76
@@ -481,84 +394,7 @@ curve = SubResource("Curve2D_yvvla")
 position = Vector2(654, 202)
 rotation = -3.13863
 
-[node name="PauseMenuPanel" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-offset_left = 225.0
-offset_top = 102.0
-offset_right = 383.0
-offset_bottom = 322.0
-
-[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
-layout_direction = 1
-layout_mode = 2
-mouse_filter = 0
-theme_override_constants/separation = 30
-script = ExtResource("15_8m3us")
-"_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
-_jatkaButton = NodePath("Jatka")
-"_peliLäpiButton" = NodePath("Asetukset")
-
-[node name="PalaaMainMenuun" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-theme = SubResource("Theme_wh5tg")
-text = "Palaa päävalikkoon"
-
-[node name="Asetukset" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-text = "Asetukset"
-
-[node name="Jatka" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-text = "Jatka"
-
-[node name="VoittoScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 225.0
-offset_top = 102.0
-offset_right = 383.0
-offset_bottom = 322.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="VoittoScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
-process_mode = 3
-layout_mode = 2
-script = ExtResource("15_8m3us")
-"_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
-_jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
-"_peliLäpiButton" = NodePath("Button")
-
-[node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-text = "Löysit täplän!"
-
-[node name="TextureRect" type="TextureRect" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_pe612")
-expand_mode = 4
-
-[node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Tasovalikkoon"
+[node name="PauseMenuPanel" parent="." instance=ExtResource("15_f64ck")]
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("13_vdsem")]
 visible = false
@@ -573,6 +409,10 @@ offset_left = 198.0
 offset_top = 88.0
 offset_right = 398.0
 offset_bottom = 269.0
+
+[node name="VoittoScreen" parent="." instance=ExtResource("18_41gqg")]
+
+[node name="KolariScreenVajaa" parent="." instance=ExtResource("19_gtma7")]
 
 [node name="Täplä" parent="." instance=ExtResource("18_7ijlt")]
 z_index = 1

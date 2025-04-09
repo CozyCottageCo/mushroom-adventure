@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://dixmf1o5jt7if"]
+[gd_scene load_steps=51 format=4 uid="uid://dixmf1o5jt7if"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_3bnwb"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_gm3yl"]
@@ -13,14 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://clcfloq7760ob" path="res://Art/Spritet/Ympäristö/taplajahti_easteregg.png" id="6_u3udd"]
 [ext_resource type="Texture2D" uid="uid://boj5c2d3h4325" path="res://Art/Spritet/Ympäristö/firefly.png" id="7_hhkra"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_t7d0x"]
-[ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="12_qx45r"]
-[ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="14_348ks"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_xm7pw"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="15_c6a7u"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="15_ernr6"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="17_u1oa7"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="18_jtfde"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="18_kj3xp"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="19_5mcjo"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="20_luud2"]
 [ext_resource type="Texture2D" uid="uid://2skvp250y38y" path="res://Art/Spritet/Ympäristö/Kävelytie06.png" id="21_84aeq"]
+[ext_resource type="PackedScene" uid="uid://5yc71l024jx8" path="res://Level/KolariScreenVesi.tscn" id="21_bg7hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4vpu"]
 texture = ExtResource("3_nfokc")
@@ -43,6 +45,7 @@ texture_region_size = Vector2i(32, 32)
 0:0/animation_frame_14/duration = 1.0
 0:0/animation_frame_15/duration = 1.0
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("2_n6ib3")
@@ -141,6 +144,7 @@ texture_region_size = Vector2i(32, 32)
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:1/0 = 0
@@ -149,21 +153,31 @@ texture_region_size = Vector2i(32, 32)
 4:1/0 = 0
 5:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:2/0 = 0
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
 4:4/0 = 0
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:0/0 = 0
 1:3/0 = 0
 0:3/0 = 0
@@ -363,94 +377,6 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("7_t7d0x")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="ImageTexture" id="ImageTexture_jilax"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lm3iq"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.4)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2lbh"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1didj"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.75, 0.75, 0.75, 0.75)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8q54"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e520"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="Theme" id="Theme_5oel6"]
-HScrollBar/icons/decrement = SubResource("ImageTexture_jilax")
-HScrollBar/icons/decrement_highlight = SubResource("ImageTexture_jilax")
-HScrollBar/icons/decrement_pressed = SubResource("ImageTexture_jilax")
-HScrollBar/icons/increment = SubResource("ImageTexture_jilax")
-HScrollBar/icons/increment_highlight = SubResource("ImageTexture_jilax")
-HScrollBar/icons/increment_pressed = SubResource("ImageTexture_jilax")
-HScrollBar/styles/grabber = SubResource("StyleBoxFlat_lm3iq")
-HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_d2lbh")
-HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_1didj")
-HScrollBar/styles/scroll = SubResource("StyleBoxFlat_e8q54")
-HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_7e520")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eknhn"]
-atlas = ExtResource("14_348ks")
-region = Rect2(20, 134, 716, 716)
-
 [sub_resource type="Curve2D" id="Curve2D_chqfx"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 143, 368, 0, 0, 0, 0, 142, -12)
@@ -589,92 +515,12 @@ toggle_mode = true
 shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
-[node name="PauseMenuPanel" type="PanelContainer" parent="."]
+[node name="PauseMenuPanel" parent="." instance=ExtResource("14_xm7pw")]
 visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 209.0
-offset_top = 106.0
-offset_right = 409.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenuPanel"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="PauseMenu" type="VBoxContainer" parent="PauseMenuPanel" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
-layout_direction = 1
-layout_mode = 2
-mouse_filter = 0
-theme_override_constants/separation = 30
-script = ExtResource("12_qx45r")
-"_palaaPääValikkoonButton" = NodePath("PalaaMainMenuun")
-_jatkaButton = NodePath("Jatka")
-"_peliLäpiButton" = NodePath("../../VoittoScreen/VBoxContainer/Button")
-
-[node name="PalaaMainMenuun" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-theme = SubResource("Theme_5oel6")
-text = "Palaa päävalikkoon"
-
-[node name="Asetukset" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-text = "Asetukset"
-
-[node name="Jatka" type="Button" parent="PauseMenuPanel/PauseMenu"]
-layout_mode = 2
-text = "Jatka"
-
-[node name="VoittoScreen" type="PanelContainer" parent="."]
-visible = false
-z_index = 3
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.886
-offset_left = 243.0
-offset_top = 178.0
-offset_right = 365.0
-offset_bottom = 245.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="VoittoScreen"]
-show_behind_parent = true
-layout_mode = 2
-color = Color(0.231373, 0.878431, 0.388235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VoittoScreen" node_paths=PackedStringArray("_palaaPääValikkoonButton", "_jatkaButton", "_peliLäpiButton")]
-layout_mode = 2
-script = ExtResource("12_qx45r")
-"_palaaPääValikkoonButton" = NodePath("../../PauseMenuPanel/PauseMenu/PalaaMainMenuun")
-_jatkaButton = NodePath("../../PauseMenuPanel/PauseMenu/Jatka")
-"_peliLäpiButton" = NodePath("Button")
-
-[node name="Label" type="Label" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-text = "Löysit täplän!"
-
-[node name="TextureRect" type="TextureRect" parent="VoittoScreen/VBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_eknhn")
-expand_mode = 4
-
-[node name="Button" type="Button" parent="VoittoScreen/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Tasovalikkoon"
+[node name="VoittoScreen" parent="." instance=ExtResource("15_ernr6")]
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_chqfx")
@@ -731,8 +577,12 @@ position = Vector2(591, 303)
 [node name="KolariScreenTie" parent="." instance=ExtResource("18_jtfde")]
 visible = false
 
+[node name="KolariScreenVajaa" parent="." instance=ExtResource("20_luud2")]
+
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("19_5mcjo")]
 visible = false
+
+[node name="KolariScreenVesi" parent="." instance=ExtResource("21_bg7hf")]
 
 [node name="Risteys" type="Area2D" parent="."]
 position = Vector2(133, 237)
