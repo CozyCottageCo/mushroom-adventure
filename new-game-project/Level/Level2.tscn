@@ -13,14 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_vdsem"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_71fyo"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_pccpn"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="18_7ijlt"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_vudmf"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_alm4q"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
 [ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5jl1"]
@@ -377,13 +377,6 @@ position = Vector2(602, 91)
 scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Kärissypuu"]
-z_index = 1
-position = Vector2(-145.935, -23.075)
-texture = ExtResource("17_pccpn")
-region_enabled = true
-region_rect = Rect2(70.5203, 8.15136, 18.7161, 61.0758)
-
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
 
@@ -395,6 +388,7 @@ position = Vector2(654, 202)
 rotation = -3.13863
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("15_f64ck")]
+visible = false
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("13_vdsem")]
 visible = false
@@ -411,8 +405,10 @@ offset_right = 398.0
 offset_bottom = 269.0
 
 [node name="VoittoScreen" parent="." instance=ExtResource("18_41gqg")]
+visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("19_gtma7")]
+visible = false
 
 [node name="Täplä" parent="." instance=ExtResource("18_7ijlt")]
 z_index = 1

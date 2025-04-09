@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="8_hfs3k"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="9_hot0d"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="10_ruqge"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_vn1wx"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="14_sqd70"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="13_vn1wx"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="14_sqd70"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="16_t6t44"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_3h71i"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_nt7hn"]
@@ -311,10 +311,13 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("12_dtl56")]
+visible = false
 
 [node name="VoittoScreen" parent="." instance=ExtResource("13_vn1wx")]
+visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("14_sqd70")]
+visible = false
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("16_t6t44")]
 
@@ -326,13 +329,6 @@ z_index = 1
 position = Vector2(602, 91)
 scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Kärissypuu"]
-z_index = 1
-position = Vector2(-145.935, -23.075)
-texture = ExtResource("18_nt7hn")
-region_enabled = true
-region_rect = Rect2(68.1679, -0.667171, 30.493, 94.6806)
 
 [node name="Sieni" parent="." instance=ExtResource("18_nw2sx")]
 position = Vector2(291, 322)
