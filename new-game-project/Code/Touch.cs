@@ -56,12 +56,33 @@ namespace SieniPeli
                 musicPlayer.PlayMusicForCurrentScene();
                 // tason musalataus
 
+             Node currentScene = GetTree().CurrentScene; // katotaa current scene
+            string scenePath = currentScene.SceneFilePath;
+            string sceneName = scenePath.GetFile().Replace(".tscn", "");
+            SaveManager saveManager = GetNode<SaveManager>("/root/SaveManager"); // savemanager alustus
+
+        if (!saveManager.IsLevelCompleted(sceneName)) { // tarkistetaa onko current level tehty jo; jos ei, katotaa tuleeks tutoriaali
+            if (sceneName == "Level1") { // eka tutoriaali lvl 1 jne
+                var tutorial = GetNode<TutorialScene>("TutorialScene");
+                tutorial.TutorialActivated(1); // magic number joo mut aktivoi ekan tutoriaalin jne
+            }
+             if (sceneName == "Level2") {
+                var tutorial = GetNode<TutorialScene>("TutorialScene");
+                tutorial.TutorialActivated(2);
+            }
+             if (sceneName == "Level7") {
+                var tutorial = GetNode<TutorialScene>("TutorialScene");
+                tutorial.TutorialActivated(3);
+            }
+        }
+
+
             settings = GetNode<SettingsController>("/root/SettingsController");
             if (settings == null) {
                 GD.PrintErr("no find settings");
             }
 
-            _line = new Line2D
+            _line = new Line2D // settingsit piirtoviivalle
             {
 
                 Width = 5,

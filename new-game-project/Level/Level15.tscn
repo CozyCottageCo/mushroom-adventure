@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://b7d1orbihfja2"]
+[gd_scene load_steps=68 format=4 uid="uid://b7d1orbihfja2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_cnv3m"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_1g53c"]
@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="11_8iuyg"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="12_3n2ud"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="15_rprlh"]
+[ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="16_ai35w"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_2x5dq"]
-[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="17_8kykw"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_t6k0i"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="19_2xngb"]
 [ext_resource type="Texture2D" uid="uid://knkqreh4ddlg" path="res://Art/Spritet/Ympäristö/lehdetfall15.png" id="19_7j6yn"]
@@ -451,6 +451,55 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ogm0p"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_b6rmv"]
+max_value = 0.3
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.465347, 0.225099), 0.0, 0.0, 0, 0, Vector2(0.891089, 0.134702), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qtioe"]
+curve = SubResource("Curve_b6rmv")
+
+[sub_resource type="Gradient" id="Gradient_rosuf"]
+colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oi4cp"]
+gradient = SubResource("Gradient_rosuf")
+
+[sub_resource type="Curve" id="Curve_770du"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rgeba"]
+max_value = 30.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0858086, 15.0199), 124.293, 124.293, 0, 0, Vector2(0.267327, 29.2158), 0.0, 0.0, 0, 0, Vector2(0.993399, 30), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_txdjf"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ashlr"]
+curve_x = SubResource("Curve_770du")
+curve_y = SubResource("Curve_rgeba")
+curve_z = SubResource("Curve_txdjf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xwkj3"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(320, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(320, 0, 1)
+gravity = Vector3(0, 2400, 0)
+scale_min = 0.2
+scale_max = 1.5
+scale_over_velocity_curve = SubResource("CurveXYZTexture_ashlr")
+color_ramp = SubResource("GradientTexture1D_oi4cp")
+alpha_curve = SubResource("CurveTexture_qtioe")
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cnv3m")
 
@@ -693,8 +742,8 @@ position = Vector2(206.522, 45.7999)
 rotation = -0.0104008
 progress = 211.535
 
-[node name="Sieni" parent="." instance=ExtResource("17_8kykw")]
-position = Vector2(4, 71)
+[node name="Sieni" parent="." instance=ExtResource("16_ai35w")]
+position = Vector2(2, 71)
 
 [node name="Täplä" parent="." instance=ExtResource("17_t6k0i")]
 position = Vector2(463, 306)
@@ -707,3 +756,12 @@ visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("20_qcexr")]
 visible = false
+
+[node name="Sade" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ogm0p")
+position = Vector2(-1, 2)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_xwkj3")
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(0, 0, 640, 360)

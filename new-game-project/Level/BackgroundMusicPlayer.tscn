@@ -10,19 +10,24 @@
 script = ExtResource("1_bimqy")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("1_5sg0n")
 parameters/looping = true
 
 [node name="Spring" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("2_34r58")
 parameters/looping = true
 
 [node name="Autumn" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("3_ant2s")
 parameters/looping = true
 
 [node name="Summer" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 
 [node name="Winter" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("4_prrqk")
 parameters/looping = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://bqgotk2sq8uh2"]
+[gd_scene load_steps=41 format=4 uid="uid://bqgotk2sq8uh2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_gqkh4"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_mtntk"]
@@ -13,15 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_vdsem"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_71fyo"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_pccpn"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="18_7ijlt"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_vudmf"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_alm4q"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
 [ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
+[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="23_mq58m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5jl1"]
 texture = ExtResource("2_qhktc")
@@ -309,7 +310,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 4
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -325,7 +326,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
-z_index = 2
+z_index = 4
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -378,7 +379,6 @@ scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_yvvla")
@@ -415,7 +415,8 @@ z_index = 1
 position = Vector2(142, 80)
 
 [node name="Sieni" parent="." instance=ExtResource("18_vudmf")]
-position = Vector2(97, 330)
+z_index = 1
+position = Vector2(422, 326)
 
 [node name="Menu" type="TextureButton" parent="."]
 z_index = 3
@@ -431,3 +432,6 @@ texture_normal = SubResource("AtlasTexture_vintq")
 position = Vector2(320, 192)
 scale = Vector2(0.529363, 0.527472)
 texture = ExtResource("21_hk54t")
+
+[node name="TutorialScene" parent="." instance=ExtResource("23_mq58m")]
+visible = false
