@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=34 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="6_0k4jc"]
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="7_1jbtl"]
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="8_hfs3k"]
+[ext_resource type="Texture2D" uid="uid://di2l0ubsu5nbt" path="res://Art/Spritet/Ympäristö/Kävelytie01.png" id="8_kckyk"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="9_hot0d"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="10_ruqge"]
 [ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
@@ -262,16 +263,21 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 192)
+scale = Vector2(0.49961, 0.498054)
+texture = ExtResource("8_kckyk")
+
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(94, 175)
+position = Vector2(91, 179)
 scale = Vector2(0.644531, 0.804687)
 texture = ExtResource("7_1jbtl")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D8"]
-position = Vector2(-41.8909, 26.0971)
+position = Vector2(-57.4061, 38.5243)
 scale = Vector2(1.22257, 0.764192)
 texture = ExtResource("7_1jbtl")
 
@@ -322,13 +328,135 @@ visible = false
 [node name="CrossWalkManager" parent="." instance=ExtResource("16_t6t44")]
 
 [node name="Täplä" parent="." instance=ExtResource("17_3h71i")]
-position = Vector2(463, 79)
+z_index = 1
+position = Vector2(389, 56)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(602, 91)
-scale = Vector2(1.19231, 1.1701)
+position = Vector2(587, 74)
+scale = Vector2(1.05247, 1.09725)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Sieni" parent="." instance=ExtResource("18_nw2sx")]
 position = Vector2(291, 322)
+
+[node name="kuusi" type="Sprite2D" parent="."]
+position = Vector2(620, 195)
+scale = Vector2(1.05556, 1.09259)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kuusi2" type="Sprite2D" parent="."]
+position = Vector2(526, 219)
+scale = Vector2(1.05556, 1.09259)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kuusi3" type="Sprite2D" parent="."]
+position = Vector2(588.5, 257)
+scale = Vector2(0.930556, 0.888889)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kuusi4" type="Sprite2D" parent="."]
+position = Vector2(468, 274)
+scale = Vector2(0.756945, 0.810185)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kärisypuu" type="Sprite2D" parent="."]
+position = Vector2(539, 265)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(538.787, 238.676, 76.9952, 111.146)
+
+[node name="kuusi5" type="Sprite2D" parent="."]
+position = Vector2(533.5, 305.25)
+scale = Vector2(1.125, 0.930556)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kuusi6" type="Sprite2D" parent="."]
+position = Vector2(631, 314)
+scale = Vector2(1.09028, 1.06944)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="kuusi7" type="Sprite2D" parent="."]
+position = Vector2(486, 343)
+scale = Vector2(0.475695, 0.44213)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(170.731, 148.093, 72.1752, 108.15)
+
+[node name="puupyöree" type="Sprite2D" parent="."]
+position = Vector2(541, 46)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(88.0836, 151.29, 78.8831, 110.267)
+
+[node name="puupyöree2" type="Sprite2D" parent="."]
+position = Vector2(517, 96.5)
+scale = Vector2(0.641026, 0.572727)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(88.0836, 151.29, 78.8831, 110.267)
+
+[node name="koivu" type="Sprite2D" parent="."]
+position = Vector2(97, 273)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(265.005, -2.99953, 73.0009, 149.002)
+
+[node name="koivu2" type="Sprite2D" parent="."]
+position = Vector2(42, 313)
+scale = Vector2(0.773973, 0.694631)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(265.005, -2.99953, 73.0009, 149.002)
+
+[node name="kivi" type="Sprite2D" parent="."]
+position = Vector2(57, 360)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
+
+[node name="kivi3" type="Sprite2D" parent="."]
+position = Vector2(538, 130)
+scale = Vector2(0.914634, 0.875)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
+
+[node name="kivi2" type="Sprite2D" parent="."]
+position = Vector2(115, 347)
+scale = Vector2(0.817073, 0.75)
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
+
+[node name="klapi2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(629, 105)
+rotation = 0.10857
+scale = Vector2(0.889432, 1.01512)
+skew = 0.00996828
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
+
+[node name="klapi3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(566, 365)
+rotation = -0.1309
+scale = Vector2(0.889432, 1.01512)
+skew = 0.00996828
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
