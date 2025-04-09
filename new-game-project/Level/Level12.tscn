@@ -424,13 +424,36 @@ scale = Vector2(0.593692, 0.593508)
 texture = ExtResource("18_08ggq")
 
 [node name="Tyhjäkoivu" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(554, 9)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(267.547, -2.09044, 70.1674, 146.985)
 
 [node name="aita" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(62, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="aita2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(186, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="aita3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(310, 179)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
+
+[node name="aita4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(434, 179)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
@@ -443,12 +466,14 @@ region_enabled = true
 region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
 
 [node name="puska" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(105, 192)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 
 [node name="puska14" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(497, 58)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -460,7 +485,14 @@ texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
 
+[node name="kivi6" type="Sprite2D" parent="."]
+position = Vector2(262, 228)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
 [node name="kivi3" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(589, 60)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -487,20 +519,16 @@ texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
 
-[node name="aita2" type="Sprite2D" parent="."]
-position = Vector2(186, 179)
+[node name="aita5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(64, 52)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
 
-[node name="aita3" type="Sprite2D" parent="."]
-position = Vector2(310, 179)
-texture = ExtResource("13_tgfr4")
-region_enabled = true
-region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
-
-[node name="aita4" type="Sprite2D" parent="."]
-position = Vector2(434, 179)
+[node name="aita6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(189, 52)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(478.002, 180.001, 128.172, 29.817)
@@ -524,6 +552,7 @@ region_enabled = true
 region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
 
 [node name="mänty" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(70, 186)
 scale = Vector2(0.871795, 0.810924)
 texture = ExtResource("13_tgfr4")
@@ -531,6 +560,7 @@ region_enabled = true
 region_rect = Rect2(-3.00073, 152.4, 78.157, 119.763)
 
 [node name="mänty2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(20, 225)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -550,12 +580,14 @@ region_enabled = true
 region_rect = Rect2(366.203, 253.324, 41.5475, 25.7199)
 
 [node name="koivu" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(476, 30)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(501.912, -1.27239, 70.0186, 117.255)
 
 [node name="koivu2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(626, 46)
 scale = Vector2(0.857143, 0.84188)
 texture = ExtResource("13_tgfr4")
@@ -577,8 +609,17 @@ region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 
 [node name="puska4" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(393, 54)
 scale = Vector2(1.01852, 1.26786)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska16" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(259, 56)
+scale = Vector2(0.953704, 0.919644)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
@@ -591,7 +632,7 @@ region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 
 [node name="puska7" type="Sprite2D" parent="."]
-position = Vector2(528, 313)
+position = Vector2(633, 375)
 scale = Vector2(1.01852, 0.919644)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -612,8 +653,43 @@ region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 
 [node name="puska10" type="Sprite2D" parent="."]
-position = Vector2(568, 349)
+position = Vector2(561, 363)
 scale = Vector2(1.01852, 0.919644)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska17" type="Sprite2D" parent="."]
+position = Vector2(251, 257)
+scale = Vector2(0.694444, 0.852678)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska21" type="Sprite2D" parent="."]
+position = Vector2(255, 312)
+scale = Vector2(0.694444, 0.852678)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska18" type="Sprite2D" parent="."]
+position = Vector2(212, 234)
+scale = Vector2(0.694444, 0.852678)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska19" type="Sprite2D" parent="."]
+position = Vector2(245, 228)
+scale = Vector2(0.694444, 0.852678)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska20" type="Sprite2D" parent="."]
+position = Vector2(252, 238)
+scale = Vector2(0.694444, 0.852678)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
@@ -664,7 +740,15 @@ region_enabled = true
 region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
 
 [node name="kukka6" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(159, 189)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
+
+[node name="kukka12" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(207, 241)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
@@ -695,12 +779,14 @@ region_enabled = true
 region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
 
 [node name="kukka9" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(389, 282)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
 
 [node name="hive" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(526, 32)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -720,6 +806,7 @@ region_enabled = true
 region_rect = Rect2(288.63, 252.976, 44.0939, 20.576)
 
 [node name="pörriäiset2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(582, 38)
 scale = Vector2(0.818181, 1.05)
 texture = ExtResource("13_tgfr4")
@@ -727,6 +814,7 @@ region_enabled = true
 region_rect = Rect2(288.63, 252.976, 44.0939, 20.576)
 
 [node name="puska5" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(356.75, 281.5)
 scale = Vector2(1.1383, 1.04545)
 texture = ExtResource("13_tgfr4")
@@ -734,6 +822,7 @@ region_enabled = true
 region_rect = Rect2(366.121, 282.825, 47.3217, 22.3557)
 
 [node name="puska15" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(420, 283)
 scale = Vector2(0.824468, 0.704545)
 texture = ExtResource("13_tgfr4")
@@ -741,6 +830,7 @@ region_enabled = true
 region_rect = Rect2(366.121, 282.825, 47.3217, 22.3557)
 
 [node name="puu" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(609, 306)
 scale = Vector2(0.896552, 0.908163)
 texture = ExtResource("13_tgfr4")
@@ -748,6 +838,7 @@ region_enabled = true
 region_rect = Rect2(113.501, -2.09979, 116.9, 147.503)
 
 [node name="napero" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(14, 284)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -761,6 +852,7 @@ region_enabled = true
 region_rect = Rect2(333.816, 330.816, 27.7106, 28.2237)
 
 [node name="kuivapuska" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(375, 292)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -768,6 +860,12 @@ region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
 
 [node name="kuivapuska5" type="Sprite2D" parent="."]
 position = Vector2(325, 352)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska7" type="Sprite2D" parent="."]
+position = Vector2(239, 315)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
@@ -794,7 +892,7 @@ region_enabled = true
 region_rect = Rect2(236.29, 325.953, 29.4315, 34.0472)
 
 [node name="valkokukka2" type="Sprite2D" parent="."]
-position = Vector2(439, 315)
+position = Vector2(501, 184)
 scale = Vector2(0.706897, 0.617647)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -864,6 +962,7 @@ region_enabled = true
 region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
 
 [node name="loggers2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(126, 363)
 rotation = 0.120428
 texture = ExtResource("13_tgfr4")
@@ -877,6 +976,7 @@ region_enabled = true
 region_rect = Rect2(295.002, 337.081, 24.6302, 22.9189)
 
 [node name="perhonesin4" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(155, 342)
 rotation = 0.322886
 texture = ExtResource("13_tgfr4")
@@ -884,18 +984,21 @@ region_enabled = true
 region_rect = Rect2(295.002, 337.081, 24.6302, 22.9189)
 
 [node name="perhonesin2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(139, 168)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(295.002, 337.081, 24.6302, 22.9189)
 
 [node name="perhonesin3" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(419, 34)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(295.002, 337.081, 24.6302, 22.9189)
 
 [node name="perhonekelt" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(128, 333)
 rotation = 1.26885
 texture = ExtResource("13_tgfr4")
@@ -917,6 +1020,7 @@ region_enabled = true
 region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
 [node name="perhonekelt2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(578, 268)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
@@ -924,6 +1028,13 @@ region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
 [node name="kukkapinkkiuno" type="Sprite2D" parent="."]
 position = Vector2(80, 361)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(204.975, 290.54, 22.3042, 18.8282)
+
+[node name="kukkapinkkiuno3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(271, 58)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(204.975, 290.54, 22.3042, 18.8282)
@@ -950,15 +1061,36 @@ region_enabled = true
 region_rect = Rect2(370.917, 179.501, 30.4931, 23.4832)
 
 [node name="sieni3" type="Sprite2D" parent="."]
-position = Vector2(239, 252)
+position = Vector2(230, 260)
 scale = Vector2(0.8, 0.717391)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
 
 [node name="sieni4" type="Sprite2D" parent="."]
-position = Vector2(419.8, 316.228)
+position = Vector2(517, 312)
 scale = Vector2(0.715789, 0.580919)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="koivuvaalee" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(235, 205.5)
+scale = Vector2(0.96875, 0.853448)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(424.893, -0.785981, 64.0166, 116.446)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(260, 248)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(256.218, 237.46, 23.5042, 24.3747)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(201, 230)
+scale = Vector2(0.804348, 0.75)
+texture = ExtResource("13_tgfr4")
+region_enabled = true
+region_rect = Rect2(256.218, 237.46, 23.5042, 24.3747)

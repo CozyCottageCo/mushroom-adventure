@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="9_b1r33"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="10_eamnd"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="11_tf40u"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="12_qhmec"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="12_qhmec"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_au3bk"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_gg72c"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="13_gg72c"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="14_qbfsi"]
 [ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_7ifqh"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="16_31pni"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="16_31pni"]
 [ext_resource type="Script" path="res://Code/Täplä.cs" id="16_348ce"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_qusx2"]
 
@@ -491,14 +491,19 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("12_qhmec")]
+visible = false
 
 [node name="VoittoScreen" parent="." instance=ExtResource("13_gg72c")]
+visible = false
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("13_au3bk")]
+visible = false
 
 [node name="KolariScreenÖtökkä" parent="." instance=ExtResource("14_qbfsi")]
+visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("16_31pni")]
+visible = false
 
 [node name="Täplä" type="Sprite2D" parent="."]
 position = Vector2(322, 48)
@@ -550,42 +555,6 @@ position = Vector2(274, 123)
 texture = ExtResource("17_qusx2")
 region_enabled = true
 region_rect = Rect2(471, 128, 163, 43)
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(186, 123)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
-
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(165, 123)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(145, 124)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(205, 184)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
-
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-position = Vector2(177, 184)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
-
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-position = Vector2(149, 184)
-texture = ExtResource("17_qusx2")
-region_enabled = true
-region_rect = Rect2(118, 238, 44, 39)
 
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
