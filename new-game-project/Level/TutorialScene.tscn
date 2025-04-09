@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw1rbkdjgfis2"]
+[gd_scene load_steps=12 format=3 uid="uid://cw1rbkdjgfis2"]
 
 [ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="1_j655w"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial1.ogv" id="2_lx8un"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="4_62u81"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial2.ogv" id="5_0yum6"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial3.ogv" id="6_axnle"]
+[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="8_724mb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx4se"]
 
@@ -28,7 +29,7 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player")]
+[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player", "_okAudio")]
 z_index = 8
 offset_left = 138.0
 offset_top = 25.0
@@ -43,6 +44,7 @@ tutorial2 = NodePath("Tutorial2")
 tutorial2Player = NodePath("Tutorial2/VideoStreamPlayer")
 tutorial3 = NodePath("Tutorial3")
 tutorial3Player = NodePath("Tutorial3/VideoStreamPlayer")
+_okAudio = NodePath("Nappiaudio")
 
 [node name="Tutorial1" type="Panel" parent="."]
 layout_mode = 0
@@ -181,3 +183,7 @@ theme_override_styles/pressed = ExtResource("4_62u81")
 theme_override_styles/normal = SubResource("StyleBoxFlat_a70rk")
 text = "Ok
 "
+
+[node name="Nappiaudio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("8_724mb")

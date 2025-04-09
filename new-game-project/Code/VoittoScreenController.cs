@@ -6,6 +6,7 @@ namespace SieniPeli {
 public partial class VoittoScreenController : TextureRect
 {
 [Export] private Button _palaaTasoValikkoonButton = null;
+[Export] private AudioStreamPlayer2D _nappiAudio = null;
 
 
 private SceneTree _mainMenuSceneTree = null;
@@ -37,7 +38,9 @@ public override void _Ready() {
 
 
 
-	private void OnTasoValikkoonPressed() {
+	private async void OnTasoValikkoonPressed() {
+		_nappiAudio.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		GD.Print("Tasovalik pressed");
 		GetTree().Paused = false;
 		string currentScenePath = GetTree().CurrentScene.SceneFilePath; // Get full path

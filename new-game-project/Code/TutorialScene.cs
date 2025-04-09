@@ -14,6 +14,7 @@ public partial class TutorialScene : TextureRect
 
 	[Export] public Panel tutorial3 = null;
 	[Export] public VideoStreamPlayer tutorial3Player = null;
+	[Export] AudioStreamPlayer2D _okAudio = null;
 
 	public override void _Ready()
 	{
@@ -50,7 +51,9 @@ public partial class TutorialScene : TextureRect
 		}
 	}
 
-	private void OnOkPressed() {
+	private async void OnOkPressed() {
+		_okAudio.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		tutorial1.Visible = false;
 		tutorial1Player.Stop();
 		tutorial2.Visible = false;

@@ -30,6 +30,10 @@ public partial class SettingsController : Control
 	[Export] Button _tutorial3 = null;
 	[Export] Button _closeTutorial = null;
 
+	[Export] AudioStreamPlayer2D _nappi1 = null;
+	[Export] AudioStreamPlayer2D _nappi2 = null;
+	[Export] AudioStreamPlayer2D _nappi3 = null;
+
 	public override void _Ready()
 	{
 		LoadSettings();
@@ -92,6 +96,7 @@ public partial class SettingsController : Control
 
 	private void OnLanguageChanged(int index)
 	{
+		_nappi1.Play();
 		string selectedLanguage = index == 0 ? "en" : "fi";
 
 		// Change the locale
@@ -109,6 +114,7 @@ public partial class SettingsController : Control
 
 	private void OnVolumeChanged(double value)
 	{
+		_nappi1.Play();
 		float volume = (float)value;  // Ensure it's a float
 		// Clamp the volume to a range of 0.0 to 1.0 to prevent clipping
 		volume = Mathf.Clamp(volume, 0.0f, 1.0f);
@@ -122,13 +128,22 @@ public partial class SettingsController : Control
 
 	private void OnMovementToggled(bool toggled)
 	{
+		if (toggled) {
+			_nappi2.Play();
+		}
+		else if (!toggled) {
+			_nappi3.Play();
+		}
+		//await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		SaveSettings();
 		GD.Print("Movement mode set to: " + toggled);
 		// tähän pitää yhdistää sienen pysähtymismetodi
 	}
 
-	private void OnBackPressed()
+	private async void OnBackPressed()
 	{
+		_nappi3.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		LoadSettings();
 		_tutorialPanel.Visible = false;
 		this.Visible = false; // Hide the settings menu instead of changing the scene
@@ -137,11 +152,14 @@ public partial class SettingsController : Control
 
 	private void OnResetPressed() { // mahdollisuus resetoida tallennus (ainakin pelikehityksen ajaksi kiva olla)
 		if (confirmPanel != null) {
+			_nappi1.Play();
 			confirmPanel.Visible = true;
 		}
 	}
 
-	private void OnResetConfirmPressed() {
+	private async void OnResetConfirmPressed() {
+		_nappi2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		SaveManager saveManager = GetNode<SaveManager>("/root/SaveManager");
 		saveManager.Reset();
 		confirmPanel.Visible = false;
@@ -163,6 +181,7 @@ public partial class SettingsController : Control
 	}
 
 	private void OnResetCanceled() {
+		_nappi3.Play();
 		confirmPanel.Visible = false;
 	}
 
@@ -192,21 +211,30 @@ public partial class SettingsController : Control
 	}
 
 	private void OnTutorialOpenPressed() {
+		_nappi1.Play();
 		_tutorialPanel.Visible = !_tutorialPanel.Visible;
 	}
-	private void OnTutorialClosePressed() {
+	private async void OnTutorialClosePressed() {
+		_nappi3.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		_tutorialPanel.Visible = false;
 	}
 
-	private void OnTutorial1Pressed() {
+	private async void OnTutorial1Pressed() {
+		_nappi2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
             tutorial.TutorialActivated(1);
 	}
-	private void OnTutorial2Pressed() {
+	private async void OnTutorial2Pressed() {
+		_nappi2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
             tutorial.TutorialActivated(2);
 	}
-	private void OnTutorial3Pressed() {
+	private async void OnTutorial3Pressed() {
+		_nappi2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
             tutorial.TutorialActivated(3);
 	}

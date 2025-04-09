@@ -10,6 +10,7 @@ public partial class KolariScreenController : Control
     [Export] public Label _hintLabel = null;
     [Export] public Label _hint2Label = null;
     [Export] public Label _crashLabel = null;
+    [Export] private AudioStreamPlayer2D _nappiAudio = null;
 
 
     private Touch _touch = null; // tää on vaa touch.cs alustus
@@ -45,7 +46,9 @@ public partial class KolariScreenController : Control
     }
 
 
-    public void ReTryPressed() {
+    public async void ReTryPressed() {
+        _nappiAudio.Play();
+        await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
         GetTree().Paused = false; // paussi pois, resetataan taso
         GD.Print("pressed");
         _touch._kolariActive = false;

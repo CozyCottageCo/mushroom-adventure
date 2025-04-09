@@ -6,11 +6,14 @@ public partial class MainMenuController : Control
 [Export] private Button _pelaaButton = null;
 [Export] private Button _asetuksetButton = null;
 [Export]private Button _poistuButton = null;
+[Export] AudioStreamPlayer2D _audioPuu = null;
+[Export] AudioStreamPlayer2D _audioMuu = null;
 
 private SceneTree _mainMenuSceneTree = null;
 
 public override void _Ready() {
 {
+	ApplySettingsVolume();
 	var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
         musicPlayer.PlayMusicForCurrentScene(); // musalataus
 
@@ -48,19 +51,32 @@ public override void _Ready() {
 }
 }
 
-private void OnPelaaPressed()
+private void ApplySettingsVolume() {
+			ConfigFile config = new ConfigFile();
+            string configPath = "user://settings.cfg"; // Ensure this is the correct path for your settings file
+
+            if (config.Load(configPath) == Error.Ok)
+            {
+                float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);  // Default to 1.0 if not found
+                float dbVolume = Mathf.LinearToDb(volume);
+
+                // Apply volume to the master audio bus
+                AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), dbVolume);
+            }
+}
+
+private async void OnPelaaPressed()
 {
+	_audioPuu.Play();
+	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 	_mainMenuSceneTree.ChangeSceneToFile("res://Level/LevelSelect1.tscn");
 	GD.Print("Pelaa pressed");
 }
 
-private void OnKokoelmaPressed()
-{
-	GD.Print("Kokoelma pressed");
-}
 
 private void OnAsetuksetPressed()
 {
+	_audioPuu.Play();
 	GD.Print("Asetukset pressed");
 		 Control settingsMenu = GetNode<Control>("Settings"); // Make sure the node path matches
 		if (settingsMenu != null) {
@@ -70,9 +86,10 @@ private void OnAsetuksetPressed()
 		}
 	}
 
-private void OnPoistuPressed()
+private async void OnPoistuPressed()
 {
-	GD.Print("Nytlähettäis pressed");
+	_audioPuu.Play();
+	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 	_mainMenuSceneTree.Quit();
 }
 

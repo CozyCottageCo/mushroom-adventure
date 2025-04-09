@@ -79,3 +79,5 @@ position = Vector2(0.25, -1.5)
 scale = Vector2(0.984848, 27)
 color = Color(0, 0, 0, 1)
 texture = SubResource("CurveTexture_4n7fn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

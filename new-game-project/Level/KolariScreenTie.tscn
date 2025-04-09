@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://djkvhrxf5jqpm"]
+[gd_scene load_steps=10 format=3 uid="uid://djkvhrxf5jqpm"]
 
 [ext_resource type="Script" path="res://Code/KolariScreenController.cs" id="1_4kcdj"]
 [ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="2_ciypu"]
@@ -7,11 +7,13 @@
 [ext_resource type="LabelSettings" uid="uid://c7w76o68lofe2" path="res://Art/Spritet/Käyttöliittymä/kolariscreenlabel2.tres" id="5_sc76c"]
 [ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="6_2fxk8"]
 [ext_resource type="StyleBox" uid="uid://6vpm0rv8cbm8" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbutton.tres" id="6_j54pu"]
+[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="8_6tndo"]
 
 [sub_resource type="FontVariation" id="FontVariation_at1w4"]
 base_font = ExtResource("2_tgxe0")
 
-[node name="KolariScreenTie" type="TextureRect" node_paths=PackedStringArray("_reTryButton")]
+[node name="KolariScreenTie" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_nappiAudio")]
+z_index = 8
 offset_left = 220.0
 offset_top = 100.0
 offset_right = 420.0
@@ -20,6 +22,7 @@ texture = ExtResource("2_ciypu")
 expand_mode = 1
 script = ExtResource("1_4kcdj")
 _reTryButton = NodePath("KolariScreenController/Button")
+_nappiAudio = NodePath("NappiAudio")
 
 [node name="KolariScreenController" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -67,3 +70,7 @@ theme_override_styles/hover = ExtResource("6_2fxk8")
 theme_override_styles/pressed_mirrored = ExtResource("6_2fxk8")
 theme_override_styles/normal = ExtResource("6_j54pu")
 text = "Yritä uudelleen"
+
+[node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("8_6tndo")
