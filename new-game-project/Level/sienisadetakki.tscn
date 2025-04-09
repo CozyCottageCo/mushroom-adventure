@@ -1,9 +1,54 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3yui74bewfl2"]
+[gd_scene load_steps=42 format=3 uid="uid://c3yui74bewfl2"]
 
 [ext_resource type="Texture2D" uid="uid://h5x5qnnbnxst" path="res://Art/Spritet/Pelaaja/taplajahti_sade_player_sheet.png" id="1_qmapp"]
+[ext_resource type="Texture2D" uid="uid://dm7nvv4n07lxh" path="res://Art/Spritet/Pelaaja/sieni_tapla_sade-Sheet.png" id="1_ypp4e"]
 [ext_resource type="Script" path="res://Code/Sieni.cs" id="4_biqrb"]
 [ext_resource type="AudioStream" uid="uid://drnf1vqiqcrxr" path="res://Art/Sound/kavelyja.mp3" id="5_w3cqb"]
 [ext_resource type="Script" path="res://Code/FootStepPlayer.cs" id="6_yn2bx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eybv6"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbx3r"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(40, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16byp"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(80, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qko36"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(120, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uklfd"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(160, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn1o2"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(200, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n0tf"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(240, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g4nj"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(280, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcddb"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(320, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1xys"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(360, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7hjg"]
+atlas = ExtResource("1_ypp4e")
+region = Rect2(400, 0, 40, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uln8e"]
 atlas = ExtResource("1_qmapp")
@@ -99,10 +144,43 @@ region = Rect2(40, 92, 40, 46)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ymrr3"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eybv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbx3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16byp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qko36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uklfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn1o2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n0tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g4nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcddb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1xys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7hjg")
+}],
 "loop": true,
 "name": &"celebrate",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,8 +309,8 @@ size = Vector2(10, 11)
 
 [node name="Sieni" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ymrr3")
-animation = &"idledown"
-frame_progress = 0.404412
+animation = &"celebrate"
+frame_progress = 0.306209
 offset = Vector2(15, 0)
 script = ExtResource("4_biqrb")
 
