@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm2kbtnc4gqqo"]
+[gd_scene load_steps=7 format=3 uid="uid://dm2kbtnc4gqqo"]
 
 [ext_resource type="Script" path="res://Code/SettingsController.cs" id="1_dpt5v"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="2_jgcyt"]
 [ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="2_poq4i"]
 [ext_resource type="StyleBox" uid="uid://6vpm0rv8cbm8" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbutton.tres" id="4_rf5e2"]
 [ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="5_meods"]
+[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="6_nxd1c"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel", "confirmPanel")]
+[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel", "confirmPanel", "_openTutorial", "_tutorialPanel", "_tutorial1", "_tutorial2", "_tutorial3", "_closeTutorial")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +27,12 @@ _movementLabel = NodePath("VBoxContainer/HBoxContainer2/MovementLabel")
 _languageLabel = NodePath("VBoxContainer/HBoxContainer/LanguageLabel")
 _settingsLabel = NodePath("VBoxContainer/SettingsLabel")
 confirmPanel = NodePath("ConfirmPanel")
+_openTutorial = NodePath("Opentutorial")
+_tutorialPanel = NodePath("TutorialPanel")
+_tutorial1 = NodePath("TutorialPanel/Tutorial1")
+_tutorial2 = NodePath("TutorialPanel/Tutorial2")
+_tutorial3 = NodePath("TutorialPanel/Tutorial3")
+_closeTutorial = NodePath("TutorialPanel/Sulje")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -136,6 +143,7 @@ text = "Sulje"
 icon_alignment = 1
 
 [node name="ConfirmPanel" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 150.0
 offset_top = 87.0
@@ -202,3 +210,145 @@ theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = ExtResource("4_rf5e2")
 text = "Olen"
 icon_alignment = 1
+
+[node name="Opentutorial" type="TextureButton" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 540.0
+offset_top = 28.0
+offset_right = 740.0
+offset_bottom = 228.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("2_poq4i")
+
+[node name="Label" type="Label" parent="Opentutorial"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = -17.0
+offset_right = 139.0
+offset_bottom = 226.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 200
+text = "?"
+
+[node name="TutorialPanel" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 79.0
+offset_right = 513.0
+offset_bottom = 279.0
+texture = ExtResource("2_poq4i")
+
+[node name="Sulje" type="Button" parent="TutorialPanel"]
+process_mode = 3
+layout_mode = 2
+offset_left = 155.0
+offset_top = 155.0
+offset_right = 221.0
+offset_bottom = 197.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/hover = ExtResource("5_meods")
+theme_override_styles/pressed = ExtResource("5_meods")
+theme_override_styles/normal = ExtResource("4_rf5e2")
+text = "Sulje"
+icon_alignment = 1
+
+[node name="Tutorial1" type="Button" parent="TutorialPanel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 43.0
+offset_top = 98.0
+offset_right = 109.0
+offset_bottom = 140.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/hover = ExtResource("5_meods")
+theme_override_styles/pressed = ExtResource("5_meods")
+theme_override_styles/normal = ExtResource("4_rf5e2")
+text = "1"
+icon_alignment = 1
+
+[node name="Tutorial2" type="Button" parent="TutorialPanel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 155.0
+offset_top = 98.0
+offset_right = 221.0
+offset_bottom = 140.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/hover = ExtResource("5_meods")
+theme_override_styles/pressed = ExtResource("5_meods")
+theme_override_styles/normal = ExtResource("4_rf5e2")
+text = "2"
+icon_alignment = 1
+
+[node name="Tutorial3" type="Button" parent="TutorialPanel"]
+process_mode = 3
+layout_mode = 0
+offset_left = 271.0
+offset_top = 98.0
+offset_right = 337.0
+offset_bottom = 140.0
+scale = Vector2(0.8, 0.8)
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/hover = ExtResource("5_meods")
+theme_override_styles/pressed = ExtResource("5_meods")
+theme_override_styles/normal = ExtResource("4_rf5e2")
+text = "3"
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="TutorialPanel"]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 360.0
+offset_bottom = 51.0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 35
+text = "Tutoriaalit"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TutorialPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 57.0
+offset_right = 361.0
+offset_bottom = 101.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 20
+text = "Valitse tutoriaalivideo katsottavaksi."
+horizontal_alignment = 1
+
+[node name="TutorialScene" parent="." instance=ExtResource("6_nxd1c")]
+visible = false
+layout_mode = 0
+offset_left = 133.0
+offset_top = 74.0
+offset_right = 521.0
+offset_bottom = 283.0

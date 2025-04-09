@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bygwf1vphohws"]
+[gd_scene load_steps=44 format=4 uid="uid://bygwf1vphohws"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_w6pmj"]
 [ext_resource type="Texture2D" uid="uid://br5naq38ml8rk" path="res://Art/Spritet/Ympäristö/taplajahti_kevät.png" id="2_212db"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="18_0j8ep"]
 [ext_resource type="Texture2D" uid="uid://b12q5pgfygspe" path="res://Art/Spritet/Ympäristö/Kävelytie07.png" id="19_osneb"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_s1c42"]
+[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="22_mptau"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5ss1"]
 texture = ExtResource("2_212db")
@@ -498,5 +499,7 @@ visible = false
 position = Vector2(320, 192)
 scale = Vector2(0.529801, 0.528198)
 texture = ExtResource("19_osneb")
+
+[node name="TutorialScene" parent="." instance=ExtResource("22_mptau")]
 
 [editable path="Suojatie2"]

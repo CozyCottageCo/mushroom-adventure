@@ -23,10 +23,18 @@ public partial class SettingsController : Control
 
 	[Export] TextureRect confirmPanel = null;
 
+	[Export] TextureButton _openTutorial = null;
+	[Export] TextureRect _tutorialPanel = null;
+	[Export] Button _tutorial1 = null;
+	[Export] Button _tutorial2 = null;
+	[Export] Button _tutorial3 = null;
+	[Export] Button _closeTutorial = null;
+
 	public override void _Ready()
 	{
 		LoadSettings();
 		confirmPanel.Visible = false;
+		_tutorialPanel.Visible = false;
 		Node currentScene = GetTree().CurrentScene;
 
 
@@ -39,6 +47,11 @@ public partial class SettingsController : Control
 		_resetProgress.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetPressed)));
 		_olenVarma.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetConfirmPressed)));
 		_enOleVarma.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnResetCanceled)));
+		_openTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialOpenPressed)));
+		_tutorial1.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial1Pressed)));
+		_tutorial2.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial2Pressed)));
+		_tutorial3.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial3Pressed)));
+		_closeTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialClosePressed)));
 
 	}
 
@@ -117,6 +130,7 @@ public partial class SettingsController : Control
 	private void OnBackPressed()
 	{
 		LoadSettings();
+		_tutorialPanel.Visible = false;
 		this.Visible = false; // Hide the settings menu instead of changing the scene
     GD.Print("Settings menu hidden.");
 	}
@@ -175,6 +189,26 @@ public partial class SettingsController : Control
             GD.Print($"Movement toggle state: {isMovementToggled}");
 
             return isMovementToggled; // palautetaa liikkeelle
+	}
+
+	private void OnTutorialOpenPressed() {
+		_tutorialPanel.Visible = !_tutorialPanel.Visible;
+	}
+	private void OnTutorialClosePressed() {
+		_tutorialPanel.Visible = false;
+	}
+
+	private void OnTutorial1Pressed() {
+		var tutorial = GetNode<TutorialScene>("TutorialScene");
+            tutorial.TutorialActivated(1);
+	}
+	private void OnTutorial2Pressed() {
+		var tutorial = GetNode<TutorialScene>("TutorialScene");
+            tutorial.TutorialActivated(2);
+	}
+	private void OnTutorial3Pressed() {
+		var tutorial = GetNode<TutorialScene>("TutorialScene");
+            tutorial.TutorialActivated(3);
 	}
 
 }

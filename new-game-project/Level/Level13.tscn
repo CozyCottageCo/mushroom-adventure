@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://ieh5nu5b3m6n"]
+[gd_scene load_steps=67 format=4 uid="uid://ieh5nu5b3m6n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ceull"]
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="2_51a2x"]
@@ -22,9 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_jvjx4"]
+[ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="23_m5ba7"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="25_737fm"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="25_j7bj3"]
-[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="26_xfmt8"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="27_tmfpv"]
 [ext_resource type="Texture2D" uid="uid://cpe2k75kx143g" path="res://Art/Spritet/Ympäristö/lehdetfall13.png" id="28_l88gk"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="28_shr45"]
@@ -458,6 +458,55 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oeyfk"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_h7gle"]
+max_value = 0.3
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.465347, 0.225099), 0.0, 0.0, 0, 0, Vector2(0.891089, 0.134702), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6wsp8"]
+curve = SubResource("Curve_h7gle")
+
+[sub_resource type="Gradient" id="Gradient_uwbc4"]
+colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q8hvp"]
+gradient = SubResource("Gradient_uwbc4")
+
+[sub_resource type="Curve" id="Curve_iw5km"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_swv5k"]
+max_value = 30.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0858086, 15.0199), 124.293, 124.293, 0, 0, Vector2(0.267327, 29.2158), 0.0, 0.0, 0, 0, Vector2(0.993399, 30), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_kieil"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wyh52"]
+curve_x = SubResource("Curve_iw5km")
+curve_y = SubResource("Curve_swv5k")
+curve_z = SubResource("Curve_kieil")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_svfup"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(320, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(320, 0, 1)
+gravity = Vector3(0, 2400, 0)
+scale_min = 0.2
+scale_max = 1.5
+scale_over_velocity_curve = SubResource("CurveXYZTexture_wyh52")
+color_ramp = SubResource("GradientTexture1D_q8hvp")
+alpha_curve = SubResource("CurveTexture_6wsp8")
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ceull")
 
@@ -637,9 +686,9 @@ curve = SubResource("Curve2D_16a2i")
 position = Vector2(-10, 43)
 rotation = -0.00755273
 
-[node name="Sieni" parent="." instance=ExtResource("26_xfmt8")]
-z_index = 1
-position = Vector2(34, 323)
+[node name="Sieni" parent="." instance=ExtResource("23_m5ba7")]
+z_index = 2
+position = Vector2(33, 321)
 
 [node name="Täplä" parent="." instance=ExtResource("25_j7bj3")]
 z_index = 1
@@ -696,3 +745,12 @@ scale = Vector2(1.11194, 1.03333)
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(346.049, 1.52137, 67.9395, 120.431)
+
+[node name="Sade" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_oeyfk")
+position = Vector2(1, 2)
+amount = 80
+process_material = SubResource("ParticleProcessMaterial_svfup")
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(0, 0, 640, 360)

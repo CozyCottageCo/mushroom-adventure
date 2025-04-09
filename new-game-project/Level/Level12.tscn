@@ -10,8 +10,8 @@
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_kovmh"]
 [ext_resource type="PackedScene" uid="uid://b61ot5kwcyik5" path="res://Level/suojatievaloskene.tscn" id="7_5bm70"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_uc0xf"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="10_6shbn"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="11_wyilq"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="10_6shbn"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="11_wyilq"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="13_tgfr4"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="15_t41rs"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="16_iwb6c"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="17_jgghl"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="17_lytqy"]
 [ext_resource type="Texture2D" uid="uid://cr4d6h8qk8pcp" path="res://Art/Spritet/Ympäristö/Kävelytie12.png" id="18_08ggq"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="18_x2idk"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="18_x2idk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofr8g"]
 texture = ExtResource("2_iexua")
@@ -455,10 +455,11 @@ visible = false
 visible = false
 
 [node name="Kävelytiesprite" type="Sprite2D" parent="."]
+
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("18_x2idk")]
 visible = false
 
-[node name="KolariScreenVajaa" parent="." instance=ExtResource("18_x2idk")]
+[node name="KolariScreenVajaa2" parent="." instance=ExtResource("18_x2idk")]
 visible = false
 
 [node name="Kävelytie" type="Sprite2D" parent="."]
@@ -1131,11 +1132,12 @@ texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(256.218, 237.46, 23.5042, 24.3747)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(201, 230)
 scale = Vector2(0.804348, 0.75)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(256.218, 237.46, 23.5042, 24.3747)
+
 [editable path="Node2D"]
 [editable path="Node2D2"]

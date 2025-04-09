@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw1rbkdjgfis2"]
+
+[ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="1_j655w"]
+[ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial1.ogv" id="2_lx8un"]
+[ext_resource type="Script" path="res://Code/TutorialScene.cs" id="2_mjded"]
+[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_rs6vr"]
+[ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="4_62u81"]
+[ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial2.ogv" id="5_0yum6"]
+[ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial3.ogv" id="6_axnle"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx4se"]
+
+[sub_resource type="FontVariation" id="FontVariation_at1w4"]
+base_font = ExtResource("3_rs6vr")
+spacing_top = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a70rk"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.921569, 0.560784, 0.282353, 1)
+border_width_left = 11
+border_width_top = 5
+border_width_right = 9
+border_width_bottom = 6
+border_color = Color(0.980392, 0.752941, 0.352941, 1)
+border_blend = true
+corner_detail = 1
+
+[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player")]
+z_index = 8
+offset_left = 138.0
+offset_top = 25.0
+offset_right = 526.0
+offset_bottom = 234.0
+texture = ExtResource("1_j655w")
+script = ExtResource("2_mjded")
+_okButton = NodePath("Ok")
+tutorial1 = NodePath("Tutorial1")
+tutorial1Player = NodePath("Tutorial1/VideoStreamPlayer")
+tutorial2 = NodePath("Tutorial2")
+tutorial2Player = NodePath("Tutorial2/VideoStreamPlayer")
+tutorial3 = NodePath("Tutorial3")
+tutorial3Player = NodePath("Tutorial3/VideoStreamPlayer")
+
+[node name="Tutorial1" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 368.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gx4se")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Tutorial1"]
+process_mode = 3
+layout_mode = 0
+offset_left = 69.0
+offset_top = -3.0
+offset_right = 283.0
+offset_bottom = 111.0
+stream = ExtResource("2_lx8un")
+volume_db = -80.0
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Tutorial1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_rs6vr")
+theme_override_font_sizes/font_size = 13
+text = "Aloita piirtäminen Näsistä, ja piirrä turvallinen reitti täplien luo. Hyväksy reitti, tai valitse takaisin piirtääksesi uusi reitti."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tutorial2" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 368.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gx4se")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Tutorial2"]
+process_mode = 3
+layout_mode = 0
+offset_left = 69.0
+offset_top = -3.0
+offset_right = 283.0
+offset_bottom = 111.0
+stream = ExtResource("5_0yum6")
+volume_db = -80.0
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Tutorial2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_rs6vr")
+theme_override_font_sizes/font_size = 13
+text = "Voit pysähtyä painamalla ruutua (asetuksien valinnan mukaan.) Pysähtymällä suojatien reunaan liikenne antaa sinulle tietä."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tutorial3" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 368.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gx4se")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Tutorial3"]
+process_mode = 3
+layout_mode = 0
+offset_left = 69.0
+offset_top = -3.0
+offset_right = 283.0
+offset_bottom = 111.0
+stream = ExtResource("6_axnle")
+volume_db = -80.0
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Tutorial3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_rs6vr")
+theme_override_font_sizes/font_size = 13
+text = "Liikennevalot suojatiellä ohjaavat liikennettä. Kun valo on vihreä, jalankulkijan on turvallista ylittää tie."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Ok" type="Button" parent="."]
+process_mode = 3
+layout_mode = 2
+offset_left = 140.0
+offset_top = 170.0
+offset_right = 252.0
+offset_bottom = 201.0
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = SubResource("FontVariation_at1w4")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/hover = ExtResource("4_62u81")
+theme_override_styles/pressed = ExtResource("4_62u81")
+theme_override_styles/normal = SubResource("StyleBoxFlat_a70rk")
+text = "Ok
+"
