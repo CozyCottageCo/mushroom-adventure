@@ -13,6 +13,9 @@ namespace SieniPeli
         private bool _drawingDone = false;
 
         private Sieni _sieni;
+        [Export] AudioStreamPlayer2D _nappi1 = null;
+        [Export] AudioStreamPlayer2D _nappi2 = null;
+        [Export] AudioStreamPlayer2D _nappi3 = null;
 
         private Sprite2D _täplä;
         private Vector2I _täpläTile;
@@ -49,6 +52,8 @@ namespace SieniPeli
         private SettingsController settings = null;
         private bool toggleMode = false;
         private bool stopBool = false;
+
+
         public override void _Ready()
         {
 
@@ -325,6 +330,7 @@ namespace SieniPeli
         }
 
         private void OnGoButtonPressed() { // kun go nappia painettu, liikutaan
+            _nappi1.Play();
             GD.Print("Go chosen! Sieni is moving...");
             _sieni?.Move(tilesUsed.ToArray()); // reitti parametrina sienen liikutuksel (en ees tie mitä toi ? tekee)
             _goButton.Visible = false;
@@ -333,6 +339,7 @@ namespace SieniPeli
         }
 
         private void OnRedoButtonPressed() { // kun redo nappia painetaan, reset kaikki, napit piiloon taas
+            _nappi2.Play();
             GD.Print("Redo needed! Resetting...");
             tilesUsed.Clear();
             tilesUsed.AddRange(savedPath);
@@ -412,14 +419,18 @@ namespace SieniPeli
             }
         }
 
-        public void OnMenuButtonPressed() { // menunappia painettaes paneeli näkyvii
+        public async void OnMenuButtonPressed() { // menunappia painettaes paneeli näkyvii
         if (_menuPanel != null)
             {
                 _menuPanel.Visible = !_menuPanel.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_menuPanel.Visible == true) {
+                    _nappi3.Play();
+                    await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
                     GetTree().Paused = true;
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
+                    _nappi2.Play();
+                    await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
                     GetTree().Paused = false;
                     _buttonsVisible = false;
                 }

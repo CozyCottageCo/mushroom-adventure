@@ -16,6 +16,9 @@ private LevelSelectionController levelSelectionController;
 private Touch _touch = null; // tää on vaa touch.cs alustus
 
 private SettingsController settings = null;
+
+[Export] AudioStreamPlayer2D _nappiAudio = null;
+[Export] AudioStreamPlayer2D _nappiAudio2 = null;
 public override void _Ready() {
 {
 	 settings = GetNode<SettingsController>("/root/SettingsController");
@@ -67,7 +70,9 @@ public override void _Ready() {
 
 
 
-	private void OnAsetuksetPressed() {
+	private async void OnAsetuksetPressed() {
+		_nappiAudio.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		GD.Print("Asetukset pressed");
 		 Control settingsMenu = GetNode<Control>("Settings"); // Make sure the node path matches
 		if (settingsMenu != null) {
@@ -78,7 +83,9 @@ public override void _Ready() {
 	}
 
 
-	private void OnTasoValikkoonPressed() {
+	private async void OnTasoValikkoonPressed() {
+		_nappiAudio2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		GD.Print("Tasovalik pressed");
 		GetTree().Paused = false;
 		string currentScenePath = GetTree().CurrentScene.SceneFilePath; // Get full path

@@ -46,6 +46,11 @@ namespace SieniPeli {
         private Vector2 _turnDirection;
         private bool printed = false;
 
+        private Area2D detectionAreaLong = null;
+        private Area2D detectionAreaShort = null;
+        private Area2D detectionAreaFront = null;
+        private Area2D collisionArea = null;
+
         public bool blockedByLight = false;
 
         public override void _Ready() {
@@ -73,10 +78,10 @@ namespace SieniPeli {
 
              GD.Print($"{this.Name} Initial Direction: ", _initialDirectionSaved);
 
-            var detectionAreaLong = GetNode<Area2D>("DetectionArea2DLong");
-            var detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
-            var detectionAreaFront = GetNode<Area2D>("DetectionArea2DFront");
-            var collisionArea = GetNode<Area2D>("CollisionArea2D");
+            detectionAreaLong = GetNode<Area2D>("DetectionArea2DLong");
+            detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
+            detectionAreaFront = GetNode<Area2D>("DetectionArea2DFront");
+            collisionArea = GetNode<Area2D>("CollisionArea2D");
             // Signal connections for area detection
             detectionAreaLong.AreaEntered += OnLongRangeEntered;
             detectionAreaLong.AreaExited += OnLongRangeExited;
@@ -112,18 +117,11 @@ namespace SieniPeli {
 
         }
 
-        if ((this.Name == "Alasoikea") && !printed){
+
+       // if ((this.Name == "Alasoikea") && !printed){
       // GD.Print(_direction, GetDirectionAsString(_direction));
         printed = true;
-        }
-
-
-
-
-
-    // Flip the sprite vertically if the path moves down (negative y _direction)
-GetNode<Sprite2D>("Sprite2D").FlipV = _direction.Y > 0;
-GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
+      //  }
 
          previousPosition = Position;
 
@@ -140,12 +138,13 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             }
             stopTime = 0f;
             Move((float)delta);
+            PlayAnimation(GetDirectionAsString(_direction), currentSpeed);
 
 
         }
 
         protected virtual void Move(float delta) {
-            if (blockedByFront != "") {
+            if (blockedByFront != "" && Mathf.Abs(ProgressRatio) > 0.1f) {
                 return;
             }
             if (approachingRisteys) {
@@ -183,6 +182,59 @@ GetNode<Sprite2D>("Sprite2D").FlipV = _direction.X < 0;
             }
         stopTime = 0f;
         }
+
+        private void PlayAnimation(string direction, float speed) {
+            AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+            GD.Print(direction);
+            sprite.FlipH = false;
+            sprite.FlipV = false;
+            sprite.RotationDegrees = 0;
+
+            if (speed == 0)
+                {
+                    // Play the stop animation based on the direction
+                    switch (direction)
+                    {
+                        case "Right":
+                            sprite.Play("Stopright");
+                            break;
+                        case "Left":
+                            sprite.Play("Stopleft");
+                            break;
+                        case "Down":
+                            sprite.Play("Stopdown");
+                            break;
+                        case "Up":
+                            sprite.Play("Stopup");
+                            break;
+                    }
+                }
+                else
+                {
+                    // Play the walk animation based on the direction
+                    switch (direction)
+                    {
+                        case "Right":
+                            sprite.Play("Walkright");
+                            sprite.FlipH = true;
+                            break;
+                        case "Left":
+                           sprite.Play("Walkleft");
+                            sprite.FlipH = true;
+                           sprite.FlipV = true;
+                            break;
+                        case "Down":
+                            sprite.Play("Walkdown");
+                            sprite.FlipV = true;
+                            sprite.RotationDegrees = 90;
+                            break;
+                        case "Up":
+                            sprite.Play("Walkup");
+                            sprite.RotationDegrees = -90;
+                            break;
+                    }
+                }
+            }
 
         private void OnLongRangeEntered(Node body) {
             string areaName = body.Name;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bqgotk2sq8uh2"]
+[gd_scene load_steps=43 format=4 uid="uid://bqgotk2sq8uh2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_gqkh4"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_mtntk"]
@@ -23,6 +23,12 @@
 [ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
 [ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
 [ext_resource type="PackedScene" path="res://Level/TutorialScene.tscn" id="23_mq58m"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
+[ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
+[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="23_mq58m"]
+[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="24_3mpe8"]
+[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="25_b10jg"]
+[ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="26_ldqhs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5jl1"]
 texture = ExtResource("2_qhktc")
@@ -270,8 +276,11 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("8_7f3yq")
 region = Rect2(192, 0, 64, 64)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3")]
 script = ExtResource("1_gqkh4")
+_nappi1 = NodePath("NappiAudio")
+_nappi2 = NodePath("NappiAudio2")
+_nappi3 = NodePath("NappiAudio3")
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("2_mtntk")]
 
@@ -383,10 +392,6 @@ texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_yvvla")
-
-[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("19_alm4q")]
-position = Vector2(654, 202)
-rotation = -3.13863
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("15_f64ck")]
 visible = false
@@ -626,3 +631,12 @@ region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 
 [node name="TutorialScene" parent="." instance=ExtResource("23_mq58m")]
 visible = false
+
+[node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_3mpe8")
+
+[node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_b10jg")
+
+[node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_ldqhs")

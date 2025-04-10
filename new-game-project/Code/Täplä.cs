@@ -11,6 +11,7 @@ private AnimationPlayer _animationPlayer;
 
 private Sieni _sieni;
 private Touch _touch = null;
+[Export] AudioStreamPlayer2D _voittoAudio = null;
 	public override void _Ready()
 	{
 		base._Ready();
@@ -37,7 +38,9 @@ private Touch _touch = null;
             GD.Print("Täplä löydetty!");
 			_sieni.atTäplä = true;
 			_sieni.controlSpeed(0);
+
 			_sieni.Celebrate();
+			_voittoAudio.Play();
 			string currentLevelPath = GetTree().CurrentScene.SceneFilePath;
 			string currentLevel = currentLevelPath.GetFile().GetBaseName(); //katotaan tason nimi missä ollaan
 			var saveManager = GetNode<SaveManager>("/root/SaveManager");

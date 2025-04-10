@@ -15,6 +15,9 @@ namespace SieniPeli
         [Export] private TextureButton _eteenpäinButton = null;
         [Export] private TextureButton _takaisinpäinButton = null;
 		[Export] private TextureButton _mainMenuButton = null;
+        [Export] private AudioStreamPlayer2D _nappi1 = null;
+        [Export] private AudioStreamPlayer2D _nappi2 = null;
+        [Export] private AudioStreamPlayer2D _nappi3 = null;
 
         private SceneTree _levelSelectSceneTree = null;
         public string currentScreen = "";
@@ -60,7 +63,7 @@ namespace SieniPeli
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
         }
 
-        private void OnButtonPressed(TextureButton button) // saa parametrinä sen tietyn napin nimen nääs
+        private async void OnButtonPressed(TextureButton button) // saa parametrinä sen tietyn napin nimen nääs
         {
             if (button == null)
             {
@@ -73,6 +76,8 @@ namespace SieniPeli
 
             if (buttonName.StartsWith("Taso")) // tarkistetaan mitä nappia painettu
             {
+                _nappi1.Play();
+                await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
                 string chosenLevel = buttonName.Replace("Taso", ""); //otetaan kaikki paitsi numero pois
                 if (int.TryParse(chosenLevel, out int levelNumber)) // muutetaan intiksi
                 {
@@ -85,6 +90,8 @@ namespace SieniPeli
             }
             else if (buttonName == "Eteenpäin") // jos nappi on eteenpäin
             {
+                _nappi3.Play();
+                await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 				currentScreen = this.Name; // katsotaan tämän scenen nimi
 				string screenNumber = currentScreen.Replace("LevelSelect", ""); // kaikki paitsi nro pois (LevelSelect1) -> 1
 				if (int.TryParse(screenNumber, out int thisScreenNumber)) { // intiksi
@@ -93,6 +100,8 @@ namespace SieniPeli
             }
             else if (buttonName == "Takaisinpäin") // sama takaisinpäin (1. scenessä ei ole takaisinpäin nappia, ei ongelmaa)
             {
+                _nappi3.Play();
+                await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 				currentScreen = this.Name;
 				string screenNumber = currentScreen.Replace("LevelSelect", "");
 				if (int.TryParse(screenNumber, out int thisScreenNumber)) {
@@ -117,7 +126,9 @@ namespace SieniPeli
             _levelSelectSceneTree.ChangeSceneToFile(levelSelectPath); // ja skene vaihtuu
         }
 
-		private void MainMenuPressed() { // tietysti main menuun takaisin
+		private async void MainMenuPressed() { // tietysti main menuun takaisin
+            _nappi2.Play();
+            await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 			string mainMenuPath = "res://Level/MainMenu.tscn";
 			_levelSelectSceneTree.ChangeSceneToFile(mainMenuPath);
 		}

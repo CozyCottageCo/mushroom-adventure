@@ -1,73 +1,73 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsjalxwejwv1a"]
+[gd_scene load_steps=22 format=3 uid="uid://c5yselgnvei7b"]
 
-[ext_resource type="Texture2D" uid="uid://bmkgg8rdqgrqm" path="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/tileset_muurahainen pysty 30x59, sivu 31x59.png" id="1_2o0s8"]
-[ext_resource type="Script" path="res://Code/Muurahainen.cs" id="1_t2ct4"]
+[ext_resource type="Script" path="res://Code/Muurahainen.cs" id="1_eqgsl"]
+[ext_resource type="Texture2D" uid="uid://bmkgg8rdqgrqm" path="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/tileset_muurahainen pysty 30x59, sivu 31x59.png" id="2_01udo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pij11"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(30, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e4536"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(59, 0, 59, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk8eo"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(59, 0, 59, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lbnc"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(30, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgmcf"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(0, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oe2na"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(30, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpaiq"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(60, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4xgi5"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(90, 31, 30, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6fhi"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(0, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu362"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(59, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2cc7h"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(118, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8dg3"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(177, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uijoj"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(0, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0hs6m"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(59, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2oie"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(118, 0, 59, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48v4y"]
-atlas = ExtResource("1_2o0s8")
+atlas = ExtResource("2_01udo")
 region = Rect2(177, 0, 59, 31)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_chq3s"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjiop"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -195,10 +195,10 @@ size = Vector2(54, 20)
 size = Vector2(33.5, 11)
 
 [node name="Muurahainen" type="PathFollow2D"]
-script = ExtResource("1_t2ct4")
+script = ExtResource("1_eqgsl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_chq3s")
+sprite_frames = SubResource("SpriteFrames_kjiop")
 animation = &"Stopleft"
 flip_h = true
 
