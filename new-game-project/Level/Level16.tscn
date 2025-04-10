@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="9_x118b"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="10_yu632"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="11_cbbbw"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="12_snsf1"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="13_7pl8q"]
-[ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="15_2p3e2"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="12_snsf1"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="13_7pl8q"]
+[ext_resource type="PackedScene" path="res://Level/sienisadetakki.tscn" id="15_2p3e2"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="18_vc703"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_txrux"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_txrux"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_wstr2"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="20_ncwuk"]
 [ext_resource type="Texture2D" uid="uid://dx74or157b18" path="res://Art/Spritet/Ympäristö/lehdetfall16.png" id="20_x5u4s"]
@@ -613,6 +613,7 @@ scale = Vector2(0.702525, 0.703297)
 texture = ExtResource("20_x5u4s")
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f2u20")

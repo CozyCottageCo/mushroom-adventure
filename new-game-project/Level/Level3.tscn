@@ -13,17 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_u7sgb"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="11_j3mtf"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="12_m7esm"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_3je1j"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="14_3je1j"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_bu3od"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_f2y5d"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="17_vm86f"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="17_vm86f"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_a7x4a"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_1y76j"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_3pnlq"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_6a5i0"]
 [ext_resource type="Texture2D" uid="uid://beby2gx8glwrq" path="res://Art/Spritet/Ympäristö/Kävelytie03.png" id="22_4e2s0"]
 [ext_resource type="Texture2D" uid="uid://cnjp71dybecdf" path="res://Art/Spritet/Pelaaja/sieni_victory-Sheet.png" id="22_eu3bp"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="22_hie3l"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="22_hie3l"]
 [ext_resource type="Texture2D" uid="uid://dm13chg5nfy3t" path="res://Art/Spritet/Pelaaja/sieni_idle_atlas.png" id="23_32wso"]
 [ext_resource type="Texture2D" uid="uid://bdh6rgpjs24p1" path="res://Art/Spritet/Pelaaja/taplajahti_player_sheet.png" id="24_2m3bm"]
 
@@ -801,6 +801,7 @@ position = Vector2(465, 79)
 z_index = 1
 position = Vector2(480, 298)
 sprite_frames = SubResource("SpriteFrames_4ulul")
+frame_progress = 0.0
 
 [node name="VoittoScreen" parent="." instance=ExtResource("22_hie3l")]
 visible = false

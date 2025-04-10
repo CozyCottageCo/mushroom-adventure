@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://brtxc0xxn8tth" path="res://Art/Spritet/Ympäristö/Kävelytie11.png" id="6_a78uv"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_dnsjr"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_0bsaj"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="10_4ekpy"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="10_4ekpy"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="13_v1yqv"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="14_h8i4q"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="14_h8i4q"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="14_vsh1j"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="15_2ubuy"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="15_q6hfu"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="15_r8o1o"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="15_r8o1o"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_e72cq"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="16_pfyx7"]
 
@@ -483,8 +483,8 @@ region_rect = Rect2(584.037, 180.009, 22.1782, 30.1251)
 
 [node name="mänty" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(247, 182)
-scale = Vector2(0.901639, 0.912162)
+position = Vector2(242.5, 182.25)
+scale = Vector2(0.827869, 0.908784)
 texture = ExtResource("13_v1yqv")
 region_enabled = true
 region_rect = Rect2(111, 0, 122, 148)
@@ -654,7 +654,7 @@ region_enabled = true
 region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
 
 [node name="puska14" type="Sprite2D" parent="."]
-position = Vector2(109, 198)
+position = Vector2(125, 210)
 scale = Vector2(0.913793, 0.74)
 texture = ExtResource("13_v1yqv")
 region_enabled = true
@@ -904,7 +904,7 @@ region_enabled = true
 region_rect = Rect2(239.494, 265.105, 27.2288, 25.2011)
 
 [node name="kukkakeltane10" type="Sprite2D" parent="."]
-position = Vector2(114, 187)
+position = Vector2(114, 192)
 texture = ExtResource("13_v1yqv")
 region_enabled = true
 region_rect = Rect2(239.494, 265.105, 27.2288, 25.2011)

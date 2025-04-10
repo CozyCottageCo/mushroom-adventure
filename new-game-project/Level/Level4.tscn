@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bs16k12eteeal"]
+[gd_scene load_steps=46 format=4 uid="uid://bs16k12eteeal"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_vsax5"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_neclt"]
@@ -13,16 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="11_0kgf6"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="12_pd5r0"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="13_ttans"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_8cpph"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="15_5tfjf"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="14_8cpph"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="15_5tfjf"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="19_h4fc1"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_mq05g"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="20_ljbj7"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="20_x6rg3"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="21_8vh2d"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="21_sjeqe"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_jjyii"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="22_jjyii"]
 [ext_resource type="Texture2D" uid="uid://b6obl7unk7gti" path="res://Art/Spritet/Ympäristö/Kävelytie04.png" id="22_qsyd0"]
+[ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="24_l1w7a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("3_klv4t")
@@ -675,7 +676,6 @@ region_rect = Rect2(448.07, 282.218, 50.1125, 24.9114)
 
 [node name="penkki" type="Sprite2D" parent="."]
 position = Vector2(69, 55)
-scale = Vector2(1, 1)
 texture = ExtResource("19_h4fc1")
 region_enabled = true
 region_rect = Rect2(454.441, 321.155, 46.3468, 27.5184)
@@ -693,3 +693,11 @@ scale = Vector2(0.792683, 0.791667)
 texture = ExtResource("19_h4fc1")
 region_enabled = true
 region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
+
+[node name="poro" type="Sprite2D" parent="."]
+position = Vector2(553, 98)
+rotation = 0.122173
+scale = Vector2(0.990001, 1)
+texture = ExtResource("24_l1w7a")
+region_enabled = true
+region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)

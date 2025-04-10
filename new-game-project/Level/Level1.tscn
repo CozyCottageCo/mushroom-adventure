@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://bjqvgfr4ddcbe"]
+[gd_scene load_steps=35 format=4 uid="uid://bjqvgfr4ddcbe"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_x6cg6"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_j8vqx"]
@@ -12,14 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://di2l0ubsu5nbt" path="res://Art/Spritet/Ympäristö/Kävelytie01.png" id="8_kckyk"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="9_hot0d"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="10_ruqge"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_vn1wx"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="14_sqd70"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="12_dtl56"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="13_vn1wx"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="14_sqd70"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="16_t6t44"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_3h71i"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_nt7hn"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_nw2sx"]
-[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="19_2neot"]
+[ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="20_lyqhc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("2_j8vqx")
@@ -232,7 +232,7 @@ modulate = Color(1, 1, 1, 0.0980392)
 
 [node name="Redo" type="Button" parent="."]
 visible = false
-z_index = 4
+z_index = 2
 offset_left = 8.0
 offset_top = 310.0
 offset_right = 80.0
@@ -248,7 +248,7 @@ expand_icon = true
 
 [node name="Go" type="Button" parent="."]
 visible = false
-z_index = 4
+z_index = 2
 custom_minimum_size = Vector2(40, 30)
 offset_left = 583.0
 offset_top = 309.0
@@ -271,37 +271,37 @@ texture = ExtResource("8_kckyk")
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(91, 179)
-scale = Vector2(0.644531, 0.804687)
+position = Vector2(73, 136.438)
+scale = Vector2(0.447266, 0.388672)
 texture = ExtResource("7_1jbtl")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D8"]
-position = Vector2(-57.4061, 38.5243)
+position = Vector2(-100.611, 43.6148)
 scale = Vector2(1.22257, 0.764192)
 texture = ExtResource("7_1jbtl")
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(41, 159)
-scale = Vector2(0.875, 1)
+position = Vector2(34, 119)
+scale = Vector2(0.640625, 0.710937)
 texture = ExtResource("8_hfs3k")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(40.75, 31)
-scale = Vector2(0.882812, 1)
+position = Vector2(34, 24)
+scale = Vector2(0.648437, 0.765625)
 texture = ExtResource("9_hot0d")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(40.75, 95)
-scale = Vector2(0.882813, 1)
+position = Vector2(34, 72)
+scale = Vector2(0.648438, 0.765625)
 texture = ExtResource("10_ruqge")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
@@ -331,7 +331,6 @@ visible = false
 [node name="Täplä" parent="." instance=ExtResource("17_3h71i")]
 z_index = 1
 position = Vector2(389, 56)
-position = Vector2(496, 79)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
@@ -411,20 +410,21 @@ region_enabled = true
 region_rect = Rect2(88.0836, 151.29, 78.8831, 110.267)
 
 [node name="koivu" type="Sprite2D" parent="."]
-position = Vector2(97, 273)
+position = Vector2(35, 287)
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(265.005, -2.99953, 73.0009, 149.002)
 
 [node name="koivu2" type="Sprite2D" parent="."]
-position = Vector2(42, 313)
+position = Vector2(94, 242)
 scale = Vector2(0.773973, 0.694631)
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(265.005, -2.99953, 73.0009, 149.002)
 
 [node name="kivi" type="Sprite2D" parent="."]
-position = Vector2(57, 360)
+position = Vector2(77, 348)
+scale = Vector2(0.743902, 0.75)
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
@@ -437,8 +437,8 @@ region_enabled = true
 region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
 
 [node name="kivi2" type="Sprite2D" parent="."]
-position = Vector2(115, 347)
-scale = Vector2(0.817073, 0.75)
+position = Vector2(55.625, 356)
+scale = Vector2(0.79878, 0.833332)
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
@@ -447,6 +447,16 @@ region_rect = Rect2(304.476, 215.08, 41.5479, 24.6409)
 z_index = 1
 position = Vector2(629, 105)
 rotation = 0.10857
+scale = Vector2(0.889432, 1.01512)
+skew = 0.00996828
+texture = ExtResource("18_nt7hn")
+region_enabled = true
+region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
+
+[node name="klapi4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(76.0001, 325)
+rotation = -0.1309
 scale = Vector2(0.889432, 1.01512)
 skew = 0.00996828
 texture = ExtResource("18_nt7hn")
@@ -462,7 +472,31 @@ skew = 0.00996828
 texture = ExtResource("18_nt7hn")
 region_enabled = true
 region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
-position = Vector2(161, 299)
 
-[node name="TutorialScene" parent="." instance=ExtResource("19_2neot")]
-visible = false
+[node name="poro" type="Sprite2D" parent="."]
+position = Vector2(567.75, 105)
+scale = Vector2(0.990001, 1)
+texture = ExtResource("20_lyqhc")
+region_enabled = true
+region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)
+
+[node name="poro2" type="Sprite2D" parent="."]
+position = Vector2(64, 32)
+scale = Vector2(0.94, 0.958333)
+texture = ExtResource("20_lyqhc")
+region_enabled = true
+region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)
+
+[node name="poro3" type="Sprite2D" parent="."]
+position = Vector2(106.625, 42)
+scale = Vector2(0.545, 0.5)
+texture = ExtResource("20_lyqhc")
+region_enabled = true
+region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)
+
+[node name="poro4" type="Sprite2D" parent="."]
+position = Vector2(126, 30)
+scale = Vector2(0.61, 0.583333)
+texture = ExtResource("20_lyqhc")
+region_enabled = true
+region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)
