@@ -10,24 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://boj5c2d3h4325" path="res://Art/Spritet/Ympäristö/firefly.png" id="7_158ww"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="7_hs53e"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="8_g7hoq"]
-[ext_resource type="PackedScene" path="res://Level/suojatievaloskene.tscn" id="9_1j8dw"]
+[ext_resource type="PackedScene" uid="uid://b61ot5kwcyik5" path="res://Level/suojatievaloskene.tscn" id="9_1j8dw"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_nhqq2"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="12_ejmjd"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="13_fhgai"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="12_ejmjd"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_fhgai"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="15_luii4"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="16_67lkm"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="17_378yx"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_l18mr"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="18_v5oxk"]
 [ext_resource type="Texture2D" uid="uid://dnpxhyi70jeq3" path="res://Art/Spritet/Ympäristö/Kävelytie08.png" id="19_sathg"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_x5mdw"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_x5mdw"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="22_rpdia"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_4iuu5"]
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="24_iubis"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_x5mdw"]
-[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="22_bhb82"]
-[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="23_dso8d"]
-[ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="24_cm8tv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ox8db"]
 texture = ExtResource("2_amp5l")
@@ -459,11 +455,8 @@ _data = {
 }
 point_count = 3
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3")]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_c07gc")
-_nappi1 = NodePath("NappiAudio")
-_nappi2 = NodePath("NappiAudio2")
-_nappi3 = NodePath("NappiAudio3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -936,14 +929,6 @@ scale = Vector2(0.299317, 0.22168)
 texture = ExtResource("24_iubis")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
-[node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_bhb82")
-
-[node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("23_dso8d")
-
-[node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("24_cm8tv")
 
 [editable path="Node2D"]
 [editable path="Node2D2"]

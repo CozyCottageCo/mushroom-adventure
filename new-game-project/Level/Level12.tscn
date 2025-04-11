@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://1bpe3jgbq5kn"]
+[gd_scene load_steps=45 format=4 uid="uid://1bpe3jgbq5kn"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_jplb2"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_cc0b1"]
@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://boj5c2d3h4325" path="res://Art/Spritet/Ympäristö/firefly.png" id="5_a3sru"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="5_eb86b"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_kovmh"]
-[ext_resource type="PackedScene" path="res://Level/suojatievaloskene.tscn" id="7_5bm70"]
+[ext_resource type="PackedScene" uid="uid://b61ot5kwcyik5" path="res://Level/suojatievaloskene.tscn" id="7_5bm70"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_uc0xf"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="10_6shbn"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="11_wyilq"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="10_6shbn"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="11_wyilq"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="13_tgfr4"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="15_t41rs"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="16_iwb6c"]
@@ -19,10 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="17_jgghl"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="17_lytqy"]
 [ext_resource type="Texture2D" uid="uid://cr4d6h8qk8pcp" path="res://Art/Spritet/Ympäristö/Kävelytie12.png" id="18_08ggq"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="18_x2idk"]
-[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="21_qi3iu"]
-[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="22_j21oc"]
-[ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="23_gi20w"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="18_x2idk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofr8g"]
 texture = ExtResource("2_iexua")
@@ -279,7 +276,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_jplb2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -400,7 +397,6 @@ region_enabled = true
 region_rect = Rect2(192, 302, 57, 56)
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kgfp3")
@@ -833,20 +829,18 @@ texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(244.616, 267.138, 18.7993, 22.6229)
 
-[node name="hive2" type="Sprite2D" parent="."]
-position = Vector2(627.375, 318.625)
-scale = Vector2(0.620968, 0.669354)
+[node name="hive" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(526, 32)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
-region_rect = Rect2(290.228, 273.485, 31.431, 31.5339)
+region_rect = Rect2(296.502, 282.378, 23.2527, 20.4209)
 
-[node name="hive3" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(531, 32)
-scale = Vector2(0.620968, 0.669354)
+[node name="hive2" type="Sprite2D" parent="."]
+position = Vector2(622, 325)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
-region_rect = Rect2(290.228, 273.485, 31.431, 31.5339)
+region_rect = Rect2(296.502, 282.378, 23.2527, 20.4209)
 
 [node name="pörriäiset" type="Sprite2D" parent="."]
 position = Vector2(582, 38)
@@ -1144,15 +1138,6 @@ scale = Vector2(0.804348, 0.75)
 texture = ExtResource("13_tgfr4")
 region_enabled = true
 region_rect = Rect2(256.218, 237.46, 23.5042, 24.3747)
-
-[node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("21_qi3iu")
-
-[node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("22_j21oc")
-
-[node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("23_gi20w")
 
 [editable path="Node2D"]
 [editable path="Node2D2"]
