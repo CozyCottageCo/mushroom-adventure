@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://ieh5nu5b3m6n"]
+[gd_scene load_steps=71 format=4 uid="uid://ieh5nu5b3m6n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ceull"]
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="2_51a2x"]
@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="13_81ocd"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="14_qglwb"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="15_in1fh"]
-[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
-[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
+[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
+[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_jvjx4"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="23_m5ba7"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="25_737fm"]
@@ -28,11 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="27_tmfpv"]
 [ext_resource type="Texture2D" uid="uid://cpe2k75kx143g" path="res://Art/Spritet/Ympäristö/lehdetfall13.png" id="28_l88gk"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="28_shr45"]
-[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="29_lkr5p"]
-[ext_resource type="PackedScene" uid="uid://5yc71l024jx8" path="res://Level/KolariScreenVesi.tscn" id="30_qh3bc"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="29_lkr5p"]
+[ext_resource type="PackedScene" path="res://Level/KolariScreenVesi.tscn" id="30_qh3bc"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="31_h5n3i"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="32_r0rk2"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="33_kjyp0"]
+[ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="34_oea58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbsyq"]
 texture = ExtResource("2_51a2x")
@@ -510,11 +511,8 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_wyh52")
 color_ramp = SubResource("GradientTexture1D_q8hvp")
 alpha_curve = SubResource("CurveTexture_6wsp8")
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3")]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_ceull")
-_nappi1 = NodePath("NappiAudio")
-_nappi2 = NodePath("NappiAudio2")
-_nappi3 = NodePath("NappiAudio3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -592,31 +590,66 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="töppä" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(446, 115)
-scale = Vector2(0.78125, 0.421875)
+position = Vector2(193, 132)
+scale = Vector2(0.421875, 0.210938)
+texture = ExtResource("12_tgxjd")
+flip_h = true
+region_rect = Rect2(352, 350, 66, 38)
+
+[node name="töppä2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(77, 112)
+scale = Vector2(0.226562, 0.210938)
+texture = ExtResource("12_tgxjd")
+flip_h = true
+region_rect = Rect2(352, 350, 66, 38)
+
+[node name="töppä3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(63, 183)
+scale = Vector2(0.226562, 0.210938)
+texture = ExtResource("12_tgxjd")
+flip_h = true
+region_rect = Rect2(352, 350, 66, 38)
+
+[node name="töppä4" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(261, 74)
+scale = Vector2(0.226562, 0.210938)
+texture = ExtResource("12_tgxjd")
+flip_h = true
+region_rect = Rect2(352, 350, 66, 38)
+
+[node name="töppä5" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(379, 75)
+scale = Vector2(0.175781, 0.152344)
 texture = ExtResource("12_tgxjd")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(65, 127)
+z_index = 2
+position = Vector2(34, 128)
+scale = Vector2(0.640625, 0.828125)
 texture = ExtResource("13_81ocd")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(65, -1)
+z_index = 2
+position = Vector2(34, 23)
+scale = Vector2(0.640625, 0.78125)
 texture = ExtResource("14_qglwb")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(65, 63)
+z_index = 2
+position = Vector2(34, 75)
+scale = Vector2(0.644531, 0.859375)
 texture = ExtResource("15_in1fh")
 flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
@@ -632,6 +665,7 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("20_g0eho")]
+visible = false
 
 [node name="Label" type="Label" parent="."]
 offset_left = 471.0
@@ -642,8 +676,10 @@ text = "Kauppakeskus Ratina
 "
 
 [node name="VoittoScreen" parent="." instance=ExtResource("21_oblwk")]
+visible = false
 
 [node name="Reitit" type="Node2D" parent="."]
+visible = false
 position = Vector2(2, 7)
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
@@ -741,12 +777,15 @@ visible = false
 visible = false
 
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("29_lkr5p")]
+visible = false
 
 [node name="KolariScreenVesi" parent="." instance=ExtResource("30_qh3bc")]
+visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(585, 60)
-scale = Vector2(1.11194, 1.03333)
+z_index = 2
+position = Vector2(567, 48)
+scale = Vector2(0.958954, 0.908332)
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(346.049, 1.52137, 67.9395, 120.431)
@@ -768,3 +807,368 @@ stream = ExtResource("32_r0rk2")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("33_kjyp0")
+
+[node name="kuusi7" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(219.487, 55.0655)
+scale = Vector2(0.741277, 0.639756)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi13" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(242, 120)
+scale = Vector2(0.634683, 0.538365)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi16" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(444, 77)
+scale = Vector2(0.634683, 0.538365)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi11" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(179.487, 73.0655)
+scale = Vector2(0.864872, 0.816227)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi12" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-1, 66)
+scale = Vector2(0.864872, 0.816227)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi14" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(76, 62)
+scale = Vector2(0.645919, 0.651811)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi15" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(59, 136)
+scale = Vector2(0.704982, 0.670443)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="Tyhjäkoivu" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(616, 33)
+scale = Vector2(1, 0.808219)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(267.547, -2.09044, 70.1674, 146.985)
+
+[node name="koivuoran2" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(616, 171)
+scale = Vector2(0.889925, 0.818749)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(346.049, 1.52137, 67.9395, 120.431)
+
+[node name="koivu" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(537, 219)
+scale = Vector2(0.771429, 0.867521)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(501.912, -1.27239, 70.0186, 117.255)
+
+[node name="koivu3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(629, 95)
+scale = Vector2(0.957143, 0.895299)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(501.912, -1.27239, 70.0186, 117.255)
+
+[node name="kuusi8" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(19, 96)
+scale = Vector2(0.741277, 0.639756)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi17" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(410, 56)
+scale = Vector2(0.634683, 0.538365)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="kuusi18" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(17, 153)
+scale = Vector2(0.864872, 0.816227)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
+
+[node name="puu2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(201, 254)
+scale = Vector2(0.666853, 0.694295)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(-2.10211, 153.38, 77.1981, 119.79)
+
+[node name="puu3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(247, 213)
+scale = Vector2(0.666853, 0.694295)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(-2.10211, 153.38, 77.1981, 119.79)
+
+[node name="loggers" type="Sprite2D" parent="."]
+position = Vector2(232, 93)
+rotation = -0.127409
+scale = Vector2(0.721963, 0.749387)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
+
+[node name="loggers2" type="Sprite2D" parent="."]
+position = Vector2(58, 99)
+rotation = -0.127409
+scale = Vector2(0.721963, 0.749387)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
+
+[node name="loggers3" type="Sprite2D" parent="."]
+position = Vector2(17, 207)
+rotation = 0.232129
+scale = Vector2(0.721963, 0.749387)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
+
+[node name="puu4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(324, 323)
+scale = Vector2(0.677319, 0.703768)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(113.501, -2.09979, 116.9, 147.503)
+
+[node name="penkki" type="Sprite2D" parent="."]
+position = Vector2(371, 338)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(452.255, 324.929, 50.1209, 22.7472)
+
+[node name="hive" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(230, 235)
+scale = Vector2(0.5, 0.530303)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(288.069, 273.012, 36.0078, 33.4358)
+
+[node name="kivi2" type="Sprite2D" parent="."]
+position = Vector2(581.125, 78)
+scale = Vector2(0.698981, 0.759259)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="kivi3" type="Sprite2D" parent="."]
+position = Vector2(620, 112)
+scale = Vector2(0.637755, 0.759259)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="kivi4" type="Sprite2D" parent="."]
+position = Vector2(632, 192)
+scale = Vector2(0.637755, 0.759259)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="kivi5" type="Sprite2D" parent="."]
+position = Vector2(422, 91)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="kivi6" type="Sprite2D" parent="."]
+position = Vector2(214, 278)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="kivi7" type="Sprite2D" parent="."]
+position = Vector2(172, 122)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(365.492, 219.065, 49.0693, 27.4024)
+
+[node name="puska3" type="Sprite2D" parent="."]
+position = Vector2(241, 250)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska8" type="Sprite2D" parent="."]
+position = Vector2(191, 308)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska9" type="Sprite2D" parent="."]
+position = Vector2(314, 344)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska10" type="Sprite2D" parent="."]
+position = Vector2(305, 358)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska11" type="Sprite2D" parent="."]
+position = Vector2(330, 342)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska12" type="Sprite2D" parent="."]
+position = Vector2(343, 333)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska13" type="Sprite2D" parent="."]
+position = Vector2(634, 199)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska14" type="Sprite2D" parent="."]
+position = Vector2(619, 218)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska15" type="Sprite2D" parent="."]
+position = Vector2(632, 212)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska16" type="Sprite2D" parent="."]
+position = Vector2(639, 177)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska17" type="Sprite2D" parent="."]
+position = Vector2(547, 241)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska18" type="Sprite2D" parent="."]
+position = Vector2(517.561, 255.262)
+scale = Vector2(0.650994, 0.740926)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska19" type="Sprite2D" parent="."]
+position = Vector2(515, 267)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska20" type="Sprite2D" parent="."]
+position = Vector2(552, 252)
+scale = Vector2(0.582029, 0.620926)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska21" type="Sprite2D" parent="."]
+position = Vector2(592, 64)
+scale = Vector2(0.582029, 0.620926)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska22" type="Sprite2D" parent="."]
+position = Vector2(587, 85)
+scale = Vector2(0.582029, 0.620926)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska23" type="Sprite2D" parent="."]
+position = Vector2(580, 93)
+scale = Vector2(0.582029, 0.620926)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska4" type="Sprite2D" parent="."]
+position = Vector2(196, 279)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska5" type="Sprite2D" parent="."]
+position = Vector2(221, 268)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska6" type="Sprite2D" parent="."]
+position = Vector2(255, 238)
+scale = Vector2(0.543368, 0.601852)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="puska7" type="Sprite2D" parent="."]
+position = Vector2(184, 124)
+rotation = -0.237183
+scale = Vector2(0.546163, 0.599317)
+skew = 0.0426394
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)

@@ -256,11 +256,8 @@ _data = {
 }
 point_count = 6
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3")]
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_n1lpo")
-_nappi1 = NodePath("NappiAudio")
-_nappi2 = NodePath("NappiAudio2")
-_nappi3 = NodePath("NappiAudio3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -409,10 +406,10 @@ texture = ExtResource("16_7y63b")
 
 [node name="kärisspyy" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(545, 82)
+position = Vector2(538, 57)
 texture = ExtResource("17_4r6no")
 region_enabled = true
-region_rect = Rect2(542.176, 237.437, 70.825, 112.811)
+region_rect = Rect2(421.462, 1.07813, 68.8666, 116.38)
 
 [node name="kivi3" type="Sprite2D" parent="."]
 position = Vector2(65.5, 36.75)
@@ -423,7 +420,7 @@ region_rect = Rect2(366.777, 219.125, 42.7133, 26.0847)
 
 [node name="mänty3" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(474.25, 57.375)
+position = Vector2(463, 58)
 scale = Vector2(0.846667, 0.813025)
 texture = ExtResource("17_4r6no")
 region_enabled = true
@@ -481,7 +478,7 @@ region_enabled = true
 region_rect = Rect2(0.754013, 149.831, 75.7527, 119.857)
 
 [node name="klapi2" type="Sprite2D" parent="."]
-position = Vector2(511, 234)
+position = Vector2(494, 236)
 rotation = -0.120428
 texture = ExtResource("17_4r6no")
 region_enabled = true
@@ -497,8 +494,8 @@ region_rect = Rect2(501.223, 1.33321, 71.6885, 115.153)
 
 [node name="koivutyhjä" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(506, 170)
-scale = Vector2(1, 0.871622)
+position = Vector2(484.75, 179.75)
+scale = Vector2(1.03731, 0.699325)
 texture = ExtResource("17_4r6no")
 region_enabled = true
 region_rect = Rect2(270.893, -1.59949, 67.6186, 148.063)
@@ -683,7 +680,7 @@ region_enabled = true
 region_rect = Rect2(59.7361, 5.98822, 47.0686, 64.8409)
 
 [node name="sieni" type="Sprite2D" parent="."]
-position = Vector2(66, 69)
+position = Vector2(60, 69)
 texture = ExtResource("17_4r6no")
 region_enabled = true
 region_rect = Rect2(348.243, 184.338, 20.8195, 22.7472)
@@ -781,10 +778,11 @@ region_rect = Rect2(337.286, 334.828, 21.7308, 17.5248)
 
 [node name="hive" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(400, 118)
+position = Vector2(401, 118)
+scale = Vector2(0.621212, 0.6875)
 texture = ExtResource("17_4r6no")
 region_enabled = true
-region_rect = Rect2(296.014, 282.266, 21.205, 20.434)
+region_rect = Rect2(289.818, 273.141, 33.6336, 32.4465)
 
 [node name="keltanekukka" type="Sprite2D" parent="."]
 position = Vector2(220, 26.5)
@@ -921,6 +919,13 @@ scale = Vector2(0.9, 0.595238)
 texture = ExtResource("17_4r6no")
 region_enabled = true
 region_rect = Rect2(256.963, 238.67, 20.54, 21.8567)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(187, 260)
+scale = Vector2(0.911765, 0.810345)
+texture = ExtResource("17_4r6no")
+region_enabled = true
+region_rect = Rect2(482.655, 229.524, 34.9517, 29.9243)
 
 [node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_u6mye")
