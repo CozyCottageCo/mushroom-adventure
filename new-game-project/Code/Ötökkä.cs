@@ -16,6 +16,7 @@ namespace SieniPeli {
         private float currentSpeed = 0f;
         protected bool isStopped = false;
         private bool isOnCrossWalk = false;
+        private bool isOnLights = false;
         private string sieniSuojaTie = "";
         private string detectedCrossWalk = "";
 
@@ -157,11 +158,14 @@ namespace SieniPeli {
             } else {
                 currentSpeed = Mathf.MoveToward(currentSpeed, minRollingSpeed, jarrutusSpeed * delta);
             }
+            if (isOnLights) {
+                currentSpeed = Mathf.MoveToward(currentSpeed, maxSpeed, kiihdytysSpeed * delta);
+            }
             Progress += currentSpeed * delta;
         }
 
         public virtual void Stop() {
-            if (isOnCrossWalk) {
+            if (isOnCrossWalk || isOnLights) {
                 return;
             }
             isStopped = true;
@@ -185,7 +189,6 @@ namespace SieniPeli {
 
         private void PlayAnimation(string direction, float speed) {
             AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-            GD.Print(direction);
             sprite.FlipH = false;
             sprite.FlipV = false;
             sprite.RotationDegrees = 0;
@@ -441,6 +444,7 @@ namespace SieniPeli {
 
          private void OnCrossWalkEntered(Node body) {
             string areaName = body.Name;
+
             if (body is TileMapLayer tileMapLayer)
             {
 
@@ -451,6 +455,14 @@ namespace SieniPeli {
                     // Prevent stopping or slowing down when on crosswalk
                     Stop(); // Ensure the Toukka does not stop on the crosswalk
                 }
+
+            }
+            if (areaName == "Valotie") {
+                 GD.Print(areaName);
+                isOnLights = true;
+                blockedByLight = false;
+                GD.Print(isOnCrossWalk, blockedByLight, currentSpeed);
+                Resume();
 
             }
             if (areaName == "Risteys" && isTurning) {
@@ -471,6 +483,9 @@ namespace SieniPeli {
             if (areaName == "Risteys") {
                 inRisteys = false;
                 //GD.Print("left risteys");
+            }
+            if (areaName == "Valotie") {
+                isOnLights = false;
             }
         }
 

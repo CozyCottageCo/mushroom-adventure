@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://b7d1orbihfja2"]
+[gd_scene load_steps=74 format=4 uid="uid://b7d1orbihfja2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_cnv3m"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_1g53c"]
@@ -10,21 +10,22 @@
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="7_sk7k1"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="8_1g2wi"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="9_fttdb"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="11_8iuyg"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="12_3n2ud"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="11_8iuyg"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="12_3n2ud"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="16_ai35w"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_2x5dq"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_t6k0i"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="19_2xngb"]
 [ext_resource type="Texture2D" uid="uid://knkqreh4ddlg" path="res://Art/Spritet/Ympäristö/lehdetfall15.png" id="19_7j6yn"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="20_1dcfd"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="20_qcexr"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="20_qcexr"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="21_a6upb"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="22_hb1xe"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="23_3vluk"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="23_oxuia"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="24_o7tlg"]
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="25_7mrbs"]
+[ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="26_10h64"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hiblp"]
 texture = ExtResource("2_c86kc")
@@ -505,8 +506,12 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_ashlr")
 color_ramp = SubResource("GradientTexture1D_oi4cp")
 alpha_curve = SubResource("CurveTexture_qtioe")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 script = ExtResource("1_cnv3m")
+_nappi1 = NodePath("NappiAudio")
+_nappi2 = NodePath("NappiAudio2")
+_nappi3 = NodePath("NappiAudio3")
+failSound = NodePath("FailSound")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -1118,3 +1123,7 @@ scale = Vector2(0.721963, 0.749387)
 texture = ExtResource("24_o7tlg")
 region_enabled = true
 region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
+
+[node name="FailSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("26_10h64")

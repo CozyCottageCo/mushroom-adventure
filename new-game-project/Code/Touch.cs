@@ -16,6 +16,7 @@ namespace SieniPeli
         [Export] AudioStreamPlayer2D _nappi1 = null;
         [Export] AudioStreamPlayer2D _nappi2 = null;
         [Export] AudioStreamPlayer2D _nappi3 = null;
+        [Export] AudioStreamPlayer2D failSound = null;
 
         private Sprite2D _täplä;
         private Vector2I _täpläTile;
@@ -438,6 +439,7 @@ namespace SieniPeli
         }
 
         public async void Kolari(string kohde) {
+            MusicPlayer musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
             GD.Print(kohde);
             if (_kolariActive) return; // Prevent multiple calls
             _kolariActive = true;
@@ -492,6 +494,13 @@ namespace SieniPeli
                     }
                 }
             }
+            if (musicPlayer.currentSong != "") {
+            musicPlayer.currentPlayer.StreamPaused = true;
+            }
+            failSound.Play();
+            failSound.Finished += () => {
+			musicPlayer.currentPlayer.StreamPaused = false;
+			};
         }
 
         public void Voitto() { // voittopaneeli näkyville, piirto jne pois

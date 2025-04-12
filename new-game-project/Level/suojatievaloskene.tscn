@@ -161,7 +161,7 @@ texture = ExtResource("4_ca2fx")
 
 [node name="Valotie" type="Area2D" parent="."]
 collision_layer = 1024
-collision_mask = 256
+collision_mask = 272
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Valotie"]
 position = Vector2(127, 123)
