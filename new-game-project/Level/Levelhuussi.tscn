@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://dmlnagbsop02g"]
+[gd_scene load_steps=61 format=4 uid="uid://dmlnagbsop02g"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_7tpg1"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_07orq"]
@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_au3bk"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="13_gg72c"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="14_qbfsi"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_7ifqh"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="16_31pni"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="16_348ce"]
+[ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_gojm5"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_qusx2"]
+[ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_28orc"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="20_l17xm"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="21_d33lw"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="22_0jjjx"]
@@ -293,9 +293,6 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("11_tf40u")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
-size = Vector2(128, 128)
-
 [sub_resource type="Curve2D" id="Curve2D_ek5jb"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -6, 340, 0, 0, 0, 0, 114, 336, 0, 0, 0, 0, 116, 176, 0, 0, 0, 0, 649, 178)
@@ -514,19 +511,8 @@ visible = false
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("16_31pni")]
 visible = false
 
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(322, 48)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("15_7ifqh")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("16_348ce")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_5ivg4")
+[node name="Täplä" parent="." instance=ExtResource("17_gojm5")]
+position = Vector2(318, 48)
 
 [node name="aita3" type="Sprite2D" parent="."]
 position = Vector2(431, 184)
@@ -576,8 +562,10 @@ texture = ExtResource("17_qusx2")
 region_enabled = true
 region_rect = Rect2(471, 128, 163, 43)
 
+[node name="Sieni" parent="." instance=ExtResource("19_28orc")]
+position = Vector2(563, 333)
+
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ek5jb")

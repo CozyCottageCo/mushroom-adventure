@@ -1,12 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmd433gja3ef2"]
+[gd_scene load_steps=16 format=3 uid="uid://dmd433gja3ef2"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_6cdvr"]
 [ext_resource type="Texture2D" uid="uid://dkfplo2q5i1em" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_summer.png" id="2_rjatt"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_xa4a2"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="4_i3x8h"]
 [ext_resource type="Texture2D" uid="uid://bflegtymijy7m" path="res://Art/Spritet/Käyttöliittymä/Levelselection/uusi_levelselect.png" id="5_14ocd"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="6_5jmos"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="6_jpaqb"]
 [ext_resource type="Texture2D" uid="uid://b6c10mlcgh331" path="res://Art/Spritet/Pelaaja/täpläsingle.png" id="7_chh7j"]
+[ext_resource type="PackedScene" uid="uid://dg4i5p333k36p" path="res://Level/GameClear.tscn" id="8_5o0io"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="8_25ps7"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="9_od58u"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="10_l6teo"]
@@ -23,7 +25,7 @@ region = Rect2(0, 0, 48, 83)
 atlas = ExtResource("6_jpaqb")
 region = Rect2(64, 64, 64, 64)
 
-[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "TäpläCount")]
+[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_extraButton", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,12 +37,14 @@ _taso1Button = NodePath("Background/Taso9")
 _taso2Button = NodePath("Background/Taso10")
 _taso3Button = NodePath("Background/Taso 11")
 _taso4Button = NodePath("Background/Taso12")
+_extraButton = NodePath("Background/Taso17")
 "_eteenpäinButton" = NodePath("Background/Eteenpäin")
 "_takaisinpäinButton" = NodePath("Background/Takaisinpäin")
 _mainMenuButton = NodePath("Background/MainMenu")
 _nappi1 = NodePath("NappiAudio")
 _nappi2 = NodePath("NappiAudio2")
 _nappi3 = NodePath("NappiAudio3")
+_gameClearPanel = NodePath("GameClear")
 "TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
 
 [node name="Background" type="Panel" parent="."]
@@ -53,24 +57,6 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_rjatt")
-
-[node name="Label" type="Label" parent="Background"]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 30.0
-offset_top = 1.0
-offset_right = 23.0
-offset_bottom = 99.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.87451, 0, 1)
-theme_override_colors/font_outline_color = Color(3.91062e-07, 0.243288, 0, 1)
-theme_override_constants/outline_size = 40
-theme_override_fonts/font = ExtResource("3_xa4a2")
-theme_override_font_sizes/font_size = 80
-text = "Valitse taso (1)"
-horizontal_alignment = 1
 
 [node name="Taso9" type="TextureButton" parent="Background"]
 z_index = 2
@@ -132,6 +118,15 @@ offset_right = 69.0
 offset_bottom = 69.0
 texture_normal = SubResource("AtlasTexture_6l227")
 
+[node name="Taso17" type="TextureButton" parent="Background"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -20.0
+offset_top = 235.0
+offset_right = 108.0
+offset_bottom = 363.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("6_5jmos")
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 3
@@ -189,3 +184,11 @@ stream = ExtResource("9_od58u")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_l6teo")
+
+[node name="GameClear" parent="." instance=ExtResource("8_5o0io")]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 600.0
+offset_bottom = 340.0

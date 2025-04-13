@@ -18,6 +18,7 @@ namespace SieniPeli
         [Export] private AudioStreamPlayer2D _nappi1 = null;
         [Export] private AudioStreamPlayer2D _nappi2 = null;
         [Export] private AudioStreamPlayer2D _nappi3 = null;
+        [Export] private TextureRect _gameClearPanel = null;
 
         private SceneTree _levelSelectSceneTree = null;
         public string currentScreen = "";
@@ -51,16 +52,27 @@ namespace SieniPeli
             _taso4Button.Pressed += () => OnButtonPressed(_taso4Button);
           //  _extraButton.Pressed += () => OnButtonPressed(_extraButton);
 
-            if (_eteenpäinButton != null)
+            if (_eteenpäinButton != null) {
                 _eteenpäinButton.Pressed += () => OnButtonPressed(_eteenpäinButton);
+            }
 
-            if (_takaisinpäinButton != null)
+            if (_takaisinpäinButton != null) {
                 _takaisinpäinButton.Pressed += () => OnButtonPressed(_takaisinpäinButton);
+            }
+
+             if (_extraButton != null) {
+             _extraButton.Pressed += () => OnButtonPressed(_extraButton);
+            }
 
 			_mainMenuButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(MainMenuPressed)));
             saveManager = GetNode<SaveManager>("/root/SaveManager"); // haetaa savemanager (autoloadi)
             CheckLevelButtonTextures(); // tarkistetaan aina levelscreeninauetessa mitkä auki
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
+
+            _gameClearPanel.Visible = false;
+            if (saveManager.GetLevelsCompleted() == 18) {
+                _gameClearPanel.Visible = true;
+            }
         }
 
         private async void OnButtonPressed(TextureButton button) // saa parametrinä sen tietyn napin nimen nääs
@@ -115,6 +127,13 @@ namespace SieniPeli
         private void LoadLevel(int levelNumber) // levelin latausmetodiin annettu nro
         {
             string levelPath = $"res://Level/Level{levelNumber}.tscn"; // scenen path vaihtuu sen mukaan
+            if (levelNumber == 17) {
+                levelPath = $"res://Level/Levelhuussi.tscn";
+            }
+            if (levelNumber == 18) {
+                levelPath = $"res://Level/Levelmökki.tscn";
+            }
+
             GD.Print($"Loading level {levelNumber}"); // debug viestiä
             _levelSelectSceneTree.ChangeSceneToFile(levelPath); // ja vaihetaan scene
         }

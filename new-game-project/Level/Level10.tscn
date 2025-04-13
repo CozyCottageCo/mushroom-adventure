@@ -954,6 +954,7 @@ rotation = 1.31598
 texture = ExtResource("17_4r6no")
 region_enabled = true
 region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("22_w157x")

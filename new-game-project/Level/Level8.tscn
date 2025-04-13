@@ -1441,6 +1441,7 @@ rotation = 1.26885
 texture = ExtResource("23_4iuu5")
 region_enabled = true
 region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
+
 [node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_oj214")
 

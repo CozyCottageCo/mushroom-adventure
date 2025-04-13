@@ -1397,6 +1397,7 @@ scale = Vector2(0.663158, 0.525362)
 texture = ExtResource("24_o7tlg")
 region_enabled = true
 region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("26_10h64")

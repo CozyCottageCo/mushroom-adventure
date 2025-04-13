@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://25munss1t5c8"]
+[gd_scene load_steps=15 format=3 uid="uid://25munss1t5c8"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_i803h"]
 [ext_resource type="Texture2D" uid="uid://0g25ieajihm5" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_spring.png" id="2_8kq5h"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="5_l5wli"]
 [ext_resource type="Texture2D" uid="uid://b6c10mlcgh331" path="res://Art/Spritet/Pelaaja/täpläsingle.png" id="7_71m76"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="8_nvf1g"]
+[ext_resource type="PackedScene" uid="uid://dg4i5p333k36p" path="res://Level/GameClear.tscn" id="8_q4qkp"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="9_07kll"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="10_t7wnr"]
 
@@ -23,7 +24,7 @@ region = Rect2(0, 0, 48, 83)
 atlas = ExtResource("5_l5wli")
 region = Rect2(64, 64, 64, 64)
 
-[node name="LevelSelect2" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "TäpläCount")]
+[node name="LevelSelect2" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +42,16 @@ _mainMenuButton = NodePath("Background/MainMenu")
 _nappi1 = NodePath("NappiAudio")
 _nappi2 = NodePath("NappiAudio2")
 _nappi3 = NodePath("NappiAudio3")
+_gameClearPanel = NodePath("GameClear")
 "TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
+
+[node name="GameClear" parent="." instance=ExtResource("8_q4qkp")]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 600.0
+offset_bottom = 340.0
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -54,22 +64,6 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_8kq5h")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="Background"]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 32.0
-offset_top = 1.0
-offset_right = 32.0
-offset_bottom = 99.0
-grow_horizontal = 2
-theme_override_constants/outline_size = 40
-theme_override_fonts/font = ExtResource("2_baq1n")
-theme_override_font_sizes/font_size = 80
-text = "Valitse taso (2)"
-horizontal_alignment = 1
 
 [node name="Taso5" type="TextureButton" parent="Background"]
 z_index = 2
