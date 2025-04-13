@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://crrq7802bqqjs"]
+[gd_scene load_steps=53 format=4 uid="uid://crrq7802bqqjs"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ml80f"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_r3vjg"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="20_oqb65"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="21_22cqe"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="22_fkg0v"]
+[ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="23_4ajmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6f7l"]
 texture = ExtResource("3_kmghs")
@@ -510,6 +511,87 @@ stream = ExtResource("21_22cqe")
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("22_fkg0v")
+
+[node name="påöytä" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(556, 307)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(83.9401, 163.405, 84.3955, 59.7978)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(541, 275)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(503, 285)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(154, 41)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(198, 260)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(311, 261)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(67, 33)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(21.3662, 74.9187, 110.096, 66.7106)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(397, 93)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(206.868, 93.711, 151.35, 76.1528)
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(72, 79)
+scale = Vector2(1.15079, 1.08621)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(70.9388, 48.6215, 63.7262, 29.8355)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(163, 266)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(289.914, 292.76, 49.8224, 64.3056)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(187, 288)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(167.417, 260.658, 23.7495, 21.629)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(622, 261)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+position = Vector2(57, 62)
+scale = Vector2(0.94, 0.27381)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)
 
 [editable path="SuojatieValot"]
 [editable path="SuojatieValot2"]

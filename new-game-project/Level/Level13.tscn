@@ -672,14 +672,6 @@ texture_normal = SubResource("AtlasTexture_4cq6g")
 [node name="PauseMenuPanel" parent="." instance=ExtResource("20_g0eho")]
 visible = false
 
-[node name="Label" type="Label" parent="."]
-offset_left = 471.0
-offset_top = 356.0
-offset_right = 638.0
-offset_bottom = 379.0
-text = "Kauppakeskus Ratina
-"
-
 [node name="VoittoScreen" parent="." instance=ExtResource("21_oblwk")]
 visible = false
 
@@ -1578,6 +1570,7 @@ scale = Vector2(0.875, 0.730769)
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(317.897, 178.599, 24.5347, 26.2872)
+
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("35_xq5yq")
