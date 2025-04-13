@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="13_ttans"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_8cpph"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="15_5tfjf"]
-[ext_resource type="PackedScene" uid="uid://c5yselgnvei7b" path="res://Level/Ötökät/MuurahainenAnimated1.tscn" id="17_prcay"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_ojtcw"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="19_h4fc1"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_mq05g"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="20_ljbj7"]
@@ -428,30 +428,45 @@ texture = SubResource("AtlasTexture_kyhy1")
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_bqxjn")
 
-[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("17_prcay")]
-position = Vector2(115, -25)
+[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("17_ojtcw")]
+position = Vector2(115.457, 90.1894)
 rotation = 1.56683
+progress = 115.191
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_sfj5x")
 
+[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("17_ojtcw")]
+position = Vector2(117, -33)
+rotation = 1.58767
+
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_c0bft")
+
+[node name="Muurahainen" parent="Reitit/Path2D3" instance=ExtResource("17_ojtcw")]
+position = Vector2(139.75, 305.745)
+rotation = -1.58203
+progress = 111.257
 
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_xifcg")
 
-[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("17_prcay")]
+[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("17_ojtcw")]
 position = Vector2(140, 417)
 rotation = -1.57545
 
 [node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_afax1")
 
+[node name="Muurahainen" parent="Reitit/Path2D5" instance=ExtResource("17_ojtcw")]
+position = Vector2(291.626, 174.708)
+rotation = 3.13969
+progress = 372.373
+
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ujq5v")
 
-[node name="Muurahainen" parent="Reitit/Path2D6" instance=ExtResource("17_prcay")]
+[node name="Muurahainen" parent="Reitit/Path2D6" instance=ExtResource("17_ojtcw")]
 position = Vector2(672, 174)
 rotation = 3.12273
 

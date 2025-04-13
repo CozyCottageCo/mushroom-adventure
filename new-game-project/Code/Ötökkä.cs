@@ -66,9 +66,9 @@ namespace SieniPeli {
             endPosition = path.Curve.GetPointPosition(2);
             isTurning = IsTurning(startPosition, firstPoint, endPosition);
             if (isTurning) {
-                GD.Print($"{this.Name} is turning {firstPoint} {endPosition}");
+                //GD.Print($"{this.Name} is turning {firstPoint} {endPosition}");
                _turnDirection = SetTurnDirection(firstPoint, endPosition);
-               GD.Print(_turnDirection);
+               //GD.Print(_turnDirection);
 
 
             }
@@ -77,7 +77,7 @@ namespace SieniPeli {
             _direction = _initialDirection;
             _initialDirectionSaved = _initialDirection;
 
-             GD.Print($"{this.Name} Initial Direction: ", _initialDirectionSaved);
+             //GD.Print($"{this.Name} Initial Direction: ", _initialDirectionSaved);
 
             detectionAreaLong = GetNode<Area2D>("DetectionArea2DLong");
             detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
@@ -103,7 +103,6 @@ namespace SieniPeli {
 
         public override void _Process(double delta) {
 
-
             if (Mathf.Abs(ProgressRatio) > 0.95f) {
                 blockedBy = "";
                 }
@@ -118,14 +117,10 @@ namespace SieniPeli {
 
         }
 
-
-       // if ((this.Name == "Alasoikea") && !printed){
-      // GD.Print(_direction, GetDirectionAsString(_direction));
-        printed = true;
-      //  }
-
          previousPosition = Position;
 
+
+         PlayAnimation(GetDirectionAsString(_direction), currentSpeed);
             if (isStopped || blockedBy != "") {
                 stopTime += (float)delta;
 
@@ -139,7 +134,7 @@ namespace SieniPeli {
             }
             stopTime = 0f;
             Move((float)delta);
-            PlayAnimation(GetDirectionAsString(_direction), currentSpeed);
+
 
 
         }
@@ -188,54 +183,66 @@ namespace SieniPeli {
         }
 
         private void PlayAnimation(string direction, float speed) {
+
             AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
             sprite.FlipH = false;
             sprite.FlipV = false;
             sprite.RotationDegrees = 0;
+            string targetAnimation = "";
+           // GD.Print($"PlayAnimation: {direction}, Speed: {speed}, CurrentAnim: {sprite.Animation}, {blockedByLight}");
 
-            if (speed == 0)
+            if (blockedByLight || currentSpeed == 0)
                 {
                     // Play the stop animation based on the direction
                     switch (direction)
                     {
                         case "Right":
-                            sprite.Play("Stopright");
+                            targetAnimation = "Stopright";
+                            sprite.FlipH = true;
                             break;
                         case "Left":
-                            sprite.Play("Stopleft");
+                            targetAnimation = "Stopleft";
+                            sprite.FlipH = true;
+                            this.Scale = new Vector2(1,-1);
                             break;
                         case "Down":
-                            sprite.Play("Stopdown");
+                           targetAnimation = "Stopdown";
                             break;
                         case "Up":
-                            sprite.Play("Stopup");
+                            targetAnimation = "Stopup";
                             break;
                     }
                 }
-                else
+                else if (!blockedByLight && currentSpeed > 0)
                 {
+                   // GD.Print(blockedByLight, currentSpeed);
                     // Play the walk animation based on the direction
                     switch (direction)
                     {
                         case "Right":
-                            sprite.Play("Walkright");
+                            targetAnimation = "Walkright";
                             sprite.FlipH = true;
                             break;
                         case "Left":
-                           sprite.Play("Walkleft");
+                           targetAnimation = "Walkleft";
                             sprite.FlipH = true;
-                           sprite.FlipV = true;
+                           this.Scale = new Vector2(1,-1); // flip koko homma et collisionshapet siirtyy kans
                             break;
                         case "Down":
-                            sprite.Play("Walkdown");
+                           targetAnimation = "Walkdown";
                             sprite.FlipV = true;
                             sprite.RotationDegrees = 90;
                             break;
                         case "Up":
-                            sprite.Play("Walkup");
+                            targetAnimation = "Walkup";
                             sprite.RotationDegrees = -90;
                             break;
                     }
+                }
+                 if (sprite.Animation != targetAnimation)
+                {
+                    sprite.Stop();
+                    sprite.Play(targetAnimation);
                 }
             }
 
@@ -278,6 +285,7 @@ namespace SieniPeli {
                 }
 
             }
+
         }
 
         private void OnLongRangeExited(Node body) {
@@ -397,9 +405,10 @@ namespace SieniPeli {
             {
                 if (areaName == "Valotie") {
                     blockedByLight = true;
+                    GD.Print("Set true here");
                     Stop();
                 }
-                if (blockedByFront != "") {
+                else if (blockedByFront != "") {
                 if (body.GetInstanceId().ToString() != blockedByFront || alreadyBlockedFront) {
                 return;
                 }
@@ -422,7 +431,8 @@ namespace SieniPeli {
             string areaName = body.Name;
             if (body is Area2D area) {
 
-                if (areaName == "Valotie") {
+                if (areaName == "Valotie" && body != this) {
+                    GD.Print("Set to false here");
                     blockedByLight = false;
                     Resume();
 
@@ -458,10 +468,8 @@ namespace SieniPeli {
 
             }
             if (areaName == "Valotie") {
-                 GD.Print(areaName);
                 isOnLights = true;
                 blockedByLight = false;
-                GD.Print(isOnCrossWalk, blockedByLight, currentSpeed);
                 Resume();
 
             }
@@ -614,14 +622,14 @@ private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) {
 
     const float TURN_THRESHOLD = 50f;
 
-    GD.Print($"{this.Name} - X {start.X} - {changeX}, Y {start.Y} - {changeY}");
+   // GD.Print($"{this.Name} - X {start.X} - {changeX}, Y {start.Y} - {changeY}");
 
     if (differenceX > TURN_THRESHOLD || differenceY > TURN_THRESHOLD) {
-        GD.Print($"{this.Name} is turning (differenceX: {differenceX}, differenceY: {differenceY})");
+       // GD.Print($"{this.Name} is turning (differenceX: {differenceX}, differenceY: {differenceY})");
         return true;
     }
 
-    GD.Print($"{this.Name} is not turning");
+    //GD.Print($"{this.Name} is not turning");
     return false;
 }
 
@@ -752,7 +760,7 @@ public Vector2 GetTurnDirection() {
 private bool RightTurn() {
     string turnDirectionString = GetDirectionAsString(_turnDirection);
     string currentDirectionString = GetDirectionAsString(_initialDirectionSaved);
-    GD.Print(this.Name, currentDirectionString, turnDirectionString);
+   // GD.Print(this.Name, currentDirectionString, turnDirectionString);
     switch (currentDirectionString, turnDirectionString){
         case ("Up", "Right"):
         return true;
