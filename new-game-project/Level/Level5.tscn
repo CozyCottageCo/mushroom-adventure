@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cknxuij7toi1d"]
+[gd_scene load_steps=50 format=4 uid="uid://cknxuij7toi1d"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_d4urg"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_8hox8"]
@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="22_q6sk4"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="22_ygpii"]
 [ext_resource type="Texture2D" uid="uid://5jxkgj0g4jwj" path="res://Art/Spritet/Ympäristö/Kävelytie05.png" id="23_udy43"]
+[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="25_0khty"]
+[ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="26_f554h"]
+[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="26_gm6tx"]
+[ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="27_vxcqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sqiu0"]
 texture = ExtResource("2_em6u5")
@@ -346,8 +350,12 @@ _data = {
 }
 point_count = 3
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 script = ExtResource("1_d4urg")
+_nappi1 = NodePath("NappiAudio")
+_nappi2 = NodePath("NappiAudio2")
+_nappi3 = NodePath("NappiAudio3")
+failSound = NodePath("FailSound")
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("2_8hox8")]
 
@@ -1125,3 +1133,9 @@ rotation = 0.417134
 texture = ExtResource("18_q2gsi")
 region_enabled = true
 region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+[node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_vxcqb")
+
+[node name="FailSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("26_f554h")

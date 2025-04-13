@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://ieh5nu5b3m6n"]
+[gd_scene load_steps=72 format=4 uid="uid://ieh5nu5b3m6n"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ceull"]
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="2_51a2x"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="32_r0rk2"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="33_kjyp0"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="34_oea58"]
+[ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="35_xq5yq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bbsyq"]
 texture = ExtResource("2_51a2x")
@@ -511,8 +512,12 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_wyh52")
 color_ramp = SubResource("GradientTexture1D_q8hvp")
 alpha_curve = SubResource("CurveTexture_6wsp8")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 script = ExtResource("1_ceull")
+_nappi1 = NodePath("NappiAudio")
+_nappi2 = NodePath("NappiAudio2")
+_nappi3 = NodePath("NappiAudio3")
+failSound = NodePath("FailSound")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
@@ -1573,3 +1578,6 @@ scale = Vector2(0.875, 0.730769)
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(317.897, 178.599, 24.5347, 26.2872)
+[node name="FailSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("35_xq5yq")

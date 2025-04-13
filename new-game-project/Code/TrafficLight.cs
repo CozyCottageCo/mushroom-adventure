@@ -64,13 +64,13 @@ namespace SieniPeli
          private void UpdateLightColors() // valojen vaihtaminen
         {
               Color targetColor = isRed ? Colors.Red : Colors.Green;
-            GD.Print($"Setting color to: {targetColor}");
+
 
             foreach (var light in lights)
             {
                 if (light != null)
                 {
-                    GD.Print($"Updating color to: {targetColor}");
+
                     light.Color = targetColor;
                 }
             }

@@ -38,9 +38,14 @@ private Touch _touch = null;
             GD.Print("Täplä löydetty!");
 			_sieni.atTäplä = true;
 			_sieni.controlSpeed(0);
-
+			MusicPlayer musicplayer = GetNode<MusicPlayer>("/root/MusicPlayer");
+			musicplayer.currentPlayer.StreamPaused = true;
 			_sieni.Celebrate();
 			_voittoAudio.Play();
+			_voittoAudio.Finished += () => {
+				GD.Print("Victory audio finished signal received.");
+			musicplayer.currentPlayer.StreamPaused = false;
+			};
 			string currentLevelPath = GetTree().CurrentScene.SceneFilePath;
 			string currentLevel = currentLevelPath.GetFile().GetBaseName(); //katotaan tason nimi missä ollaan
 			var saveManager = GetNode<SaveManager>("/root/SaveManager");
