@@ -935,3 +935,17 @@ stream = ExtResource("20_kqaqv")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_uccsi")
+
+[node name="perhonesin2" type="Sprite2D" parent="."]
+position = Vector2(506, 220)
+rotation = 1.31598
+texture = ExtResource("17_4r6no")
+region_enabled = true
+region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+
+[node name="perhonesin3" type="Sprite2D" parent="."]
+position = Vector2(323, 360)
+rotation = 1.31598
+texture = ExtResource("17_4r6no")
+region_enabled = true
+region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)

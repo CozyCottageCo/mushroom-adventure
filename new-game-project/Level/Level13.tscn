@@ -19,8 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="13_81ocd"]
 [ext_resource type="Texture2D" uid="uid://cn3g84xuiydr3" path="res://Art/Spritet/Ympäristö/tree3.png" id="14_qglwb"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="15_in1fh"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="20_g0eho"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="21_oblwk"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="23_jvjx4"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="23_m5ba7"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="25_737fm"]
@@ -28,8 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="27_tmfpv"]
 [ext_resource type="Texture2D" uid="uid://cpe2k75kx143g" path="res://Art/Spritet/Ympäristö/lehdetfall13.png" id="28_l88gk"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="28_shr45"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="29_lkr5p"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVesi.tscn" id="30_qh3bc"]
+[ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="29_lkr5p"]
+[ext_resource type="PackedScene" uid="uid://5yc71l024jx8" path="res://Level/KolariScreenVesi.tscn" id="30_qh3bc"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="31_h5n3i"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="32_r0rk2"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="33_kjyp0"]
@@ -1172,3 +1172,404 @@ skew = 0.0426394
 texture = ExtResource("23_jvjx4")
 region_enabled = true
 region_rect = Rect2(332.591, 299.005, 29.7923, 25.9368)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(440, 312)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D16" type="Sprite2D" parent="."]
+position = Vector2(457, 207)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D17" type="Sprite2D" parent="."]
+position = Vector2(474, 191)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D18" type="Sprite2D" parent="."]
+position = Vector2(467, 199)
+rotation = 0.232129
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(424.905, 306.847)
+rotation = 0.111701
+scale = Vector2(0.964286, 0.884061)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(413, 315)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(290, 341)
+rotation = 0.232129
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+position = Vector2(277, 373)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+position = Vector2(287, 361)
+rotation = -0.127409
+scale = Vector2(0.964286, 0.776596)
+texture = ExtResource("34_oea58")
+region_enabled = true
+region_rect = Rect2(84.1824, 273.217, 28.9954, 47.7946)
+
+[node name="kuivapuska" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(235, 267)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(203, 299)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(180, 303)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(433, 328)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(401, 323)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(299, 347)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska7" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(524, 248)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska8" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(500, 269)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska9" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(555, 245)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska10" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(631, 222)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska11" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(445, 213)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska12" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(469, 169)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska13" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(597, 88)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska14" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(574, 101)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska15" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(384, 69)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska16" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(365, 75)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska17" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(280, 72)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska18" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(247, 66)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska19" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(251, 81)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska20" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(194, 120)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska21" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(168, 133)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska22" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(224, 140)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska23" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(25, 201)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska24" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(52, 180)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska25" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(75, 176)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska26" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(55, 88)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska27" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(87, 99)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska28" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(81, 125)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="kuivapuska29" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(424, 98)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(163.717, 334.406, 24.8851, 25.5944)
+
+[node name="sieni3" type="Sprite2D" parent="."]
+position = Vector2(232, 254)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni4" type="Sprite2D" parent="."]
+position = Vector2(247, 254)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni5" type="Sprite2D" parent="."]
+position = Vector2(264, 238)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni6" type="Sprite2D" parent="."]
+position = Vector2(308, 370)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni7" type="Sprite2D" parent="."]
+position = Vector2(315, 359)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni8" type="Sprite2D" parent="."]
+position = Vector2(421, 335)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni9" type="Sprite2D" parent="."]
+position = Vector2(537, 275)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni10" type="Sprite2D" parent="."]
+position = Vector2(557, 264)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni11" type="Sprite2D" parent="."]
+position = Vector2(624, 242)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni12" type="Sprite2D" parent="."]
+position = Vector2(395, 87)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni13" type="Sprite2D" parent="."]
+position = Vector2(405, 90)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni14" type="Sprite2D" parent="."]
+position = Vector2(433, 109)
+scale = Vector2(0.8, 0.717391)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni15" type="Sprite2D" parent="."]
+position = Vector2(90, 177)
+scale = Vector2(0.8, 0.914251)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni16" type="Sprite2D" parent="."]
+position = Vector2(178, 145)
+scale = Vector2(0.8, 0.914251)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni17" type="Sprite2D" parent="."]
+position = Vector2(211, 120)
+scale = Vector2(0.8, 0.914251)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(347.689, 184.206, 19.6278, 18.9268)
+
+[node name="sieni" type="Sprite2D" parent="."]
+position = Vector2(179, 344)
+scale = Vector2(0.875, 0.730769)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(317.897, 178.599, 24.5347, 26.2872)
+
+[node name="sieni2" type="Sprite2D" parent="."]
+position = Vector2(321, 374)
+scale = Vector2(0.875, 0.730769)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(317.897, 178.599, 24.5347, 26.2872)
+
+[node name="sieni18" type="Sprite2D" parent="."]
+position = Vector2(206, 150)
+scale = Vector2(0.875, 0.730769)
+texture = ExtResource("23_jvjx4")
+region_enabled = true
+region_rect = Rect2(317.897, 178.599, 24.5347, 26.2872)

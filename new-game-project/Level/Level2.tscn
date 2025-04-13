@@ -13,16 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_vdsem"]
-[ext_resource type="PackedScene" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
+[ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_71fyo"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_pccpn"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="18_7ijlt"]
-[ext_resource type="PackedScene" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
+[ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="18_41gqg"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_vudmf"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_alm4q"]
-[ext_resource type="PackedScene" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
-[ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
-[ext_resource type="PackedScene" path="res://Level/TutorialScene.tscn" id="23_mq58m"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="19_gtma7"]
 [ext_resource type="Texture2D" uid="uid://besd6qjkksfeq" path="res://Art/Spritet/Ympäristö/Kävelytie02.png" id="21_hk54t"]
 [ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="23_mq58m"]
@@ -384,7 +380,7 @@ region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(596.798, 89.4806)
+position = Vector2(609, 85)
 scale = Vector2(1.07188, 1.04846)
 texture = SubResource("AtlasTexture_kyhy1")
 
@@ -440,7 +436,7 @@ scale = Vector2(0.529363, 0.527472)
 texture = ExtResource("21_hk54t")
 
 [node name="kuusifancy" type="Sprite2D" parent="."]
-position = Vector2(628, 43)
+position = Vector2(455, 30)
 texture = ExtResource("17_pccpn")
 region_enabled = true
 region_rect = Rect2(581.31, 1.32103, 58.5262, 99.24)

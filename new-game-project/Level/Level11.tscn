@@ -823,10 +823,11 @@ region_enabled = true
 region_rect = Rect2(368.061, 215.437, 42.0018, 29.5461)
 
 [node name="hive" type="Sprite2D" parent="."]
-position = Vector2(221, 193)
+position = Vector2(222, 196)
+scale = Vector2(0.666667, 0.71875)
 texture = ExtResource("13_v1yqv")
 region_enabled = true
-region_rect = Rect2(298.287, 280.877, 18.4334, 22.6468)
+region_rect = Rect2(291.332, 272.376, 30.493, 32.5959)
 
 [node name="puskakuollu" type="Sprite2D" parent="."]
 position = Vector2(88, 53)
