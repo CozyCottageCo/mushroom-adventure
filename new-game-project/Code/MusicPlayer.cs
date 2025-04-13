@@ -16,7 +16,9 @@ namespace SieniPeli {
             { "Winter", "Winter" },
             { "Spring", "Spring" },
             { "Summer", "Summer" },
-            { "Autumn", "Autumn" }
+            { "Autumn", "Autumn" },
+            { "Huussi", "Huussi" },
+            { "Mökki", "Mökki" }
         };
 
         public AudioStreamPlayer2D currentPlayer = null;
@@ -76,6 +78,12 @@ namespace SieniPeli {
         {
             if (sceneName.StartsWith("Level"))
             {
+                if (sceneName == "Levelhuussi") {
+                    return "Huussi";
+                }
+                if (sceneName == "Levelmökki") {
+                    return "Mökki";
+                }
                 // Katotaa mikä nro ekan 5 kirjaime jälkee; ei haittaa vaikka LevelSelect olemas
                 string numberPart = sceneName.Substring(5);
                 if (int.TryParse(numberPart, out int levelNum))

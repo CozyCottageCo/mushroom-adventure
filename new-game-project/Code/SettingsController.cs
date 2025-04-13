@@ -34,8 +34,9 @@ public partial class SettingsController : Control
 	[Export] AudioStreamPlayer2D _nappi2 = null;
 	[Export] AudioStreamPlayer2D _nappi3 = null;
 
-	public override void _Ready()
+	public async override void _Ready()
 	{
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		LoadSettings();
 		confirmPanel.Visible = false;
 		_tutorialPanel.Visible = false;

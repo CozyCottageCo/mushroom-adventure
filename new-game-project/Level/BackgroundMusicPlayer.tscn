@@ -33,3 +33,7 @@ stream = ExtResource("5_2rh5w")
 process_mode = 3
 stream = ExtResource("4_prrqk")
 parameters/looping = true
+
+[node name="Huussi" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Mökki" type="AudioStreamPlayer2D" parent="."]

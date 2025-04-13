@@ -18,6 +18,7 @@ namespace SieniPeli
         [Export] private AudioStreamPlayer2D _nappi1 = null;
         [Export] private AudioStreamPlayer2D _nappi2 = null;
         [Export] private AudioStreamPlayer2D _nappi3 = null;
+        [Export] private TextureRect _gameClearPanel = null;
 
         private SceneTree _levelSelectSceneTree = null;
         public string currentScreen = "";
@@ -61,6 +62,11 @@ namespace SieniPeli
             saveManager = GetNode<SaveManager>("/root/SaveManager"); // haetaa savemanager (autoloadi)
             CheckLevelButtonTextures(); // tarkistetaan aina levelscreeninauetessa mitkä auki
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
+
+            _gameClearPanel.Visible = false;
+            if (saveManager.GetLevelsCompleted() == 18) {
+                _gameClearPanel.Visible = true;
+            }
         }
 
         private async void OnButtonPressed(TextureButton button) // saa parametrinä sen tietyn napin nimen nääs
