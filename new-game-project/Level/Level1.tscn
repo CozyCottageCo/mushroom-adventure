@@ -203,8 +203,6 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("18_nt7hn")
 region = Rect2(527, 228, 103, 123)
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_x6cg6")
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 script = ExtResource("1_x6cg6")
 _nappi1 = NodePath("NappiAudio")
@@ -486,7 +484,6 @@ region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
 
 [node name="klapi3" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(566, 365)
 position = Vector2(161, 299)
 rotation = -0.1309
 scale = Vector2(0.889432, 1.01512)

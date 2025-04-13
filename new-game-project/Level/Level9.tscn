@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://lq58jgsin0vr"]
+[gd_scene load_steps=46 format=4 uid="uid://lq58jgsin0vr"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_iulsk"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_jajw7"]
@@ -23,8 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="22_lt5cy"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_t5mts"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="23_od8ft"]
-[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="24_tefll"]
-[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="25_jgjc0"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="26_p6hvw"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="27_eaiwe"]
 
@@ -315,10 +313,8 @@ _data = {
 }
 point_count = 2
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi3", "failSound")]
 script = ExtResource("1_iulsk")
-_nappi1 = NodePath("NappiAudio")
-_nappi2 = NodePath("NappiAudio2")
 _nappi3 = NodePath("NappiAudio3")
 failSound = NodePath("FailSound")
 
@@ -977,27 +973,6 @@ texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(298.445, 317.313, 16.7288, 16.0406)
 
-[node name="kuusi17" type="Sprite2D" parent="."]
-position = Vector2(626, 54)
-scale = Vector2(0.634683, 0.538365)
-texture = ExtResource("24_vdk1p")
-region_enabled = true
-region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
-
-[node name="kuusi18" type="Sprite2D" parent="."]
-position = Vector2(600, 87)
-scale = Vector2(0.634683, 0.538365)
-texture = ExtResource("24_vdk1p")
-region_enabled = true
-region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
-
-[node name="kuusi19" type="Sprite2D" parent="."]
-position = Vector2(565.122, 98.5164)
-scale = Vector2(0.474645, 0.445653)
-texture = ExtResource("24_vdk1p")
-region_enabled = true
-region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
-
 [node name="perhonesin2" type="Sprite2D" parent="."]
 position = Vector2(106, 206)
 rotation = 1.31598
@@ -1025,6 +1000,7 @@ rotation = 1.31598
 texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_p6hvw")
 

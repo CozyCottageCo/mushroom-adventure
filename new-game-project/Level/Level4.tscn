@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bs16k12eteeal"]
+[gd_scene load_steps=47 format=4 uid="uid://bs16k12eteeal"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_vsax5"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_neclt"]
@@ -23,10 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="21_8vh2d"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_jjyii"]
 [ext_resource type="Texture2D" uid="uid://b6obl7unk7gti" path="res://Art/Spritet/Ympäristö/Kävelytie04.png" id="22_qsyd0"]
-[ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="24_g65vb"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="24_l1w7a"]
-[ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="25_given"]
-[ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="26_oc385"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="28_vljwt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -287,11 +284,8 @@ _data = {
 }
 point_count = 3
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("failSound")]
 script = ExtResource("1_vsax5")
-_nappi1 = NodePath("NappiAudio")
-_nappi2 = NodePath("NappiAudio2")
-_nappi3 = NodePath("NappiAudio3")
 failSound = NodePath("FailSound")
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("2_neclt")]
