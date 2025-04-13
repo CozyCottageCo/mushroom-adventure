@@ -192,14 +192,14 @@ animations = [{
 size = Vector2(54, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2es2"]
-size = Vector2(33.5, 11)
+size = Vector2(45.75, 11)
 
 [node name="Muurahainen" type="PathFollow2D"]
 script = ExtResource("1_t2ct4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_chq3s")
-animation = &"Stopleft"
+animation = &"Stopright"
 flip_h = true
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
@@ -235,6 +235,6 @@ position = Vector2(-9, -1)
 collision_layer = 256
 collision_mask = 1040
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2DFront"]
-position = Vector2(34.75, 1)
+[node name="Etutörmäys" type="CollisionShape2D" parent="DetectionArea2DFront"]
+position = Vector2(41.875, 1)
 shape = SubResource("RectangleShape2D_f2es2")

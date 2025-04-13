@@ -265,7 +265,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_c0bft"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 141, 417, 0, 0, 0, 0, 139, 239, 0, 0, 0, 0, 135, -38)
+"points": PackedVector2Array(0, 0, 0, 0, 141, 417, 0, 0, 0, 0, 139, 239, 0, 0, 0, 0, 137, -40)
 }
 point_count = 3
 
@@ -277,15 +277,15 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_afax1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 664, 174, 0, 0, 0, 0, 138, 175, 0, 0, 0, 0, 136, -39)
+"points": PackedVector2Array(0, 0, 0, 0, 664, 174, 0, 0, 0, 0, 138, 175, 0, 0, 0, 0, 136, -41)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_ujq5v"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 672, 174, 0, 0, 0, 0, 619, 175, 0, 0, 0, 0, 114, 175, 0, 0, 0, 0, 117, 419)
+"points": PackedVector2Array(0, 0, 0, 0, 672, 174, 0, 0, 0, 0, 114, 175, 0, 0, 0, 0, 117, 419)
 }
-point_count = 4
+point_count = 3
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 script = ExtResource("1_vsax5")
@@ -372,7 +372,6 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D8"]
-z_index = 1
 position = Vector2(-271.674, -28.4445)
 scale = Vector2(0.968999, 0.765554)
 texture = ExtResource("10_jfmp3")
@@ -418,7 +417,7 @@ visible = false
 visible = false
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(184, 229)
 scale = Vector2(0.955378, 1.0322)
 texture = SubResource("AtlasTexture_kyhy1")
@@ -428,22 +427,22 @@ texture = SubResource("AtlasTexture_kyhy1")
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_bqxjn")
 
-[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("17_ojtcw")]
-position = Vector2(115.457, 90.1894)
+[node name="Down" parent="Reitit/Path2D" instance=ExtResource("17_ojtcw")]
+position = Vector2(115.382, 71.3601)
 rotation = 1.56683
-progress = 115.191
+progress = 96.3616
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_sfj5x")
 
-[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("17_ojtcw")]
+[node name="Downright" parent="Reitit/Path2D2" instance=ExtResource("17_ojtcw")]
 position = Vector2(117, -33)
 rotation = 1.58767
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_c0bft")
 
-[node name="Muurahainen" parent="Reitit/Path2D3" instance=ExtResource("17_ojtcw")]
+[node name="Up" parent="Reitit/Path2D3" instance=ExtResource("17_ojtcw")]
 position = Vector2(139.75, 305.745)
 rotation = -1.58203
 progress = 111.257
@@ -451,14 +450,14 @@ progress = 111.257
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_xifcg")
 
-[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("17_ojtcw")]
+[node name="Upright" parent="Reitit/Path2D4" instance=ExtResource("17_ojtcw")]
 position = Vector2(140, 417)
 rotation = -1.57545
 
 [node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_afax1")
 
-[node name="Muurahainen" parent="Reitit/Path2D5" instance=ExtResource("17_ojtcw")]
+[node name="Leftup" parent="Reitit/Path2D5" instance=ExtResource("17_ojtcw")]
 position = Vector2(291.626, 174.708)
 rotation = 3.13969
 progress = 372.373
@@ -466,9 +465,9 @@ progress = 372.373
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ujq5v")
 
-[node name="Muurahainen" parent="Reitit/Path2D6" instance=ExtResource("17_ojtcw")]
+[node name="Leftdown" parent="Reitit/Path2D6" instance=ExtResource("17_ojtcw")]
 position = Vector2(672, 174)
-rotation = 3.12273
+rotation = 3.1398
 
 [node name="Täplä" parent="." instance=ExtResource("19_mq05g")]
 z_index = 1
@@ -502,6 +501,7 @@ stream = ExtResource("25_given")
 stream = ExtResource("26_oc385")
 
 [node name="kuusi" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(610, 39)
 texture = ExtResource("19_h4fc1")
 region_enabled = true
@@ -521,6 +521,7 @@ region_enabled = true
 region_rect = Rect2(172.633, 149.184, 69.0481, 105.85)
 
 [node name="kuusi4" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(459, 23)
 scale = Vector2(0.967391, 0.928571)
 texture = ExtResource("19_h4fc1")
@@ -535,6 +536,7 @@ region_enabled = true
 region_rect = Rect2(172.633, 149.184, 69.0481, 105.85)
 
 [node name="kuusi6" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(551.188, 49.875)
 scale = Vector2(0.932971, 0.835714)
 texture = ExtResource("19_h4fc1")
@@ -542,6 +544,7 @@ region_enabled = true
 region_rect = Rect2(172.633, 149.184, 69.0481, 105.85)
 
 [node name="kuusi7" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(482.813, 77.875)
 scale = Vector2(0.817029, 0.702381)
 texture = ExtResource("19_h4fc1")
@@ -601,13 +604,13 @@ region_enabled = true
 region_rect = Rect2(477.003, 178.57, 130.71, 32.3183)
 
 [node name="koivu" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(623, 234)
 texture = ExtResource("19_h4fc1")
 region_enabled = true
 region_rect = Rect2(267.963, 2.05266, 70.3035, 142.66)
 
 [node name="koivu2" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(574, 302)
 scale = Vector2(0.757143, 0.71831)
 texture = ExtResource("19_h4fc1")
@@ -649,6 +652,7 @@ region_enabled = true
 region_rect = Rect2(581.31, 1.32103, 58.5262, 99.24)
 
 [node name="puupyöree3" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(81, 312)
 scale = Vector2(0.765244, 0.72807)
 texture = ExtResource("19_h4fc1")
@@ -656,7 +660,6 @@ region_enabled = true
 region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 
 [node name="puupyöree2" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(542, 235)
 scale = Vector2(0.820122, 0.741228)
 texture = ExtResource("19_h4fc1")
@@ -664,6 +667,7 @@ region_enabled = true
 region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 
 [node name="puupyöree4" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(5.75, 336)
 scale = Vector2(0.786585, 0.824561)
 texture = ExtResource("19_h4fc1")
@@ -721,3 +725,5 @@ region_rect = Rect2(531.31, 2.24907, 50.9815, 48.6642)
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("28_vljwt")
+
+[editable path="Reitit/Path2D4/Upright"]

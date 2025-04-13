@@ -663,7 +663,6 @@ scale = Vector2(0.611212, 0.857018)
 texture = ExtResource("9_6hge6")
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(31.5, 109)
 scale = Vector2(0.734375, 0.84375)
 texture = ExtResource("10_u7sgb")
@@ -671,7 +670,7 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 3
 position = Vector2(31.375, 0)
 scale = Vector2(0.738281, 1)
 texture = ExtResource("11_j3mtf")
@@ -679,7 +678,7 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
-z_index = 2
+z_index = 3
 position = Vector2(31.5, 57)
 scale = Vector2(0.734375, 0.796875)
 texture = ExtResource("12_m7esm")
@@ -713,13 +712,12 @@ visible = false
 visible = false
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(600, 112)
 scale = Vector2(1.19231, 1.1701)
 texture = SubResource("AtlasTexture_kyhy1")
 
 [node name="lamppu" type="Sprite2D" parent="Kärissypuu"]
-z_index = 2
 position = Vector2(-333.806, 100.846)
 scale = Vector2(0.900295, 0.881116)
 texture = ExtResource("18_a7x4a")
@@ -735,7 +733,6 @@ region_enabled = true
 region_rect = Rect2(56.8554, 1.18422, 44.6448, 74.9211)
 
 [node name="Tuoli" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(59, 267)
 scale = Vector2(1.34146, 1.46)
 texture = ExtResource("18_a7x4a")
@@ -743,7 +740,7 @@ region_enabled = true
 region_rect = Rect2(455.257, 323.827, 44.8322, 22.416)
 
 [node name="aita5" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 position = Vector2(579, 182)
 texture = ExtResource("18_a7x4a")
 region_enabled = true
@@ -818,7 +815,6 @@ scale = Vector2(0.529363, 0.530387)
 texture = ExtResource("22_4e2s0")
 
 [node name="puupyöree2" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(99, 223)
 texture = ExtResource("18_a7x4a")
 region_enabled = true
@@ -895,7 +891,6 @@ region_enabled = true
 region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 
 [node name="kuusi3" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(525, 241)
 scale = Vector2(0.628677, 0.655374)
 texture = ExtResource("18_a7x4a")
@@ -903,7 +898,6 @@ region_enabled = true
 region_rect = Rect2(172.927, 149.107, 68.7046, 107.298)
 
 [node name="kuusi" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(621, 232)
 texture = ExtResource("18_a7x4a")
 region_enabled = true
@@ -929,6 +923,7 @@ region_enabled = true
 region_rect = Rect2(-0.0537262, 294.857, 115.846, 66.1982)
 
 [node name="puupyöree" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(545, 106)
 scale = Vector2(0.939024, 0.877193)
 texture = ExtResource("18_a7x4a")
@@ -936,6 +931,7 @@ region_enabled = true
 region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 
 [node name="koivu2" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(408, 128)
 scale = Vector2(0.701923, 0.566781)
 texture = ExtResource("18_a7x4a")
@@ -943,12 +939,14 @@ region_enabled = true
 region_rect = Rect2(271.471, -1.00692, 65.3118, 146.485)
 
 [node name="kuusifancy" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(442, 132)
 texture = ExtResource("18_a7x4a")
 region_enabled = true
 region_rect = Rect2(581.31, 1.32103, 58.5262, 99.24)
 
 [node name="kuusifancy2" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(384, 154)
 scale = Vector2(0.655172, 0.631313)
 texture = ExtResource("18_a7x4a")
@@ -964,7 +962,6 @@ region_enabled = true
 region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
 
 [node name="klapi2" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(247, 262)
 rotation = -0.00698132
 scale = Vector2(0.972974, 1.15945)
@@ -973,6 +970,7 @@ region_enabled = true
 region_rect = Rect2(137.335, 276.953, 48.3687, 22.0814)
 
 [node name="koivu" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(526.25, 126.5)
 scale = Vector2(0.9, 0.80137)
 texture = ExtResource("18_a7x4a")
