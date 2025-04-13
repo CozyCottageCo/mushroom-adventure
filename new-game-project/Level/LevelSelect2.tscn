@@ -45,6 +45,14 @@ _nappi3 = NodePath("NappiAudio3")
 _gameClearPanel = NodePath("GameClear")
 "TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
 
+[node name="GameClear" parent="." instance=ExtResource("8_q4qkp")]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = 600.0
+offset_bottom = 340.0
+
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 640.0
@@ -174,10 +182,3 @@ stream = ExtResource("9_07kll")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_t7wnr")
-
-[node name="GameClear" parent="." instance=ExtResource("8_q4qkp")]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 580.0
-offset_bottom = 330.0

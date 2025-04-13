@@ -60,6 +60,12 @@ public override void _Ready() {
 		} else if (levelNumber > 12 && levelNumber < 17) {
 			levelSelectNumber = 4;
 		}
+		if (currentSceneName == "Levelhuussi") {
+			levelSelectNumber = 3;
+		}
+		if (currentSceneName == "Levelmökki") {
+			levelSelectNumber = 4;
+		}
 		string levelSelectionPath = $"res://Level/LevelSelect{levelSelectNumber}.tscn";
 		GD.Print(levelSelectionPath);
 		_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);

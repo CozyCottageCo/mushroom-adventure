@@ -34,10 +34,11 @@ public partial class SettingsController : Control
 	[Export] AudioStreamPlayer2D _nappi2 = null;
 	[Export] AudioStreamPlayer2D _nappi3 = null;
 
-	public async override void _Ready()
+	private int savedLanguage = 0;
+
+	public override void _Ready()
 	{
-		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-		LoadSettings();
+
 		confirmPanel.Visible = false;
 		_tutorialPanel.Visible = false;
 		Node currentScene = GetTree().CurrentScene;
@@ -58,6 +59,7 @@ public partial class SettingsController : Control
 		_tutorial3.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial3Pressed)));
 		_closeTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialClosePressed)));
 
+		LoadSettings();
 	}
 
 	private void LoadSettings()
@@ -72,9 +74,15 @@ public partial class SettingsController : Control
 		}
 
 		// Load saved language
-		int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
-		_languageOption.Selected = savedLanguage;
+		savedLanguage = (int)config.GetValue("Settings", "Language", 0);
+
 		TranslationServer.SetLocale(savedLanguage == 0 ? "en" : "fi");
+		if (_languageOption.Selected == -1) {
+			_languageOption.Selected = 0;
+		}
+		else {
+		_languageOption.Selected = savedLanguage;
+		}
 
 		// Load other settings
 		_volumeSlider.Value = (float)(double)config.GetValue("Settings", "Volume", 1.0);
