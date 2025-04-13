@@ -582,7 +582,7 @@ region_rect = Rect2(419.72, 0.220032, 71.39, 119.79)
 
 [node name="koivu4" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(26, 76)
+position = Vector2(34, 72)
 scale = Vector2(0.748239, 0.736345)
 texture = ExtResource("18_q2gsi")
 region_enabled = true
@@ -734,6 +734,30 @@ texture = ExtResource("18_q2gsi")
 region_enabled = true
 region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 
+[node name="puska33" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(18, 273)
+scale = Vector2(0.953704, 0.919644)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska34" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(29, 286)
+scale = Vector2(0.953704, 0.919644)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska35" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(6, 295)
+scale = Vector2(0.953704, 0.919644)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
 [node name="puska17" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(195, 309)
@@ -769,6 +793,22 @@ region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
 [node name="puska26" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(534, 196)
+scale = Vector2(0.847224, 0.709822)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska31" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(595, 92)
+scale = Vector2(0.847224, 0.709822)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(333.925, 296.813, 27.0262, 28.0854)
+
+[node name="puska32" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(578, 94)
 scale = Vector2(0.847224, 0.709822)
 texture = ExtResource("18_q2gsi")
 region_enabled = true
@@ -845,7 +885,7 @@ region_rect = Rect2(499.374, 137.091, 67.7377, 121.363)
 
 [node name="paju2" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(29, 293)
+position = Vector2(35, 297)
 scale = Vector2(0.679105, 0.5)
 texture = ExtResource("22_q6sk4")
 region_enabled = true
@@ -1037,12 +1077,62 @@ texture = ExtResource("18_q2gsi")
 region_enabled = true
 region_rect = Rect2(365.6, 280.733, 48.7729, 25.0948)
 
-[node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("25_0khty")
+[node name="perhonekelt2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(551, 80)
+rotation = 1.26885
+scale = Vector2(0.748571, 0.863366)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
-[node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("26_gm6tx")
+[node name="perhonekelt3" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(321, 284)
+rotation = 1.26885
+scale = Vector2(0.748571, 0.863366)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
+[node name="perhonekelt4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(580, 265)
+rotation = 1.26885
+scale = Vector2(0.748571, 0.863366)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
+
+[node name="perhonekelt5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(107, 58)
+rotation = 1.26885
+scale = Vector2(0.748571, 0.863366)
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
+
+[node name="perhonesin2" type="Sprite2D" parent="."]
+position = Vector2(49, 270)
+rotation = 0.417134
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+
+[node name="perhonesin3" type="Sprite2D" parent="."]
+position = Vector2(359, 105)
+rotation = 0.417134
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
+
+[node name="perhonesin4" type="Sprite2D" parent="."]
+position = Vector2(594, 246)
+rotation = 0.417134
+texture = ExtResource("18_q2gsi")
+region_enabled = true
+region_rect = Rect2(298.491, 336.498, 18.0041, 19.389)
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("27_vxcqb")
 

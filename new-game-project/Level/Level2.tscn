@@ -382,6 +382,8 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Kärissypuu" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(609, 85)
 z_index = 2
 position = Vector2(596.798, 89.4806)
 scale = Vector2(1.07188, 1.04846)
@@ -443,6 +445,7 @@ scale = Vector2(0.529363, 0.527472)
 texture = ExtResource("21_hk54t")
 
 [node name="kuusifancy" type="Sprite2D" parent="."]
+position = Vector2(455, 30)
 z_index = 1
 position = Vector2(628, 43)
 texture = ExtResource("17_pccpn")
