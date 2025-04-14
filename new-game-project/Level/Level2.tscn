@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bqgotk2sq8uh2"]
+[gd_scene load_steps=42 format=4 uid="uid://bqgotk2sq8uh2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_gqkh4"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_mtntk"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://d0n816p6nwplh" path="res://Art/Spritet/Ympäristö/taplajahti_talvi.png" id="4_t7nwq"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="5_fapnf"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="6_4vqkf"]
-[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="7_hc6dc"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="8_7f3yq"]
+[ext_resource type="Texture2D" uid="uid://cvydfst1vtgcj" path="res://Art/Spritet/Käyttöliittymä/MainMenu/play_uusi.png" id="8_7sded"]
+[ext_resource type="Texture2D" uid="uid://dgnv5t0g42xiy" path="res://Art/Spritet/Käyttöliittymä/MainMenu/redo_uusi.png" id="9_3afth"]
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="9_sb0x3"]
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
@@ -236,22 +237,6 @@ sources/0 = SubResource("TileSetAtlasSource_13wsf")
 sources/1 = SubResource("TileSetAtlasSource_55taa")
 sources/2 = SubResource("TileSetAtlasSource_y6s2u")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
-atlas = ExtResource("8_7f3yq")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynlbp"]
-atlas = ExtResource("8_7f3yq")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="InputEventKey" id="InputEventKey_h3axx"]
-device = -1
-keycode = 80
-unicode = 112
-
-[sub_resource type="Shortcut" id="Shortcut_82m2w"]
-events = [SubResource("InputEventKey_h3axx")]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyhy1"]
 atlas = ExtResource("17_pccpn")
 region = Rect2(527, 228, 103, 123)
@@ -267,10 +252,10 @@ device = -1
 keycode = 76
 unicode = 108
 
-[sub_resource type="Shortcut" id="Shortcut_mpb11"]
+[sub_resource type="Shortcut" id="Shortcut_tuxj3"]
 events = [SubResource("InputEventKey_ggbqe")]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vintq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cq6g"]
 atlas = ExtResource("8_7f3yq")
 region = Rect2(192, 0, 64, 64)
 
@@ -315,39 +300,20 @@ tile_set = SubResource("TileSet_lgc1i")
 [node name="grid" parent="." instance=ExtResource("6_4vqkf")]
 modulate = Color(1, 1, 1, 0.0980392)
 
-[node name="Redo" type="Button" parent="."]
-visible = false
-z_index = 4
-offset_left = 8.0
-offset_top = 310.0
-offset_right = 80.0
-offset_bottom = 382.0
-scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("7_hc6dc")
-theme_override_font_sizes/font_size = 20
-theme_override_icons/icon = SubResource("AtlasTexture_02iyd")
-action_mode = 0
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="Go" type="TextureButton" parent="."]
+z_index = 6
+offset_left = 540.0
+offset_top = 296.0
+offset_right = 640.0
+offset_bottom = 360.0
+texture_normal = ExtResource("8_7sded")
 
-[node name="Go" type="Button" parent="."]
-visible = false
-z_index = 4
-custom_minimum_size = Vector2(40, 30)
-offset_left = 583.0
-offset_top = 309.0
-offset_right = 655.0
-offset_bottom = 381.0
-scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("7_hc6dc")
-theme_override_font_sizes/font_size = 20
-theme_override_icons/icon = SubResource("AtlasTexture_ynlbp")
-action_mode = 0
-shortcut = SubResource("Shortcut_82m2w")
-flat = true
-icon_alignment = 1
-expand_icon = true
+[node name="Redo" type="TextureButton" parent="."]
+z_index = 7
+offset_top = 296.0
+offset_right = 100.0
+offset_bottom = 360.0
+texture_normal = ExtResource("9_3afth")
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 position = Vector2(99, 319)
@@ -428,14 +394,14 @@ z_index = 1
 position = Vector2(422, 326)
 
 [node name="Menu" type="TextureButton" parent="."]
+process_mode = 3
 z_index = 3
-offset_left = 606.0
-offset_right = 670.0
+offset_left = 576.0
+offset_right = 640.0
 offset_bottom = 64.0
-scale = Vector2(0.5, 0.5)
 toggle_mode = true
-shortcut = SubResource("Shortcut_mpb11")
-texture_normal = SubResource("AtlasTexture_vintq")
+shortcut = SubResource("Shortcut_tuxj3")
+texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320, 192)
@@ -636,12 +602,15 @@ region_rect = Rect2(85.9456, 151.165, 82.2759, 114.508)
 visible = false
 
 [node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("24_3mpe8")
 
 [node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("25_b10jg")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("26_ldqhs")
 
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]

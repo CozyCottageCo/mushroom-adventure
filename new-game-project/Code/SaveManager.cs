@@ -18,10 +18,14 @@ public partial class SaveManager : Node
 	public bool secondLevelsDone => secondLevels;
 	public bool thirdLevelsDone => thirdLevels;
 
+    private bool victory = false;
+    public bool victoryShown => victory;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		savePath = "user://SaveData.cfg"; // default savepath settingsin vierelle erikseen
+        LoadVictoryFlag();
 	}
 
 
@@ -180,6 +184,36 @@ public void SetLevelsDone (int levelScreen) { // tällä tallennetaan onko scree
 		return levelsCompleted;
 	}
 
+    public void SetVictorySeen(bool flip) {
+        victory = flip;
+        ConfigFile config = new ConfigFile();
+        Error err = config.Load(savePath);
+        if (err != Error.Ok) {
+            GD.PrintErr("Failed to load save file for setting victory flag.");
+            return;
+        }
+
+        config.SetValue("Progress", "VictorySeen", true);
+
+        err = config.Save(savePath);
+        if (err != Error.Ok) {
+            GD.PrintErr("Failed to save victory flag.");
+        }
+    }
+
+    private void LoadVictoryFlag()
+    {
+	ConfigFile config = new ConfigFile();
+	Error err = config.Load(savePath);
+	if (err != Error.Ok)
+	{
+		GD.PrintErr("Could not load victory flag from save file.");
+		victory = false;
+		return;
+	}
+
+	victory = (bool)config.GetValue("Progress", "VictorySeen", false);
+    }
 
 	public override void _Process(double delta)
 	{

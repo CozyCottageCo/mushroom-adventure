@@ -32,8 +32,8 @@ namespace SieniPeli
         private Vector2I lastMapCoord = new Vector2I(-1, -1); // alustettu null vector viimeselle positiolle
 
         private ColorRect highLightRect;
-        private Button _goButton;
-        private Button _redoButton;
+        private TextureButton _goButton;
+        private TextureButton _redoButton;
 
 
         private TextureButton _menuButton;
@@ -182,8 +182,8 @@ namespace SieniPeli
             };
             AddChild(highLightRect);
 
-            _goButton = GetNode<Button>("/root/Node2D/Go"); // go ja redo buttonit käyttöön
-            _redoButton = GetNode<Button>("/root/Node2D/Redo");
+            _goButton = GetNode<TextureButton>("/root/Node2D/Go"); // go ja redo buttonit käyttöön
+            _redoButton = GetNode<TextureButton>("/root/Node2D/Redo");
             _menuButton = GetNode<TextureButton>("/root/Node2D/Menu");
 
             _goButton.Visible = false;
@@ -425,9 +425,9 @@ namespace SieniPeli
             {
                 _menuPanel.Visible = !_menuPanel.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_menuPanel.Visible == true) {
+                    GetTree().Paused = true;
                     _nappi3.Play();
                     await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-                    GetTree().Paused = true;
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
                     _nappi2.Play();

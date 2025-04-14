@@ -53,7 +53,8 @@ public partial class KolariScreenController : Control
         GD.Print("pressed");
         _touch._kolariActive = false;
 
-        GetTree().ReloadCurrentScene();
+        SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+        sceneTransition.FadeToCurrentScene();
         }
         private void UpdateUIText()
         {

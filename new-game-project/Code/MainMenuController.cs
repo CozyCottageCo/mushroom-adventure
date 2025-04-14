@@ -72,7 +72,8 @@ private async void OnPelaaPressed()
 {
 	_audioPuu.Play();
 	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-	_mainMenuSceneTree.ChangeSceneToFile("res://Level/LevelSelect1.tscn");
+	SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	sceneTransition.FadeToScene("res://Level/LevelSelect1.tscn");
 	GD.Print("Pelaa pressed");
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cci6dx0t8wjny"]
+[gd_scene load_steps=39 format=4 uid="uid://cci6dx0t8wjny"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_n1lpo"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_fve1x"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="3_weirr"]
 [ext_resource type="Texture2D" uid="uid://d3s8aoatmj21v" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho - Copy.png" id="4_41y5o"]
 [ext_resource type="PackedScene" uid="uid://4m6hwy8bwd50" path="res://Level/grid.tscn" id="5_l2stp"]
-[ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="6_ir7fe"]
+[ext_resource type="Texture2D" uid="uid://cvydfst1vtgcj" path="res://Art/Spritet/Käyttöliittymä/MainMenu/play_uusi.png" id="7_d875g"]
 [ext_resource type="Texture2D" uid="uid://dtevblr2t46ab" path="res://Art/Spritet/Käyttöliittymä/button_atlas.png" id="7_pyhue"]
+[ext_resource type="Texture2D" uid="uid://dgnv5t0g42xiy" path="res://Art/Spritet/Käyttöliittymä/MainMenu/redo_uusi.png" id="8_xurqy"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="9_5rvl4"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="10_ygcs6"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="14_1k226"]
@@ -193,22 +194,6 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_13wsf")
 sources/1 = SubResource("TileSetAtlasSource_uy0q0")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_02iyd"]
-atlas = ExtResource("7_pyhue")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynlbp"]
-atlas = ExtResource("7_pyhue")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="InputEventKey" id="InputEventKey_h3axx"]
-device = -1
-keycode = 80
-unicode = 112
-
-[sub_resource type="Shortcut" id="Shortcut_82m2w"]
-events = [SubResource("InputEventKey_h3axx")]
-
 [sub_resource type="InputEventKey" id="InputEventKey_ggbqe"]
 device = -1
 keycode = 76
@@ -297,46 +282,29 @@ tile_set = SubResource("TileSet_lgc1i")
 [node name="grid" parent="." instance=ExtResource("5_l2stp")]
 modulate = Color(1, 1, 1, 0.0980392)
 
-[node name="Redo" type="Button" parent="."]
+[node name="Go" type="TextureButton" parent="."]
 visible = false
-z_index = 5
-offset_left = 8.0
-offset_top = 310.0
-offset_right = 80.0
-offset_bottom = 382.0
-scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("6_ir7fe")
-theme_override_font_sizes/font_size = 20
-theme_override_icons/icon = SubResource("AtlasTexture_02iyd")
-action_mode = 0
-flat = true
-icon_alignment = 1
-expand_icon = true
+z_index = 6
+offset_left = 540.0
+offset_top = 296.0
+offset_right = 640.0
+offset_bottom = 360.0
+texture_normal = ExtResource("7_d875g")
 
-[node name="Go" type="Button" parent="."]
+[node name="Redo" type="TextureButton" parent="."]
 visible = false
-z_index = 5
-custom_minimum_size = Vector2(40, 30)
-offset_left = 583.0
-offset_top = 309.0
-offset_right = 655.0
-offset_bottom = 381.0
-scale = Vector2(0.677339, 0.665404)
-theme_override_fonts/font = ExtResource("6_ir7fe")
-theme_override_font_sizes/font_size = 20
-theme_override_icons/icon = SubResource("AtlasTexture_ynlbp")
-action_mode = 0
-shortcut = SubResource("Shortcut_82m2w")
-flat = true
-icon_alignment = 1
-expand_icon = true
+z_index = 7
+offset_top = 296.0
+offset_right = 100.0
+offset_bottom = 360.0
+texture_normal = ExtResource("8_xurqy")
 
 [node name="Menu" type="TextureButton" parent="."]
-z_index = 5
-offset_left = 606.0
-offset_right = 670.0
+process_mode = 3
+z_index = 3
+offset_left = 576.0
+offset_right = 640.0
 offset_bottom = 64.0
-scale = Vector2(0.5, 0.5)
 toggle_mode = true
 shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
@@ -933,12 +901,15 @@ region_enabled = true
 region_rect = Rect2(482.655, 229.524, 34.9517, 29.9243)
 
 [node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("19_u6mye")
 
 [node name="NappiAudio2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("20_kqaqv")
 
 [node name="NappiAudio3" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("21_uccsi")
 
 [node name="perhonesin2" type="Sprite2D" parent="."]
