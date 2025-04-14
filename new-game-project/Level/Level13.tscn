@@ -456,13 +456,13 @@ max_value = 0.3
 _data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(0.465347, 0.225099), 0.0, 0.0, 0, 0, Vector2(0.891089, 0.134702), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_6wsp8"]
+[sub_resource type="CurveTexture" id="CurveTexture_pa8cc"]
 curve = SubResource("Curve_h7gle")
 
 [sub_resource type="Gradient" id="Gradient_uwbc4"]
 colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_q8hvp"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u885l"]
 gradient = SubResource("Gradient_uwbc4")
 
 [sub_resource type="Curve" id="Curve_iw5km"]
@@ -480,7 +480,7 @@ max_value = 3.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wyh52"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_8ug2g"]
 curve_x = SubResource("Curve_iw5km")
 curve_y = SubResource("Curve_swv5k")
 curve_z = SubResource("Curve_kieil")
@@ -493,9 +493,9 @@ emission_box_extents = Vector3(320, 0, 1)
 gravity = Vector3(0, 2400, 0)
 scale_min = 0.2
 scale_max = 1.5
-scale_over_velocity_curve = SubResource("CurveXYZTexture_wyh52")
-color_ramp = SubResource("GradientTexture1D_q8hvp")
-alpha_curve = SubResource("CurveTexture_6wsp8")
+scale_over_velocity_curve = SubResource("CurveXYZTexture_8ug2g")
+color_ramp = SubResource("GradientTexture1D_u885l")
+alpha_curve = SubResource("CurveTexture_pa8cc")
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true

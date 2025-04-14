@@ -471,7 +471,7 @@ curve = SubResource("Curve2D_kxtp2")
 
 [node name="Tuhatjalkainen" parent="Reitit/Path2D6" instance=ExtResource("16_c468n")]
 z_index = 1
-position = Vector2(636, 24)
+position = Vector2(663, 78)
 rotation = 3.14159
 v_offset = 5.0
 
