@@ -475,7 +475,7 @@ texture = ExtResource("23_udy43")
 offset = Vector2(0, 360)
 
 [node name="Sieni" parent="." instance=ExtResource("20_w145u")]
-position = Vector2(481, 194)
+position = Vector2(480, 171)
 
 [node name="Täplä" parent="." instance=ExtResource("20_nmekp")]
 position = Vector2(80, 272)

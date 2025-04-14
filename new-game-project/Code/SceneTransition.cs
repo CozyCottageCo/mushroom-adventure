@@ -49,6 +49,7 @@ public partial class SceneTransition : CanvasLayer
     GetTree().ChangeSceneToFile(currentScene);
 
     animPlayer.Play("fade_in");
+	GetTree().Paused = false;
 }
 
 }

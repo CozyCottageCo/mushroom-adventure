@@ -305,10 +305,11 @@ size = Vector2(73, 39)
 size = Vector2(33.5, 11)
 
 [node name="Etana" type="PathFollow2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_re6lu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -11)
+position = Vector2(-6, -18)
 sprite_frames = SubResource("SpriteFrames_ba4t2")
 animation = &"Walkdown"
 frame = 6
@@ -316,12 +317,12 @@ frame_progress = 0.187694
 flip_h = true
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
-position = Vector2(-5, -11)
+position = Vector2(-4, -10)
 collision_layer = 16
 collision_mask = 1530
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
-position = Vector2(28.5, 6.5)
+position = Vector2(28, 19)
 shape = SubResource("RectangleShape2D_a60ib")
 debug_color = Color(0.694348, 0.437084, 0.622198, 0.42)
 
@@ -331,7 +332,7 @@ collision_layer = 64
 collision_mask = 152
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DLong"]
-position = Vector2(58, -1)
+position = Vector2(53, 13)
 polygon = PackedVector2Array(120, 108, 118, -79, 12, 2)
 
 [node name="DetectionArea2DShort" type="Area2D" parent="."]
@@ -340,7 +341,7 @@ collision_layer = 32
 collision_mask = 1176
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea2DShort"]
-position = Vector2(67, 11)
+position = Vector2(57, 19)
 polygon = PackedVector2Array(56, 59, 56, -97, 5, -74, 6, 29)
 
 [node name="DetectionArea2DFront" type="Area2D" parent="."]
@@ -349,5 +350,5 @@ collision_layer = 256
 collision_mask = 1040
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2DFront"]
-position = Vector2(81, 5)
+position = Vector2(75, 20)
 shape = SubResource("RectangleShape2D_f2es2")

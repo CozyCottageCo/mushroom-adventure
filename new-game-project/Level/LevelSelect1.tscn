@@ -78,6 +78,8 @@ offset_top = 100.0
 offset_right = 1004.0
 offset_bottom = 580.0
 texture_normal = ExtResource("3_8yss8")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Taso4" type="TextureButton" parent="Background"]
 z_index = 2
@@ -163,6 +165,7 @@ stream = ExtResource("9_xqbbe")
 stream = ExtResource("10_dlr73")
 
 [node name="GameClear" parent="." instance=ExtResource("8_lmwe3")]
+visible = false
 layout_mode = 0
 offset_left = 50.0
 offset_top = 30.0

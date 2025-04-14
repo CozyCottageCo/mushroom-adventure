@@ -49,7 +49,7 @@ public partial class KolariScreenController : Control
     public async void ReTryPressed() {
         _nappiAudio.Play();
         await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        GetTree().Paused = false; // paussi pois, resetataan taso
+
         GD.Print("pressed");
         _touch._kolariActive = false;
 
