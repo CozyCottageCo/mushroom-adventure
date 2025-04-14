@@ -120,6 +120,7 @@ texture_normal = SubResource("AtlasTexture_6l227")
 
 [node name="Taso17" type="TextureButton" parent="Background"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = -20.0
 offset_top = 235.0
 offset_right = 108.0

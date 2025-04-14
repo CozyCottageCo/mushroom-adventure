@@ -460,6 +460,7 @@ _data = {
 point_count = 3
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
+y_sort_enabled = true
 script = ExtResource("1_c07gc")
 _nappi1 = NodePath("NappiAudio")
 _nappi2 = NodePath("NappiAudio2")
@@ -699,7 +700,7 @@ position = Vector2(527, 82)
 
 [node name="Sieni" parent="." instance=ExtResource("15_luii4")]
 z_index = 1
-position = Vector2(0, 42)
+position = Vector2(13, 34)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("17_378yx")]
 visible = false
@@ -711,6 +712,7 @@ visible = false
 visible = false
 
 [node name="kävelytiesprite" type="Sprite2D" parent="."]
+z_as_relative = false
 position = Vector2(320, 192)
 scale = Vector2(0.49961, 0.498701)
 texture = ExtResource("19_sathg")

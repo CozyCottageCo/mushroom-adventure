@@ -9,6 +9,8 @@ public partial class MainMenuController : Control
 [Export] AudioStreamPlayer2D _audioPuu = null;
 [Export] AudioStreamPlayer2D _audioMuu = null;
 
+[Export] Button _nettisivu = null;
+
 private SceneTree _mainMenuSceneTree = null;
 
 public override void _Ready() {
@@ -44,6 +46,7 @@ public override void _Ready() {
 	_pelaaButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPelaaPressed)));
 	_asetuksetButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnAsetuksetPressed)));
 	_poistuButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnPoistuPressed)));
+	_nettisivu.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnNettiSivuPressed)));
 	// kuuntelee napin painallusta, laukasee metodin _pelaaButton.Pressed += OnNewGamePressed();
 	// pitäs sit myös lopettaa, muute jää roskat latinkiin
 
@@ -91,6 +94,11 @@ private async void OnPoistuPressed()
 	_audioPuu.Play();
 	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 	_mainMenuSceneTree.Quit();
+}
+
+private void OnNettiSivuPressed() {
+string url = "https://webpages.tuni.fi/24tiko3f/index.html";
+OS.ShellOpen(url);
 }
 
 private void UpdateUIText()

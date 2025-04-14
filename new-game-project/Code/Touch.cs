@@ -90,7 +90,7 @@ namespace SieniPeli
 
             _line = new Line2D // settingsit piirtoviivalle
             {
-
+                ZIndex = 1,
                 Width = 5,
                 DefaultColor = lineColor
             };

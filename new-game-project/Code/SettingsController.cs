@@ -43,8 +43,6 @@ public partial class SettingsController : Control
 		_tutorialPanel.Visible = false;
 		Node currentScene = GetTree().CurrentScene;
 
-
-
 		// Connect signals
 		_languageOption.Connect(OptionButton.SignalName.ItemSelected, new Callable(this, nameof(OnLanguageChanged)));
 		_volumeSlider.Connect(HSlider.SignalName.ValueChanged, new Callable(this, nameof(OnVolumeChanged)));

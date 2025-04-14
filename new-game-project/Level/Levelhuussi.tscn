@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://dmlnagbsop02g"]
+[gd_scene load_steps=62 format=4 uid="uid://dmlnagbsop02g"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_7tpg1"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_07orq"]

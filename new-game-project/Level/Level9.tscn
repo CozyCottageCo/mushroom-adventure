@@ -973,21 +973,6 @@ texture = ExtResource("19_w6i2n")
 region_enabled = true
 region_rect = Rect2(298.445, 317.313, 16.7288, 16.0406)
 
-
-[node name="kuusi18" type="Sprite2D" parent="."]
-position = Vector2(600, 87)
-scale = Vector2(0.634683, 0.538365)
-texture = ExtResource("24_vdk1p")
-region_enabled = true
-region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
-
-[node name="kuusi19" type="Sprite2D" parent="."]
-position = Vector2(565.122, 98.5164)
-scale = Vector2(0.474645, 0.445653)
-texture = ExtResource("24_vdk1p")
-region_enabled = true
-region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
-
 [node name="perhonesin2" type="Sprite2D" parent="."]
 position = Vector2(106, 206)
 rotation = 1.31598
