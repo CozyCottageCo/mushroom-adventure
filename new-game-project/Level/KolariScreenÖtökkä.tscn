@@ -84,6 +84,7 @@ label_settings = ExtResource("4_ypni7")
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="KolariScreenController"]
+process_mode = 3
 layout_mode = 2
 texture = SubResource("AnimatedTexture_yasid")
 stretch_mode = 3

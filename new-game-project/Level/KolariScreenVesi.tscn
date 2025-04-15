@@ -85,6 +85,7 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer"]
+process_mode = 3
 position = Vector2(66, 20)
 sprite_frames = SubResource("SpriteFrames_17jqf")
 frame_progress = 0.807054
