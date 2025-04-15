@@ -40,6 +40,7 @@ public partial class SettingsController : Control
 	public override void _Ready()
 	{
 
+		LoadSettings();
 		confirmPanel.Visible = false;
 		_tutorialPanel.Visible = false;
 		Node currentScene = GetTree().CurrentScene;
@@ -58,7 +59,7 @@ public partial class SettingsController : Control
 		_tutorial3.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial3Pressed)));
 		_closeTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialClosePressed)));
 
-		LoadSettings();
+
 	}
 
 	private void LoadSettings()
@@ -96,7 +97,7 @@ public partial class SettingsController : Control
 	{
 		config.SetValue("Settings", "Language", _languageOption.Selected);
 		config.SetValue("Settings", "Volume", _volumeSlider.Value);
-		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ButtonPressed);
+		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ToggleMode);
 
 		config.Save(configPath);
 		GD.Print("Settings saved to " + configPath);

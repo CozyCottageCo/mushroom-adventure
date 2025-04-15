@@ -27,6 +27,7 @@ namespace SieniPeli {
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
+            ApplySavedVolume();
             PlayMusicForCurrentScene();
         }
 
@@ -96,6 +97,27 @@ namespace SieniPeli {
 
             return sceneName;
         }
+
+        private void ApplySavedVolume()
+        {
+            ConfigFile config = new ConfigFile();
+            string configPath = "user://settings.cfg";
+
+            if (config.Load(configPath) != Error.Ok)
+            {
+                GD.Print("Could not load settings for volume.");
+                return;
+            }
+
+            float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);
+            volume = Mathf.Clamp(volume, 0.0f, 1.0f); // Safety
+
+            float dbValue = Mathf.LinearToDb(volume);
+            AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), dbValue);
+
+            GD.Print($"Applied volume from settings: {volume} ({dbValue} dB)");
+        }
+
 
         public override void _Process(double delta)
         {

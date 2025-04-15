@@ -51,7 +51,7 @@ namespace SieniPeli
         Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red,50% opacity
 
         private SettingsController settings = null;
-        private bool toggleMode = false;
+        private bool toggleMode;
         private bool stopBool = false;
 
 
