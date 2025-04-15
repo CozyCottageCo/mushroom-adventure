@@ -17,18 +17,18 @@ public override void _Ready() {
 {
 	ApplySettingsVolume();
 	var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
-        musicPlayer.PlayMusicForCurrentScene(); // musalataus
+		musicPlayer.PlayMusicForCurrentScene(); // musalataus
 
 	ConfigFile config = new ConfigFile();
-    if (config.Load("user://settings.cfg") == Error.Ok)
-    {
-        int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
-        string locale = savedLanguage == 0 ? "en" : "fi";
-        TranslationServer.SetLocale(locale);
-    }
+	if (config.Load("user://settings.cfg") == Error.Ok)
+	{
+		int savedLanguage = (int)config.GetValue("Settings", "Language", 0);
+		string locale = savedLanguage == 0 ? "en" : "fi";
+		TranslationServer.SetLocale(locale);
+	}
 
-    // Update UI text translations
-    UpdateUIText();
+	// Update UI text translations
+	UpdateUIText();
 
 	base._Ready();
 	 Control settingsMenu = GetNode<Control>("Settings");
@@ -56,16 +56,16 @@ public override void _Ready() {
 
 private void ApplySettingsVolume() {
 			ConfigFile config = new ConfigFile();
-            string configPath = "user://settings.cfg"; // Ensure this is the correct path for your settings file
+			string configPath = "user://settings.cfg"; // Ensure this is the correct path for your settings file
 
-            if (config.Load(configPath) == Error.Ok)
-            {
-                float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);  // Default to 1.0 if not found
-                float dbVolume = Mathf.LinearToDb(volume);
+			if (config.Load(configPath) == Error.Ok)
+			{
+				float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);  // Default to 1.0 if not found
+				float dbVolume = Mathf.LinearToDb(volume);
 
-                // Apply volume to the master audio bus
-                AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), dbVolume);
-            }
+				// Apply volume to the master audio bus
+				AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), dbVolume);
+			}
 }
 
 private async void OnPelaaPressed()
@@ -102,11 +102,11 @@ string url = "https://webpages.tuni.fi/24tiko3f/index.html";
 OS.ShellOpen(url);
 }
 
-private void UpdateUIText()
+public void UpdateUIText()
 {
-    _pelaaButton.Text = Tr("play");
-    _asetuksetButton.Text = Tr("settings");
-    _poistuButton.Text = Tr("quit");
+	_pelaaButton.Text = Tr("play");
+	_asetuksetButton.Text = Tr("settings");
+	_poistuButton.Text = Tr("quit");
 }
 
 

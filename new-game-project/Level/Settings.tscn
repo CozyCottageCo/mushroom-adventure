@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="8_whgs0"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="9_0dqen"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel", "confirmPanel", "_openTutorial", "_tutorialPanel", "_tutorial1", "_tutorial2", "_tutorial3", "_closeTutorial", "_nappi1", "_nappi2", "_nappi3")]
+[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_progressLabel", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel", "confirmPanel", "_openTutorial", "_tutorialPanel", "_tutorialLabel", "_tutorialLabel2", "_tutorial1", "_tutorial2", "_tutorial3", "_closeTutorial", "_nappi1", "_nappi2", "_nappi3")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +23,7 @@ _volumeSlider = NodePath("VBoxContainer/HSlider")
 _movementToggle = NodePath("VBoxContainer/HBoxContainer2/CheckButton")
 _backButton = NodePath("VBoxContainer/BackButton")
 _resetProgress = NodePath("VBoxContainer/Reset")
+_progressLabel = NodePath("ConfirmPanel/HBoxContainer/Label")
 _olenVarma = NodePath("ConfirmPanel/HBoxContainer/VBoxContainer/Kyllä")
 _enOleVarma = NodePath("ConfirmPanel/HBoxContainer/VBoxContainer/Ei")
 _volumeLabel = NodePath("VBoxContainer/VolumeLabel")
@@ -32,6 +33,8 @@ _settingsLabel = NodePath("VBoxContainer/SettingsLabel")
 confirmPanel = NodePath("ConfirmPanel")
 _openTutorial = NodePath("Opentutorial")
 _tutorialPanel = NodePath("TutorialPanel")
+_tutorialLabel = NodePath("TutorialPanel/Label")
+_tutorialLabel2 = NodePath("TutorialPanel/Label2")
 _tutorial1 = NodePath("TutorialPanel/Tutorial1")
 _tutorial2 = NodePath("TutorialPanel/Tutorial2")
 _tutorial3 = NodePath("TutorialPanel/Tutorial3")

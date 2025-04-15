@@ -5,6 +5,9 @@ public partial class TutorialScene : TextureRect
 {
 
 	[Export] Button _okButton = null;
+	[Export] public Label _tutorialabel1 = null;
+	[Export] public Label _tutorialabel2 = null;
+	[Export] public Label _tutorialabel3 = null;
 
 	[Export] public Panel tutorial1 = null;
 	[Export] public VideoStreamPlayer tutorial1Player = null;
@@ -18,6 +21,8 @@ public partial class TutorialScene : TextureRect
 
 	public override void _Ready()
 	{
+		UpdateUIText();
+
 		if (tutorial1 != null) {
 			tutorial1.Visible = false;
 		}
@@ -64,6 +69,13 @@ public partial class TutorialScene : TextureRect
 		GetTree().Paused = false;
 
 	}
+
+	private void UpdateUIText()
+    {
+    	_tutorialabel1.Text = Tr("tutorial1");
+		_tutorialabel2.Text = Tr("tutorial2");
+		_tutorialabel3.Text = Tr("tutorial3");
+    }
 	public override void _Process(double delta)
 	{
 	}
