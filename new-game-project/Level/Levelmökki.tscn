@@ -439,17 +439,29 @@ offset_right = 632.0
 offset_bottom = 347.0
 text = "TAMK"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(577, 213)
+[node name="aita" type="Sprite2D" parent="."]
+position = Vector2(545, 200)
 texture = ExtResource("15_53kbd")
 region_enabled = true
 region_rect = Rect2(469, 172, 141, 43)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(32, 215)
+[node name="aita4" type="Sprite2D" parent="."]
+position = Vector2(669, 200)
 texture = ExtResource("15_53kbd")
 region_enabled = true
-region_rect = Rect2(535.782, 173.773, 67.177, 40.5862)
+region_rect = Rect2(469, 172, 141, 43)
+
+[node name="aita5" type="Sprite2D" parent="."]
+position = Vector2(669, 200)
+texture = ExtResource("15_53kbd")
+region_enabled = true
+region_rect = Rect2(469, 172, 141, 43)
+
+[node name="aita3" type="Sprite2D" parent="."]
+position = Vector2(27, 202)
+texture = ExtResource("15_53kbd")
+region_enabled = true
+region_rect = Rect2(469, 172, 141, 43)
 
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
@@ -519,76 +531,69 @@ texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(83.9401, 163.405, 84.3955, 59.7978)
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="tuoli" type="Sprite2D" parent="."]
 position = Vector2(541, 275)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="tuoli2" type="Sprite2D" parent="."]
 position = Vector2(503, 285)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="kukka" type="Sprite2D" parent="."]
 position = Vector2(154, 41)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="kukka2" type="Sprite2D" parent="."]
 position = Vector2(198, 260)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="kukka3" type="Sprite2D" parent="."]
 position = Vector2(311, 261)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="soffa" type="Sprite2D" parent="."]
 position = Vector2(67, 33)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(21.3662, 74.9187, 110.096, 66.7106)
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
+[node name="matto" type="Sprite2D" parent="."]
 position = Vector2(397, 93)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(206.868, 93.711, 151.35, 76.1528)
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
+[node name="soffapöytä" type="Sprite2D" parent="."]
 position = Vector2(72, 79)
 scale = Vector2(1.15079, 1.08621)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(70.9388, 48.6215, 63.7262, 29.8355)
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
+[node name="pönttö" type="Sprite2D" parent="."]
 position = Vector2(163, 266)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(289.914, 292.76, 49.8224, 64.3056)
 
-[node name="Sprite2D12" type="Sprite2D" parent="."]
+[node name="paperi" type="Sprite2D" parent="."]
 position = Vector2(187, 288)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(167.417, 260.658, 23.7495, 21.629)
 
-[node name="Sprite2D13" type="Sprite2D" parent="."]
+[node name="lamppu" type="Sprite2D" parent="."]
 position = Vector2(622, 261)
-texture = ExtResource("23_4ajmx")
-region_enabled = true
-region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)
-
-[node name="Sprite2D14" type="Sprite2D" parent="."]
-position = Vector2(57, 62)
-scale = Vector2(0.94, 0.27381)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)

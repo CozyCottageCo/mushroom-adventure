@@ -683,7 +683,6 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="kanto2" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(584.422, 371.594)
 scale = Vector2(0.424317, 0.206055)
 texture = ExtResource("24_c7r7m")
@@ -691,7 +690,6 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="kanto3" type="Sprite2D" parent="."]
-z_index = 2
 position = Vector2(537, 329)
 scale = Vector2(0.259033, 0.149903)
 texture = ExtResource("24_c7r7m")
@@ -1318,7 +1316,7 @@ region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
 [node name="perhonekelt3" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(353, 17)
+position = Vector2(361, 17)
 rotation = 1.26885
 texture = ExtResource("14_aph7y")
 region_enabled = true
