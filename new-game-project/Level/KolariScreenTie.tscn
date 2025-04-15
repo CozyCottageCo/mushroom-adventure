@@ -12,16 +12,18 @@
 [sub_resource type="FontVariation" id="FontVariation_at1w4"]
 base_font = ExtResource("2_tgxe0")
 
-[node name="KolariScreenTie" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_nappiAudio")]
+[node name="KolariScreenTie" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_nappiAudio")]
 z_index = 8
 offset_left = 220.0
 offset_top = 100.0
 offset_right = 420.0
-offset_bottom = 250.0
+offset_bottom = 308.0
 texture = ExtResource("2_ciypu")
 expand_mode = 1
 script = ExtResource("1_4kcdj")
 _reTryButton = NodePath("KolariScreenController/Button")
+_whoopsLabel = NodePath("KolariScreenController/UpsLabel")
+_hintLabel = NodePath("KolariScreenController/OhjeLabel")
 _nappiAudio = NodePath("NappiAudio")
 
 [node name="KolariScreenController" type="VBoxContainer" parent="."]
@@ -30,9 +32,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 2.0
+offset_top = 12.0
 offset_right = -10.0
-offset_bottom = -6.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15

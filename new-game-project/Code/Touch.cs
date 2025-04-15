@@ -450,6 +450,13 @@ namespace SieniPeli
                     if(_kolariScreen.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+
+                        var controller = _kolariScreen as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Ötökkä");
+                        }
+
                     } else if(_kolariScreen.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -463,6 +470,12 @@ namespace SieniPeli
                     if(_kolariScreenTie.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true;
+
+                        var controller = _kolariScreenTie as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Tie");
+                        }
                     } else if(_kolariScreenTie.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -476,6 +489,13 @@ namespace SieniPeli
                     if(_kolariScreenVesi.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+
+                        var controller = _kolariScreenVesi as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Vesi");
+                        }
+
                     } else if(_kolariScreenVesi.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -489,6 +509,11 @@ namespace SieniPeli
                     if(_kolariScreenVajaa.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+                        var controller = _kolariScreenVajaa as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Vajaa");
+                        }
                     } else if(_kolariScreenVesi.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -514,6 +539,7 @@ namespace SieniPeli
                 }
         }
         }
+
 
  // Empty Process method, not needed in this context
         public override void _Process(double delta) {

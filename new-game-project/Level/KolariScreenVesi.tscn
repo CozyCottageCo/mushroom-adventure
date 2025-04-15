@@ -61,7 +61,7 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="KolariScreenVesi" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_nappiAudio")]
+[node name="KolariScreenVesi" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_hintLabel", "_nappiAudio")]
 z_index = 8
 offset_left = 245.0
 offset_top = 100.0
@@ -71,6 +71,7 @@ texture = ExtResource("1_b0kuy")
 expand_mode = 1
 script = ExtResource("2_36rbe")
 _reTryButton = NodePath("VBoxContainer/Jatka")
+_hintLabel = NodePath("VBoxContainer/Label")
 _nappiAudio = NodePath("NappiAudio")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

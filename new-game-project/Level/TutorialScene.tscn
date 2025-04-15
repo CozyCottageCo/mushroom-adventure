@@ -29,7 +29,7 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player", "_okAudio")]
+[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "_tutorialabel1", "_tutorialabel2", "_tutorialabel3", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player", "_okAudio")]
 z_index = 8
 offset_left = 138.0
 offset_top = 25.0
@@ -38,6 +38,9 @@ offset_bottom = 234.0
 texture = ExtResource("1_j655w")
 script = ExtResource("2_mjded")
 _okButton = NodePath("Ok")
+_tutorialabel1 = NodePath("Tutorial1/Label")
+_tutorialabel2 = NodePath("Tutorial2/Label")
+_tutorialabel3 = NodePath("Tutorial3/Label")
 tutorial1 = NodePath("Tutorial1")
 tutorial1Player = NodePath("Tutorial1/VideoStreamPlayer")
 tutorial2 = NodePath("Tutorial2")
