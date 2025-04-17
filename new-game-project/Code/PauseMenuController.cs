@@ -113,7 +113,9 @@ public override void _Ready() {
 		}
 		string levelSelectionPath = $"res://Level/LevelSelect{levelSelectNumber}.tscn";
 		GD.Print(levelSelectionPath);
-		_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);
+		SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	    sceneTransition.FadeToScene(levelSelectionPath);
+		//_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);
 
 	}
 	}

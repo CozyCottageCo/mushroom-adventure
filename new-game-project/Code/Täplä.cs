@@ -43,13 +43,13 @@ private Touch _touch = null;
 			_sieni.Celebrate();
 			_voittoAudio.Play();
 			_voittoAudio.Finished += () => {
-				GD.Print("Victory audio finished signal received.");
 			musicplayer.currentPlayer.StreamPaused = false;
 			};
 			string currentLevelPath = GetTree().CurrentScene.SceneFilePath;
 			string currentLevel = currentLevelPath.GetFile().GetBaseName(); //katotaan tason nimi missä ollaan
 			var saveManager = GetNode<SaveManager>("/root/SaveManager");
 			saveManager.MarkLevelCompleted(currentLevel); // savemanageriin tason nimi tallennusta varten tehdyksi
+			saveManager.SetVictorySeen(false);
 			await ToSignal(GetTree().CreateTimer(5f), "timeout");
 			_touch.Voitto(); // voittometodi kutsu
 			GetTree().Paused = true;

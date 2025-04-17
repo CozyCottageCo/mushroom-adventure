@@ -28,7 +28,7 @@ region = Rect2(119, 280, 252, 49)
 atlas = ExtResource("3_akugd")
 region = Rect2(120, 279, 249, 50)
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_asetuksetButton", "_poistuButton", "_audioPuu", "_audioMuu")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_pelaaButton", "_asetuksetButton", "_poistuButton", "_audioPuu", "_audioMuu", "_nettisivu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +41,7 @@ _asetuksetButton = NodePath("Background/VBoxContainer/Asetukset")
 _poistuButton = NodePath("Background/VBoxContainer/Poistu")
 _audioPuu = NodePath("Audiopuu")
 _audioMuu = NodePath("Audiomuu")
+_nettisivu = NodePath("Background/Nettisivu")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -56,12 +57,12 @@ texture = ExtResource("2_oa8kk")
 [node name="TextureRect2" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = 18.0
-offset_top = 282.0
-offset_right = 81.0
-offset_bottom = 344.0
+offset_top = 251.0
+offset_right = 108.0
+offset_bottom = 341.0
 texture = ExtResource("6_pb6bi")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background"]
 layout_mode = 1
@@ -129,6 +130,14 @@ offset_right = 567.0
 offset_bottom = 154.0
 texture = ExtResource("7_l83vo")
 expand_mode = 1
+
+[node name="Nettisivu" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 252.0
+offset_right = 108.0
+offset_bottom = 341.0
+flat = true
 
 [node name="Settings" parent="." instance=ExtResource("7_erw4x")]
 visible = false

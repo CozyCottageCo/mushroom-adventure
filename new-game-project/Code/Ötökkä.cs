@@ -150,6 +150,9 @@ namespace SieniPeli {
             stopTime = 0f;
             Move((float)delta);
 
+            if (this.Name == "WRONG") {
+                GD.Print(_direction);
+            }
 
 
         }
@@ -211,6 +214,7 @@ namespace SieniPeli {
             sprite.FlipV = false;
             sprite.RotationDegrees = 0;
             string targetAnimation = "";
+               this.Scale = Vector2.One;
            // GD.Print($"PlayAnimation: {direction}, Speed: {speed}, CurrentAnim: {sprite.Animation}, {blockedByLight}");
 
             if (blockedByLight || currentSpeed == 0)
@@ -269,6 +273,10 @@ namespace SieniPeli {
                     sprite.Stop();
                     sprite.Play(targetAnimation);
                 }
+
+                if (this.Name == "WRONG") {
+                GD.Print(targetAnimation);
+            }
             }
 
         private void OnLongRangeEntered(Node body) {

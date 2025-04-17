@@ -7,6 +7,7 @@ public partial class VoittoScreenController : TextureRect
 {
 [Export] private Button _palaaTasoValikkoonButton = null;
 [Export] private AudioStreamPlayer2D _nappiAudio = null;
+[Export] private Label _voittoLabel = null;
 
 
 private SceneTree _mainMenuSceneTree = null;
@@ -18,7 +19,7 @@ private SettingsController settings = null;
 public override void _Ready() {
 {
 
-        UpdateUIText();
+    UpdateUIText();
 
 	base._Ready();
 
@@ -68,7 +69,9 @@ public override void _Ready() {
 		}
 		string levelSelectionPath = $"res://Level/LevelSelect{levelSelectNumber}.tscn";
 		GD.Print(levelSelectionPath);
-		_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);
+		SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	    sceneTransition.FadeToScene(levelSelectionPath);
+		//_mainMenuSceneTree.ChangeSceneToFile(levelSelectionPath);
 
 	}
 	}
@@ -76,6 +79,7 @@ public override void _Ready() {
 	private void UpdateUIText()
         {
             _palaaTasoValikkoonButton.Text = Tr("level");
+			_voittoLabel.Text = Tr("win");
         }
 
 }

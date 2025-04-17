@@ -32,8 +32,8 @@ namespace SieniPeli
         private Vector2I lastMapCoord = new Vector2I(-1, -1); // alustettu null vector viimeselle positiolle
 
         private ColorRect highLightRect;
-        private Button _goButton;
-        private Button _redoButton;
+        private TextureButton _goButton;
+        private TextureButton _redoButton;
 
 
         private TextureButton _menuButton;
@@ -51,7 +51,7 @@ namespace SieniPeli
         Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red,50% opacity
 
         private SettingsController settings = null;
-        private bool toggleMode = false;
+        private bool toggleMode;
         private bool stopBool = false;
 
 
@@ -90,7 +90,7 @@ namespace SieniPeli
 
             _line = new Line2D // settingsit piirtoviivalle
             {
-
+                ZIndex = 1,
                 Width = 5,
                 DefaultColor = lineColor
             };
@@ -182,8 +182,8 @@ namespace SieniPeli
             };
             AddChild(highLightRect);
 
-            _goButton = GetNode<Button>("/root/Node2D/Go"); // go ja redo buttonit käyttöön
-            _redoButton = GetNode<Button>("/root/Node2D/Redo");
+            _goButton = GetNode<TextureButton>("/root/Node2D/Go"); // go ja redo buttonit käyttöön
+            _redoButton = GetNode<TextureButton>("/root/Node2D/Redo");
             _menuButton = GetNode<TextureButton>("/root/Node2D/Menu");
 
             _goButton.Visible = false;
@@ -425,9 +425,9 @@ namespace SieniPeli
             {
                 _menuPanel.Visible = !_menuPanel.Visible; // jos näkyvis, pois, ja päinvastoi
                 if(_menuPanel.Visible == true) {
+                    GetTree().Paused = true;
                     _nappi3.Play();
                     await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-                    GetTree().Paused = true;
                     _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                 } else if(_menuPanel.Visible == false) {
                     _nappi2.Play();
@@ -450,6 +450,13 @@ namespace SieniPeli
                     if(_kolariScreen.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+
+                        var controller = _kolariScreen as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Ötökkä");
+                        }
+
                     } else if(_kolariScreen.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -463,6 +470,12 @@ namespace SieniPeli
                     if(_kolariScreenTie.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true;
+
+                        var controller = _kolariScreenTie as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Tie");
+                        }
                     } else if(_kolariScreenTie.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -476,6 +489,13 @@ namespace SieniPeli
                     if(_kolariScreenVesi.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+
+                        var controller = _kolariScreenVesi as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Vesi");
+                        }
+
                     } else if(_kolariScreenVesi.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -489,6 +509,11 @@ namespace SieniPeli
                     if(_kolariScreenVajaa.Visible == true) {
                         _buttonsVisible = true; // samal flipataa tää buttonsvisible ettei paina läpi
                         GetTree().Paused = true; // pausettaa pelin myös
+                        var controller = _kolariScreenVajaa as KolariScreenController;
+                        if (controller != null)
+                        {
+                            controller.SetCrashType("Vajaa");
+                        }
                     } else if(_kolariScreenVesi.Visible == false) {
                         _buttonsVisible = false;
                     }
@@ -514,6 +539,7 @@ namespace SieniPeli
                 }
         }
         }
+
 
  // Empty Process method, not needed in this context
         public override void _Process(double delta) {

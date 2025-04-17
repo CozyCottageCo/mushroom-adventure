@@ -38,6 +38,7 @@ namespace SieniPeli
                 // Levelselect musalataus
 
 
+
             base._Ready();
             _levelSelectSceneTree = GetTree(); // ladataan scenetree
             if (_levelSelectSceneTree == null)
@@ -70,8 +71,9 @@ namespace SieniPeli
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
 
             _gameClearPanel.Visible = false;
-            if (saveManager.GetLevelsCompleted() == 18) {
+            if (saveManager.GetLevelsCompleted() == 18 && !saveManager.victoryShown) {
                 _gameClearPanel.Visible = true;
+                saveManager.SetVictorySeen(true);
             }
         }
 
@@ -135,21 +137,27 @@ namespace SieniPeli
             }
 
             GD.Print($"Loading level {levelNumber}"); // debug viestiä
-            _levelSelectSceneTree.ChangeSceneToFile(levelPath); // ja vaihetaan scene
+            SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	        sceneTransition.FadeToScene(levelPath);
+
         }
 
         private void LoadSelectionScreen(int screen) // levelselectionin latausmetodi, nro parametrinä
         {
             string levelSelectPath = $"res://Level/LevelSelect{screen}.tscn"; // vaihtaa level selectionin reitin nro mukaan
             GD.Print($"Going to level select screen {screen}"); // debuggia
-            _levelSelectSceneTree.ChangeSceneToFile(levelSelectPath); // ja skene vaihtuu
+            SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	        sceneTransition.FadeToScene(levelSelectPath);
+            //_levelSelectSceneTree.ChangeSceneToFile(levelSelectPath); // ja skene vaihtuu
         }
 
 		private async void MainMenuPressed() { // tietysti main menuun takaisin
             _nappi2.Play();
             await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 			string mainMenuPath = "res://Level/MainMenu.tscn";
-			_levelSelectSceneTree.ChangeSceneToFile(mainMenuPath);
+            SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
+	        sceneTransition.FadeToScene(mainMenuPath);
+			//_levelSelectSceneTree.ChangeSceneToFile(mainMenuPath);
 		}
 
         public string GetCurrentLevelSelect() {

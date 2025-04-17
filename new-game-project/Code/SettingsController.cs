@@ -12,9 +12,8 @@ public partial class SettingsController : Control
 	[Export] private CheckButton _movementToggle = null; // toggle on/off
 	[Export] private Button _backButton = null;
 	[Export] private Button _resetProgress = null;
-
+	[Export] private Label _progressLabel = null;
 	[Export] private Button _olenVarma = null;
-
 	[Export] private Button _enOleVarma = null;
 	[Export] private Label _volumeLabel = null;
 	[Export] private Label _movementLabel = null;
@@ -25,6 +24,8 @@ public partial class SettingsController : Control
 
 	[Export] TextureButton _openTutorial = null;
 	[Export] TextureRect _tutorialPanel = null;
+	[Export] private Label _tutorialLabel = null;
+	[Export] private Label _tutorialLabel2 = null;
 	[Export] Button _tutorial1 = null;
 	[Export] Button _tutorial2 = null;
 	[Export] Button _tutorial3 = null;
@@ -39,13 +40,12 @@ public partial class SettingsController : Control
 	public override void _Ready()
 	{
 
+		LoadSettings();
 		confirmPanel.Visible = false;
 		_tutorialPanel.Visible = false;
 		Node currentScene = GetTree().CurrentScene;
 
-
-
-		// Connect signals
+		// Yhdistä signaalit
 		_languageOption.Connect(OptionButton.SignalName.ItemSelected, new Callable(this, nameof(OnLanguageChanged)));
 		_volumeSlider.Connect(HSlider.SignalName.ValueChanged, new Callable(this, nameof(OnVolumeChanged)));
 		_movementToggle.Connect(CheckButton.SignalName.Toggled, new Callable(this, nameof(OnMovementToggled)));
@@ -59,7 +59,7 @@ public partial class SettingsController : Control
 		_tutorial3.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial3Pressed)));
 		_closeTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialClosePressed)));
 
-		LoadSettings();
+
 	}
 
 	private void LoadSettings()
@@ -73,7 +73,7 @@ public partial class SettingsController : Control
 			config.Save(configPath);
 		}
 
-		// Load saved language
+		// Lataa tallennettu kieli
 		savedLanguage = (int)config.GetValue("Settings", "Language", 0);
 
 		TranslationServer.SetLocale(savedLanguage == 0 ? "en" : "fi");
@@ -84,11 +84,11 @@ public partial class SettingsController : Control
 		_languageOption.Selected = savedLanguage;
 		}
 
-		// Load other settings
+		// Lataa muut asetukset
 		_volumeSlider.Value = (float)(double)config.GetValue("Settings", "Volume", 1.0);
 		_movementToggle.ButtonPressed = (bool)config.GetValue("Settings", "AlternativeMovement", false);
 
-		// Update UI text
+		// Päivitä UI teksti
 		UpdateUIText();
 	}
 
@@ -97,7 +97,7 @@ public partial class SettingsController : Control
 	{
 		config.SetValue("Settings", "Language", _languageOption.Selected);
 		config.SetValue("Settings", "Volume", _volumeSlider.Value);
-		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ButtonPressed);
+		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ToggleMode);
 
 		config.Save(configPath);
 		GD.Print("Settings saved to " + configPath);
@@ -117,6 +117,8 @@ public partial class SettingsController : Control
 
 		GD.Print("Language changed to: " + selectedLanguage);
 		SaveSettings();
+		LoadSettings();
+		GetTree().ReloadCurrentScene();
 	}
 
 
@@ -156,7 +158,7 @@ public partial class SettingsController : Control
 		LoadSettings();
 		_tutorialPanel.Visible = false;
 		this.Visible = false; // Hide the settings menu instead of changing the scene
-    GD.Print("Settings menu hidden.");
+		GD.Print("Settings menu hidden.");
 	}
 
 	private void OnResetPressed() { // mahdollisuus resetoida tallennus (ainakin pelikehityksen ajaksi kiva olla)
@@ -179,14 +181,14 @@ public partial class SettingsController : Control
 		string sceneName = scenePath.GetFile().Replace(".tscn", "");
 		GD.Print("Current scene name: " + sceneName);
 
-        if (sceneName.StartsWith("Level"))
-    {
-        GD.Print("Level scene detected, switching to the main menu.");
-        // Change to the main menu scene
+		if (sceneName.StartsWith("Level"))
+	{
+		GD.Print("Level scene detected, switching to the main menu.");
+		// Change to the main menu scene
 		GetTree().Paused = false;
-        GetTree().ChangeSceneToFile("res://Level/MainMenu.tscn");
+		GetTree().ChangeSceneToFile("res://Level/MainMenu.tscn");
 
-    }
+	}
 	}
 
 	private void OnResetCanceled() {
@@ -202,21 +204,27 @@ public partial class SettingsController : Control
 		_movementLabel.Text = Tr("movement");
 		_languageLabel.Text = Tr("language");
 		_settingsLabel.Text = Tr("settings");
+		_resetProgress.Text = Tr("resetprogress");
+		_olenVarma.Text = Tr("yes");
+		_enOleVarma.Text = Tr("no");
+		_progressLabel.Text = Tr("progress");
+		_tutorialLabel.Text = Tr("tutorial");
+		_tutorialLabel2.Text = Tr("tutorialv2");
 	}
 
 	public bool GetMovementToggle() { // tarkistetaan mikä asetuksissa on tallennettu movement toggle likkkumiselle
 
 		 if (config.Load(configPath) != Error.Ok)
-            {
-                GD.Print("Settings file not found or failed to load.");
-                return false; // Default false jos ei lataa (tää taitaa itteasias bugittaa mut toimii just oikein :D)
-            }
+			{
+				GD.Print("Settings file not found or failed to load.");
+				return false; // Default false jos ei lataa (tää taitaa itteasias bugittaa mut toimii just oikein :D)
+			}
 
-            // katotaa value
-            bool isMovementToggled = (bool)config.GetValue("Settings", "AlternativeMovement", false);
-            GD.Print($"Movement toggle state: {isMovementToggled}");
+			// katotaa value
+			bool isMovementToggled = (bool)config.GetValue("Settings", "AlternativeMovement", false);
+			GD.Print($"Movement toggle state: {isMovementToggled}");
 
-            return isMovementToggled; // palautetaa liikkeelle
+			return isMovementToggled; // palautetaa liikkeelle
 	}
 
 	private void OnTutorialOpenPressed() {
@@ -233,19 +241,19 @@ public partial class SettingsController : Control
 		_nappi2.Play();
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
-            tutorial.TutorialActivated(1);
+			tutorial.TutorialActivated(1);
 	}
 	private async void OnTutorial2Pressed() {
 		_nappi2.Play();
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
-            tutorial.TutorialActivated(2);
+			tutorial.TutorialActivated(2);
 	}
 	private async void OnTutorial3Pressed() {
 		_nappi2.Play();
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
-            tutorial.TutorialActivated(3);
+			tutorial.TutorialActivated(3);
 	}
 
 }

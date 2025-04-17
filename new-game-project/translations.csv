@@ -9,9 +9,23 @@ movement,Touch to stop the mushroom,Näpäytä pysäyttääksesi sieni
 back,Back,Takaisin
 retry,Try again, Yritä uudelleen
 whoops,Whoops!,Ups!
-hint,Do not go to motorway! Zebra Crossings are safe way to get to the other side.,Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie.
+hint,Do not go to motorway! Zebra Crossings are safe way to cross the road.,Ethän mene autotielle! Suojatiet ovat turvallinen tapa ylittää tie.
 crash,Crashed!,Kolari!
 hint2,Watch out for traffic! Remember that by pressing the screen you can stop.,Varo muuta liikennettä! Muista että ruutua painamalla voit pysähtyä.
-mainmenu, Back to main menu, Takaisin päävalikkoon
-continue, Continue, Jatka
-level, Level select, Tasovalikkoon
+mainmenu,Back to main menu,Takaisin päävalikkoon
+continue,Continue,Jatka
+level,Level select,Tasovalikkoon
+win,Missing spot found!,Löysit täplän!
+swim,Näsi can't swim! Try using bridge.,Näsi ei osaa uida! Määrittele reitti käyttäen siltaa.
+vajaa,You didn't find the spot! Remember to draw the line straight to the missing spot.,Et löytänyt täplää! Muista että piirtämäsi reitin pitää johdattaa sieni täplänsä luo!
+tutorial1,Start drawing from Näsi and draw safe way to the missing spots. Accept the line or press back to draw new one.,Aloita piirtäminen Näsistä ja piirrä turvallinen reitti täplien luo. Hyväksy reitti tai valitse takaisin piirtääksesi uusi reitti.
+tutorial2,You can stop by pressing the screen. By stopping next to zebra crossing traffic will make space for you.,Voit pysähtyä painamalla ruutua (asetuksien valinnan mukaan.) Pysähtymällä suojatien reunaan liikenne antaa sinulle tietä.
+tutorial3,Traffic lights in the zebra crossings guide the traffic. When light is green it is safe to cross the road,Liikennevalot suojatiellä ohjaavat liikennettä. Kun valo on vihreä on jalankulkijan on turvallista ylittää tie.
+resetprogress,Reset progress,Nollaa peli
+yes,Accept,Olen
+no,Cancel,En
+progress,Are you sure?\n You will lost your progress.,Oletko varma?\n Menetät tallennetun etenemisesi.\n Tätä ei voi perua.
+tutorial,Tutorials,Tutoriaalit
+tutorialv2,Choose tutorial video to watch.,Valitse tutoriaalivideo katsottavaksi.
+thanks,Kiitos :), Thank you :)
+cleared,Congratulations! You helped näsi to find all of the missing spots. Thank you for playing!,Onnittelut! Avullasi Näsi löysi kaikki täplänsä ennen kouluvuoden alkua. Kiitos pelaamisesta!

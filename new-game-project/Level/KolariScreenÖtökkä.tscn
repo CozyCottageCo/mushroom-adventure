@@ -53,16 +53,18 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="KolariScreenÖtökkä" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_nappiAudio")]
+[node name="KolariScreenÖtökkä" type="TextureRect" node_paths=PackedStringArray("_reTryButton", "_whoopsLabel", "_hintLabel", "_nappiAudio")]
 z_index = 8
 offset_left = 220.0
 offset_top = 90.0
 offset_right = 420.0
-offset_bottom = 270.0
+offset_bottom = 310.0
 texture = ExtResource("2_c84nb")
 expand_mode = 1
 script = ExtResource("1_4le0a")
 _reTryButton = NodePath("KolariScreenController/Button")
+_whoopsLabel = NodePath("KolariScreenController/Label")
+_hintLabel = NodePath("KolariScreenController/Label2")
 _nappiAudio = NodePath("NappiAudio")
 
 [node name="KolariScreenController" type="VBoxContainer" parent="."]
@@ -84,6 +86,7 @@ label_settings = ExtResource("4_ypni7")
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="KolariScreenController"]
+process_mode = 3
 layout_mode = 2
 texture = SubResource("AnimatedTexture_yasid")
 stretch_mode = 3
