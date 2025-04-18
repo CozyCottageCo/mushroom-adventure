@@ -29,7 +29,7 @@ border_color = Color(0.980392, 0.752941, 0.352941, 1)
 border_blend = true
 corner_detail = 1
 
-[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "_tutorialabel1", "_tutorialabel2", "_tutorialabel3", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player", "_okAudio")]
+[node name="TutorialScene" type="TextureRect" node_paths=PackedStringArray("_okButton", "_tutorialabel1", "_tutorialabel2", "_tutorialabel3", "_tutorialabel4", "tutorial1", "tutorial1Player", "tutorial2", "tutorial2Player", "tutorial3", "tutorial3Player", "tutorial4", "tutorial4Player", "_okAudio")]
 z_index = 8
 offset_left = 138.0
 offset_top = 25.0
@@ -41,15 +41,19 @@ _okButton = NodePath("Ok")
 _tutorialabel1 = NodePath("Tutorial1/Label")
 _tutorialabel2 = NodePath("Tutorial2/Label")
 _tutorialabel3 = NodePath("Tutorial3/Label")
+_tutorialabel4 = NodePath("Tutorial4/Label")
 tutorial1 = NodePath("Tutorial1")
 tutorial1Player = NodePath("Tutorial1/VideoStreamPlayer")
 tutorial2 = NodePath("Tutorial2")
 tutorial2Player = NodePath("Tutorial2/VideoStreamPlayer")
 tutorial3 = NodePath("Tutorial3")
 tutorial3Player = NodePath("Tutorial3/VideoStreamPlayer")
+tutorial4 = NodePath("Tutorial4")
+tutorial4Player = NodePath("Tutorial4/VideoStreamPlayer")
 _okAudio = NodePath("Nappiaudio")
 
 [node name="Tutorial1" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 14.0
@@ -164,6 +168,44 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_rs6vr")
 theme_override_font_sizes/font_size = 13
 text = "Liikennevalot suojatiellä ohjaavat liikennettä. Kun valo on vihreä, jalankulkijan on turvallista ylittää tie."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tutorial4" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 368.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gx4se")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Tutorial4"]
+process_mode = 3
+layout_mode = 0
+offset_left = 69.0
+offset_top = -3.0
+offset_right = 283.0
+offset_bottom = 111.0
+volume_db = -80.0
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="Tutorial4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_rs6vr")
+theme_override_font_sizes/font_size = 13
+text = "Pimeällä tarvitset heijastimen, että liikenne näkee sinut. Ilman sitä liikenne ei pysähdy suojatielle!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

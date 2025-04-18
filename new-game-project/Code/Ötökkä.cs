@@ -545,7 +545,7 @@ namespace SieniPeli {
             sieniSuojaTie = CrossWalkManager.CurrentCrossWalk;
 
            if (!string.IsNullOrEmpty(detectedCrossWalk) && CrossWalkManager.CrossWalkOccupied &&
-            sieniSuojaTie == detectedCrossWalk)
+            sieniSuojaTie == detectedCrossWalk && OnHeijastin())
             {
                 Stop();
                // GD.Print($"{this.Name} stops for crosswalk: {detectedCrossWalk}");
@@ -574,6 +574,20 @@ namespace SieniPeli {
             private bool IsSame_direction(Vector2 other_direction) {
                 float dotProduct = _direction.Dot(other_direction);
                 return dotProduct > 0f;
+            }
+
+            public bool OnHeijastin() { // tarkistus, simppelisti levelin mukaan
+            string scenePath = GetTree().CurrentScene.SceneFilePath;
+            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+            Sieni sieni = GetNode<Sieni>("/root/Node2D/Sieni");
+            if (sceneName == "Level2") { // insert leveli(t) missä heijastinta käytetään
+                if (sieni._hasHeijastin) {
+                    return true;
+                } else {
+                    return false; // ainoostaan false jos heijastinkartta ja ei oo mukana
+                }
+            }
+            return true; // true muihin ku heijastinkarttoihin
             }
 
             private bool IsOppositeDirection(Vector2 otherBugDirection) {

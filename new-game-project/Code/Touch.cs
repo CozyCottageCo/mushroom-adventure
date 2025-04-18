@@ -80,6 +80,7 @@ namespace SieniPeli
                 var tutorial = GetNode<TutorialScene>("TutorialScene");
                 tutorial.TutorialActivated(3);
             }
+            // tähän tulee tutorial 4 heijastimelle
         }
 
 
@@ -95,14 +96,14 @@ namespace SieniPeli
                 ZIndex = 1,
                 Width = 20,
                 DefaultColor = lineColor,
-                Texture = GD.Load<Texture2D>("res://Art/footsteptransparent1.png"),
+                Texture = GD.Load<Texture2D>("res://Art/footsteptransparent2.png"), // jalanjälkitekstuuri ja asetuksia
                 TextureMode = Line2D.LineTextureMode.Tile,
                 JointMode = Line2D.LineJointMode.Sharp
             };
 
             var material = new CanvasItemMaterial
             {
-                BlendMode = CanvasItemMaterial.BlendModeEnum.Mix // Try Lighten or Disabled if you want different blending
+                BlendMode = CanvasItemMaterial.BlendModeEnum.Mix // en oo varma onks tä turha tbh lol
             };
 
             _line.Material = material;
@@ -281,7 +282,7 @@ namespace SieniPeli
                             (int)(touch.Position.X / tileWidth),
                             (int)(touch.Position.Y / tileHeight)
                         );
-                       // float drawDistance = sieniTile.DistanceTo(touchTile); 1.5f : diagonal 1
+                       // sienen tiili +1 ylempi (eli käytännös alakroppa ja pää et helpompi tarttua)
                        Vector2 drawDistance = sieniTile + new Vector2I(0, -1);
                         if (touchTile != sieniTile && touchTile != drawDistance) // Ingoorataan piirretty viiva jos se ei ala sienen koordinaateista
                         {
@@ -329,7 +330,7 @@ namespace SieniPeli
                             tilesUsed.Clear(); //uusiks reset käytetyt tiilet
                             _line.Points = new Vector2[0]; // uusiks reset viiva
                             return;
-                        }*/ // koodi, jos halutaan ettei piirto voi loppua muualle kuin täplään
+                        }*/ // koodi, jos halutaan ettei piirto voi loppua muualle kuin täplään; ei käytetä
 
                         _goButton.Visible = true; // napit näkyviin
                         _redoButton.Visible = true;
@@ -429,15 +430,13 @@ namespace SieniPeli
             // lisätää tiili normaalisti / perään jos oli diagonal ja haamutiili eka
 
             Vector2I mapCoords = new Vector2I(tileX, tileY);
-          //  GD.Print($"Touch at ({position.X}, {position.Y}) maps to tile ({tileX}, {tileY})"); debugviesti
-
-            // Update the highlight
+            // Update highlight
             highLightRect.Position = new Vector2(
                 tileX * tileWidth + (tileWidth - highLightRect.Size.X) / 2 ,
                 tileY * tileHeight + (tileHeight - highLightRect.Size.Y) / 2);
             highLightRect.Visible = true; // highlight-neliö seuraa kursorii
 
-            // Add tile to the list IF it is not the last used tile (to allow for duplicate coordinates, e.g retracing steps)
+            // Lisätään tiili JOS se ei oo viiminen koordinaatti (ettei tuu duplikaattei)
 
             if (!mapCoords.Equals(lastMapCoord))
             {

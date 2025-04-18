@@ -31,8 +31,9 @@ namespace SieniPeli {
 
 		public bool atTäplä = false;
 		private bool celebrationTime = false;
-		private Vector2 _lastDirection = Vector2.Zero; // Store last direction for idle animations
+		private Vector2 _lastDirection = Vector2.Zero; // vika suunta taltee animaatioil
 
+		public bool _hasHeijastin = false;
 		public override void _Ready() {
 			PackedScene gridScene = ResourceLoader.Load<PackedScene>(_gridScenePath);
 			grid = (Grid)gridScene.Instantiate();
@@ -41,7 +42,7 @@ namespace SieniPeli {
 			Position = initialPosition;
 			GlobalPosition = initialPosition;
 
-			// Ensure AnimatedSprite2D has valid animations
+			// Katotaa animaatiot
 			if (SpriteFrames == null) {
 				GD.PrintErr("AnimatedSprite2D missing SpriteFrames!");
 			}
@@ -69,15 +70,15 @@ namespace SieniPeli {
 			float distance = _currentSpeed * (float)delta;
 			GlobalPosition = GlobalPosition.MoveToward(targetPosition, distance);
 
-			RunAnimation(direction); // Play appropriate animation
+			RunAnimation(direction); // Oikee animaatio tulil
 			if (_currentSpeed > 0) {
 				AudioStreamPlayer2D footStepPlayer = GetNode<AudioStreamPlayer2D>("FootStepPlayer");
-				if (!footStepPlayer.Playing) { // Only play if not already playing
+				if (!footStepPlayer.Playing) { // Jalanjälkiäänet (kun ei oo aiempi menos)
 					footStepPlayer.Play();
 				}
 			} else {
 				AudioStreamPlayer2D footStepPlayer = GetNode<AudioStreamPlayer2D>("FootStepPlayer");
-				footStepPlayer.Stop(); // Stop sound when stopping
+				footStepPlayer.Stop(); // Stop ku stop
 			}
 
 
@@ -88,14 +89,14 @@ namespace SieniPeli {
 				if (currentTargetIndex >= path.Count) {
 					isMoving = false;
 					if (!atTäplä) {
-						GameOver();
+						GameOver(); // jos ei saavuta täplää ku reitti loppuu, häviö
 					}
 			}
 			}
 		}
 
 		public void Move(Vector2I[] inputPath) {
-			if (inputPath.Length < 2) return;
+			if (inputPath.Length < 2) return; // jos reitti alle 2, ei mennä
 
 			path.Clear();
 			foreach (var coord in inputPath)
@@ -125,7 +126,7 @@ namespace SieniPeli {
 				return;
 			}
 
-			_lastDirection = direction; // Store last direction for idle state
+			_lastDirection = direction; // Vika suunta idlee varten
 
 
 
@@ -139,7 +140,7 @@ namespace SieniPeli {
 		}
 
 		public void Celebrate() {
-			celebrationTime = true;
+			celebrationTime = true; // called ku täplää osuu
 		}
 
 		private void OnBodyEntered(Node body) {

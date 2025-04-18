@@ -30,6 +30,8 @@ public partial class SettingsController : Control
 	[Export] Button _tutorial1 = null;
 	[Export] Button _tutorial2 = null;
 	[Export] Button _tutorial3 = null;
+
+	[Export] Button _tutorial4 = null;
 	[Export] Button _closeTutorial = null;
 
 	[Export] AudioStreamPlayer2D _nappi1 = null;
@@ -59,6 +61,7 @@ public partial class SettingsController : Control
 		_tutorial1.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial1Pressed)));
 		_tutorial2.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial2Pressed)));
 		_tutorial3.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial3Pressed)));
+		_tutorial4.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorial4Pressed)));
 		_closeTutorial.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnTutorialClosePressed)));
 
 
@@ -251,6 +254,13 @@ public partial class SettingsController : Control
 		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 		var tutorial = GetNode<TutorialScene>("TutorialScene");
 			tutorial.TutorialActivated(3);
+	}
+
+	private async void OnTutorial4Pressed() {
+		_nappi2.Play();
+		await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
+		var tutorial = GetNode<TutorialScene>("TutorialScene");
+			tutorial.TutorialActivated(4);
 	}
 
 }

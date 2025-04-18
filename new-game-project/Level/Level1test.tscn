@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://7fj1sbrlj66r"]
+[gd_scene load_steps=57 format=4 uid="uid://7fj1sbrlj66r"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_6sskp"]
 [ext_resource type="Texture2D" uid="uid://ca8uobalgn3e0" path="res://Art/Spritet/Ympäristö/taplajahti_ruoho.png" id="2_gwywm"]
@@ -14,11 +14,14 @@
 [ext_resource type="Script" path="res://Code/PauseMenuController.cs" id="12_4etmb"]
 [ext_resource type="Texture2D" uid="uid://dcpj74sesav2w" path="res://Art/Spritet/Ei-pelaajat/Sprite NPC.png" id="13_ieksi"]
 [ext_resource type="Texture2D" uid="uid://3i8f6d43bwbo" path="res://Art/letsgoo.jpg" id="15_f83l7"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="15_qa13n"]
-[ext_resource type="Script" path="res://Code/Täplä.cs" id="16_fsa4o"]
+[ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="17_kny25"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="17_v62nk"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_7xa28"]
-[ext_resource type="Texture2D" uid="uid://bheaexixri2w8" path="res://Art/footsteptransparent1.png" id="19_g623h"]
+[ext_resource type="Texture2D" uid="uid://6yeshgahw64e" path="res://Art/lightsource.webp" id="18_rnd61"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="19_cgppc"]
+[ext_resource type="Script" path="res://Code/lightscript.cs" id="19_q8mon"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ojvlj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
 texture = ExtResource("2_gwywm")
@@ -26,11 +29,15 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
+2:0/0/material = SubResource("CanvasItemMaterial_ojvlj")
 3:0/0 = 0
+3:0/0/material = SubResource("CanvasItemMaterial_ojvlj")
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
+2:1/0/material = SubResource("CanvasItemMaterial_ojvlj")
 3:1/0 = 0
+3:1/0/material = SubResource("CanvasItemMaterial_ojvlj")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:2/0 = 0
@@ -52,6 +59,7 @@ texture_region_size = Vector2i(32, 32)
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:0/0 = 0
+4:0/0/material = SubResource("CanvasItemMaterial_ojvlj")
 4:4/0 = 0
 5:4/0 = 0
 5:3/0 = 0
@@ -62,8 +70,11 @@ texture_region_size = Vector2i(32, 32)
 5:2/0 = 0
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 5:0/0 = 0
+5:0/0/material = SubResource("CanvasItemMaterial_ojvlj")
 5:1/0 = 0
+5:1/0/material = SubResource("CanvasItemMaterial_ojvlj")
 4:1/0 = 0
+4:1/0/material = SubResource("CanvasItemMaterial_ojvlj")
 
 [sub_resource type="TileSet" id="TileSet_1iyxx"]
 tile_size = Vector2i(32, 32)
@@ -226,9 +237,6 @@ region = Rect2(435, 421, 47, 59)
 atlas = ExtResource("15_f83l7")
 region = Rect2(20, 134, 716, 716)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivg4"]
-size = Vector2(128, 128)
-
 [sub_resource type="Curve2D" id="Curve2D_qi5pf"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 280, -31, 0, 0, 0, 0, 282, 191, 0, 0, 0, 0, -16, 193)
@@ -304,7 +312,17 @@ point_count = 5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y72lu"]
 size = Vector2(92, 91)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kctai"]
+shader = ExtResource("17_kny25")
+shader_parameter/light_position = null
+shader_parameter/light_radius = 0.2
+shader_parameter/darkness_color = Vector4(0, 0, 0, 0.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsw82"]
+size = Vector2(37, 37)
+
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_6sskp")
 
 [node name="CrossWalkManager" parent="." instance=ExtResource("2_xs1vn")]
@@ -542,19 +560,6 @@ process_mode = 3
 layout_mode = 2
 text = "Tasovalikkoon"
 
-[node name="Täplä" type="Sprite2D" parent="."]
-position = Vector2(464, 336)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("15_qa13n")
-
-[node name="Area2D" type="Area2D" parent="Täplä"]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("16_fsa4o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Täplä/Area2D"]
-shape = SubResource("RectangleShape2D_5ivg4")
-
 [node name="Reitit" type="Node2D" parent="."]
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
@@ -613,7 +618,7 @@ rotation = 3.1365
 curve = SubResource("Curve2D_2d6bc")
 
 [node name="Sieni" parent="." instance=ExtResource("18_7xa28")]
-position = Vector2(412, 76)
+position = Vector2(417, 83)
 
 [node name="Risteys" type="Area2D" parent="."]
 collision_layer = 128
@@ -623,12 +628,37 @@ collision_mask = 80
 position = Vector2(305, 208.5)
 shape = SubResource("RectangleShape2D_y72lu")
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(476, 238, 481.29, 219.583, 503, 144, 370, 73)
-width = 20.0
-texture = ExtResource("19_g623h")
-texture_mode = 1
-joint_mode = 1
-begin_cap_mode = 1
-end_cap_mode = 1
-sharp_limit = 4.11
+[node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
+position = Vector2(1, 0)
+script = ExtResource("19_q8mon")
+_darknessOverlay = NodePath("ColorRect")
+_lightSource = NodePath("../Area2D/PointLight2D")
+
+[node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
+material = SubResource("ShaderMaterial_kctai")
+offset_left = -136.0
+offset_top = -108.0
+offset_right = 738.0
+offset_bottom = 443.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.988235)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8, 1)
+collision_layer = 4096
+collision_mask = 2
+input_pickable = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(522, 305)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("19_cgppc")
+
+[node name="PointLight2D" type="PointLight2D" parent="Area2D"]
+position = Vector2(519, 305)
+texture = ExtResource("18_rnd61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(522.5, 303.5)
+shape = SubResource("RectangleShape2D_qsw82")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bqgotk2sq8uh2"]
+[gd_scene load_steps=48 format=4 uid="uid://bqgotk2sq8uh2"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_gqkh4"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_mtntk"]
@@ -28,6 +28,10 @@
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="25_b10jg"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="26_ldqhs"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="27_gr2or"]
+[ext_resource type="Script" path="res://Code/lightscript.cs" id="29_l406v"]
+[ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="30_lu7tj"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="31_k2d88"]
+[ext_resource type="Script" path="res://Code/Heijastin.cs" id="31_thd84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5jl1"]
 texture = ExtResource("2_qhktc")
@@ -259,6 +263,15 @@ events = [SubResource("InputEventKey_ggbqe")]
 atlas = ExtResource("8_7f3yq")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kctai"]
+shader = ExtResource("30_lu7tj")
+shader_parameter/light_position = null
+shader_parameter/light_radius = 0.2
+shader_parameter/darkness_color = Vector4(0, 0, 0, 0.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r52g"]
+size = Vector2(41, 41)
+
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
 script = ExtResource("1_gqkh4")
@@ -341,7 +354,7 @@ flip_h = true
 region_rect = Rect2(352, 350, 66, 38)
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
-z_index = 4
+z_index = 1
 z_as_relative = false
 position = Vector2(41, 32)
 scale = Vector2(0.882813, 1)
@@ -405,7 +418,7 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
+z_as_relative = false
 position = Vector2(320, 32)
 scale = Vector2(0.529363, 0.527472)
 texture = ExtResource("21_hk54t")
@@ -607,3 +620,39 @@ stream = ExtResource("26_ldqhs")
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("27_gr2or")
+
+[node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
+script = ExtResource("29_l406v")
+_darknessOverlay = NodePath("ColorRect")
+_lightSource = NodePath("../Sprite2D2")
+
+[node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
+z_index = 2
+material = SubResource("ShaderMaterial_kctai")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.988235)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(273, 331)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("31_k2d88")
+script = ExtResource("31_thd84")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2"]
+position = Vector2(-1740, -1016.67)
+scale = Vector2(3.33333, 3.33333)
+collision_layer = 4096
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+position = Vector2(522.5, 304.5)
+shape = SubResource("RectangleShape2D_6r52g")

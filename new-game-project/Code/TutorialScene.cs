@@ -8,6 +8,7 @@ public partial class TutorialScene : TextureRect
 	[Export] public Label _tutorialabel1 = null;
 	[Export] public Label _tutorialabel2 = null;
 	[Export] public Label _tutorialabel3 = null;
+	[Export] public Label _tutorialabel4 = null;
 
 	[Export] public Panel tutorial1 = null;
 	[Export] public VideoStreamPlayer tutorial1Player = null;
@@ -17,6 +18,9 @@ public partial class TutorialScene : TextureRect
 
 	[Export] public Panel tutorial3 = null;
 	[Export] public VideoStreamPlayer tutorial3Player = null;
+
+	[Export]public Panel tutorial4 = null;
+	[Export] public VideoStreamPlayer tutorial4Player = null;
 	[Export] AudioStreamPlayer2D _okAudio = null;
 
 	public override void _Ready()
@@ -31,6 +35,9 @@ public partial class TutorialScene : TextureRect
 		}
 		if (tutorial3 != null) {
 			tutorial3.Visible = false;
+		}
+		if (tutorial4 != null) {
+			tutorial4.Visible = false;
 		}
 
 		_okButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(OnOkPressed)));
@@ -54,6 +61,11 @@ public partial class TutorialScene : TextureRect
 			tutorial3.Visible = true;
 			tutorial3Player.Play();
 		}
+		if (number == 4) {
+			this.Visible = true;
+			tutorial4.Visible = true;
+			tutorial4Player.Play();
+		}
 	}
 
 	private async void OnOkPressed() {
@@ -65,6 +77,8 @@ public partial class TutorialScene : TextureRect
 		tutorial2Player.Stop();
 		tutorial3.Visible = false;
 		tutorial3Player.Stop();
+		tutorial4.Visible = false;
+		tutorial4Player.Stop();
 		this.Visible = false;
 		GetTree().Paused = false;
 
@@ -75,6 +89,7 @@ public partial class TutorialScene : TextureRect
     	_tutorialabel1.Text = Tr("tutorial1");
 		_tutorialabel2.Text = Tr("tutorial2");
 		_tutorialabel3.Text = Tr("tutorial3");
+		_tutorialabel4.Text = Tr("tutorial4");
     }
 	public override void _Process(double delta)
 	{
