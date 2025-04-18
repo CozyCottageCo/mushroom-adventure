@@ -489,7 +489,7 @@ visible = false
 visible = false
 
 [node name="Sieni" parent="." instance=ExtResource("18_ja56l")]
-position = Vector2(4, 299)
+position = Vector2(97, 294)
 
 [node name="Täplä" parent="." instance=ExtResource("17_bnc42")]
 position = Vector2(556, 45)

@@ -715,7 +715,7 @@ rotation = -0.0104008
 progress = 211.535
 
 [node name="Sieni" parent="." instance=ExtResource("16_ai35w")]
-position = Vector2(2, 71)
+position = Vector2(3, 97)
 
 [node name="Täplä" parent="." instance=ExtResource("17_t6k0i")]
 position = Vector2(463, 306)

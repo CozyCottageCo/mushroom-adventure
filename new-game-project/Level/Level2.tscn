@@ -405,6 +405,7 @@ shortcut = SubResource("Shortcut_tuxj3")
 texture_normal = SubResource("AtlasTexture_4cq6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(320, 32)
 scale = Vector2(0.529363, 0.527472)
 texture = ExtResource("21_hk54t")

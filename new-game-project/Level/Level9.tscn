@@ -434,7 +434,7 @@ rotation = -3.13715
 position = Vector2(558, 49)
 
 [node name="Sieni" parent="." instance=ExtResource("21_w5fam")]
-position = Vector2(514, 327)
+position = Vector2(483, 330)
 
 [node name="KolariScreenTie" parent="." instance=ExtResource("22_lt5cy")]
 visible = false

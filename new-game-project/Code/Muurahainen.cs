@@ -14,6 +14,7 @@ namespace SieniPeli {
             maxSpeed = maxSpeedMuurahainen;
             kiihdytysSpeed = kiihdytysMuurahainen;
             jarrutusSpeed = jarrutusMuurahainen;
+
         }
     }
 }

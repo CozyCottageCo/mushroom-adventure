@@ -48,7 +48,7 @@ namespace SieniPeli
         public TextureRect _voittoScreen = null;
         private bool _buttonsVisible = false;
         public bool _kolariActive = false;
-        Color lineColor = new Color(1.0f, 0.0f, 0.0f, 0.5f); //sama ku Colors.Red,50% opacity
+        Color lineColor = new Color(1.0f, 1.0f, 1.0f, 1.0f); //sama ku Colors.Red,50% opacity
 
         private SettingsController settings = null;
         private bool toggleMode;
@@ -88,13 +88,30 @@ namespace SieniPeli
                 GD.PrintErr("no find settings");
             }
 
+
+
             _line = new Line2D // settingsit piirtoviivalle
             {
                 ZIndex = 1,
-                Width = 5,
-                DefaultColor = lineColor
+                Width = 20,
+                DefaultColor = lineColor,
+                Texture = GD.Load<Texture2D>("res://Art/footsteptransparent1.png"),
+                TextureMode = Line2D.LineTextureMode.Tile,
+                JointMode = Line2D.LineJointMode.Sharp
             };
+
+            var material = new CanvasItemMaterial
+            {
+                BlendMode = CanvasItemMaterial.BlendModeEnum.Mix // Try Lighten or Disabled if you want different blending
+            };
+
+            _line.Material = material;
             AddChild(_line);
+
+             _sieni = GetNode<Sieni>("Sieni");
+
+            GD.Print("Sieni node successfully instantiated and added to scene.");
+
 
 
             _menuPanel = GetNode<Control>("PauseMenuPanel"); // haetaa menupaneeli
@@ -167,9 +184,7 @@ namespace SieniPeli
             } else {
                 GD.Print("VoittoScreen not found");
             }
-            _sieni = GetNode<Sieni>("Sieni");
 
-            GD.Print("Sieni node successfully instantiated and added to scene.");
 
             _täplä = GetNode<Sprite2D>("Täplä"); // haetaa täplä ja sen positio
             _täpläTile = new Vector2I((int)(_täplä.GlobalPosition.X / tileWidth), (int)(_täplä.GlobalPosition.Y / tileHeight));
@@ -266,8 +281,9 @@ namespace SieniPeli
                             (int)(touch.Position.X / tileWidth),
                             (int)(touch.Position.Y / tileHeight)
                         );
-
-                        if (sieniTile != touchTile) // Ingoorataan piirretty viiva jos se ei ala sienen koordinaateista
+                       // float drawDistance = sieniTile.DistanceTo(touchTile); 1.5f : diagonal 1
+                       Vector2 drawDistance = sieniTile + new Vector2I(0, -1);
+                        if (touchTile != sieniTile && touchTile != drawDistance) // Ingoorataan piirretty viiva jos se ei ala sienen koordinaateista
                         {
                             GD.Print("Invalid start position! You must start drawing from Sieni's position.");
                             return;
@@ -278,6 +294,8 @@ namespace SieniPeli
                         savedPath.AddRange(tilesUsed);
 
                         _line.Points = new Vector2[0]; // tyhjennetää viiva
+
+                        _line.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                         _drawing = true; // piirto päälle
 
                         //GD.Print($"Touch started at ({touch.Position.X}, {touch.Position.Y})");
@@ -296,11 +314,14 @@ namespace SieniPeli
                             _goButton.Visible = false;
                             _redoButton.Visible = false;
                             _buttonsVisible = false;
+                            _line.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                             return;
 
                         }
 
                         GD.Print($"Touch released at ({touch.Position.X}, {touch.Position.Y})");
+
+                       _line.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 
                         /*Vector2I lastTile = tilesUsed[tilesUsed.Count -1]; // katotaa mihi jäi viiva
                         if (lastTile != _täpläTile) { // jos viivan loppu != täplän positio
@@ -323,7 +344,12 @@ namespace SieniPeli
                 }
                 else if (@event is InputEventScreenDrag drag && _drawing) // ja itse piirto
                 {
+                    float minStepDistance = 12;
+                    if (_line.Points.Length == 0 ||
+                    _line.Points[^1].DistanceTo(drag.Position) > minStepDistance)
+                {
                     _line.AddPoint(drag.Position);
+                }
                    // GD.Print($"Dragging at ({drag.Position.X}, {drag.Position.Y})");
                     UpdateTileAtPosition(drag.Position);
                 }
@@ -350,6 +376,7 @@ namespace SieniPeli
             _buttonsVisible = false;
             highLightRect.Visible = false;
             _line.Points = new Vector2[0];
+            _line.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
         // Method to handle both tile tracking and highlighting
         private void UpdateTileAtPosition(Vector2 position) // träkkää piirtämisen tiilet ja highlightaa niitä

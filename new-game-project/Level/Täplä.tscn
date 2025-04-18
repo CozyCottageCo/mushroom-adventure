@@ -9,7 +9,7 @@ atlas = ExtResource("1_4c7ws")
 region = Rect2(0, 0, 128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox477"]
-size = Vector2(32, 27)
+size = Vector2(52, 45)
 
 [sub_resource type="Animation" id="Animation_i2ryd"]
 length = 0.001

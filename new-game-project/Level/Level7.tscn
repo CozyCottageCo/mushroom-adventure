@@ -329,7 +329,7 @@ tile_map_data = PackedByteArray("AAAAAAQAAQADAAMAAAABAAQAAQADAAMAAAACAAQAAQADAAM
 tile_set = SubResource("TileSet_lgc1i")
 
 [node name="Suojatie2" parent="." instance=ExtResource("8_h2tmc")]
-z_index = 6
+z_index = 3
 position = Vector2(52, 16)
 
 [node name="AnimatedSprite2D" parent="Suojatie2" index="0"]

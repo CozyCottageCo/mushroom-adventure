@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="8_whgs0"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="9_0dqen"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_progressLabel", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_languageLabel", "_settingsLabel", "confirmPanel", "_openTutorial", "_tutorialPanel", "_tutorialLabel", "_tutorialLabel2", "_tutorial1", "_tutorial2", "_tutorial3", "_closeTutorial", "_nappi1", "_nappi2", "_nappi3")]
+[node name="Control" type="Control" node_paths=PackedStringArray("_languageOption", "_volumeSlider", "_movementToggle", "_backButton", "_resetProgress", "_progressLabel", "_olenVarma", "_enOleVarma", "_volumeLabel", "_movementLabel", "_movementLabel2", "_languageLabel", "_settingsLabel", "confirmPanel", "_openTutorial", "_tutorialPanel", "_tutorialLabel", "_tutorialLabel2", "_tutorial1", "_tutorial2", "_tutorial3", "_closeTutorial", "_nappi1", "_nappi2", "_nappi3")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +28,7 @@ _olenVarma = NodePath("ConfirmPanel/HBoxContainer/VBoxContainer/Kyllä")
 _enOleVarma = NodePath("ConfirmPanel/HBoxContainer/VBoxContainer/Ei")
 _volumeLabel = NodePath("VBoxContainer/VolumeLabel")
 _movementLabel = NodePath("VBoxContainer/HBoxContainer2/MovementLabel")
+_movementLabel2 = NodePath("VBoxContainer/HBoxContainer2/MovementLabel2")
 _languageLabel = NodePath("VBoxContainer/HBoxContainer/LanguageLabel")
 _settingsLabel = NodePath("VBoxContainer/SettingsLabel")
 confirmPanel = NodePath("ConfirmPanel")
@@ -52,10 +53,10 @@ texture = ExtResource("2_poq4i")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 131.0
+offset_left = 100.0
 offset_top = 22.0
-offset_right = 521.0
-offset_bottom = 327.0
+offset_right = 546.0
+offset_bottom = 347.0
 focus_neighbor_left = NodePath("SettingsLabel")
 focus_neighbor_top = NodePath("VolumeLabel")
 focus_neighbor_right = NodePath("HSlider")
@@ -132,11 +133,19 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_jgcyt")
 theme_override_font_sizes/font_size = 22
-text = "Napauta pysäyttääksesi sieni"
+text = "Sienen pysäytyskosketus: Jatkuva"
 
 [node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer2"]
 process_mode = 3
 layout_mode = 2
+
+[node name="MovementLabel2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_jgcyt")
+theme_override_font_sizes/font_size = 22
+text = "Näpäytys"
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
 process_mode = 3

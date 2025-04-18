@@ -17,6 +17,7 @@ public partial class SettingsController : Control
 	[Export] private Button _enOleVarma = null;
 	[Export] private Label _volumeLabel = null;
 	[Export] private Label _movementLabel = null;
+	[Export] private Label _movementLabel2 = null;
 	[Export] private Label _languageLabel = null;
 	[Export] private Label _settingsLabel = null;
 
@@ -36,6 +37,7 @@ public partial class SettingsController : Control
 	[Export] AudioStreamPlayer2D _nappi3 = null;
 
 	private int savedLanguage = 0;
+	private bool _movementToggled;
 
 	public override void _Ready()
 	{
@@ -97,7 +99,7 @@ public partial class SettingsController : Control
 	{
 		config.SetValue("Settings", "Language", _languageOption.Selected);
 		config.SetValue("Settings", "Volume", _volumeSlider.Value);
-		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ToggleMode);
+		config.SetValue("Settings", "AlternativeMovement", _movementToggle.ButtonPressed);
 
 		config.Save(configPath);
 		GD.Print("Settings saved to " + configPath);
@@ -202,6 +204,7 @@ public partial class SettingsController : Control
 		_resetProgress.Text = Tr("reset");
 		_volumeLabel.Text = Tr("volume");
 		_movementLabel.Text = Tr("movement");
+		_movementLabel2.Text = Tr("movement2");
 		_languageLabel.Text = Tr("language");
 		_settingsLabel.Text = Tr("settings");
 		_resetProgress.Text = Tr("resetprogress");
@@ -213,18 +216,12 @@ public partial class SettingsController : Control
 	}
 
 	public bool GetMovementToggle() { // tarkistetaan mikä asetuksissa on tallennettu movement toggle likkkumiselle
-
-		 if (config.Load(configPath) != Error.Ok)
-			{
-				GD.Print("Settings file not found or failed to load.");
-				return false; // Default false jos ei lataa (tää taitaa itteasias bugittaa mut toimii just oikein :D)
-			}
-
-			// katotaa value
-			bool isMovementToggled = (bool)config.GetValue("Settings", "AlternativeMovement", false);
-			GD.Print($"Movement toggle state: {isMovementToggled}");
-
-			return isMovementToggled; // palautetaa liikkeelle
+	if (config.Load(configPath) != Error.Ok)
+		{
+			GD.PrintErr("Cant find config");
+		}
+		_movementToggled = (bool)config.GetValue("Settings", "AlternativeMovement", false);
+		return _movementToggled;
 	}
 
 	private void OnTutorialOpenPressed() {

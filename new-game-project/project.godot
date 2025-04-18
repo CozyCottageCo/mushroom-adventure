@@ -52,5 +52,6 @@ locale/translations=PackedStringArray("res://translations.en.translation", "res:
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
