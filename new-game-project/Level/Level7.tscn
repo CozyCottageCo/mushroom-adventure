@@ -1272,7 +1272,7 @@ region_rect = Rect2(298.749, 317.733, 16.5143, 14.2252)
 
 [node name="perhonekelt3" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(353, 17)
+position = Vector2(361, 17)
 rotation = 1.26885
 texture = ExtResource("14_aph7y")
 region_enabled = true

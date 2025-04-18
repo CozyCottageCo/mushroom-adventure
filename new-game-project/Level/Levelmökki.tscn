@@ -506,17 +506,29 @@ offset_right = 632.0
 offset_bottom = 347.0
 text = "TAMK"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(577, 213)
+[node name="aita" type="Sprite2D" parent="."]
+position = Vector2(545, 200)
 texture = ExtResource("15_53kbd")
 region_enabled = true
 region_rect = Rect2(469, 172, 141, 43)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(32, 215)
+[node name="aita4" type="Sprite2D" parent="."]
+position = Vector2(669, 200)
 texture = ExtResource("15_53kbd")
 region_enabled = true
-region_rect = Rect2(535.782, 173.773, 67.177, 40.5862)
+region_rect = Rect2(469, 172, 141, 43)
+
+[node name="aita5" type="Sprite2D" parent="."]
+position = Vector2(369, 197)
+texture = ExtResource("15_53kbd")
+region_enabled = true
+region_rect = Rect2(469, 172, 141, 43)
+
+[node name="aita3" type="Sprite2D" parent="."]
+position = Vector2(27, 202)
+texture = ExtResource("15_53kbd")
+region_enabled = true
+region_rect = Rect2(469, 172, 141, 43)
 
 [node name="Reitit" type="Node2D" parent="."]
 visible = false
@@ -583,84 +595,123 @@ process_mode = 3
 stream = ExtResource("22_fkg0v")
 
 [node name="påöytä" type="Sprite2D" parent="."]
-position = Vector2(556, 307)
+z_index = 1
+position = Vector2(382, 123)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
-region_rect = Rect2(83.9401, 163.405, 84.3955, 59.7978)
+region_rect = Rect2(83.9401, 171.085, 78.2049, 52.1182)
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(541, 275)
-texture = ExtResource("23_4ajmx")
-region_enabled = true
-region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(503, 285)
+[node name="tuoli" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(373, 93)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(154, 41)
+[node name="tuoli2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(343, 106)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(35.1206, 152.145, 42.4098, 55.5183)
+
+[node name="kukka" type="Sprite2D" parent="."]
+position = Vector2(150, 49)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(198, 260)
+[node name="kukka2" type="Sprite2D" parent="."]
+position = Vector2(199, 265)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(311, 261)
+[node name="kukka3" type="Sprite2D" parent="."]
+position = Vector2(323, 264)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(151.513, 126.152, 38.5544, 44.1623)
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(67, 33)
+[node name="soffa" type="Sprite2D" parent="."]
+position = Vector2(71, 53)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(21.3662, 74.9187, 110.096, 66.7106)
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(397, 93)
+[node name="matto" type="Sprite2D" parent="."]
+position = Vector2(550, 107)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(206.868, 93.711, 151.35, 76.1528)
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-position = Vector2(72, 79)
-scale = Vector2(1.15079, 1.08621)
+[node name="soffapöytä" type="Sprite2D" parent="."]
+position = Vector2(65, 121)
+scale = Vector2(1.24206, 1.23276)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(70.9388, 48.6215, 63.7262, 29.8355)
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-position = Vector2(163, 266)
+[node name="soffapöytä2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(378.125, 274)
+scale = Vector2(1.24206, 1.23276)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(70.9388, 48.6215, 63.7262, 29.8355)
+
+[node name="pönttö" type="Sprite2D" parent="."]
+position = Vector2(154, 268)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(289.914, 292.76, 49.8224, 64.3056)
 
+[node name="paperi" type="Sprite2D" parent="."]
+position = Vector2(187, 288)
+
 [node name="Sprite2D12" type="Sprite2D" parent="."]
-position = Vector2(186, 281)
+position = Vector2(192, 331)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
-region_rect = Rect2(167.417, 260.658, 23.7495, 21.629)
+region_rect = Rect2(159.906, 251.384, 37.5845, 35.1906)
 
-[node name="Sprite2D13" type="Sprite2D" parent="."]
-position = Vector2(622, 261)
+[node name="lamppu" type="Sprite2D" parent="."]
+position = Vector2(604, 261)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)
 
-[node name="Sprite2D14" type="Sprite2D" parent="."]
-position = Vector2(57, 62)
-scale = Vector2(0.94, 0.27381)
+[node name="lamppu2" type="Sprite2D" parent="."]
+position = Vector2(15, 38)
 texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(363.639, 272.427, 25.87, 84.8197)
+
+[node name="Pöytäkukka" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(52, 101)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(66.5297, 11.1263, 24.137, 29.281)
+
+[node name="tv" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(378.125, 243)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(0.317215, 0.223267, 56.3857, 50.0547)
+
+[node name="tuoli3" type="Sprite2D" parent="."]
+position = Vector2(353, 325)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(101.028, 2.47114, 54.3266, 38.2038)
+
+[node name="tuoli4" type="Sprite2D" parent="."]
+position = Vector2(414, 324)
+texture = ExtResource("23_4ajmx")
+region_enabled = true
+region_rect = Rect2(101.028, 2.47114, 54.3266, 38.2038)
 
 [editable path="SuojatieValot"]
 [editable path="SuojatieValot2"]
