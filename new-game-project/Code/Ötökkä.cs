@@ -580,7 +580,7 @@ namespace SieniPeli {
             string scenePath = GetTree().CurrentScene.SceneFilePath;
             string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
             Sieni sieni = GetNode<Sieni>("/root/Node2D/Sieni");
-            if (sceneName == "Level2") { // insert leveli(t) missä heijastinta käytetään
+            if (sceneName == "Level14" || sceneName == "Level15" || sceneName == "Level16" || sceneName == "Levelhuussi") { // insert leveli(t) missä heijastinta käytetään
                 if (sieni._hasHeijastin) {
                     return true;
                 } else {

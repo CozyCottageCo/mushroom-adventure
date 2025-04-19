@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://dmlnagbsop02g"]
+[gd_scene load_steps=79 format=4 uid="uid://dmlnagbsop02g"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_7tpg1"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_07orq"]
@@ -26,6 +26,10 @@
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="22_0jjjx"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="23_fl7m1"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="24_kmcmd"]
+[ext_resource type="Script" path="res://Code/lightscript.cs" id="27_uatjo"]
+[ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="28_vuh2e"]
+[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="29_nxfr5"]
+[ext_resource type="Script" path="res://Code/Heijastin.cs" id="30_cjyrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
 texture = ExtResource("2_07orq")
@@ -542,6 +546,15 @@ color = Color(1, 1, 0.0352941, 1)
 color_ramp = SubResource("GradientTexture1D_q8hvp")
 alpha_curve = SubResource("CurveTexture_6wsp8")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seqi1"]
+shader = ExtResource("28_vuh2e")
+shader_parameter/light_position = null
+shader_parameter/light_radius = 0.2
+shader_parameter/darkness_color = Vector4(0, 0, 0, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnu1s"]
+size = Vector2(41, 41)
+
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
 script = ExtResource("1_7tpg1")
@@ -697,7 +710,7 @@ region_enabled = true
 region_rect = Rect2(471, 128, 163, 43)
 
 [node name="Sieni" parent="." instance=ExtResource("21_v33bk")]
-position = Vector2(563, 333)
+position = Vector2(384, 324)
 
 [node name="Reitit" type="Node2D" parent="."]
 
@@ -932,3 +945,39 @@ process_material = SubResource("ParticleProcessMaterial_xchhq")
 lifetime = 0.5
 preprocess = 0.5
 visibility_rect = Rect2(0, 0, 640, 360)
+
+[node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
+script = ExtResource("27_uatjo")
+_darknessOverlay = NodePath("ColorRect")
+_lightSource = NodePath("../Sprite2D2")
+
+[node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
+z_index = 2
+material = SubResource("ShaderMaterial_seqi1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(143, 328)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("29_nxfr5")
+script = ExtResource("30_cjyrl")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D2"]
+position = Vector2(-1740, -1016.67)
+scale = Vector2(3.33333, 3.33333)
+collision_layer = 4096
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+position = Vector2(522.5, 304.5)
+shape = SubResource("RectangleShape2D_rnu1s")
