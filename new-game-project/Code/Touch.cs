@@ -80,7 +80,10 @@ namespace SieniPeli
                 var tutorial = GetNode<TutorialScene>("TutorialScene");
                 tutorial.TutorialActivated(3);
             }
-            // tähän tulee tutorial 4 heijastimelle
+            if (sceneName == "Level14" || sceneName == "Levelhuussi") {
+                var tutorial = GetNode<TutorialScene>("TutorialScene");
+                tutorial.TutorialActivated(4);
+            }
         }
 
 
