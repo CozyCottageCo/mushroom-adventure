@@ -55,39 +55,37 @@ expand_mode = 1
 [node name="Taso1" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 75.0
-offset_top = 84.0
-offset_right = 715.0
-offset_bottom = 564.0
+offset_left = 94.0
+offset_top = 115.0
+offset_right = 146.0
+offset_bottom = 170.0
 texture_normal = ExtResource("3_8yss8")
 
 [node name="Taso2" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 288.0
-offset_top = 235.0
-offset_right = 928.0
-offset_bottom = 715.0
+offset_left = 303.0
+offset_top = 263.0
+offset_right = 356.0
+offset_bottom = 315.0
 texture_normal = ExtResource("3_8yss8")
 
 [node name="Taso3" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 364.0
-offset_top = 100.0
-offset_right = 1004.0
-offset_bottom = 580.0
+offset_left = 378.0
+offset_top = 125.0
+offset_right = 431.0
+offset_bottom = 177.0
 texture_normal = ExtResource("3_8yss8")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="Taso4" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 481.0
-offset_top = 21.0
-offset_right = 1121.0
-offset_bottom = 501.0
+offset_left = 497.0
+offset_top = 45.0
+offset_right = 549.0
+offset_bottom = 97.0
 texture_normal = ExtResource("3_8yss8")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]

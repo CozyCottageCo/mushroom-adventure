@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo63lg0lkv8px"
-path="res://.godot/imported/taplajahti_ruoho.png-6f6ab6b56953dbd06868131bc78f5c1c.ctex"
+uid="uid://cqyx364q81cms"
+path="res://.godot/imported/winwin.png-b043b8de0939dfb0dbb84317aa9be345.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/taplajahti_ruoho.png"
-dest_files=["res://.godot/imported/taplajahti_ruoho.png-6f6ab6b56953dbd06868131bc78f5c1c.ctex"]
+source_file="res://Art/Sound/Täpläjahti OST/winwin.png"
+dest_files=["res://.godot/imported/winwin.png-b043b8de0939dfb0dbb84317aa9be345.ctex"]
 
 [params]
 

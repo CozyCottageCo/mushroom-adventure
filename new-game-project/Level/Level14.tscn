@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://7lo217irg4po" path="res://Art/Spritet/Ympäristö/tree.png" id="25_vfvp8"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="26_g1n11"]
 [ext_resource type="Script" path="res://Code/lightscript.cs" id="28_ymqu8"]
-[ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="29_iu4xx"]
+[ext_resource type="Shader" path="res://Level/pimeys.gdshader" id="29_iu4xx"]
 [ext_resource type="Script" path="res://Code/Heijastin.cs" id="31_s4xjn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]

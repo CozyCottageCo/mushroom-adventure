@@ -25,7 +25,7 @@ region = Rect2(0, 0, 48, 83)
 atlas = ExtResource("6_jpaqb")
 region = Rect2(64, 64, 64, 64)
 
-[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_extraButton", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount")]
+[node name="LevelSelect3" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_extraButton", "_eteenpäinButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount", "backGround")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,6 +46,7 @@ _nappi2 = NodePath("NappiAudio2")
 _nappi3 = NodePath("NappiAudio3")
 _gameClearPanel = NodePath("GameClear")
 "TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
+backGround = NodePath("Background/TextureRect")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -61,37 +62,37 @@ texture = ExtResource("2_rjatt")
 [node name="Taso9" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 84.0
-offset_top = 209.0
-offset_right = 724.0
-offset_bottom = 689.0
+offset_left = 103.0
+offset_top = 235.0
+offset_right = 163.0
+offset_bottom = 294.0
 texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso10" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 205.0
-offset_top = 37.0
-offset_right = 845.0
-offset_bottom = 517.0
+offset_left = 222.0
+offset_top = 64.0
+offset_right = 283.0
+offset_bottom = 122.0
 texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso 11" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 368.0
-offset_top = 207.0
-offset_right = 1009.0
-offset_bottom = 690.0
+offset_left = 389.0
+offset_top = 237.0
+offset_right = 447.0
+offset_bottom = 293.0
 texture_normal = ExtResource("4_i3x8h")
 
 [node name="Taso12" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 477.0
-offset_top = 27.0
-offset_right = 1117.0
-offset_bottom = 507.0
+offset_left = 497.0
+offset_top = 52.0
+offset_right = 549.0
+offset_bottom = 108.0
 texture_normal = ExtResource("4_i3x8h")
 
 [node name="Eteenpäin" type="TextureButton" parent="Background"]

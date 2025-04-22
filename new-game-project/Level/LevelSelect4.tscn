@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://7jacnjxvd2wp"]
 
 [ext_resource type="Script" path="res://Code/LevelSelectionController.cs" id="1_vvfet"]
-[ext_resource type="Texture2D" uid="uid://4ek0j4qvrbr2" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_fall.png" id="2_soqgl"]
+[ext_resource type="Texture2D" uid="uid://6rga6rj40k3x" path="res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_falleivalo.png" id="2_0eq7k"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_0oxr7"]
 [ext_resource type="Texture2D" uid="uid://bshp7lxyr8oia" path="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png" id="4_kah2a"]
 [ext_resource type="Texture2D" uid="uid://bflegtymijy7m" path="res://Art/Spritet/Käyttöliittymä/Levelselection/uusi_levelselect.png" id="5_gx3rj"]
@@ -21,7 +21,7 @@ region = Rect2(0, 0, 48, 83)
 atlas = ExtResource("6_0iw4m")
 region = Rect2(64, 64, 64, 64)
 
-[node name="LevelSelect4" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_extraButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount")]
+[node name="LevelSelect4" type="Control" node_paths=PackedStringArray("_taso1Button", "_taso2Button", "_taso3Button", "_taso4Button", "_extraButton", "_takaisinpäinButton", "_mainMenuButton", "_nappi1", "_nappi2", "_nappi3", "_gameClearPanel", "TäpläCount", "backGround")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,6 +41,7 @@ _nappi2 = NodePath("NappiAudio2")
 _nappi3 = NodePath("NappiAudio3")
 _gameClearPanel = NodePath("GameClear")
 "TäpläCount" = NodePath("Panel/HBoxContainer/TäpläCount")
+backGround = NodePath("Background/TextureRect")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -51,7 +52,7 @@ offset_bottom = 360.0
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-texture = ExtResource("2_soqgl")
+texture = ExtResource("2_0eq7k")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Background"]
@@ -73,37 +74,37 @@ horizontal_alignment = 1
 [node name="Taso13" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 52.0
-offset_top = 226.0
-offset_right = 692.0
-offset_bottom = 706.0
+offset_left = 67.0
+offset_top = 251.0
+offset_right = 127.0
+offset_bottom = 314.0
 texture_normal = ExtResource("4_kah2a")
 
 [node name="Taso14" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 223.0
-offset_top = 176.0
-offset_right = 863.0
-offset_bottom = 656.0
+offset_left = 242.0
+offset_top = 207.0
+offset_right = 294.0
+offset_bottom = 262.0
 texture_normal = ExtResource("4_kah2a")
 
 [node name="Taso15" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 352.0
-offset_top = 48.0
-offset_right = 992.0
-offset_bottom = 528.0
+offset_left = 370.0
+offset_top = 77.0
+offset_right = 422.0
+offset_bottom = 129.0
 texture_normal = ExtResource("4_kah2a")
 
 [node name="Taso16" type="TextureButton" parent="Background"]
 z_index = 2
 layout_mode = 2
-offset_left = 518.0
-offset_top = 141.0
-offset_right = 1158.0
-offset_bottom = 621.0
+offset_left = 536.0
+offset_top = 169.0
+offset_right = 588.0
+offset_bottom = 226.0
 texture_normal = ExtResource("4_kah2a")
 
 [node name="Takaisinpäin" type="TextureButton" parent="Background"]

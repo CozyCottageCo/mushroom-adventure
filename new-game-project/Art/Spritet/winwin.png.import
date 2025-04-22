@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dctb68l0dd65"
-path="res://.godot/imported/Levelselect_next_button.png-90b8a4f2e12c2ce9821bda7369f8a873.ctex"
+uid="uid://p2o04nwpn3ge"
+path="res://.godot/imported/winwin.png-6355b5d36e4281e2971045a147740915.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_next_button.png"
-dest_files=["res://.godot/imported/Levelselect_next_button.png-90b8a4f2e12c2ce9821bda7369f8a873.ctex"]
+source_file="res://Art/Spritet/winwin.png"
+dest_files=["res://.godot/imported/winwin.png-6355b5d36e4281e2971045a147740915.ctex"]
 
 [params]
 

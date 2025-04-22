@@ -25,18 +25,34 @@ namespace SieniPeli
 
         [Export] private Label TäpläCount; // tehtyjen tasojen täplien laskuri
 
+        [Export] TextureRect backGround = null;
+
         SaveManager saveManager = null; // savemanager alustus (autoload kyl)
 
         private Texture2D _sieniTäplä = (Texture2D)GD.Load("res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_täplällä.png"); // valmiit texturet ladattuna käyttöö
         private Texture2D _sieniIlmanTäplä = (Texture2D)GD.Load("res://Art/Spritet/Käyttöliittymä/Levelselection/Levelselect_sienet_ilmantäplä.png");
 
+        private Texture2D _huussiDone = (Texture2D)GD.Load("res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_summervalo.png");
+        private Texture2D _mökkiDone = (Texture2D)GD.Load("res://Art/Spritet/Käyttöliittymä/Levelselection/levelselect_fall.png");
         public override void _Ready()
         {
 
                 var musicPlayer = GetNode<MusicPlayer>("/root/MusicPlayer");
                 musicPlayer.PlayMusicForCurrentScene();
                 // Levelselect musalataus
+                saveManager = GetNode<SaveManager>("/root/SaveManager"); // haetaa savemanager (autoloadi)
 
+            if (this.Name == "LevelSelect3") {
+                if (saveManager.IsLevelCompleted("Levelhuussi")) {
+                    backGround.Texture = _huussiDone;
+                }
+            }
+
+            if (this.Name == "LevelSelect4") {
+                if (saveManager.IsLevelCompleted("Levelmökki")) {
+                    backGround.Texture = _mökkiDone;
+                }
+            }
 
 
             base._Ready();
@@ -66,7 +82,7 @@ namespace SieniPeli
             }
 
 			_mainMenuButton.Connect(Button.SignalName.Pressed, new Callable(this, nameof(MainMenuPressed)));
-            saveManager = GetNode<SaveManager>("/root/SaveManager"); // haetaa savemanager (autoloadi)
+
             CheckLevelButtonTextures(); // tarkistetaan aina levelscreeninauetessa mitkä auki
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
 

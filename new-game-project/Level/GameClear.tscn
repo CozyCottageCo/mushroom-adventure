@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dg4i5p333k36p"]
 
 [ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="1_s8y2c"]
-[ext_resource type="Texture2D" uid="uid://351gkfnmtcra" path="res://Art/Spritet/Käyttöliittymä/victorytemplate.jpg" id="2_hxk68"]
 [ext_resource type="Script" path="res://Code/GameClear.cs" id="2_ohyj2"]
+[ext_resource type="Texture2D" uid="uid://p2o04nwpn3ge" path="res://Art/Spritet/winwin.png" id="3_arjfm"]
 [ext_resource type="FontFile" uid="uid://bie7cx8vm3fer" path="res://Art/TimKid.ttf" id="3_ey7ue"]
 [ext_resource type="LabelSettings" uid="uid://c7w76o68lofe2" path="res://Art/Spritet/Käyttöliittymä/kolariscreenlabel2.tres" id="4_c2edx"]
 [ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="5_pqvpq"]
@@ -55,11 +55,11 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 clip_contents = true
-custom_minimum_size = Vector2(480, 200)
+custom_minimum_size = Vector2(480, 180)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_hxk68")
+texture = ExtResource("3_arjfm")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]

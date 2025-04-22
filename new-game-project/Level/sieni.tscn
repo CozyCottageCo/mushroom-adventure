@@ -310,7 +310,8 @@ size = Vector2(10, 11)
 
 [node name="Sieni" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_4ulul")
-animation = &"celebrate"
+animation = &"walkleft"
+frame_progress = 0.133149
 offset = Vector2(15, 0)
 script = ExtResource("2_s2h7s")
 

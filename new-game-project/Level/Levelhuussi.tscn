@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="26_mmhmx"]
 [ext_resource type="Script" path="res://Code/lightscript.cs" id="27_uatjo"]
 [ext_resource type="PackedScene" uid="uid://by747mil411d5" path="res://Level/Ötökät/Kuoriainen.tscn" id="28_35smb"]
-[ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="28_vuh2e"]
+[ext_resource type="Shader" path="res://Level/pimeys.gdshader" id="28_vuh2e"]
 [ext_resource type="Script" path="res://Code/Heijastin.cs" id="30_cjyrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
