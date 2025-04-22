@@ -250,6 +250,7 @@ size = Vector2(33.5, 11)
 
 [node name="Kuoriainen" type="PathFollow2D"]
 script = ExtResource("1_1gqxq")
+maxSpeedKuoriainen = 140.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uagbu")
@@ -259,8 +260,8 @@ frame_progress = 0.413302
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
 position = Vector2(-1, 0)
-collision_layer = 16
-collision_mask = 1530
+collision_layer = 32768
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(1, 1)

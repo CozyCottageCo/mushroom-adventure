@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://cfa1i8vakaf8f"]
+[gd_scene load_steps=70 format=4 uid="uid://cfa1i8vakaf8f"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_nsyop"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_ojod2"]
@@ -14,9 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://dx74or157b18" path="res://Art/Spritet/Ympäristö/lehdetfall16.png" id="14_i1abt"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_wbiqt"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="16_22fwm"]
+[ext_resource type="PackedScene" uid="uid://b1nbqu47v4ibn" path="res://Level/Ötökät/Etana.tscn" id="16_nm7pj"]
+[ext_resource type="PackedScene" uid="uid://dd3g8n73h0h15" path="res://Level/Ötökät/Tuhatjalkainen.tscn" id="16_ro2s1"]
+[ext_resource type="PackedScene" uid="uid://bfk051x5rrb2c" path="res://Level/Ötökät/Leppis.tscn" id="17_l456v"]
+[ext_resource type="PackedScene" uid="uid://bcfuplphug2cw" path="res://Level/Ötökät/Sirkka.tscn" id="18_bg77w"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="18_n1fiy"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_0yaov"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="19_6t6ya"]
+[ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="19_hvwu2"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="21_cxjgf"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_rguj8"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="22_uug8e"]
@@ -393,9 +398,9 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_f2u20"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -12, 335, 0, 0, 0, 0, 652, 337)
+"points": PackedVector2Array(0, 0, 0, 0, -12, 335, 0, 0, 0, 0, 304, 335, 0, 0, 0, 0, 677, 337)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_6ueyi"]
 _data = {
@@ -411,9 +416,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_3miul"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 656, 305, 0, 0, 0, 0, -10, 305)
+"points": PackedVector2Array(0, 0, 0, 0, 656, 305, 0, 0, 0, 0, 322, 305, 0, 0, 0, 0, -45, 305)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_xdmb5"]
 _data = {
@@ -429,9 +434,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_ivpac"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 655, 15, 0, 0, 0, 0, -9, 17)
+"points": PackedVector2Array(0, 0, 0, 0, 655, 15, 0, 0, 0, 0, 264, 14, 0, 0, 0, 0, -40, 16)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_nifd2"]
 _data = {
@@ -445,12 +450,6 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="Curve2D" id="Curve2D_mrh8n"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -7, 46, 0, 0, 0, 0, 150, 47, 0, 0, 0, 0, 151, 303, 0, 0, 0, 0, -13, 303)
-}
-point_count = 4
-
 [sub_resource type="Curve2D" id="Curve2D_wddc5"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -12, 46, 0, 0, 0, 0, 151, 48, 0, 0, 0, 0, 150, 337, 0, 0, 0, 0, 662, 337)
@@ -459,9 +458,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_55lxy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -9, 47, 0, 0, 0, 0, 673, 45)
+"points": PackedVector2Array(0, 0, 0, 0, -25, 46, 0, 0, 0, 0, 320, 46, 0, 0, 0, 0, 693, 46)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pkyc8"]
 blend_mode = 1
@@ -621,9 +620,15 @@ offset = Vector2(0, 220)
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f2u20")
 
-[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("18_n1fiy")]
+[node name="Tuhatjalkainen" parent="Reitit/Path2D" instance=ExtResource("16_ro2s1")]
+z_index = 1
 position = Vector2(-12, 335)
-rotation = 0.00301204
+
+[node name="Etana" parent="Reitit/Path2D" instance=ExtResource("16_nm7pj")]
+z_index = 1
+position = Vector2(334.579, 335.164)
+rotation = 0.00536188
+progress = 346.432
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 position = Vector2(0.281627, 0.150169)
@@ -631,9 +636,9 @@ scale = Vector2(1.0256, 0.996587)
 curve = SubResource("Curve2D_6ueyi")
 
 [node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("18_n1fiy")]
-position = Vector2(172, 237.693)
+position = Vector2(172, 242.959)
 rotation = -1.5708
-progress = 282.318
+progress = 277.055
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_fyvg4")
@@ -646,32 +651,32 @@ progress = 403.339
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_3miul")
 
-[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("18_n1fiy")]
-position = Vector2(99.5554, 305)
+[node name="Sirkka" parent="Reitit/Path2D4" instance=ExtResource("18_bg77w")]
+position = Vector2(656, 305)
 rotation = 3.14159
-progress = 556.443
+
+[node name="Toukka" parent="Reitit/Path2D4" instance=ExtResource("19_hvwu2")]
+position = Vector2(94.8471, 305)
+rotation = 3.14159
+progress = 561.151
 
 [node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_xdmb5")
 
-[node name="Muurahainen" parent="Reitit/Path2D5" instance=ExtResource("18_n1fiy")]
-position = Vector2(445.653, 305)
-rotation = 3.14159
-progress = 214.347
-
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ylweu")
-
-[node name="Muurahainen" parent="Reitit/Path2D6" instance=ExtResource("18_n1fiy")]
-position = Vector2(664, 305)
-rotation = -3.13956
 
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ivpac")
 
-[node name="Muurahainen" parent="Reitit/Path2D7" instance=ExtResource("18_n1fiy")]
+[node name="Tuhatjalkainen" parent="Reitit/Path2D7" instance=ExtResource("16_ro2s1")]
+position = Vector2(423.91, 14.409)
+rotation = -3.13904
+progress = 231.09
+
+[node name="Leppis" parent="Reitit/Path2D7" instance=ExtResource("17_l456v")]
 position = Vector2(655, 15)
-rotation = 3.13858
+rotation = -3.13904
 
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 position = Vector2(0.155224, 0.132653)
@@ -679,9 +684,9 @@ scale = Vector2(1.0194, 0.989796)
 curve = SubResource("Curve2D_nifd2")
 
 [node name="Muurahainen" parent="Reitit/Path2D8" instance=ExtResource("18_n1fiy")]
-position = Vector2(148.281, 97.0954)
+position = Vector2(148.316, 107.209)
 rotation = 1.56737
-progress = 596.103
+progress = 606.214
 
 [node name="Path2D9" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_eew7y")
@@ -690,28 +695,22 @@ curve = SubResource("Curve2D_eew7y")
 position = Vector2(676, 12)
 rotation = 3.13778
 
-[node name="Path2D10" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_mrh8n")
-
-[node name="Muurahainen" parent="Reitit/Path2D10" instance=ExtResource("18_n1fiy")]
-position = Vector2(150.73, 233.894)
-rotation = 1.56689
-progress = 343.895
-
 [node name="Path2D11" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_wddc5")
 
 [node name="Muurahainen" parent="Reitit/Path2D11" instance=ExtResource("18_n1fiy")]
-position = Vector2(230.502, 337)
-progress = 532.521
+position = Vector2(257.291, 337)
+progress = 559.128
 
 [node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_55lxy")
 
-[node name="Muurahainen" parent="Reitit/Path2D12" instance=ExtResource("18_n1fiy")]
-position = Vector2(36.4772, 46.8666)
-rotation = -0.00293254
-progress = 45.4896
+[node name="Sirkka" parent="Reitit/Path2D12" instance=ExtResource("18_bg77w")]
+position = Vector2(256.671, 46)
+progress = 281.671
+
+[node name="Toukka" parent="Reitit/Path2D12" instance=ExtResource("19_hvwu2")]
+position = Vector2(-25, 46)
 
 [node name="Sieni" parent="." instance=ExtResource("19_6t6ya")]
 position = Vector2(578, 166)
@@ -975,6 +974,7 @@ region_enabled = true
 region_rect = Rect2(145.735, 307.785, 49.8371, 19.369)
 
 [node name="puu2" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(110, 360)
 scale = Vector2(0.866173, 0.901195)
 texture = ExtResource("5_n6c3t")
@@ -983,6 +983,7 @@ region_enabled = true
 region_rect = Rect2(-2.10211, 153.38, 77.1981, 119.79)
 
 [node name="puu3" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(213, 351)
 scale = Vector2(0.575944, 0.627068)
 texture = ExtResource("5_n6c3t")
@@ -991,6 +992,7 @@ region_enabled = true
 region_rect = Rect2(-2.10211, 153.38, 77.1981, 119.79)
 
 [node name="puu4" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(158, 356)
 scale = Vector2(0.575944, 0.627068)
 texture = ExtResource("5_n6c3t")
@@ -1351,7 +1353,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(253, 104)
+position = Vector2(508, 230)
 texture = SubResource("AtlasTexture_ioc3c")
 script = ExtResource("31_s4xjn")
 

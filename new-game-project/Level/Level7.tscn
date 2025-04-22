@@ -276,27 +276,27 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_2wbqe"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, 173, 0, 0, 0, 0, 650, 174)
+"points": PackedVector2Array(0, 0, 0, 0, -33, 173, 0, 0, 0, 0, 325, 172, 0, 0, 0, 0, 711, 170)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_88og1"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 652, 141, 0, 0, 0, 0, -20, 141)
+"points": PackedVector2Array(0, 0, 0, 0, 652, 141, 0, 0, 0, 0, 279, 139, 0, 0, 0, 0, -35, 142)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_a06oa"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -4, 107, 0, 0, 0, 0, 669, 107)
+"points": PackedVector2Array(0, 0, 0, 0, -4, 107, 0, 0, 0, 0, 326, 107, 0, 0, 0, 0, 728, 106)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_kxtp2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 663, 83, 0, 0, 0, 0, -24, 83)
+"points": PackedVector2Array(0, 0, 0, 0, 663, 83, 0, 0, 0, 0, 284, 88, 0, 0, 0, 0, -48, 89)
 }
-point_count = 2
+point_count = 3
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
@@ -446,15 +446,15 @@ rotation = 3.13913
 curve = SubResource("Curve2D_2wbqe")
 
 [node name="Sirkka" parent="Reitit/Path2D3" instance=ExtResource("16_e7vmu")]
-position = Vector2(-8, 173)
-rotation = 0.00151976
+position = Vector2(-33, 173)
+rotation = -0.00279329
 
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_88og1")
 
 [node name="Etana" parent="Reitit/Path2D4" instance=ExtResource("17_1b53f")]
 position = Vector2(652, 141)
-rotation = 3.14159
+rotation = -3.13623
 
 [node name="AnimatedSprite2D" parent="Reitit/Path2D4/Etana" index="0"]
 z_index = 3
@@ -471,8 +471,8 @@ curve = SubResource("Curve2D_kxtp2")
 
 [node name="Tuhatjalkainen" parent="Reitit/Path2D6" instance=ExtResource("16_c468n")]
 z_index = 1
-position = Vector2(663, 78)
-rotation = 3.14159
+position = Vector2(662.934, 78.0004)
+rotation = 3.1284
 v_offset = 5.0
 
 [node name="Täplä" parent="." instance=ExtResource("16_lua7m")]

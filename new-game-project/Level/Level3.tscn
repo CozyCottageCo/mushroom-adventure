@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://cihbytpdgvv6f"]
+[gd_scene load_steps=82 format=4 uid="uid://cihbytpdgvv6f"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_3bcgo"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_pyera"]
@@ -20,8 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="17_vm86f"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="18_a7x4a"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="19_1y76j"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="19_3pnlq"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="19_6a5i0"]
+[ext_resource type="PackedScene" uid="uid://bcfuplphug2cw" path="res://Level/Ötökät/Sirkka.tscn" id="20_7l4ey"]
+[ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="21_1i3wn"]
 [ext_resource type="Texture2D" uid="uid://beby2gx8glwrq" path="res://Art/Spritet/Ympäristö/Kävelytie03.png" id="22_4e2s0"]
 [ext_resource type="Texture2D" uid="uid://cnjp71dybecdf" path="res://Art/Spritet/Pelaaja/sieni_victory-Sheet.png" id="22_eu3bp"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="22_hie3l"]
@@ -249,15 +250,15 @@ region = Rect2(527, 228, 103, 123)
 
 [sub_resource type="Curve2D" id="Curve2D_4smxl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -6, 207, 0, 0, 0, 0, 647, 208)
+"points": PackedVector2Array(0, 0, 0, 0, -6, 207, 0, 0, 0, 0, 284, 207, 0, 0, 0, 0, 673, 206)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_8rqbf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 648, 235, 0, 0, 0, 0, -9, 235)
+"points": PackedVector2Array(0, 0, 0, 0, 648, 235, 0, 0, 0, 0, 279, 238, 0, 0, 0, 0, -22, 238)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_avhx7"]
 atlas = ExtResource("22_eu3bp")
@@ -744,16 +745,15 @@ region_rect = Rect2(475.851, 177.8, 130.64, 32.668)
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_4smxl")
 
-[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("19_3pnlq")]
+[node name="Sirkka" parent="Reitit/Path2D" instance=ExtResource("20_7l4ey")]
 position = Vector2(-6, 207)
-rotation = 0.00153139
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8rqbf")
 
-[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("19_3pnlq")]
+[node name="Toukka" parent="Reitit/Path2D2" instance=ExtResource("21_1i3wn")]
 position = Vector2(648, 235)
-rotation = 3.14159
+rotation = 3.13346
 
 [node name="Täplä" parent="." instance=ExtResource("19_1y76j")]
 z_index = 1

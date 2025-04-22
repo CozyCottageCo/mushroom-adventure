@@ -35,6 +35,8 @@ namespace SieniPeli {
         private const float maxStopTime = 8f;
 
         private Vector2 _direction;
+
+        private Vector2 _lastDirection;
         private Vector2 _initialDirection;
         private Vector2 _initialDirectionSaved;
         private Vector2 previousPosition;
@@ -53,6 +55,11 @@ namespace SieniPeli {
         private Area2D collisionArea = null;
 
         public bool blockedByLight = false;
+
+        private bool waitingForNextRun= false;
+        private bool finishedRun= false;
+        private float waitTime = 0f;
+        private float waitTimer = 0f;
 
         public override void _Ready() {
             AddToGroup("Ötökkä");
@@ -87,6 +94,7 @@ namespace SieniPeli {
             detectionAreaFront = GetNode<Area2D>("DetectionArea2DFront");
             collisionArea = GetNode<Area2D>("CollisionArea2D");
             // Signal connections for area detection
+
             detectionAreaLong.AreaEntered += OnLongRangeEntered;
             detectionAreaLong.AreaExited += OnLongRangeExited;
             detectionAreaLong.BodyEntered += OnLongRangeEntered;
@@ -102,9 +110,28 @@ namespace SieniPeli {
             collisionArea.BodyEntered += OnCrossWalkEntered;
             collisionArea.BodyExited += OnCrossWalkExited;
 
+
         }
 
         public override void _Process(double delta) {
+            if (waitingForNextRun && finishedRun) {
+             waitTimer += (float)delta;
+                if (waitTimer >= waitTime) {
+                    waitingForNextRun= false;
+                    waitTimer = 0f;
+                    waitTime = 0f;
+                    finishedRun = false;
+                    ProgressRatio = 0;
+                }
+                return;
+            }
+
+        if (this.Name == "Kuoriainen" && Mathf.Abs(ProgressRatio) > 0.95f && !finishedRun) {
+            waitingForNextRun = true;
+            finishedRun = true;
+              waitTime = (float)GD.RandRange(10f, 20f);
+            GD.Print(waitingForNextRun);
+        }
 
 
             if (blockedByFront != "") {
@@ -132,10 +159,10 @@ namespace SieniPeli {
 
          previousPosition = Position;
 
-        if (this.Name == "WRONG") {
-                GD.Print(_direction);
-            }
-         PlayAnimation(GetDirectionAsString(_direction), currentSpeed);
+        if (GetDirectionAsString(_direction) != "Unknown" && _lastDirection != _direction) {
+            _lastDirection = _direction;
+         PlayAnimation(GetDirectionAsString(_lastDirection), currentSpeed);
+        }
             if (isStopped || blockedBy != "" || blockedByFront != "") {
                 stopTime += (float)delta;
 
@@ -152,9 +179,6 @@ namespace SieniPeli {
             stopTime = 0f;
             Move((float)delta);
 
-            if (this.Name == "WRONG") {
-                GD.Print(_direction);
-            }
 
 
         }
@@ -183,6 +207,9 @@ namespace SieniPeli {
         }
 
         public virtual void Stop() {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             if (isOnCrossWalk || isOnLights) {
                 return;
             }
@@ -210,23 +237,30 @@ namespace SieniPeli {
         }
 
         private void PlayAnimation(string direction, float speed) {
-
             AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
             sprite.FlipH = false;
             sprite.FlipV = false;
             sprite.RotationDegrees = 0;
             string targetAnimation = "";
                this.Scale = Vector2.One;
+
+if (this.Name == "WRONG") {
+                        GD.Print(direction);
+                    }
            // GD.Print($"PlayAnimation: {direction}, Speed: {speed}, CurrentAnim: {sprite.Animation}, {blockedByLight}");
 
             if (blockedByLight || currentSpeed == 0)
                 {
+
                     // Play the stop animation based on the direction
                     switch (direction)
                     {
                         case "Right":
                             targetAnimation = "Stopright";
                             sprite.FlipH = true;
+                            if (this.Name == "Kuoriainen") {
+                                sprite.FlipH = false;
+                            }
                             break;
                         case "Left":
                             targetAnimation = "Stopleft";
@@ -253,10 +287,16 @@ namespace SieniPeli {
                         case "Right":
                             targetAnimation = "Walkright";
                             sprite.FlipH = true;
+                             if (this.Name == "Kuoriainen") {
+                                sprite.FlipH = false;
+                            }
                             break;
                         case "Left":
                            targetAnimation = "Walkleft";
                             sprite.FlipH = true;
+                            if (this.Name == "Kuoriainen") {
+                                sprite.FlipH = false;
+                            }
                            this.Scale = new Vector2(1,-1); // flip koko homma et collisionshapet siirtyy kans
                             break;
                         case "Down":
@@ -278,6 +318,9 @@ namespace SieniPeli {
             }
 
         private void OnLongRangeEntered(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
@@ -321,6 +364,9 @@ namespace SieniPeli {
         }
 
         private void OnLongRangeExited(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
             if (body is Area2D area) {
                 // Ensure it's not the same as this instance's collision area
@@ -342,6 +388,9 @@ namespace SieniPeli {
         }
 
         private void OnShortRangeEntered(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
@@ -398,6 +447,9 @@ namespace SieniPeli {
         }
 
         private void OnShortRangeExited(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
 
 
@@ -433,6 +485,9 @@ namespace SieniPeli {
         }
 
         private void OnFrontRangeEntered(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
             if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
             {
@@ -468,6 +523,9 @@ namespace SieniPeli {
         }
 
          private void OnFrontRangeExited(Node body) {
+            if (this.Name == "Kuoriainen") {
+                return;
+            }
             string areaName = body.Name;
             if (body is Area2D area) {
 
@@ -493,6 +551,7 @@ namespace SieniPeli {
          }
 
          private void OnCrossWalkEntered(Node body) {
+
             string areaName = body.Name;
 
             if (body is TileMapLayer tileMapLayer)
@@ -606,14 +665,12 @@ namespace SieniPeli {
             }
 
             private bool ShouldGiveWay (Vector2 otherBugDirection, bool otherTurning) {
-                // opposite direction kusee varmaa jotain
-                // tajusin et vasemmalle kääntyvien pitää väistää kaikkee abaut
-                // oikeelle kääntyvien pitäs väistää vaa vasemmalta tulevaa suoraa liikennettä
+                if (this.Name == "Kuoriainen") {
+                return false;
+            }
+
                 if (!isTurning) {
                     return false;
-                /*}
-                else if(IsOppositeDirection(otherBugDirection)) {
-                    return false;;*/
 
                 } if (isTurning && (GetCardinalDirection(otherBugDirection) != new Vector2(0, -1)) && (SetDirection(endPosition, firstPoint) != new Vector2(0,1))) {
                     return false; // ei toimi, koska ylhäältä alas tuleva oikeel kääntyvä tekee oikeestaan vasemman käännöksen ,mut tää kattoo sen oikeeks: pitää vertaa alkuperäsee directionii
@@ -712,21 +769,17 @@ private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
                 Vector2 direction = (position - lastposition);
                 Vector2 cardinalDirection = GetCardinalDirection(direction);
 
+
                if (cardinalDirection == Vector2.Zero || (Mathf.Abs(cardinalDirection.X) > 0 && Mathf.Abs(cardinalDirection.Y) > 0)) {
-                    if (!isTurning) {
-                    cardinalDirection = _initialDirectionSaved;
-                    return cardinalDirection;
-                    } else {
-                        cardinalDirection = GetTurnDirection();
-                        return cardinalDirection;
-                    }
-                }
+                    cardinalDirection = _lastDirection;
+               }
            return cardinalDirection;
 }
 
 
 
     private string GetDirectionAsString(Vector2 direction) {
+
     if (direction == new Vector2(1,0)) return "Right";
     if (direction == new Vector2(-1,0)) return "Left";
     if (direction == new Vector2(0,1)) return "Down";
