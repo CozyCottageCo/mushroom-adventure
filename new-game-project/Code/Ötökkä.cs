@@ -132,7 +132,9 @@ namespace SieniPeli {
 
          previousPosition = Position;
 
-
+        if (this.Name == "WRONG") {
+                GD.Print(_direction);
+            }
          PlayAnimation(GetDirectionAsString(_direction), currentSpeed);
             if (isStopped || blockedBy != "" || blockedByFront != "") {
                 stopTime += (float)delta;
@@ -273,10 +275,6 @@ namespace SieniPeli {
                     sprite.Stop();
                     sprite.Play(targetAnimation);
                 }
-
-                if (this.Name == "WRONG") {
-                GD.Print(targetAnimation);
-            }
             }
 
         private void OnLongRangeEntered(Node body) {
@@ -453,8 +451,7 @@ namespace SieniPeli {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
                         string otherBlocked = otherÖtökkä.GetBlocked();
                         if (GetDirectionAsString(_direction) == GetDirectionAsString(other_direction)){
-                            GD.Print("We get here when stuck");
-                           GD.Print($"[{this.Name}] {otherÖtökkä.Name} blockedByFront: {otherBlocked}, This ID: {this.GetInstanceId()}");
+
                         if (otherBlocked == this.GetInstanceId().ToString()) { // verrataan onko toisen ötökän blokin id tämän id -> etteivät blokkaa toisiaan ja jumita
                             GD.Print("other bug already blocked by this, reverting");
                             blockedByFront = "";
@@ -689,37 +686,37 @@ private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) {
                 _initialDirection = (firstPoint - startPosition).Normalized();
                  const float THRESHOLD = 0.1f;
             if (Mathf.Abs(_initialDirection.Y) < THRESHOLD) {
-    _initialDirection.Y = 0f; // Small Y changes, treat as 0
-}
-else if (_initialDirection.Y > THRESHOLD) {
-    _initialDirection.Y = 1f; // Positive Y, treat as down (1)
-}
-else if (_initialDirection.Y < -THRESHOLD) {
-    _initialDirection.Y = -1f; // Negative Y, treat as up (-1)
-}
+                _initialDirection.Y = 0f; // Small Y changes, treat as 0
+            }
+            else if (_initialDirection.Y > THRESHOLD) {
+                _initialDirection.Y = 1f; // Positive Y, treat as down (1)
+            }
+            else if (_initialDirection.Y < -THRESHOLD) {
+                _initialDirection.Y = -1f; // Negative Y, treat as up (-1)
+            }
 
-// Handle X direction
-if (Mathf.Abs(_initialDirection.X) < THRESHOLD) {
-    _initialDirection.X = 0f; // Small X changes, treat as 0
-}
-else if (_initialDirection.X > THRESHOLD) {
-    _initialDirection.X = 1f; // Positive X, treat as right (1)
-}
-else if (_initialDirection.X < -THRESHOLD) {
-    _initialDirection.X = -1f; // Negative X, treat as left (-1)
-}
-            _direction = _initialDirection;
-}
+            // Handle X direction
+            if (Mathf.Abs(_initialDirection.X) < THRESHOLD) {
+                _initialDirection.X = 0f; // Small X changes, treat as 0
+            }
+            else if (_initialDirection.X > THRESHOLD) {
+                _initialDirection.X = 1f; // Positive X, treat as right (1)
+            }
+            else if (_initialDirection.X < -THRESHOLD) {
+                _initialDirection.X = -1f; // Negative X, treat as left (-1)
+            }
+                        _direction = _initialDirection;
+            }
 
 private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
                 Vector2 direction = (position - lastposition);
                 Vector2 cardinalDirection = GetCardinalDirection(direction);
 
                if (cardinalDirection == Vector2.Zero || (Mathf.Abs(cardinalDirection.X) > 0 && Mathf.Abs(cardinalDirection.Y) > 0)) {
-                    if (!isTurning || isTurning && !inRisteys) {
+                    if (!isTurning) {
                     cardinalDirection = _initialDirectionSaved;
                     return cardinalDirection;
-                    } else if (inRisteys) {
+                    } else {
                         cardinalDirection = GetTurnDirection();
                         return cardinalDirection;
                     }
@@ -727,37 +724,9 @@ private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
            return cardinalDirection;
 }
 
-              /*  if (cardinalDirection == Vector2.Zero || (Mathf.Abs(cardinalDirection.X) > 0 && Mathf.Abs(cardinalDirection.Y) > 0)) {
-                    if (!isTurning || isTurning && !inRisteys) {
-                    cardinalDirection = _initialDirectionSaved;
-                    } else if (inRisteys) {
-                        direction = GetTurnDirection(); // vaiha takas getturn tjsp
-                    }
-                }
-            if (Mathf.Abs(direction.Y) < THRESHOLD) {
-    direction.Y = 0f; // Small Y changes, treat as 0
-}
-else if (direction.Y > THRESHOLD) {
-    direction.Y = 1f; // Positive Y, treat as down (1)
-}
-else if (direction.Y < -THRESHOLD) {
-    direction.Y = -1f; // Negative Y, treat as up (-1)
-}
-
-// Handle X direction
-if (Mathf.Abs(direction.X) < THRESHOLD) {
-    direction.X = 0f; // Small X changes, treat as 0
-}
-else if (direction.X > THRESHOLD) {
-    direction.X = 1f; // Positive X, treat as right (1)
-}
-else if (direction.X < -THRESHOLD) {
-    direction.X = -1f; // Negative X, treat as left (-1)
-}*/
 
 
     private string GetDirectionAsString(Vector2 direction) {
-    // Now we only check if X or Y is positive or negative
     if (direction == new Vector2(1,0)) return "Right";
     if (direction == new Vector2(-1,0)) return "Left";
     if (direction == new Vector2(0,1)) return "Down";

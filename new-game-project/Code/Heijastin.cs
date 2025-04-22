@@ -24,7 +24,7 @@ public partial class Heijastin : Sprite2D
             _sieni._hasHeijastin = true;
             this.GetParent().RemoveChild(this); // sienelle heijastin true + lapseksi että pysyy mukana
             area.AddChild(this);
-            this.Scale = new Vector2((float)0.1, (float)0.1);
+            this.Scale = new Vector2((float)0.5, (float)0.5);
 
             Position = new Vector2(-10, -40); //heijastin pieneksi ja pään päälle
         }

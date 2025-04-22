@@ -234,6 +234,9 @@ namespace SieniPeli
                 // pausetus koskemalla näyttöön
                 if (@event is InputEventScreenTouch screenTouch)
                 {
+                    if (_sieni.celebrationTime) {
+                        return;
+                    }
                     toggleMode = settings.GetMovementToggle(); // haetaan asetusten current toggletilanne
 
                 GD.Print($"Current toggle = {toggleMode}, settings {settings.GetMovementToggle()}");

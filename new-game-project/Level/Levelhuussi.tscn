@@ -28,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="24_kmcmd"]
 [ext_resource type="Script" path="res://Code/lightscript.cs" id="27_uatjo"]
 [ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="28_vuh2e"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="29_nxfr5"]
 [ext_resource type="Script" path="res://Code/Heijastin.cs" id="30_cjyrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
@@ -552,8 +551,12 @@ shader_parameter/light_position = null
 shader_parameter/light_radius = 0.2
 shader_parameter/darkness_color = Vector4(0, 0, 0, 0.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioc3c"]
+atlas = ExtResource("24_kmcmd")
+region = Rect2(13, 245, 24, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rnu1s"]
-size = Vector2(41, 41)
+size = Vector2(11.7, 9.89999)
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
@@ -968,8 +971,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(143, 328)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("29_nxfr5")
+texture = SubResource("AtlasTexture_ioc3c")
 script = ExtResource("30_cjyrl")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D2"]
@@ -979,5 +981,5 @@ collision_layer = 4096
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
-position = Vector2(522.5, 304.5)
+position = Vector2(522.151, 304.851)
 shape = SubResource("RectangleShape2D_rnu1s")

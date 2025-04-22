@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw1rbkdjgfis2"]
+[gd_scene load_steps=13 format=3 uid="uid://cw1rbkdjgfis2"]
 
 [ext_resource type="Texture2D" uid="uid://25bb7s6nfb7i" path="res://Art/Spritet/Käyttöliittymä/box2.png" id="1_j655w"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial1.ogv" id="2_lx8un"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://cfhb7tdlkiv85" path="res://Art/Spritet/Käyttöliittymä/kolariscreenbuttonpressed.tres" id="4_62u81"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial2.ogv" id="5_0yum6"]
 [ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial3.ogv" id="6_axnle"]
+[ext_resource type="VideoStream" path="res://Art/TutorialVideos/tutorial4.ogv" id="7_5evlu"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="8_724mb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gx4se"]
@@ -187,6 +188,7 @@ offset_left = 69.0
 offset_top = -3.0
 offset_right = 283.0
 offset_bottom = 111.0
+stream = ExtResource("7_5evlu")
 volume_db = -80.0
 expand = true
 loop = true

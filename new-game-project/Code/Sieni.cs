@@ -30,7 +30,7 @@ namespace SieniPeli {
 		private float _currentSpeed = 75f;
 
 		public bool atTäplä = false;
-		private bool celebrationTime = false;
+		public bool celebrationTime = false;
 		private Vector2 _lastDirection = Vector2.Zero; // vika suunta taltee animaatioil
 
 		public bool _hasHeijastin = false;

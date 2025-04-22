@@ -28,7 +28,6 @@
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="26_g1n11"]
 [ext_resource type="Script" path="res://Code/lightscript.cs" id="28_ymqu8"]
 [ext_resource type="Shader" path="res://Level/vitunvittu.gdshader" id="29_iu4xx"]
-[ext_resource type="Texture2D" uid="uid://mywxfslpquqw" path="res://icon.svg" id="30_yk7bt"]
 [ext_resource type="Script" path="res://Code/Heijastin.cs" id="31_s4xjn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8f82l"]
@@ -519,8 +518,12 @@ shader_parameter/light_position = null
 shader_parameter/light_radius = 0.2
 shader_parameter/darkness_color = Vector4(0, 0, 0, 0.6)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioc3c"]
+atlas = ExtResource("24_rpu3d")
+region = Rect2(13, 245, 24, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnpub"]
-size = Vector2(41, 41)
+size = Vector2(9.59998, 10.2)
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
@@ -1337,8 +1340,9 @@ material = SubResource("ShaderMaterial_riaib")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 8.0
 offset_right = 640.0
-offset_bottom = 360.0
+offset_bottom = 368.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -1347,9 +1351,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(433, 175)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("30_yk7bt")
+position = Vector2(253, 104)
+texture = SubResource("AtlasTexture_ioc3c")
 script = ExtResource("31_s4xjn")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D3"]
@@ -1359,5 +1362,5 @@ collision_layer = 4096
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/Area2D"]
-position = Vector2(522.5, 304.5)
+position = Vector2(522, 304.101)
 shape = SubResource("RectangleShape2D_nnpub")
