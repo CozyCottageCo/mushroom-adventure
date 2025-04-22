@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://by747mil411d5"]
+[gd_scene load_steps=35 format=3 uid="uid://by747mil411d5"]
 
 [ext_resource type="Script" path="res://Code/Kuoriainen.cs" id="1_1gqxq"]
 [ext_resource type="Texture2D" uid="uid://bw87vkpi3uhc7" path="res://Art/Spritet/Ei-pelaajat/NPC Tilesetit/kuoriainen-Sheet.png" id="2_efyjv"]
+[ext_resource type="Texture2D" uid="uid://6yeshgahw64e" path="res://Art/lightsource.webp" id="3_tfkjx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3a8o5"]
 atlas = ExtResource("2_efyjv")
@@ -248,8 +249,11 @@ size = Vector2(54, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2es2"]
 size = Vector2(33.5, 11)
 
-[node name="Kuoriainen" type="PathFollow2D"]
+[node name="Kuoriainen" type="PathFollow2D" node_paths=PackedStringArray("Red", "Blue")]
 script = ExtResource("1_1gqxq")
+maxSpeedKuoriainen = 140.0
+Red = NodePath("Red")
+Blue = NodePath("Blue")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uagbu")
@@ -259,8 +263,8 @@ frame_progress = 0.413302
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
 position = Vector2(-1, 0)
-collision_layer = 16
-collision_mask = 1530
+collision_layer = 32768
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
 position = Vector2(1, 1)
@@ -293,3 +297,17 @@ collision_mask = 1040
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea2DFront"]
 position = Vector2(34.75, 1)
 shape = SubResource("RectangleShape2D_f2es2")
+
+[node name="Red" type="PointLight2D" parent="."]
+position = Vector2(-15, -8)
+scale = Vector2(0.1, 0.1)
+color = Color(0.964706, 0.0627451, 0.207843, 1)
+energy = 2.0
+texture = ExtResource("3_tfkjx")
+
+[node name="Blue" type="PointLight2D" parent="."]
+position = Vector2(4, -8)
+scale = Vector2(0.1, 0.1)
+color = Color(0.192157, 0.160784, 1, 1)
+energy = 2.0
+texture = ExtResource("3_tfkjx")

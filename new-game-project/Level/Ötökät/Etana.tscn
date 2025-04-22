@@ -299,7 +299,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a60ib"]
-size = Vector2(73, 39)
+size = Vector2(61.5, 23.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2es2"]
 size = Vector2(33.5, 11)
@@ -309,25 +309,26 @@ position = Vector2(1, 0)
 script = ExtResource("1_re6lu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6, -18)
+position = Vector2(-6, 5)
 sprite_frames = SubResource("SpriteFrames_ba4t2")
 animation = &"Walkdown"
 frame = 6
 frame_progress = 0.187694
+offset = Vector2(0, -23)
 flip_h = true
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
-position = Vector2(-4, -10)
+position = Vector2(-5, -31)
 collision_layer = 16
 collision_mask = 1530
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
-position = Vector2(28, 19)
+position = Vector2(22.25, 26.75)
 shape = SubResource("RectangleShape2D_a60ib")
 debug_color = Color(0.694348, 0.437084, 0.622198, 0.42)
 
 [node name="DetectionArea2DLong" type="Area2D" parent="."]
-position = Vector2(-10, -8)
+position = Vector2(-6, -28)
 collision_layer = 64
 collision_mask = 152
 
@@ -336,7 +337,7 @@ position = Vector2(53, 13)
 polygon = PackedVector2Array(120, 108, 118, -79, 12, 2)
 
 [node name="DetectionArea2DShort" type="Area2D" parent="."]
-position = Vector2(-11, -8)
+position = Vector2(-6, -23)
 collision_layer = 32
 collision_mask = 1176
 
@@ -345,7 +346,7 @@ position = Vector2(57, 19)
 polygon = PackedVector2Array(56, 59, 56, -97, 5, -74, 6, 29)
 
 [node name="DetectionArea2DFront" type="Area2D" parent="."]
-position = Vector2(-5, -12)
+position = Vector2(-1, -31)
 collision_layer = 256
 collision_mask = 1040
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://lq58jgsin0vr"]
+[gd_scene load_steps=51 format=4 uid="uid://lq58jgsin0vr"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_iulsk"]
 [ext_resource type="Texture2D" uid="uid://c1yecff0860qx" path="res://Art/Spritet/Ympäristö/taplajahti_syksy.png" id="2_jajw7"]
@@ -16,13 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="13_khhau"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="14_txp4s"]
 [ext_resource type="PackedScene" uid="uid://buarwgli5yxtf" path="res://Level/voitto_screen.tscn" id="15_nnywi"]
+[ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="18_6a873"]
+[ext_resource type="PackedScene" uid="uid://dd3g8n73h0h15" path="res://Level/Ötökät/Tuhatjalkainen.tscn" id="18_uf03l"]
+[ext_resource type="PackedScene" uid="uid://bfk051x5rrb2c" path="res://Level/Ötökät/Leppis.tscn" id="19_nvsfg"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="19_w6i2n"]
+[ext_resource type="PackedScene" uid="uid://bcfuplphug2cw" path="res://Level/Ötökät/Sirkka.tscn" id="20_j1hwc"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="21_5snyx"]
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="21_gknrp"]
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="21_w5fam"]
 [ext_resource type="Texture2D" uid="uid://bwj20e4sw6ais" path="res://Art/Spritet/Ympäristö/Kävelytie09.png" id="22_3pwra"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="22_lt5cy"]
 [ext_resource type="PackedScene" uid="uid://dtl3wslteru6l" path="res://Level/KolariScreenVajaa.tscn" id="22_t5mts"]
+[ext_resource type="PackedScene" uid="uid://by747mil411d5" path="res://Level/Ötökät/Kuoriainen.tscn" id="23_6emag"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="23_od8ft"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="25_ph1hl"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="26_n7u1l"]
@@ -278,27 +283,33 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_q1stt"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -10, 174, 0, 0, 0, 0, 663, 173)
+"points": PackedVector2Array(0, 0, 0, 0, -10, 174, 0, 0, 0, 0, 340, 175, 0, 0, 0, 0, 666, 174)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_228xp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 652, 147, 0, 0, 0, 0, -9, 150)
+"points": PackedVector2Array(0, 0, 0, 0, 652, 147, 0, 0, 0, 0, 300, 149, 0, 0, 0, 0, -12, 149)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_q06sc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -9, 305, 0, 0, 0, 0, 669, 296)
+"points": PackedVector2Array(0, 0, 0, 0, -9, 305, 0, 0, 0, 0, 320, 306, 0, 0, 0, 0, 665, 303)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_22sxm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 657, 277, 0, 0, 0, 0, -19, 274)
+"points": PackedVector2Array(0, 0, 0, 0, 657, 277, 0, 0, 0, 0, 321, 275, 0, 0, 0, 0, -20, 278)
 }
-point_count = 2
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_feto7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 722, 160, 0, 0, 0, 0, 254, 160, 0, 0, 0, 0, -76, 162)
+}
+point_count = 3
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
@@ -405,30 +416,50 @@ region_rect = Rect2(60, 148, 29, 26)
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_q1stt")
 
-[node name="Muurahainen" parent="Reitit/Path2D" instance=ExtResource("21_5snyx")]
+[node name="Toukka" parent="Reitit/Path2D" instance=ExtResource("18_6a873")]
+position = Vector2(285.076, 174.843)
+rotation = 0.00285714
+progress = 295.075
+
+[node name="Leppis" parent="Reitit/Path2D" instance=ExtResource("19_nvsfg")]
 position = Vector2(-10, 174)
-rotation = -0.00148588
+rotation = 0.00285714
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_228xp")
 
-[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("21_5snyx")]
+[node name="Sirkka" parent="Reitit/Path2D2" instance=ExtResource("20_j1hwc")]
 position = Vector2(652, 147)
-rotation = 3.13705
+rotation = 3.13591
+
+[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("21_5snyx")]
+position = Vector2(50.345, 149)
+rotation = 3.14159
+progress = 601.656
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_q06sc")
 
-[node name="Muurahainen" parent="Reitit/Path2D3" instance=ExtResource("21_5snyx")]
-position = Vector2(-9, 305)
-rotation = -0.0132736
+[node name="Tuhatjalkainen" parent="Reitit/Path2D3" instance=ExtResource("18_uf03l")]
+z_index = 2
+position = Vector2(-8.9848, 300)
+rotation = 0.0030395
+v_offset = -5.0
 
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_22sxm")
 
-[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("21_5snyx")]
+[node name="Tuhatjalkainen" parent="Reitit/Path2D4" instance=ExtResource("18_uf03l")]
+z_index = 1
 position = Vector2(657, 277)
-rotation = -3.13715
+rotation = -3.13564
+
+[node name="Path2D5" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_feto7")
+
+[node name="Kuoriainen" parent="Reitit/Path2D5" instance=ExtResource("23_6emag")]
+position = Vector2(722, 160)
+rotation = 3.14159
 
 [node name="Täplä" parent="." instance=ExtResource("21_gknrp")]
 position = Vector2(558, 49)
@@ -461,7 +492,7 @@ region_enabled = true
 region_rect = Rect2(112.858, -4, 116.203, 149.675)
 
 [node name="mänty3" type="Sprite2D" parent="."]
-texture_filter = 1
+z_index = 3
 position = Vector2(608, 326)
 scale = Vector2(0.698276, 0.781879)
 texture = ExtResource("19_w6i2n")
@@ -1063,4 +1094,5 @@ stream = ExtResource("26_p6hvw")
 
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
+position = Vector2(-46, 127)
 stream = ExtResource("27_eaiwe")

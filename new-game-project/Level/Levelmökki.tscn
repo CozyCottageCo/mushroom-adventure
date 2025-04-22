@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://crrq7802bqqjs"]
+[gd_scene load_steps=60 format=4 uid="uid://crrq7802bqqjs"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ml80f"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_r3vjg"]
@@ -22,9 +22,15 @@
 [ext_resource type="PackedScene" uid="uid://dubf6ilea57vj" path="res://Level/sieni.tscn" id="18_ja56l"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="19_vgh8b"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="20_oqb65"]
+[ext_resource type="PackedScene" uid="uid://bcfuplphug2cw" path="res://Level/Ötökät/Sirkka.tscn" id="21_1k7u2"]
+[ext_resource type="PackedScene" uid="uid://dd3g8n73h0h15" path="res://Level/Ötökät/Tuhatjalkainen.tscn" id="21_2r6oe"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="21_22cqe"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="22_fkg0v"]
+[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="22_vcdwn"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="23_4ajmx"]
+[ext_resource type="PackedScene" uid="uid://b1nbqu47v4ibn" path="res://Level/Ötökät/Etana.tscn" id="23_828o1"]
+[ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="25_2ul1n"]
+[ext_resource type="PackedScene" uid="uid://by747mil411d5" path="res://Level/Ötökät/Kuoriainen.tscn" id="26_bglgv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6f7l"]
 texture = ExtResource("3_kmghs")
@@ -290,9 +296,9 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_kgu6e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -8, 239, 0, 0, 0, 0, 650, 240)
+"points": PackedVector2Array(0, 0, 0, 0, -27, 239, 0, 0, 0, 0, 275, 240, 0, 0, 0, 0, 670, 239)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_dctuu"]
 _data = {
@@ -308,9 +314,9 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_jtsg7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 274, 371, 0, 0, 0, 0, 277, -15)
+"points": PackedVector2Array(0, 0, 0, 0, 274, 371, 0, 0, 0, 0, 276, 205, 0, 0, 0, 0, 275, -27)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_rycdy"]
 _data = {
@@ -332,15 +338,15 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_r5msq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 669, 173, 0, 0, 0, 0, -11, 173)
+"points": PackedVector2Array(0, 0, 0, 0, 669, 173, 0, 0, 0, 0, 273, 175, 0, 0, 0, 0, -36, 173)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_yfgut"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 671, 173, 0, 0, 0, 0, 239, 175, 0, 0, 0, 0, 238, 368)
+"points": PackedVector2Array(0, 0, 0, 0, 671, 173, 0, 0, 0, 0, 468, 175, 0, 0, 0, 0, 239, 175, 0, 0, 0, 0, 238, 368)
 }
-point_count = 3
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_gxfda"]
 _data = {
@@ -350,9 +356,9 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_qk31l"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 236, -16, 0, 0, 0, 0, 238, 370)
+"points": PackedVector2Array(0, 0, 0, 0, 236, -16, 0, 0, 0, 0, 240, 205, 0, 0, 0, 0, 238, 388)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_8j01m"]
 _data = {
@@ -368,13 +374,19 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_8f484"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -15, 206, 0, 0, 0, 0, 668, 206)
+"points": PackedVector2Array(0, 0, 0, 0, -29, 204, 0, 0, 0, 0, 264, 205, 0, 0, 0, 0, 705, 203)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_ggs2e"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -15, 203, 0, 0, 0, 0, 275, 205, 0, 0, 0, 0, 276, -15)
+"points": PackedVector2Array(0, 0, 0, 0, -15, 203, 0, 0, 0, 0, 200.906, 209.129, 0, 0, 0, 0, 275, 205, 0, 0, 0, 0, 276, -15)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_n2ivu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -43, 181, 0, 0, 0, 0, 261, 185, 0, 0, 0, 0, 732, 182)
 }
 point_count = 3
 
@@ -540,10 +552,18 @@ region_enabled = true
 region_rect = Rect2(469, 172, 141, 43)
 
 [node name="Reitit" type="Node2D" parent="."]
-visible = false
 
 [node name="Path2D" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kgu6e")
+
+[node name="Sirkka" parent="Reitit/Path2D" instance=ExtResource("21_1k7u2")]
+position = Vector2(327.278, 239.868)
+rotation = -0.00253164
+progress = 354.286
+
+[node name="Sirkka3" parent="Reitit/Path2D" instance=ExtResource("21_1k7u2")]
+position = Vector2(-27, 239)
+rotation = 0.00331125
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_dctuu")
@@ -554,6 +574,11 @@ curve = SubResource("Curve2D_745lh")
 [node name="Path2D4" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_jtsg7")
 
+[node name="Muurahainen" parent="Reitit/Path2D4" instance=ExtResource("22_vcdwn")]
+position = Vector2(274.057, 366.291)
+rotation = -1.55875
+progress = 4.77617
+
 [node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_rycdy")
 
@@ -563,10 +588,26 @@ curve = SubResource("Curve2D_5vhfh")
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_lxw8y")
 
+[node name="Muurahainen" parent="Reitit/Path2D7" instance=ExtResource("22_vcdwn")]
+position = Vector2(660, 174)
+rotation = 3.14159
+
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_r5msq")
 
+[node name="Etana2" parent="Reitit/Path2D8" instance=ExtResource("23_828o1")]
+z_index = 1
+position = Vector2(139.193, 174.134)
+rotation = -3.13512
+progress = 529.816
+
+[node name="Tuhatjalkainen" parent="Reitit/Path2D8" instance=ExtResource("21_2r6oe")]
+position = Vector2(378.182, 174.469)
+rotation = 3.13654
+progress = 290.817
+
 [node name="Path2D9" type="Path2D" parent="Reitit"]
+z_index = 1
 curve = SubResource("Curve2D_yfgut")
 
 [node name="Path2D10" type="Path2D" parent="Reitit"]
@@ -575,17 +616,42 @@ curve = SubResource("Curve2D_gxfda")
 [node name="Path2D11" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_qk31l")
 
+[node name="Muurahainen" parent="Reitit/Path2D11" instance=ExtResource("22_vcdwn")]
+position = Vector2(236, -16)
+rotation = 1.5527
+
 [node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8j01m")
 
 [node name="Path2D13" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8c77g")
 
+[node name="Muurahainen" parent="Reitit/Path2D13" instance=ExtResource("22_vcdwn")]
+position = Vector2(181.163, 207.777)
+rotation = 0.00399998
+progress = 194.318
+
 [node name="Path2D14" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8f484")
 
+[node name="Toukka" parent="Reitit/Path2D14" instance=ExtResource("25_2ul1n")]
+position = Vector2(-29, 204)
+rotation = 0.00341296
+
+[node name="Toukka2" parent="Reitit/Path2D14" instance=ExtResource("25_2ul1n")]
+position = Vector2(354.143, 204.591)
+rotation = -0.00453512
+progress = 383.151
+
 [node name="Path2D15" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ggs2e")
+
+[node name="Path2D16" type="Path2D" parent="Reitit"]
+curve = SubResource("Curve2D_n2ivu")
+
+[node name="Kuoriainen" parent="Reitit/Path2D16" instance=ExtResource("26_bglgv")]
+position = Vector2(-43, 181)
+rotation = 0.0131571
 
 [node name="NappiAudio" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
@@ -724,7 +790,9 @@ region_rect = Rect2(66.5297, 11.1263, 24.137, 29.281)
 z_index = 2
 texture_filter = 1
 position = Vector2(378.125, 243)
+position = Vector2(379, 261)
 texture = ExtResource("23_4ajmx")
+offset = Vector2(0, -20)
 region_enabled = true
 region_rect = Rect2(0.317215, 0.223267, 56.3857, 50.0547)
 

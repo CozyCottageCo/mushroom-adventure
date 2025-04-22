@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://tijsgb4aepty"]
+[gd_scene load_steps=44 format=4 uid="uid://tijsgb4aepty"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ivwg2"]
 [ext_resource type="Texture2D" uid="uid://ct0w1xms0e4uw" path="res://Art/Spritet/Ympäristö/taplajahti_extra.png" id="2_30k70"]
@@ -196,9 +196,9 @@ region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_kqk5c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 170, 397, 0, 0, 0, 0, 173, 302, 0, 0, 0, 0, 654, 302)
+"points": PackedVector2Array(0, 0, 0, 0, 170, 397, 0, 0, 0, 0, 172, 301, 0, 0, 0, 0, 413, 300, 0, 0, 0, 0, 654, 302)
 }
-point_count = 3
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_e8wwv"]
 _data = {
@@ -208,19 +208,13 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_dro1p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 174, 400, 0, 0, 0, 0, 171, -9)
+"points": PackedVector2Array(0, 0, 0, 0, 174, 423, 0, 0, 0, 0, 173, 236, 0, 0, 0, 0, 173, -31)
 }
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_osx42"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 648, 275, 0, 0, 0, 0, 175, 276, 0, 0, 0, 0, 174, 137, 0, 0, 0, 0, 660, 142)
-}
-point_count = 4
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_wr1p8"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 651, 274, 0, 0, 0, 0, 175, 277, 0, 0, 0, 0, 171, -11)
+"points": PackedVector2Array(0, 0, 0, 0, 651, 274, 0, 0, 0, 0, 175, 277, 0, 0, 0, 0, 172, -41)
 }
 point_count = 3
 
@@ -232,7 +226,7 @@ point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_bapxf"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 650, 114, 0, 0, 0, 0, 174, 114, 0, 0, 0, 0, 170, -9)
+"points": PackedVector2Array(0, 0, 0, 0, 650, 114, 0, 0, 0, 0, 174, 114, 0, 0, 0, 0, 173, -44)
 }
 point_count = 3
 
@@ -250,13 +244,13 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_wadt3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 143, -7, 0, 0, 0, 0, 144, 408)
+"points": PackedVector2Array(0, 0, 0, 0, 143, -7, 0, 0, 0, 0, 143, 216, 0, 0, 0, 0, 143, 423)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_du5ec"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 143, -7, 0, 0, 0, 0, 146, 303, 0, 0, 0, 0, 661, 302)
+"points": PackedVector2Array(0, 0, 0, 0, 142, -30, 0, 0, 0, 0, 146, 303, 0, 0, 0, 0, 661, 302)
 }
 point_count = 3
 
@@ -371,27 +365,25 @@ curve = SubResource("Curve2D_kqk5c")
 curve = SubResource("Curve2D_e8wwv")
 
 [node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("16_pfyx7")]
-position = Vector2(233.067, 138.59)
-rotation = 0.0103302
-progress = 316.084
+position = Vector2(175.555, 253.299)
+rotation = -1.56694
+progress = 143.701
 
 [node name="Path2D3" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_dro1p")
 
-[node name="Path2D4" type="Path2D" parent="Reitit"]
-curve = SubResource("Curve2D_osx42")
-
-[node name="WRONG" parent="Reitit/Path2D4" instance=ExtResource("16_pfyx7")]
-position = Vector2(648, 275)
-rotation = 3.13948
+[node name="Muurahainen" parent="Reitit/Path2D3" instance=ExtResource("16_pfyx7")]
+position = Vector2(173.987, 420.652)
+rotation = -1.57614
+progress = 2.37052
 
 [node name="Path2D5" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_wr1p8")
 
 [node name="Muurahainen" parent="Reitit/Path2D5" instance=ExtResource("16_pfyx7")]
-position = Vector2(396.351, 275.605)
+position = Vector2(343.718, 275.937)
 rotation = 3.13529
-progress = 254.654
+progress = 307.287
 
 [node name="Path2D6" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_qqach")
@@ -400,8 +392,9 @@ curve = SubResource("Curve2D_qqach")
 curve = SubResource("Curve2D_bapxf")
 
 [node name="Muurahainen" parent="Reitit/Path2D7" instance=ExtResource("16_pfyx7")]
-position = Vector2(650, 114)
+position = Vector2(646.594, 114)
 rotation = 3.14159
+progress = 3.48702
 
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_ad656")
@@ -418,16 +411,16 @@ progress = 186.386
 curve = SubResource("Curve2D_wadt3")
 
 [node name="Muurahainen" parent="Reitit/Path2D10" instance=ExtResource("16_pfyx7")]
-position = Vector2(143.352, 139.243)
-rotation = 1.56839
+position = Vector2(143, 139.095)
+rotation = 1.5708
 progress = 146.246
 
 [node name="Path2D11" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_du5ec")
 
 [node name="Muurahainen" parent="Reitit/Path2D11" instance=ExtResource("16_pfyx7")]
-position = Vector2(143, -7)
-rotation = 1.56112
+position = Vector2(142, -30)
+rotation = 1.55878
 
 [node name="Path2D12" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_f2w4l")

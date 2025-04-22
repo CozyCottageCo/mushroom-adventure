@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://brn3805aymjmg" path="res://Art/Spritet/Ympäristö/tree (1).png" id="10_gq2ax"]
 [ext_resource type="Texture2D" uid="uid://1bws3y5o0x0y" path="res://Art/Spritet/Ympäristö/tree2.png" id="11_l0rt6"]
 [ext_resource type="PackedScene" uid="uid://djkvhrxf5jqpm" path="res://Level/KolariScreenTie.tscn" id="13_vdsem"]
-[ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="14_cku8e"]
+[ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="14_8eki3"]
 [ext_resource type="PackedScene" uid="uid://cc0h82imyfxb7" path="res://Level/PauseMenuPanel.tscn" id="15_f64ck"]
 [ext_resource type="PackedScene" uid="uid://omelctygapl7" path="res://Level/KolariScreenÖtökkä.tscn" id="16_71fyo"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_pccpn"]
@@ -243,9 +243,9 @@ region = Rect2(527, 228, 103, 123)
 
 [sub_resource type="Curve2D" id="Curve2D_yvvla"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 654, 202, 0, 0, 0, 0, -20, 200)
+"points": PackedVector2Array(0, 0, 0, 0, 654, 202, 0, 0, 0, 0, 294, 203, 0, 0, 0, 0, -26, 205)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="InputEventKey" id="InputEventKey_ggbqe"]
 device = -1
@@ -364,9 +364,9 @@ offset = Vector2(0, -40)
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_yvvla")
 
-[node name="Muurahainen" parent="Reitit/Path2D2" instance=ExtResource("14_cku8e")]
+[node name="Toukka" parent="Reitit/Path2D2" instance=ExtResource("14_8eki3")]
 position = Vector2(654, 202)
-rotation = -3.13863
+rotation = 3.13881
 
 [node name="PauseMenuPanel" parent="." instance=ExtResource("15_f64ck")]
 visible = false
