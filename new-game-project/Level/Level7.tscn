@@ -607,6 +607,7 @@ region_enabled = true
 region_rect = Rect2(403.053, 146.252, 89.5705, 119.894)
 
 [node name="koivu3" type="Sprite2D" parent="."]
+z_index = 3
 texture_filter = 1
 position = Vector2(20, 213)
 scale = Vector2(0.829114, 0.810924)

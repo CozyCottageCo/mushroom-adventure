@@ -759,7 +759,9 @@ region_rect = Rect2(475.851, 177.8, 130.64, 32.668)
 curve = SubResource("Curve2D_4smxl")
 
 [node name="Sirkka" parent="Reitit/Path2D" instance=ExtResource("20_7l4ey")]
-position = Vector2(-6, 207)
+position = Vector2(376.611, 206.762)
+rotation = -0.00257069
+progress = 382.617
 
 [node name="Path2D2" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_8rqbf")
@@ -775,12 +777,13 @@ position = Vector2(465, 79)
 [node name="Sieni" parent="." instance=ExtResource("19_6a5i0")]
 position = Vector2(480, 298)
 sprite_frames = SubResource("SpriteFrames_4ulul")
+frame_progress = 0.0
 
 [node name="VoittoScreen" parent="." instance=ExtResource("22_hie3l")]
 visible = false
 
 [node name="kävelytiesprite" type="Sprite2D" parent="."]
-position = Vector2(319, 34)
+position = Vector2(319, 33)
 scale = Vector2(0.529363, 0.530387)
 texture = ExtResource("22_4e2s0")
 offset = Vector2(0, 300)
@@ -993,3 +996,5 @@ stream = ExtResource("29_6vf1t")
 [node name="FailSound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("30_wome4")
+
+[editable path="Reitit/Path2D/Sirkka"]

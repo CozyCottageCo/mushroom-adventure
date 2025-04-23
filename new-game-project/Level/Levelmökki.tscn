@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://crrq7802bqqjs"]
+[gd_scene load_steps=60 format=4 uid="uid://crrq7802bqqjs"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_ml80f"]
 [ext_resource type="PackedScene" uid="uid://fb8v61vu14qw" path="res://Level/CrossWalkManager.tscn" id="2_r3vjg"]
@@ -31,8 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://b1nbqu47v4ibn" path="res://Level/Ötökät/Etana.tscn" id="23_828o1"]
 [ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="25_2ul1n"]
 [ext_resource type="PackedScene" uid="uid://by747mil411d5" path="res://Level/Ötökät/Kuoriainen.tscn" id="26_bglgv"]
-[ext_resource type="Script" path="res://Code/lightscript.cs" id="32_x8rnx"]
-[ext_resource type="Shader" path="res://Level/pimeys.gdshader" id="33_yfub1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u6f7l"]
 texture = ExtResource("3_kmghs")
@@ -392,12 +390,6 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xox5r"]
-shader = ExtResource("33_yfub1")
-shader_parameter/light_position = null
-shader_parameter/light_radius = 0.2
-shader_parameter/darkness_color = Vector4(0, 0, 0, 0.3)
-
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("_nappi1", "_nappi2", "_nappi3", "failSound")]
 y_sort_enabled = true
 script = ExtResource("1_ml80f")
@@ -523,13 +515,6 @@ position = Vector2(556, 45)
 position = Vector2(0, -1)
 collision_layer = 128
 collision_mask = 80
-
-[node name="Label" type="Label" parent="."]
-offset_left = 587.0
-offset_top = 324.0
-offset_right = 632.0
-offset_bottom = 347.0
-text = "TAMK"
 
 [node name="aita" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -797,7 +782,6 @@ region_rect = Rect2(66.5297, 11.1263, 24.137, 29.281)
 [node name="tv" type="Sprite2D" parent="."]
 z_index = 2
 texture_filter = 1
-position = Vector2(378.125, 243)
 position = Vector2(379, 261)
 texture = ExtResource("23_4ajmx")
 offset = Vector2(0, -20)
@@ -827,23 +811,16 @@ texture = ExtResource("23_4ajmx")
 region_enabled = true
 region_rect = Rect2(312, 185, 60, 86)
 
-[node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
-script = ExtResource("32_x8rnx")
-_darknessOverlay = NodePath("ColorRect")
-_lightSource = NodePath("")
-
-[node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
-z_index = 2
-material = SubResource("ShaderMaterial_xox5r")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
 offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.368627)
 metadata/_edit_use_anchors_ = true
 
 [editable path="SuojatieValot"]

@@ -30,6 +30,7 @@ parameters/looping = true
 [node name="Summer" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_2rh5w")
+parameters/looping = true
 
 [node name="Winter" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
@@ -38,6 +39,8 @@ parameters/looping = true
 
 [node name="Huussi" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_3l1m1")
+parameters/looping = true
 
 [node name="Mökki" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_olbct")
+parameters/looping = true

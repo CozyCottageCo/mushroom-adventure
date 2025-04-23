@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=4 uid="uid://dmlnagbsop02g"]
+[gd_scene load_steps=85 format=4 uid="uid://dmlnagbsop02g"]
 
 [ext_resource type="Script" path="res://Code/Touch.cs" id="1_7tpg1"]
 [ext_resource type="Texture2D" uid="uid://b0tvwy1x8ssol" path="res://Art/Spritet/Ympäristö/Tileset_tieviivattest.png" id="2_07orq"]
@@ -21,14 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://cejo7mkkmb7wy" path="res://Level/Täplä.tscn" id="17_gojm5"]
 [ext_resource type="PackedScene" uid="uid://5yc71l024jx8" path="res://Level/KolariScreenVesi.tscn" id="17_jgx8i"]
 [ext_resource type="Texture2D" uid="uid://c70tcm4jtpd8q" path="res://Art/Spritet/Ympäristö/Spritet.png" id="17_qusx2"]
+[ext_resource type="PackedScene" uid="uid://cw1rbkdjgfis2" path="res://Level/TutorialScene.tscn" id="19_6fjts"]
 [ext_resource type="AudioStream" uid="uid://cdv32uvk657g5" path="res://Art/Sound/taplajahti_button1.mp3" id="20_l17xm"]
 [ext_resource type="AudioStream" uid="uid://b712e1mldixg4" path="res://Art/Sound/taplajahti_button2.mp3" id="21_d33lw"]
 [ext_resource type="PackedScene" uid="uid://c3yui74bewfl2" path="res://Level/sienisadetakki.tscn" id="21_v33bk"]
 [ext_resource type="AudioStream" uid="uid://dp43d5rnvaj1o" path="res://Art/Sound/taplajahti_button3.mp3" id="22_0jjjx"]
-[ext_resource type="PackedScene" uid="uid://dd3g8n73h0h15" path="res://Level/Ötökät/Tuhatjalkainen.tscn" id="22_ujsqg"]
 [ext_resource type="PackedScene" uid="uid://bsjalxwejwv1a" path="res://Level/Ötökät/Muurahainen.tscn" id="23_2rufm"]
 [ext_resource type="AudioStream" uid="uid://67bcsnowk0j5" path="res://Art/Sound/taplajahti_loser.mp3" id="23_fl7m1"]
-[ext_resource type="PackedScene" uid="uid://b1nbqu47v4ibn" path="res://Level/Ötökät/Etana.tscn" id="24_hqhbb"]
+[ext_resource type="PackedScene" uid="uid://bfk051x5rrb2c" path="res://Level/Ötökät/Leppis.tscn" id="24_0tfod"]
 [ext_resource type="Texture2D" uid="uid://dsk7x4rfa23jd" path="res://Art/Spritet/Ympäristö/Spritet-eikäytös.png" id="24_kmcmd"]
 [ext_resource type="PackedScene" uid="uid://bcfuplphug2cw" path="res://Level/Ötökät/Sirkka.tscn" id="25_baowa"]
 [ext_resource type="PackedScene" uid="uid://dfm0nnoqfffkx" path="res://Level/Ötökät/Toukka.tscn" id="26_mmhmx"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://by747mil411d5" path="res://Level/Ötökät/Kuoriainen.tscn" id="28_35smb"]
 [ext_resource type="Shader" path="res://Level/pimeys.gdshader" id="28_vuh2e"]
 [ext_resource type="Script" path="res://Code/Heijastin.cs" id="30_cjyrl"]
+[ext_resource type="Script" path="res://Code/ColorRect.cs" id="36_4gm3y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj7qn"]
 texture = ExtResource("2_07orq")
@@ -541,11 +542,11 @@ color = Color(1, 1, 0.0352941, 1)
 color_ramp = SubResource("GradientTexture1D_q8hvp")
 alpha_curve = SubResource("CurveTexture_6wsp8")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_seqi1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riaib"]
 shader = ExtResource("28_vuh2e")
 shader_parameter/light_position = null
 shader_parameter/light_radius = 0.2
-shader_parameter/darkness_color = Vector4(0, 0, 0, 0.5)
+shader_parameter/darkness_color = Vector4(0, 0, 0, 0.6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ioc3c"]
 atlas = ExtResource("24_kmcmd")
@@ -656,6 +657,9 @@ visible = false
 [node name="KolariScreenVesi" parent="." instance=ExtResource("17_jgx8i")]
 visible = false
 
+[node name="TutorialScene" parent="." instance=ExtResource("19_6fjts")]
+visible = false
+
 [node name="KolariScreenVajaa" parent="." instance=ExtResource("16_31pni")]
 visible = false
 
@@ -747,16 +751,14 @@ progress = 487.966
 [node name="Path2D7" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_kmupc")
 
-[node name="Tuhatjalkainen" parent="Reitit/Path2D7" instance=ExtResource("22_ujsqg")]
-z_index = 1
+[node name="Leppis" parent="Reitit/Path2D7" instance=ExtResource("24_0tfod")]
+position = Vector2(279.565, 140.922)
+rotation = -3.13865
+progress = 393.449
+
+[node name="Toukka" parent="Reitit/Path2D7" instance=ExtResource("26_mmhmx")]
 position = Vector2(673, 139)
 rotation = 3.13614
-
-[node name="Etana" parent="Reitit/Path2D7" instance=ExtResource("24_hqhbb")]
-z_index = 1
-position = Vector2(427.315, 140.339)
-rotation = 3.13614
-progress = 245.685
 
 [node name="Path2D8" type="Path2D" parent="Reitit"]
 curve = SubResource("Curve2D_j8jj3")
@@ -901,7 +903,6 @@ region_enabled = true
 region_rect = Rect2(221.027, 303.803, 51.829, 30.7895)
 
 [node name="puu" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(612, 194)
 texture = ExtResource("24_kmcmd")
 offset = Vector2(0, -30)
@@ -1025,24 +1026,23 @@ preprocess = 0.5
 visibility_rect = Rect2(0, 0, 640, 360)
 
 [node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
+position = Vector2(320, 360)
 script = ExtResource("27_uatjo")
 _darknessOverlay = NodePath("ColorRect")
 _lightSource = NodePath("../Sprite2D2")
 
 [node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
-z_index = 2
-material = SubResource("ShaderMaterial_seqi1")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -59.0
-offset_top = 393.0
-offset_right = 581.0
-offset_bottom = 753.0
+material = SubResource("ShaderMaterial_riaib")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = -360.0
+offset_right = 320.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("36_4gm3y")
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

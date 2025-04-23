@@ -252,9 +252,10 @@ size = Vector2(33.5, 11)
 script = ExtResource("1_in1e8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, 6)
 sprite_frames = SubResource("SpriteFrames_i6b6d")
 animation = &"Stopleft"
+offset = Vector2(0, -10)
 flip_h = true
 
 [node name="CollisionArea2D" type="Area2D" parent="."]

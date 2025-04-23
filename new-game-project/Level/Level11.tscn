@@ -381,7 +381,7 @@ progress = 2.37052
 curve = SubResource("Curve2D_wr1p8")
 
 [node name="Muurahainen" parent="Reitit/Path2D5" instance=ExtResource("16_pfyx7")]
-position = Vector2(343.718, 275.937)
+position = Vector2(343.719, 275.937)
 rotation = 3.13529
 progress = 307.287
 

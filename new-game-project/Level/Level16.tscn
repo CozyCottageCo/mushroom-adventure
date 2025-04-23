@@ -630,7 +630,7 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_ipl5e")
 color_ramp = SubResource("GradientTexture1D_q0wci")
 alpha_curve = SubResource("CurveTexture_vhkd3")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_km6ak"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_riaib"]
 shader = ExtResource("29_nf6r5")
 shader_parameter/light_position = null
 shader_parameter/light_radius = 0.2
@@ -1893,20 +1893,20 @@ process_mode = 3
 stream = ExtResource("25_l8ogv")
 
 [node name="Heijastintsydeemi" type="Node2D" parent="." node_paths=PackedStringArray("_darknessOverlay", "_lightSource")]
+position = Vector2(320, 360)
 script = ExtResource("28_igifm")
 _darknessOverlay = NodePath("ColorRect")
 _lightSource = NodePath("../Sprite2D2")
 
 [node name="ColorRect" type="ColorRect" parent="Heijastintsydeemi"]
-z_index = 2
-material = SubResource("ShaderMaterial_km6ak")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 640.0
-offset_bottom = 360.0
+material = SubResource("ShaderMaterial_riaib")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = -360.0
+offset_right = 320.0
 grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
