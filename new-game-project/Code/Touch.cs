@@ -217,7 +217,7 @@ namespace SieniPeli
 
          }
 
-        public override void _Input(InputEvent @event)
+        public override void _UnhandledInput(InputEvent @event)
         {
          if (_buttonsVisible) // ei sallita mitään muuta ku napit ku ne o näkyvis
                 {
@@ -366,7 +366,7 @@ namespace SieniPeli
         private void OnGoButtonPressed() { // kun go nappia painettu, liikutaan
             _nappi1.Play();
             GD.Print("Go chosen! Sieni is moving...");
-            _sieni?.Move(tilesUsed.ToArray()); // reitti parametrina sienen liikutuksel (en ees tie mitä toi ? tekee)
+            _sieni?.Move(tilesUsed.ToArray()); // reitti parametrina sienen liikutuksel
             _goButton.Visible = false;
             _redoButton.Visible = false; // ja napit taas pois
             _buttonsVisible = false;
@@ -385,10 +385,10 @@ namespace SieniPeli
             _line.Points = new Vector2[0];
             _line.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
-        // Method to handle both tile tracking and highlighting
+
         private void UpdateTileAtPosition(Vector2 position) // träkkää piirtämisen tiilet ja highlightaa niitä
         {
-            // Adjust position based on margin (deleted) and check bounds
+
             Vector2 adjustedPosition = position;
             if (adjustedPosition.X < 0 || adjustedPosition.Y < 0 || adjustedPosition.X >= screenWidth || adjustedPosition.Y >= screenHeight )
             {
@@ -396,7 +396,7 @@ namespace SieniPeli
                 return; //ei kyl skippaa mitää atm :D
             }
 
-            // Convert to tile grid coordinates
+            // muutetaa gridikoordinaateiks
             int tileX = (int)(adjustedPosition.X / tileWidth);
             int tileY = (int)(adjustedPosition.Y / tileHeight);
 

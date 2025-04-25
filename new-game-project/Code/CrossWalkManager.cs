@@ -8,8 +8,8 @@ namespace SieniPeli {
         private string sieniSuojaTie = "";
         private bool sieniSuojaTiellä = false;
 
-        private Timer resetTimer;  // Timer to reset sieniSuojaTie
-        private const float RESET_TIME = 8.0f;  // 8 seconds timeout
+        private Timer resetTimer;  //  sieniSuojaTie reset timeri
+        private const float RESET_TIME = 8.0f;  // 8s odotus
 
         public bool CrossWalkOccupied => sieniSuojaTiellä;
         public string CurrentCrossWalk => sieniSuojaTie;
@@ -18,17 +18,17 @@ namespace SieniPeli {
 
         public override void _Ready()
         {
-            CallDeferred(nameof(InitializeSieniNode));
+            CallDeferred(nameof(InitializeSieniNode)); // varmistetaan et sieni eka skenes
 
             // Initialize the timer
             resetTimer = new Timer();
             AddChild(resetTimer);
-            resetTimer.Timeout += OnResetTimerTimeout;  // Connect the timeout signal to the method
+            resetTimer.Timeout += OnResetTimerTimeout;  // timer pääl ja kii
         }
 
         private void InitializeSieniNode()
         {
-            sieni = GetNode<Sieni>("/root/Node2D/Sieni"); // Ensure you reference the correct node
+            sieni = GetNode<Sieni>("/root/Node2D/Sieni");
             if (sieni != null)
             {
                 GD.Print("Sieni node found.");
@@ -43,43 +43,42 @@ namespace SieniPeli {
 
         public override void _Process(double delta)
         {
-            // GD.Print(CrossWalkOccupied, CurrentCrossWalk);
+
         }
 
         private void OnSieniStoppedAtCrosswalk(string suojatienimi, bool onSuojaTiellä)
         {
             sieniSuojaTie = suojatienimi;
             sieniSuojaTiellä = onSuojaTiellä;
-            GD.Print($"Sieni stopped at crosswalk: {suojatienimi}, Is at crosswalk: {onSuojaTiellä}");
 
-            // Start the timer when Sieni stops at the crosswalk
+            // kun tulee signaali et sieni suojatiellä, timer päälle
             resetTimer.Start(RESET_TIME);
 
-            GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus");
+            GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus"); // ötököille käsky tsekkaa tilanne
         }
 
         private void OnSieniLeftCrossWalk(string suojatienimi, bool onSuojaTiellä)
         {
-            // Stop the timer when the Sieni leaves the crosswalk
+            // Timer pois ku sieni lähtee suojatieltä
             resetTimer.Stop();
 
             sieniSuojaTiellä = onSuojaTiellä;
-            GD.Print($"Sieni left crosswalk {suojatienimi}, current {sieniSuojaTiellä}");
+         //   GD.Print($"Sieni left crosswalk {suojatienimi}, current {sieniSuojaTiellä}");
             sieniSuojaTie = "";
 
             if (!sieniSuojaTiellä)
             {
-                GD.Print("Sieni left crosswalk, Toukka can move.");
-                GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus");
+              //  GD.Print("Sieni left crosswalk, Toukka can move.");
+                GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus"); // kehotus tsekkaa taas
             }
         }
 
-        // Timer timeout method to reset the sieniSuojaTie after 8 seconds if not triggered
+        // Jos sieni ei 8s päästä oo lähteny suojatieltä, timer loppuu
         private void OnResetTimerTimeout()
         {
             GD.Print("Sieni didn't leave crosswalk in time. Resetting sieniSuojaTie...");
-            sieniSuojaTie = ""; // Reset the crosswalk tie after timeout
-            GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus"); // Ensure the Ötökkä group checks the status
+            sieniSuojaTie = ""; // Sienisuojatie resettaa (kunnes uusi signaali tulee)
+            GetTree().CallGroup("Ötökkä", "CheckCrossWalkStatus"); // kattokaa ny
         }
     }
 }

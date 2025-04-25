@@ -18,7 +18,7 @@ namespace SieniPeli {
             { "Summer", "Summer" },
             { "Autumn", "Autumn" },
             { "Huussi", "Huussi" },
-            { "Mökki", "Mökki" }
+            { "Mökki", "Mökki" } // dictionarysta katotaan mikä skenenimi -> mikä audiostreamplayeri pääl
         };
 
         public AudioStreamPlayer2D currentPlayer = null;
@@ -27,7 +27,7 @@ namespace SieniPeli {
         // Called when the node enters the scene tree for the first time.
         public override void _Ready()
         {
-            ApplySavedVolume();
+            ApplySavedVolume(); // iha eka katotaa settings volume, muute starttaa max volumel
             PlayMusicForCurrentScene();
         }
 
@@ -42,7 +42,7 @@ namespace SieniPeli {
                 sceneName = GetSeasonFromLevel(sceneName);
             }
 
-            GD.Print(sceneName + " current scene for music");
+            //GD.Print(sceneName + " current scene for music");
 
             // Verrataan dictionaryyn tallennettuihin mikä player lyödään päälle
             if (sceneMusicMap.TryGetValue(sceneName, out string playerName))
@@ -50,7 +50,7 @@ namespace SieniPeli {
                 // Tarkistetaa ettei se yritä laittaa BG music uudelleen, skipataa jos niin
                 if (playerName == "BackgroundMusic" && currentSong == "BackgroundMusic")
                 {
-                    GD.Print("BackgroundMusic already playing, no need to start again.");
+                    //GD.Print("BackgroundMusic already playing, no need to start again.");
                     return; //skippp
                 }
 
@@ -75,9 +75,9 @@ namespace SieniPeli {
             }
         }
 
-        private string GetSeasonFromLevel(string sceneName)
+        private string GetSeasonFromLevel(string sceneName) // katotaa mikä levelin musa pits olla
         {
-            if (sceneName.StartsWith("Level"))
+            if (sceneName.StartsWith("Level")) // huussil ja mökil omat ku ei oo numeroitu
             {
                 if (sceneName == "Levelhuussi") {
                     return "Huussi";

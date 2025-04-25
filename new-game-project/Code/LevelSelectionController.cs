@@ -44,7 +44,7 @@ namespace SieniPeli
 
             if (this.Name == "LevelSelect3") {
                 if (saveManager.IsLevelCompleted("Levelhuussi")) {
-                    backGround.Texture = _huussiDone;
+                    backGround.Texture = _huussiDone; // koska huussi ja mökki ei oo sprite vaa koko tausta, tsekataa alus onko done ja sen mukaa
                 }
             }
 
@@ -86,7 +86,7 @@ namespace SieniPeli
             CheckLevelButtonTextures(); // tarkistetaan aina levelscreeninauetessa mitkä auki
             TäpläCount.Text = saveManager.GetLevelsCompleted() + " / 18"; // päivitetää tehyt täplät
 
-            _gameClearPanel.Visible = false;
+            _gameClearPanel.Visible = false; // onko peli läpi?
             if (saveManager.GetLevelsCompleted() == 18 && !saveManager.victoryShown) {
                 _gameClearPanel.Visible = true;
                 saveManager.SetVictorySeen(true);
@@ -164,7 +164,6 @@ namespace SieniPeli
             GD.Print($"Going to level select screen {screen}"); // debuggia
             SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
 	        sceneTransition.FadeToScene(levelSelectPath);
-            //_levelSelectSceneTree.ChangeSceneToFile(levelSelectPath); // ja skene vaihtuu
         }
 
 		private async void MainMenuPressed() { // tietysti main menuun takaisin
@@ -173,7 +172,6 @@ namespace SieniPeli
 			string mainMenuPath = "res://Level/MainMenu.tscn";
             SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
 	        sceneTransition.FadeToScene(mainMenuPath);
-			//_levelSelectSceneTree.ChangeSceneToFile(mainMenuPath);
 		}
 
         public string GetCurrentLevelSelect() {

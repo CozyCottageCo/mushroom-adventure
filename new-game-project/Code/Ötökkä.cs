@@ -56,36 +56,36 @@ namespace SieniPeli {
 
         public bool blockedByLight = false;
 
-        private bool waitingForNextRun= false;
+        private bool waitingForNextRun= false; // kuoriaiselle vvaa omat
         private bool finishedRun= false;
         private float waitTime = 0f;
         private float waitTimer = 0f;
 
         public override void _Ready() {
-            AddToGroup("Ötökkä");
+            AddToGroup("Ötökkä"); // kaikki samaa ryhmää crosswalkmanagerin viestei varte
             CrossWalkManager = GetNode<CrossWalkManager>("/root/Node2D/CrossWalkManager");
             currentSpeed = maxSpeed;
             previousPosition = Position;
 
-            path = GetParent<Path2D>();
+            path = GetParent<Path2D>(); // katotaan ötökän reittipath2d
             startPosition = path.Curve.GetPointPosition(0);
             firstPoint = path.Curve.GetPointPosition(1);
             endPosition = path.Curve.GetPointPosition(2);
-            isTurning = IsTurning(startPosition, firstPoint, endPosition);
+            isTurning = IsTurning(startPosition, firstPoint, endPosition); // kääntyykö? lasketaa noist 3 pisteest
             if (isTurning) {
                // GD.Print(this.Name + "is turning");
             }
             if (isTurning) {
                 //GD.Print($"{this.Name} is turning {firstPoint} {endPosition}");
-               _turnDirection = SetTurnDirection(firstPoint, endPosition);
+               _turnDirection = SetTurnDirection(firstPoint, endPosition); // jos, minne
                //GD.Print(_turnDirection);
 
 
             }
 
-            SetInitialDirection(firstPoint, startPosition);
+            SetInitialDirection(firstPoint, startPosition); // alkusuunta
             _direction = _initialDirection;
-            _initialDirectionSaved = _initialDirection;
+            _initialDirectionSaved = _initialDirection; // tallennetaan käyttöö varte
 
              //GD.Print($"{this.Name} Initial Direction: ", _initialDirectionSaved);
 
@@ -93,7 +93,7 @@ namespace SieniPeli {
             detectionAreaShort = GetNode<Area2D>("DetectionArea2DShort");
             detectionAreaFront = GetNode<Area2D>("DetectionArea2DFront");
             collisionArea = GetNode<Area2D>("CollisionArea2D");
-            // Signal connections for area detection
+            // Signaalit kollisioiden kattomisee
 
             detectionAreaLong.AreaEntered += OnLongRangeEntered;
             detectionAreaLong.AreaExited += OnLongRangeExited;
@@ -114,7 +114,7 @@ namespace SieniPeli {
         }
 
         public override void _Process(double delta) {
-            if (waitingForNextRun && finishedRun) {
+            if (waitingForNextRun && finishedRun) { // tää o vaa poliisikuoriaisen timer millo lähtee uusiks
              waitTimer += (float)delta;
                 if (waitTimer >= waitTime) {
                     waitingForNextRun= false;
@@ -137,14 +137,14 @@ namespace SieniPeli {
             if (blockedByFront != "") {
            // GD.Print($"{this.Name} is blockedby {blockedByFront}");
             }
-            if (Mathf.Abs(ProgressRatio) > 0.95f) {
+            if (Mathf.Abs(ProgressRatio) > 0.95f) { // tarkistetaa et nollaa lopus
                 blockedBy = "";
                 }
 
          if (MathF.Abs(ProgressRatio) > 0.001f) {
-            _direction = _initialDirectionSaved;
+            _direction = _initialDirectionSaved; // mm tällä varmistettii et aluks on oikee direction jos jtn muute kusi
         }
-        if (MathF.Abs(ProgressRatio) > 0.01f) {
+        if (MathF.Abs(ProgressRatio) > 0.01f) { // sit normaali direction check nykyse ja aiemma position eron perusteel
 
             _direction = SetDirection(Position, previousPosition);
 
@@ -153,20 +153,20 @@ namespace SieniPeli {
         var frontRange = GetNode<Area2D>("DetectionArea2DFront");
             foreach (Area2D overlapping in frontRange.GetOverlappingAreas())
             {
-                OnFrontRangeEntered(overlapping); // reuse your existing logic
+                OnFrontRangeEntered(overlapping); // tän idea oli yrittää estää ettei edes oleva nollaudu ku joku muu tulee alueel kans
             }
         }
 
          previousPosition = Position;
 
         if (GetDirectionAsString(_direction) != "Unknown" && _lastDirection != _direction) {
-            _lastDirection = _direction;
+            _lastDirection = _direction; // tää esti sen et jos ötökkä ei liiku, suunta oli 0,0: unknown. Nyt tallennetaa aiempi tiedetty suunta ja käytetää sitä animaatioo
          PlayAnimation(GetDirectionAsString(_lastDirection), currentSpeed);
         }
             if (isStopped || blockedBy != "" || blockedByFront != "") {
                 stopTime += (float)delta;
 
-                // If the car has been stopped for more than the max stop time, resume
+                // Tarkistus et lähtevät liikkeel jos liia kaua paikallaa syystä X
                 if (stopTime >= maxStopTime) {
                     GD.Print($"{this.Name} has been stopped for 10 seconds, resuming.");
                     isStopped = false;
@@ -177,7 +177,7 @@ namespace SieniPeli {
                 return;
             }
             stopTime = 0f;
-            Move((float)delta);
+            Move((float)delta); // itse liike lopuks
 
 
 
@@ -187,10 +187,10 @@ namespace SieniPeli {
             if (Mathf.Abs(ProgressRatio) < 0.1f) {
                 blockedByFront = "";
             }
-            if (blockedByFront != "") {
+            if (blockedByFront != "") { // elä liiku jos blocked
                 return;
             }
-            if (approachingRisteys) {
+            if (approachingRisteys) { // vanha koodi joka ei taida olla käytössä
                 currentSpeed =  Mathf.MoveToward(currentSpeed, risteysSpeed, jarrutusSpeed * delta);
             } else if (inRisteys) {
                 currentSpeed = risteysSpeed;
@@ -200,17 +200,17 @@ namespace SieniPeli {
             } else {
                 currentSpeed = Mathf.MoveToward(currentSpeed, minRollingSpeed, jarrutusSpeed * delta);
             }
-            if (isOnLights) {
+            if (isOnLights) { // tää estää ettei pysähdy valoristeykseen suojatien päälle
                 currentSpeed = Mathf.MoveToward(currentSpeed, maxSpeed, kiihdytysSpeed * delta);
             }
-            Progress += currentSpeed * delta;
+            Progress += currentSpeed * delta; // ja eteneminen
         }
 
         public virtual void Stop() {
-            if (this.Name == "Kuoriainen") {
+            if (this.Name == "Kuoriainen") { // poliisi ei pysähy
                 return;
             }
-            if (isOnCrossWalk || isOnLights) {
+            if (isOnCrossWalk || isOnLights) { // eikä pysähy (pitäis) jos on suojatiel
                 return;
             }
             isStopped = true;
@@ -218,54 +218,54 @@ namespace SieniPeli {
             stopTime = 0f;
         }
 
-        public string GetBlocked() {
+        public string GetBlocked() { // mikä blokkaa (käytetää muual)
             return blockedByFront;
         }
 
-        public virtual void Resume() {
-            if (!isStopped || blockedByLight) return; // Prevent unnecessary calls
+        public virtual void Resume() { // takas liikkeelle
+            if (!isStopped || blockedByLight) return; // Return heti jos ei oo lupa liikkua
 
            // GD.Print($"{this.Name} resumes moving.");
             isStopped = false;
-            isBlocked = false; // <- Ensure movement can continue
+            isBlocked = false; // forcetaa viel falseks
 
-            // Gradually accelerate back to normal speed
+            // kiihytys
             if (currentSpeed < maxSpeed) {
                 currentSpeed = Mathf.Max(currentSpeed, kiihdytysSpeed);
             }
         stopTime = 0f;
         }
 
-        private void PlayAnimation(string direction, float speed) {
+        private void PlayAnimation(string direction, float speed) { // animaatiot täält
             AnimatedSprite2D sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-            sprite.FlipH = false;
+            sprite.FlipH = false; // nollataa kaikki aina ku playanimatio called ettei jää vanha joku päälle
             sprite.FlipV = false;
             sprite.RotationDegrees = 0;
             string targetAnimation = "";
                this.Scale = Vector2.One;
 
-if (this.Name == "WRONG") {
+if (this.Name == "WRONG") { // tää oli debuggia varte lol
                         GD.Print(direction);
                     }
            // GD.Print($"PlayAnimation: {direction}, Speed: {speed}, CurrentAnim: {sprite.Animation}, {blockedByLight}");
 
-            if (blockedByLight || currentSpeed == 0)
+            if (blockedByLight || currentSpeed == 0) // jos valois tai pysähtyny muute (ei jostai syyst ollu aina 0 speed valois?)
                 {
 
-                    // Play the stop animation based on the direction
+                    // suunnan mukaan (joka on siis viimene tiedetty suunta)
                     switch (direction)
                     {
                         case "Right":
                             targetAnimation = "Stopright";
                             sprite.FlipH = true;
-                            if (this.Name == "Kuoriainen") {
+                            if (this.Name == "Kuoriainen") { // flippejä vähä sen mukaa mite toimis
                                 sprite.FlipH = false;
                             }
                             break;
                         case "Left":
                             targetAnimation = "Stopleft";
                             sprite.FlipH = true;
-                            this.Scale = new Vector2(1,-1);
+                            this.Scale = new Vector2(1,-1); // täski piti flippaa ylösalasin et toimi
                             break;
                         case "Down":
                            targetAnimation = "Stopdown";
@@ -280,8 +280,7 @@ if (this.Name == "WRONG") {
                 }
                 else if (!blockedByLight && currentSpeed > 0)
                 {
-                   // GD.Print(blockedByLight, currentSpeed);
-                    // Play the walk animation based on the direction
+                   // jos liikkuu ni erit toki
                     switch (direction)
                     {
                         case "Right":
@@ -310,25 +309,25 @@ if (this.Name == "WRONG") {
                             break;
                     }
                 }
-                 if (sprite.Animation != targetAnimation)
+                 if (sprite.Animation != targetAnimation) // ja jos haluttu animaatio ei oo se mikä päällä, pakotetaa vanha pois päältä
                 {
                     sprite.Stop();
                     sprite.Play(targetAnimation);
                 }
             }
 
-        private void OnLongRangeEntered(Node body) {
-            if (this.Name == "Kuoriainen") {
+        private void OnLongRangeEntered(Node body) { // kaukokollisio
+            if (this.Name == "Kuoriainen") { // varmistus ettei kuoriaine tee mitn
                 return;
             }
             string areaName = body.Name;
-            if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
+            if (body is Area2D area)
             {
-                if (areaName == "Risteys" && isTurning) {
+                if (areaName == "Risteys" && isTurning) { // vanha koodi; ei oo enää eriksee risteyksiä tasois merkattu
                     approachingRisteys = true;
                 }
-                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
-                    var otherÖtökkä = parentNode as Ötökkä;
+                if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) { // jos ötökkä (eikä oo tää)
+                    var otherÖtökkä = parentNode as Ötökkä; // laitetaa muistii, katotaa sen tietoi jne
                     if (otherÖtökkä != null) {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
                         bool otherTurning = otherÖtökkä.GetTurning();
@@ -339,17 +338,17 @@ if (this.Name == "WRONG") {
                             if(!otherRisteys) {
                             other_direction = otherÖtökkä.GetTurnDirection();
                             }
-                        }
+                        }   // tietojen perusteella katotaa pitäskö sitä väistää vai ei
                         if (ShouldYieldWithTurning(_direction, other_direction, isTurning, otherTurning, otherRisteys, otherÖtökkä.Name, otherTurned)) {
                             isBlocked = true;
-                            blockedBySpeed = otherÖtökkä.GetSpeed();
+                            blockedBySpeed = otherÖtökkä.GetSpeed(); // jos pitää, blokkia
                         }
                     }
                 }
             }
             else if (body is TileMapLayer tileMapLayer)
             {
-                if (areaName.StartsWith("Suojatie"))
+                if (areaName.StartsWith("Suojatie")) // jos näkee suojatien ja siel on sieni, alkaa hidastaa valmiiks
                 {
 
                         detectedCrossWalk = areaName;
@@ -363,16 +362,16 @@ if (this.Name == "WRONG") {
 
         }
 
-        private void OnLongRangeExited(Node body) {
+        private void OnLongRangeExited(Node body) { // ja jutut pois ku lähtee alueelt
             if (this.Name == "Kuoriainen") {
                 return;
             }
             string areaName = body.Name;
             if (body is Area2D area) {
-                // Ensure it's not the same as this instance's collision area
+
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
 
-                    // Unblock the movement to simulate resuming speed
+
                     isBlocked = false;
                 }
             }
@@ -387,24 +386,24 @@ if (this.Name == "WRONG") {
                 }
         }
 
-        private void OnShortRangeEntered(Node body) {
+        private void OnShortRangeEntered(Node body) { // ja lyhyemmän rangen kollisiotsek
             if (this.Name == "Kuoriainen") {
                 return;
             }
             string areaName = body.Name;
-            if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
+            if (body is Area2D area)
             {
 
                 if (blockedBy != "") {
                 if (body.GetInstanceId().ToString() != blockedBy || alreadyBlocked) {
-                  //  GD.Print($"{body.GetInstanceId().ToString()} isnt {blockedBy}");
+                  //  mm täs koitettii estää ettei se vaihda ketä blokkaa jos toinenki tulee alueelle
                 return;
                 }
             }
 
 
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
-                    var otherÖtökkä = parentNode as Ötökkä;
+                    var otherÖtökkä = parentNode as Ötökkä; // ja taas ötökän tietoja taltee
                     if (otherÖtökkä != null) {
                         Vector2 other_direction = otherÖtökkä.GetDirection();
                         bool otherTurning = otherÖtökkä.GetTurning();
@@ -417,23 +416,23 @@ if (this.Name == "WRONG") {
                             }
                         }
                         if (ShouldYieldWithTurning(_direction, other_direction, isTurning, otherTurning, otherRisteys, otherÖtökkä.Name, otherTurned)) {
-                            //GD.Print($"{this.Name} blocked by{parentNode.Name}");
+                           // ja katotaa pitäskö väistää
                             if (String.IsNullOrEmpty(blockedBy)) {
-                          //  GD.Print($"Somehow empty {blockedBy}");
+                          // jos EI oo blokattu jo ni otetaa tää siihe
                             blockedBy = body.GetInstanceId().ToString();
                             alreadyBlocked = true;
                             }
                             Stop();
-                           // GD.Print($"Direction {GetDirectionAsString(_direction)} for {GetDirectionAsString(other_direction)}");
+                           // ja stoppia
                         }
                     }
 
-                    CheckCrossWalkStatus();
+                    CheckCrossWalkStatus(); // näit tarkastuksii aina välil
                 }
             }
             else if (body is TileMapLayer tileMapLayer)
             {
-                if (areaName.StartsWith("Suojatie"))
+                if (areaName.StartsWith("Suojatie")) // suojatie kans tsek pitääkö pysähtyä
                 {
                         detectedCrossWalk = areaName;
                         if(CrossWalkManager.CrossWalkOccupied &&
@@ -446,7 +445,7 @@ if (this.Name == "WRONG") {
             }
         }
 
-        private void OnShortRangeExited(Node body) {
+        private void OnShortRangeExited(Node body) { // ja ulos päinvastoi
             if (this.Name == "Kuoriainen") {
                 return;
             }
@@ -457,16 +456,12 @@ if (this.Name == "WRONG") {
 
                  if (blockedBy != "") {
                 if (body.GetInstanceId().ToString() != blockedBy) {
-                 //   GD.Print($"{body.GetInstanceId().ToString()} isnt {blockedBy}");
                 return;
                 }
 
             }
-                // Ensure it's not the same as this instance's collision area
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
                     if (body.GetInstanceId().ToString() == blockedBy) {
-
-                      //  GD.Print($"{this.Name} Stopped being blocked by {parentNode.Name}");
                     blockedBy = "";
                     alreadyBlocked = false;
                     Resume();
@@ -484,15 +479,15 @@ if (this.Name == "WRONG") {
                 }
         }
 
-        private void OnFrontRangeEntered(Node body) {
+        private void OnFrontRangeEntered(Node body) { // iha edes olevien tsekki (ettei aja päälle)
             if (this.Name == "Kuoriainen") {
                 return;
             }
             string areaName = body.Name;
-            if (body is Area2D area)  // Ensure it's an Area2D (which would be another car or object)
+            if (body is Area2D area)
             {
                 if (areaName == "Valotie") {
-                    blockedByLight = true;
+                    blockedByLight = true; //valoteil oma ku siin on area2d
                     Stop();
                 }
                 else if (blockedByFront != "") {
@@ -515,7 +510,6 @@ if (this.Name == "WRONG") {
                         }
                         blockedByFront = parentNode.GetInstanceId().ToString();
                         alreadyBlockedFront = true;
-                      //  GD.Print($"{this.Name} now blocked by {blockedByFront}");
                             }
                         }
                     }
@@ -536,12 +530,10 @@ if (this.Name == "WRONG") {
 
                 }
 
-                // Ensure it's not the same as this instance's collision area
                 if (body.GetParent() is Node parentNode && parentNode.IsInGroup("Ötökkä") && parentNode != this) {
 
                     if (parentNode.GetInstanceId().ToString() == blockedByFront) {
 
-                       // GD.Print($"{this.Name} Stopped being blocked by {parentNode.Name}");
                     blockedByFront = "";
                     alreadyBlockedFront = false;
                     Resume();
@@ -550,19 +542,17 @@ if (this.Name == "WRONG") {
             }
          }
 
-         private void OnCrossWalkEntered(Node body) {
+         private void OnCrossWalkEntered(Node body) { // katotaa ollaanko suojatien päällä
 
             string areaName = body.Name;
 
             if (body is TileMapLayer tileMapLayer)
             {
 
-              //  GD.Print($"{this.Name} on {areaName}");
                  if (!isOnCrossWalk)
                 {
-                    isOnCrossWalk = true; // Set the flag to true when entering a crosswalk
-                    // Prevent stopping or slowing down when on crosswalk
-                    Stop(); // Ensure the Toukka does not stop on the crosswalk
+                    isOnCrossWalk = true;
+                    Stop(); // katotaa ettei pysähytä (siel heti alus return jos on nääs)
                 }
 
             }
@@ -572,7 +562,7 @@ if (this.Name == "WRONG") {
                 Resume();
 
             }
-            if (areaName == "Risteys" && isTurning) {
+            if (areaName == "Risteys" && isTurning) { // vanhaa koodia tosiaan
                 approachingRisteys = false;
                 inRisteys = true;
             } else {
@@ -584,12 +574,10 @@ if (this.Name == "WRONG") {
 
             if (isOnCrossWalk) {
                 isOnCrossWalk = false;
-              //int($"{this.Name} has left crosswalk");
                 CheckCrossWalkStatus();
             }
             if (areaName == "Risteys") {
                 inRisteys = false;
-                //GD.Print("left risteys");
             }
             if (areaName == "Valotie") {
                 isOnLights = false;
@@ -598,13 +586,12 @@ if (this.Name == "WRONG") {
 
         private void CheckCrossWalkStatus()
         {
-            sieniSuojaTie = CrossWalkManager.CurrentCrossWalk;
+            sieniSuojaTie = CrossWalkManager.CurrentCrossWalk; // katotaa crosswalkmanagerista tosiaa pitääkö suojatietä varte pysähtyä
 
            if (!string.IsNullOrEmpty(detectedCrossWalk) && CrossWalkManager.CrossWalkOccupied &&
-            sieniSuojaTie == detectedCrossWalk && OnHeijastin())
+            sieniSuojaTie == detectedCrossWalk && OnHeijastin()) // heijastintsekki myös jos relevantti
             {
                 Stop();
-               // GD.Print($"{this.Name} stops for crosswalk: {detectedCrossWalk}");
             }
             else
             {
@@ -627,7 +614,7 @@ if (this.Name == "WRONG") {
             public bool GetRisteys() {
                 return inRisteys;
             }
-            private bool IsSame_direction(Vector2 other_direction) {
+            private bool IsSame_direction(Vector2 other_direction) { // täs verrattii mennäänkö samaa suuntaa, taitaa olla vanhaa koodia
                 float dotProduct = _direction.Dot(other_direction);
                 return dotProduct > 0f;
             }
@@ -646,7 +633,7 @@ if (this.Name == "WRONG") {
             return true; // true muihin ku heijastinkarttoihin
             }
 
-            private bool IsOppositeDirection(Vector2 otherBugDirection) {
+            private bool IsOppositeDirection(Vector2 otherBugDirection) { // onko vastakkainen suunta toisen ötökän kanssa
                 string thisDirectionString = GetDirectionAsString(_direction);
                string otherBugDirectionString = GetDirectionAsString(otherBugDirection);
 
@@ -664,121 +651,75 @@ if (this.Name == "WRONG") {
                 }
             }
 
-            private bool ShouldGiveWay (Vector2 otherBugDirection, bool otherTurning) {
-                if (this.Name == "Kuoriainen") {
-                return false;
-            }
 
-                if (!isTurning) {
-                    return false;
-
-                } if (isTurning && (GetCardinalDirection(otherBugDirection) != new Vector2(0, -1)) && (SetDirection(endPosition, firstPoint) != new Vector2(0,1))) {
-                    return false; // ei toimi, koska ylhäältä alas tuleva oikeel kääntyvä tekee oikeestaan vasemman käännöksen ,mut tää kattoo sen oikeeks: pitää vertaa alkuperäsee directionii
-                } else if (isTurning && !otherTurning) {
-                            // näkee liia kauas ni stoppaa liia aikasi
-                    return true;
-                }
-
-                Vector2 roundedDirection = GetCardinalDirection(_direction);
-                Vector2 roundedOtherDirection = GetCardinalDirection(otherBugDirection);
-
-
-                 if (roundedDirection == new Vector2(-1, 0) && roundedOtherDirection == new Vector2(0, 1)) {  // Left -> Down
-
-        return true;
-    }
-    else if (roundedDirection == new Vector2(1, 0) && roundedOtherDirection == new Vector2(0, -1)) {  // Right -> Up
-        GD.Print("[GiveWay Check] Going right, give way to up. moving");
-        return true;
-    }
-    else if (roundedDirection == new Vector2(0, -1) && roundedOtherDirection == new Vector2(-1,0)) {  // Up -> Left
-        GD.Print("[GiveWay Check] Going up, give way to left moving");
-        return true;
-    }
-    else if (roundedDirection == new Vector2(0, 1) && roundedOtherDirection == new Vector2(1, 0)) {  // Down -> Right
-        GD.Print("[GiveWay Check] Going down, give way to right moving");
-        return true;
-    }
-
-    // No yield condition met, meaning no giving way
-
-    return false; // Current object does not give way
-}
-
-// Helper function to round the direction to cardinal directions (-1, 0, 1)
-private Vector2 GetCardinalDirection(Vector2 direction) {
-    const float THRESHOLD = 0.01f;  // Small values treated as 0
+private Vector2 GetCardinalDirection(Vector2 direction) { // metodi auttaa koordinaattien siistimises
+    const float THRESHOLD = 0.01f;  // pienet erot = 0
 
     if (Mathf.Abs(direction.X) > Mathf.Abs(direction.Y) + THRESHOLD) {
-        return new Vector2(Mathf.Sign(direction.X), 0);  // Left or Right
+        return new Vector2(Mathf.Sign(direction.X), 0);  // vasen oikee
     }
     else if (Mathf.Abs(direction.Y) > Mathf.Abs(direction.X) + THRESHOLD) {
-        return new Vector2(0, Mathf.Sign(direction.Y));  // Up or Down
+        return new Vector2(0, Mathf.Sign(direction.Y));  // ylös alas
     }
     else {
-        return new Vector2(0, 0);  // Unknown or too small movement
+        return new Vector2(0, 0);  // Unknown jos ei liikettä tarpeeks
     }
 }
 
 
-// Helper function to convert the direction to a human-readable string (e.g., "Left", "Right")
 
-
-private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) {
+private bool IsTurning(Vector2 start, Vector2 middle, Vector2 end) { // tarkistus kääntyykö tämä ötökkä
     Vector2 dir1 = (middle - start).Normalized();
     Vector2 dir2 = (end - middle).Normalized();
 
-    float angleChange = dir1.AngleTo(dir2); // in radians
+    float angleChange = dir1.AngleTo(dir2);
 
-    const float TURN_ANGLE_THRESHOLD = 0.3f; // ~17 degrees (adjust as needed)
+    const float TURN_ANGLE_THRESHOLD = 0.3f; // ~17 asteen kulma riittää
 
     return Mathf.Abs(angleChange) > TURN_ANGLE_THRESHOLD;
 }
 
 
-private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) {
-      // Get the first curve point
+private void SetInitialDirection (Vector2 firstPoint, Vector2 startPosition) { // metodi jossa laitetaa alotussuunta (talteen)
 
-                // Calculate the initial direction as the normalized vector from the start position to the first point
                 _initialDirection = (firstPoint - startPosition).Normalized();
                  const float THRESHOLD = 0.1f;
             if (Mathf.Abs(_initialDirection.Y) < THRESHOLD) {
-                _initialDirection.Y = 0f; // Small Y changes, treat as 0
+                _initialDirection.Y = 0f; // liia pieni muutos o 0
             }
             else if (_initialDirection.Y > THRESHOLD) {
-                _initialDirection.Y = 1f; // Positive Y, treat as down (1)
+                _initialDirection.Y = 1f; // positiivinen y
             }
             else if (_initialDirection.Y < -THRESHOLD) {
-                _initialDirection.Y = -1f; // Negative Y, treat as up (-1)
+                _initialDirection.Y = -1f; // Negatiivinen y
             }
 
-            // Handle X direction
             if (Mathf.Abs(_initialDirection.X) < THRESHOLD) {
-                _initialDirection.X = 0f; // Small X changes, treat as 0
+                _initialDirection.X = 0f; // liia pieni = 0
             }
             else if (_initialDirection.X > THRESHOLD) {
-                _initialDirection.X = 1f; // Positive X, treat as right (1)
+                _initialDirection.X = 1f; // positiivinen x muutos
             }
             else if (_initialDirection.X < -THRESHOLD) {
-                _initialDirection.X = -1f; // Negative X, treat as left (-1)
+                _initialDirection.X = -1f; // negatiivinen x muutos
             }
                         _direction = _initialDirection;
             }
 
-private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
-                Vector2 direction = (position - lastposition);
+private Vector2 SetDirection (Vector2 position, Vector2 lastposition) { // asetetaan suunta
+                Vector2 direction = (position - lastposition); // positioiden vertailun perusteella
                 Vector2 cardinalDirection = GetCardinalDirection(direction);
 
 
                if (cardinalDirection == Vector2.Zero || (Mathf.Abs(cardinalDirection.X) > 0 && Mathf.Abs(cardinalDirection.Y) > 0)) {
-                    cardinalDirection = _lastDirection;
+                    cardinalDirection = _lastDirection; // jos tulee 0,0 tjsp "unknown" niin käytetää vanhaa tunnettua suuntaa
                }
            return cardinalDirection;
 }
 
 
 
-    private string GetDirectionAsString(Vector2 direction) {
+    private string GetDirectionAsString(Vector2 direction) { // lukemise helpotuksee suunnat tekstinä
 
     if (direction == new Vector2(1,0)) return "Right";
     if (direction == new Vector2(-1,0)) return "Left";
@@ -789,7 +730,7 @@ private Vector2 SetDirection (Vector2 position, Vector2 lastposition) {
     return "Unknown";
 }
 
-private Vector2 SetTurnDirection(Vector2 point1, Vector2 point2)
+private Vector2 SetTurnDirection(Vector2 point1, Vector2 point2) // liikennelogiikkaa varte kääntymisen suunnan asetus(muistiin)
 {
     const float THRESHOLD = 0.1f;
 

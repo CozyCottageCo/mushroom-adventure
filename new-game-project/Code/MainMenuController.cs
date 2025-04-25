@@ -27,13 +27,13 @@ public override void _Ready() {
 		TranslationServer.SetLocale(locale);
 	}
 
-	// Update UI text translations
+	// Update UI text
 	UpdateUIText();
 
 	base._Ready();
 	 Control settingsMenu = GetNode<Control>("Settings");
 		if (settingsMenu != null) {
-			settingsMenu.Visible = false; // Hide at start
+			settingsMenu.Visible = false; // Hide  alkuun
 		} else {
 			GD.PrintErr("Settings menu node not found!");
 		}
@@ -56,14 +56,14 @@ public override void _Ready() {
 
 private void ApplySettingsVolume() {
 			ConfigFile config = new ConfigFile();
-			string configPath = "user://settings.cfg"; // Ensure this is the correct path for your settings file
+			string configPath = "user://settings.cfg";
 
 			if (config.Load(configPath) == Error.Ok)
 			{
-				float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);  // Default to 1.0 if not found
+				float volume = (float)(double)config.GetValue("Settings", "Volume", 1.0);  // Default 1.0 jos ei löydy
 				float dbVolume = Mathf.LinearToDb(volume);
 
-				// Apply volume to the master audio bus
+
 				AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), dbVolume);
 			}
 }
@@ -74,7 +74,7 @@ private async void OnPelaaPressed()
 	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
 	SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
 	sceneTransition.FadeToScene("res://Level/LevelSelect1.tscn");
-	GD.Print("Pelaa pressed");
+	GD.Print("Pelaa pressed"); // mennään levelselect 1
 }
 
 
@@ -82,9 +82,9 @@ private void OnAsetuksetPressed()
 {
 	_audioPuu.Play();
 	GD.Print("Asetukset pressed");
-		 Control settingsMenu = GetNode<Control>("Settings"); // Make sure the node path matches
+		 Control settingsMenu = GetNode<Control>("Settings"); // haetaa autoload settingsi
 		if (settingsMenu != null) {
-			settingsMenu.Visible = !settingsMenu.Visible; // Toggle visibility
+			settingsMenu.Visible = !settingsMenu.Visible; // näkyvii
 		} else {
 			GD.PrintErr("Settings menu node not found!");
 		}
@@ -94,12 +94,12 @@ private async void OnPoistuPressed()
 {
 	_audioPuu.Play();
 	await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-	_mainMenuSceneTree.Quit();
+	_mainMenuSceneTree.Quit(); // peli kii
 }
 
 private void OnNettiSivuPressed() {
 string url = "https://webpages.tuni.fi/24tiko3f/index.html";
-OS.ShellOpen(url);
+OS.ShellOpen(url); // cozycottage logosta linkki sivuille
 }
 
 public void UpdateUIText()

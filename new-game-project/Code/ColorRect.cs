@@ -4,7 +4,7 @@ public partial class Darkener : ColorRect
 {
     public override void _Ready()
     {
-        // Even if it's visually on top, mouse filter is set
+        // ööäh turha, oli yritys korjata mobiilikosketus
         MouseFilter = MouseFilterEnum.Ignore;
     }
 

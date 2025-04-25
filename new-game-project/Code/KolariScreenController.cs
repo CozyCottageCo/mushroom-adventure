@@ -40,7 +40,7 @@ public partial class KolariScreenController : Control
         _touch._kolariActive = false;
 
         SceneTransition sceneTransition = GetNode<SceneTransition>("/root/SceneTransition");
-        sceneTransition.FadeToCurrentScene();
+        sceneTransition.FadeToCurrentScene(); // taso uusiks
         }
 
     //kaks alla olevaa metodia määrittää touch.cs avulla kolarin tyypin ja sen mukaan kääntää tekstin oikein

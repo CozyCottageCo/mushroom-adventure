@@ -11,7 +11,7 @@ public partial class GameClear : TextureRect
 	[Export] Label _clearedLabel = null;
 	public override void _Ready()
 	{
-		UpdateUIText();
+		UpdateUIText(); // oikee kieli
 		_confirm.Connect(Button.SignalName.Pressed, new Callable(this, nameof(ConfirmPressed)));
 	}
 
